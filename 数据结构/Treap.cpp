@@ -102,7 +102,9 @@ node *succ(int x,node *rt){
 	return y;
 }
 
-//旋转（平衡树基础操作） O(1)
+//旋转（Treap版本） O(1)
+//平衡树基础操作
+//要求对应儿子必须存在，否则会导致后续各种莫名其妙的问题
 void rot(node *&x,int d){//x为被转下去的结点，会被修改以维护树结构
 	node *y=x->ch[d^1];
 	x->ch[d^1]=y->ch[d];
