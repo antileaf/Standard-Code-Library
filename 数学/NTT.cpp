@@ -6,7 +6,7 @@
 const int p=998244353,g=3;//p为模数，g为p的任意一个原根
 
 void NTT(int *A,int n,int tp){//n为变换长度，tp为1或-1，表示正/逆变换
-	for(int i=1,j=0,k;i<n-1;i++){//O(n)旋转算法，原理是模拟二进制加法
+	for(int i=1,j=0,k;i<n-1;i++){//O(n)旋转算法，原理是模拟二进制加一
 		k=n;
 		do j^=(k>>=1);while(j<k);
 		if(i<j)swap(A[i],A[j]);

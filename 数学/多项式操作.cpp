@@ -1,8 +1,10 @@
 ﻿//Polymial Operations 多项式操作
 //By ysf
 //通过题目：COGS2189 帕秋莉的超级多项式（板子题）
+
 const int maxn=262200;//以下所有代码均为NTT版本
 //以下所有代码均满足：A为输入（不进行修改），C为输出，n为所需长度
+
 //多项式求逆 O(n\log n)
 //要求A常数项不为0
 void getinv(int *A,int *C,int n){
@@ -20,6 +22,7 @@ void getinv(int *A,int *C,int n){
 		memset(C+k,0,sizeof(int)*k);
 	}
 }
+
 //多项式开根 O(n\log n)
 //要求A常数项可以开根/存在二次剩余
 //需要调用多项式求逆，且需要预处理2的逆元
@@ -38,16 +41,19 @@ void getsqrt(int *A,int *C,int n){
 		for(int i=0;i<k;i++)C[i]=(long long)(C[i]+B[i])*inv_2%p;//inv_2是2的逆元
 	}
 }
+
 //求导 O(n)
 void getderivative(int *A,int *C,int n){
 	for(int i=1;i<n;i++)C[i-1]=(long long)A[i]*i%p;
 	C[n-1]=0;
 }
+
 //不定积分 O(n\log n)，如果预处理过逆元可以降到O(n)
 void getintegrate(int *A,int *C,int n){
 	for(int i=1;i<n;i++)C[i]=(long long)A[i-1]*qpow(i,p-2)%p;
 	C[0]=0;//由于是不定积分，结果没有常数项
 }
+
 //多项式\ln O(n\log n)
 //要求A常数项不为0/存在离散对数
 //需要调用多项式求逆、求导、不定积分
@@ -63,6 +69,7 @@ void getln(int *A,int *C,int n){//通常情况下A常数项都是1
 	getintegrate(B,C,n);
 	memset(C+n,0,sizeof(int)*n);
 }
+
 //多项式\exp O(n\log n)
 //要求A没有常数项
 //需要调用多项式\ln
@@ -86,6 +93,7 @@ void getexp(int *A,int *C,int n){
 		memset(C+k,0,sizeof(int)*k);
 	}
 }
+
 //多项式k次幂 O(n\log n)
 //在A常数项不为1时需要转化
 //需要调用多项式/exp、\ln

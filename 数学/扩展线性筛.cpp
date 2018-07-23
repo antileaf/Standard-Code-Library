@@ -4,7 +4,6 @@
 
 //此代码以计算约数之和函数\sigma_1（对10^9+7取模）为例
 //适用于任何f(p^k)便于计算的积性函数
-//不知道为什么lzt他们的板子那么长，我觉得我的板子要简洁优美很多
 const int p=1000000007;
 
 int prime[maxn/10],sigma_one[maxn],f[maxn],g[maxn];
