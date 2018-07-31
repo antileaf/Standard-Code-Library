@@ -1,21 +1,21 @@
-//Palindromic Tree/EERTREE »ØÎÄÊ÷ O(n)
+//Palindromic Tree/EERTREE å›žæ–‡æ ‘ O(n)
 //By ysf
-//Í¨¹ýÌâÄ¿£ºAPIO2014 »ØÎÄ´®
+//é€šè¿‡é¢˜ç›®ï¼šAPIO2014 å›žæ–‡ä¸²
 
-//¶¨Àí£ºÒ»¸ö×Ö·û´®±¾ÖÊ²»Í¬µÄ»ØÎÄ×Ó´®¸öÊýÊÇO(n)µÄ
-//×¢Òâ»ØÎÄÊ÷Ö»ÐèÒª¿ªÒ»±¶½áµã£¬ÁíÍâ½áµã±àºÅÊÇÒ»¸ö¿ÉÓÃµÄbfsÐò
+//å®šç†ï¼šä¸€ä¸ªå­—ç¬¦ä¸²æœ¬è´¨ä¸åŒçš„å›žæ–‡å­ä¸²ä¸ªæ•°æ˜¯O(n)çš„
+//æ³¨æ„å›žæ–‡æ ‘åªéœ€è¦å¼€ä¸€å€ç»“ç‚¹ï¼Œå¦å¤–ç»“ç‚¹ç¼–å·æ˜¯ä¸€ä¸ªå¯ç”¨çš„bfsåº
 
-//È«¾ÖÊý×é¶¨Òå
+//å…¨å±€æ•°ç»„å®šä¹‰
 int val[maxn],par[maxn],go[maxn][26],last,cnt;
 char s[maxn];
 
-//ÖØÒª£¡ÔÚÖ÷º¯Êý×îÇ°ÃæÒ»¶¨Òª¼ÓÉÏÒÔÏÂ³õÊ¼»¯
+//é‡è¦ï¼åœ¨ä¸»å‡½æ•°æœ€å‰é¢ä¸€å®šè¦åŠ ä¸Šä»¥ä¸‹åˆå§‹åŒ–
 par[0]=cnt=1;
 val[1]=-1;
 
-//extendº¯Êý ¾ùÌ¯O(1)
-//ÏòºóÀ©Õ¹Ò»¸ö×Ö·û
-//´«Èë¶ÔÓ¦ÏÂ±ê
+//extendå‡½æ•° å‡æ‘ŠO(1)
+//å‘åŽæ‰©å±•ä¸€ä¸ªå­—ç¬¦
+//ä¼ å…¥å¯¹åº”ä¸‹æ ‡
 void extend(int n){
 	int p=last,c=s[n]-'a';
 	while(s[n-val[p]-1]!=s[n])p=par[p];
