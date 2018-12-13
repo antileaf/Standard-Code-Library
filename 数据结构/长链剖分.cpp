@@ -1,6 +1,6 @@
 //Long-chain Subdivision 长链剖分 O(n)
 //By ysf
-//通过题目：vijos lxhgww的奇思妙想（板子题）
+//通过题目：vijos lxhgww的奇思妙想（板子题）、Codeforces 1009F
 
 //顾名思义，长链剖分是取最深的儿子作为重儿子
 //长链剖分的两个应用：
@@ -68,3 +68,42 @@ int query(int x,int k){
 //------------------------------分割线------------------------------
 
 //O(n)维护以深度为下标的子树信息
+
+vector<int>G[maxn],v[maxn];
+int n,p[maxn],h[maxn],son[maxn],ans[maxn];
+
+//原题题意：求每个点的子树中与它距离是几的点最多，相同的取最大深度
+//由于vector只能在后面加入元素，为了写代码方便，这里反过来存
+void dfs(int x){
+	h[x]=1;
+	for(int i=0;i<(int)G[x].size();i++)
+		if(G[x][i]!=p[x]){
+			p[G[x][i]]=x;
+			dfs(G[x][i]);
+			if(h[G[x][i]]>h[son[x]])son[x]=G[x][i];
+		}
+	if(!son[x]){
+		v[x].push_back(1);
+		ans[x]=0;
+		return;
+	}
+	//printf("x=%d h=%d son=%d\n",x,h[x],son[x]);
+	h[x]=h[son[x]]+1;
+	swap(v[x],v[son[x]]);
+	if(v[x][ans[son[x]]]==1)ans[x]=h[x]-1;
+	else ans[x]=ans[son[x]];
+	v[x].push_back(1);
+	int mx=v[x][ans[x]];
+	for(int i=0;i<(int)G[x].size();i++)
+		if(G[x][i]!=p[x]&&G[x][i]!=son[x]){
+			for(int j=1;j<=h[G[x][i]];j++){
+				v[x][h[x]-j-1]+=v[G[x][i]][h[G[x][i]]-j];
+				int t=v[x][h[x]-j-1];
+				if(t>mx||(t==mx&&h[x]-j-1>ans[x])){
+					mx=t;
+					ans[x]=h[x]-j-1;
+				}
+			}
+			v[G[x][i]].clear();
+		}
+}
