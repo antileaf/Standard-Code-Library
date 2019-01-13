@@ -1,9 +1,6 @@
 ﻿//Extended KMP 扩展KMP
 //By ysf
 //通过题目：小作业OJ 4182
-//Suffix Automaton 后缀自动机 O(n)
-//By ysf
-//通过题目：Bzoj3473 字符串
 
 //全局变量与数组定义
 char s[maxn],t[maxn];

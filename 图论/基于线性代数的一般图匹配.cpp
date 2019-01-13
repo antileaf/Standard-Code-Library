@@ -42,7 +42,7 @@ int main(){
 		if(!girl[a[i]])
 			for(int j=i+1;j<=n;j++)
 				if(!girl[a[j]]&&t[a[i]][a[j]]&&B[j][i]){
-					//注意上面那句if的写法，t可以作为邻接矩阵，
+					//注意上面那句if的写法，现在t是邻接矩阵的备份，
 					//逆矩阵j行i列不为0当且仅当这条边可行
 					girl[a[i]]=a[j];
 					girl[a[j]]=a[i];
