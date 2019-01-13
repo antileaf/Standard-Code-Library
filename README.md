@@ -26,12 +26,7 @@
   - [x] ex-KMP
 - 数学
   - [x] 快速乘
-  - [x] $O(n)$预处理逆元
   - [ ] 普通CRT
-  - [x] 扩展线性筛
-  - [x] 杜教筛
-  - [ ] 洲阁筛
-  - [ ] 扩展埃氏筛法
   - [x] FFT
   - [x] NTT
   - [x] FWT
@@ -46,8 +41,8 @@
   - [x] 杜教筛
   - [x] 扩展线性筛
   - [ ] 扩展埃氏筛法
-  - [ ] Miller-Rabin
-  - [ ] Pollard's Rho
+  - [x] Miller-Rabin
+  - [x] Pollard's Rho
 - 数据结构
   - [ ] 树状数组
   - [ ] 线段树
