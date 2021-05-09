@@ -12,36 +12,44 @@ int n, m, a[maxn];
 void exKMP(const char *s, const char *t, int *a) {
 	static int nx[maxn];
 
-	memset(nx,0,sizeof(nx));
+	memset(nx, 0, sizeof(nx));
 
 	int j = 0;
-	while(j + 1 < m && s[j] == s[j + 1])
+	while (j + 1 < m && s[j] == s[j + 1])
 		j++;
 	nx[1] = j;
 
-	for(int i = 2, k = 1;i < m; i++) {
+	for (int i = 2, k = 1;i < m; i++) {
 		int pos = k + nx[k], len = nx[i - k];
 
 		if (i + len < pos)
 			nx[i] = len;
-		else{
+		else {
 			j = max(pos - i, 0);
-			while(i+j<m&&s[j]==s[i+j])j++;
-			nx[i]=j;
-			k=i;
+			while (i + j < m && s[j] == s[i + j])
+				j++;
+
+			nx[i] = j;
+			k = i;
 		}
 	}
-	j=0;
-	while(j<n&&j<m&&s[j]==t[j])j++;
-	a[0]=j;
-	for(int i=1,k=0;i<n;i++){
-		int pos=k+a[k],len=nx[i-k];
-		if(i+len<pos)a[i]=len;
-		else{
-			j=max(pos-i,0);
-			while(j<m&&i+j<n&&s[j]==t[i+j])j++;
-			a[i]=j;
-			k=i;
+
+	j = 0;
+	while (j < n && j < m && s[j] == t[j])
+		j++;
+	a[0] = j;
+
+	for (int i = 1, k = 0; i < n; i++) {
+		int pos = k + a[k], len = nx[i - k];
+		if (i + len < pos)
+			a[i] = len;
+		else {
+			j = max(pos - i, 0);
+			while(j < m && i + j < n && s[j] == t[i + j])
+				j++;
+				
+			a[i] = j;
+			k = i;
 		}
 	}
 }
