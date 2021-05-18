@@ -1,0 +1,111 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{//Long\PYGZhy{}chain Subdivision 长链剖分 O(n)}
+\PYG{c+c1}{//By ysf}
+\PYG{c+c1}{//通过题目：vijos lxhgww的奇思妙想（板子题）、Codeforces 1009F}
+
+\PYG{c+c1}{//顾名思义，长链剖分是取最深的儿子作为重儿子}
+\PYG{c+c1}{//长链剖分的两个应用：}
+\PYG{c+c1}{//O(1)在线求一个点的第k祖先}
+\PYG{c+c1}{//O(n)维护以深度为下标的子树信息}
+
+\PYG{c+c1}{//\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}分割线\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{c+c1}{//在线求一个点的第k祖先 O(n\PYGZbs{}log n)\PYGZhy{}O(1)}
+\PYG{c+c1}{//其中O(n\PYGZbs{}log n)预处理是因为需要用到倍增}
+\PYG{c+c1}{//理论基础：任意一个点x的k级祖先y所在长链长度一定\PYGZgt{}=k}
+
+\PYG{c+c1}{//全局数组定义}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{n}{G}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{v}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{d}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{mxd}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{son}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{top}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{len}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{f}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{][}\PYG{l+m+mi}{19}\PYG{p}{],}\PYG{n}{log\PYGZus{}tbl}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+
+\PYG{c+c1}{//在主函数中两遍dfs之后加上如下预处理}
+\PYG{n}{log\PYGZus{}tbl}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{n}{log\PYGZus{}tbl}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{n}{log\PYGZus{}tbl}\PYG{p}{[}\PYG{n}{i}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{j}\PYG{p}{)}\PYG{o}{\PYGZlt{}}\PYG{n}{n}\PYG{p}{;}\PYG{n}{j}\PYG{o}{++}\PYG{p}{)}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{o}{=}\PYG{n}{f}\PYG{p}{[}\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{]][}\PYG{n}{j}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{];}
+
+\PYG{c+c1}{//第一遍dfs，用于计算深度和找出重儿子}
+\PYG{c+c1}{//递归调用自身}
+\PYG{k+kt}{void} \PYG{n+nf}{dfs1}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)\PYGZob{}}
+	\PYG{n}{mxd}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{n}{d}\PYG{p}{[}\PYG{n}{x}\PYG{p}{];}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{k}{if}\PYG{p}{(}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{o}{!=}\PYG{n}{f}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{])\PYGZob{}}
+			\PYG{n}{f}\PYG{p}{[}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]][}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{n}{x}\PYG{p}{;}
+			\PYG{n}{d}\PYG{p}{[}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]]}\PYG{o}{=}\PYG{n}{d}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}
+			\PYG{n}{dfs1}\PYG{p}{(}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]);}
+			\PYG{n}{mxd}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{mxd}\PYG{p}{[}\PYG{n}{x}\PYG{p}{],}\PYG{n}{mxd}\PYG{p}{[}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]]);}
+			\PYG{k}{if}\PYG{p}{(}\PYG{n}{mxd}\PYG{p}{[}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]]}\PYG{o}{\PYGZgt{}}\PYG{n}{mxd}\PYG{p}{[}\PYG{n}{son}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]])}\PYG{n}{son}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{];}
+		\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//第二遍dfs，用于进行剖分和预处理梯子剖分（每条链向上延伸一倍）数组}
+\PYG{c+c1}{//递归调用自身}
+\PYG{k+kt}{void} \PYG{n+nf}{dfs2}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)\PYGZob{}}
+	\PYG{n}{top}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{n}{x}\PYG{o}{==}\PYG{n}{son}\PYG{p}{[}\PYG{n}{f}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]]}\PYG{o}{?}\PYG{n}{top}\PYG{p}{[}\PYG{n}{f}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]]}\PYG{o}{:}\PYG{n}{x}\PYG{p}{);}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{k}{if}\PYG{p}{(}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{o}{!=}\PYG{n}{f}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{])}\PYG{n}{dfs2}\PYG{p}{(}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]);}
+	\PYG{k}{if}\PYG{p}{(}\PYG{n}{top}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{==}\PYG{n}{x}\PYG{p}{)\PYGZob{}}
+		\PYG{k+kt}{int} \PYG{n}{u}\PYG{o}{=}\PYG{n}{x}\PYG{p}{;}
+		\PYG{k}{while}\PYG{p}{(}\PYG{n}{top}\PYG{p}{[}\PYG{n}{son}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]]}\PYG{o}{==}\PYG{n}{x}\PYG{p}{)}\PYG{n}{u}\PYG{o}{=}\PYG{n}{son}\PYG{p}{[}\PYG{n}{u}\PYG{p}{];}
+		\PYG{n}{len}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{n}{d}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{d}\PYG{p}{[}\PYG{n}{x}\PYG{p}{];}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{len}\PYG{p}{[}\PYG{n}{x}\PYG{p}{];}\PYG{n}{i}\PYG{o}{++}\PYG{p}{,}\PYG{n}{u}\PYG{o}{=}\PYG{n}{f}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{])}\PYG{n}{v}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{u}\PYG{p}{);}
+		\PYG{n}{u}\PYG{o}{=}\PYG{n}{x}\PYG{p}{;}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{len}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{u}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{,}\PYG{n}{u}\PYG{o}{=}\PYG{n}{f}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{])}\PYG{n}{v}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{u}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//在线询问x的k级祖先 O(1)}
+\PYG{c+c1}{//不存在时返回0}
+\PYG{k+kt}{int} \PYG{n+nf}{query}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{k}\PYG{p}{)\PYGZob{}}
+	\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{k}\PYG{p}{)}\PYG{k}{return} \PYG{n}{x}\PYG{p}{;}
+	\PYG{k}{if}\PYG{p}{(}\PYG{n}{k}\PYG{o}{\PYGZgt{}}\PYG{n}{d}\PYG{p}{[}\PYG{n}{x}\PYG{p}{])}\PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{n}{x}\PYG{o}{=}\PYG{n}{f}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{log\PYGZus{}tbl}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]];}
+	\PYG{n}{k}\PYG{o}{\PYGZca{}=}\PYG{l+m+mi}{1}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{log\PYGZus{}tbl}\PYG{p}{[}\PYG{n}{k}\PYG{p}{];}
+	\PYG{k}{return} \PYG{n}{v}\PYG{p}{[}\PYG{n}{top}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]][}\PYG{n}{d}\PYG{p}{[}\PYG{n}{top}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]]}\PYG{o}{+}\PYG{n}{len}\PYG{p}{[}\PYG{n}{top}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]]}\PYG{o}{\PYGZhy{}}\PYG{n}{d}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{+}\PYG{n}{k}\PYG{p}{];}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}分割线\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{c+c1}{//O(n)维护以深度为下标的子树信息}
+
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{n}{G}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{v}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,}\PYG{n}{p}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{h}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{son}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{ans}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+
+\PYG{c+c1}{//原题题意：求每个点的子树中与它距离是几的点最多，相同的取最大深度}
+\PYG{c+c1}{//由于vector只能在后面加入元素，为了写代码方便，这里反过来存}
+\PYG{k+kt}{void} \PYG{n+nf}{dfs}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)\PYGZob{}}
+	\PYG{n}{h}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{k}{if}\PYG{p}{(}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{o}{!=}\PYG{n}{p}\PYG{p}{[}\PYG{n}{x}\PYG{p}{])\PYGZob{}}
+			\PYG{n}{p}\PYG{p}{[}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]]}\PYG{o}{=}\PYG{n}{x}\PYG{p}{;}
+			\PYG{n}{dfs}\PYG{p}{(}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]);}
+			\PYG{k}{if}\PYG{p}{(}\PYG{n}{h}\PYG{p}{[}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]]}\PYG{o}{\PYGZgt{}}\PYG{n}{h}\PYG{p}{[}\PYG{n}{son}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]])}\PYG{n}{son}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{];}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{son}\PYG{p}{[}\PYG{n}{x}\PYG{p}{])\PYGZob{}}
+		\PYG{n}{v}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{);}
+		\PYG{n}{ans}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+		\PYG{k}{return}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{c+c1}{//printf(\PYGZdq{}x=\PYGZpc{}d h=\PYGZpc{}d son=\PYGZpc{}d\PYGZbs{}n\PYGZdq{},x,h[x],son[x]);}
+	\PYG{n}{h}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{n}{h}\PYG{p}{[}\PYG{n}{son}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]]}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}
+	\PYG{n}{swap}\PYG{p}{(}\PYG{n}{v}\PYG{p}{[}\PYG{n}{x}\PYG{p}{],}\PYG{n}{v}\PYG{p}{[}\PYG{n}{son}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]]);}
+	\PYG{k}{if}\PYG{p}{(}\PYG{n}{v}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{ans}\PYG{p}{[}\PYG{n}{son}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]]]}\PYG{o}{==}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{n}{ans}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{n}{h}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+	\PYG{k}{else} \PYG{n}{ans}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{n}{ans}\PYG{p}{[}\PYG{n}{son}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]];}
+	\PYG{n}{v}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{);}
+	\PYG{k+kt}{int} \PYG{n}{mx}\PYG{o}{=}\PYG{n}{v}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{ans}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]];}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{k}{if}\PYG{p}{(}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{o}{!=}\PYG{n}{p}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{o}{!=}\PYG{n}{son}\PYG{p}{[}\PYG{n}{x}\PYG{p}{])\PYGZob{}}
+			\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{j}\PYG{o}{\PYGZlt{}=}\PYG{n}{h}\PYG{p}{[}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]];}\PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+				\PYG{n}{v}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{h}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{]}\PYG{o}{+=}\PYG{n}{v}\PYG{p}{[}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]][}\PYG{n}{h}\PYG{p}{[}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]]}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{p}{];}
+				\PYG{k+kt}{int} \PYG{n}{t}\PYG{o}{=}\PYG{n}{v}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{h}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{];}
+				\PYG{k}{if}\PYG{p}{(}\PYG{n}{t}\PYG{o}{\PYGZgt{}}\PYG{n}{mx}\PYG{o}{||}\PYG{p}{(}\PYG{n}{t}\PYG{o}{==}\PYG{n}{mx}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{h}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{o}{\PYGZgt{}}\PYG{n}{ans}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]))\PYGZob{}}
+					\PYG{n}{mx}\PYG{o}{=}\PYG{n}{t}\PYG{p}{;}
+					\PYG{n}{ans}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{n}{h}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+				\PYG{p}{\PYGZcb{}}
+			\PYG{p}{\PYGZcb{}}
+			\PYG{n}{v}\PYG{p}{[}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]].}\PYG{n}{clear}\PYG{p}{();}
+		\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

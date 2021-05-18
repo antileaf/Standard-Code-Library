@@ -1,15 +1,13 @@
-\documentclass{article}
+\documentclass[a4paper]{article}
 \title{Standard Code Library}
 \author{AntiLeaf}
 \date{}
 
-% \usepackage{CTEX}
-
-% \usepackage{CJKpunct}
-% \punctstyle{quanjiao}
+% \usepackage{zxjatype}
+% \setjamainfont{ipaexm.ttf}
 
 \usepackage{graphicx, amssymb, amsmath, textcomp, booktabs}
-\usepackage[libertine,vvarbb]{newtxmath}
+% \usepackage[libertine,vvarbb]{newtxmath}
 \usepackage[scr=rsfso]{mathalfa}
 %\usepackage[lining,semibold,type1]{libertine} % a bit lighter than Times--no osf in math
 \usepackage[T1]{fontenc} % best for Western European languages
@@ -52,9 +50,9 @@
 {4pt}						% How much space exists between the prefix and the title
 {}					% How the section is represented
 % \titleformat{\section}{\huge}{}{0pt}{}
-\titlespacing{\section}{0pt}{0pt}{0pt}
-\titlespacing{\subsection}{0pt}{0pt}{0pt}
-\titlespacing{\subsubsection}{0pt}{0pt}{0pt}
+% \titlespacing{\section}{0pt}{0pt}{0pt}
+% \titlespacing{\subsection}{0pt}{0pt}{0pt}
+% \titlespacing{\subsubsection}{0pt}{0pt}{0pt}
 
 \usepackage{fancyhdr}
 \usepackage[inner=1.35cm, outer=0.9cm, top=1.7cm, bottom=1.7cm]{geometry}
@@ -62,8 +60,6 @@
 \pagestyle{fancy}
 \setlength{\headsep}{0.1cm}
 \chead{Standard Code Library}
-\rhead{\leftmark}
-\lhead{Shanghai Jiao Tong University}
 
 \cfoot{\thepage}
 
@@ -117,8 +113,9 @@
 \begin{document}
 
 	\begin{titlepage}
-		\maketitle
-		\newpage
+		
+		\includepdf{cover.pdf}
+
 	\end{titlepage}
 
 	\begin{multicols}{2}
@@ -140,7 +137,7 @@
 				\subsubsection{动态最小生成树}
 					\inputminted{cpp}{../src/图论/动态最小生成树.cpp}
 				
-				% \subsubsection{最小树形图（朱刘算法）}
+				% \subsubsection{最小树形图(朱刘算法)}
 
 				
 				% \subsubsection{斯坦纳树}
@@ -295,7 +292,7 @@
 				\subsubsection{NTT}
 					\inputminted{cpp}{../src/数学/NTT.cpp}
 
-				\subsubsection{任意模数卷积（三模数NTT）}
+				\subsubsection{任意模数卷积(三模数NTT)}
 					\inputminted{cpp}{../src/数学/任意模数卷积.cpp}
 
 				% \subsection{毛梯梯}
@@ -354,6 +351,137 @@
 				% \subsubsection{线性齐次递推求通项}
 
 
+		\section{数论}
+
+			\subsection{$O(n)$预处理逆元}
+				\inputminted{cpp}{../src/数论/O(n)求逆元.cpp}
+
+			\subsection{杜教筛}
+				\inputminted{cpp}{../src/数论/杜教筛.cpp}
+			
+			\subsection{线性筛}
+				\inputminted{cpp}{../src/数论/扩展线性筛.cpp}
+
+			% \subsection{min_25筛}
+
+
+			\subsection{Miller-Rabin}
+				\inputminted{cpp}{../src/数论/Miller-Rabin.cpp}
+
+			\subsection{Pollard's Rho}
+				\inputminted{cpp}{../src/数论/Pollard's Rho.cpp}
+			
+			% \subsection{组合数取模}
+
+
+			%\subsection{扩展欧几里得}
+				
+
+		\section{数据结构}
+
+			\subsection{线段树}
+				% \subsubsection{非递归线段树}
+
+				\subsubsection{主席树}
+					参见GREAD07加强版
+
+			\subsection{陈丹琦分治}
+				\inputminted{cpp}{../src/数据结构/CDQ分治.cpp}
+
+			% \subsection{整体二分}
+
+
+			% \subsection{块状链表}
+
+
+			% \subsection{Treap}
+				% \subsubsection{无旋Treap}
+
+
+				% \subsubsection{可持久化Treap}
+
+
+			\subsection{Splay}
+				参见LCT
+			
+			\subsection{树分治}
+				% \subsubsection{静态树分治}
+
+				
+				\subsubsection{动态树分治}
+					\inputminted{cpp}{../src/数据结构/动态树分治.cpp}
+
+				\subsubsection{紫荆花之恋}
+					\inputminted{cpp}{../src/数据结构/紫荆花之恋.cpp}
+
+				\subsection{LCT}
+					\subsubsection{不换根(弹飞绵羊)}
+						\inputminted{cpp}{../src/数据结构/LCT(不换根).cpp}
+				
+					\subsubsection{换根/维护生成树(GREALD07加强版)}
+						\inputminted{cpp}{../src/数据结构/GREALD07.cpp}
+
+					\subsubsection{维护子树信息}
+						\inputminted{cpp}{../src/数据结构/LCT维护子树信息.cpp}
+					
+					\subsubsection{模板题:动态QTREE4(询问树上相距最远点)}
+						\inputminted{cpp}{../src/数据结构/动态QTREE4.cpp}
+
+				% \subsection{K-D树}
+
+
+				% \subsection{树分块}
+
+
+				% \subsection{树上莫队}
+
+
+				\subsection{长链剖分,梯子剖分}
+					\inputminted{cpp}{../src/数据结构/长链剖分.cpp}
+				
+				\subsection{左偏树}
+					参见k短路
+
+				\subsection{STL}
+
+
+				\subsection{pb\_ds}
+
+
+				\subsection{rope}
+
+
+				\subsection{常见根号思路}
+
+
+			\section{动态规划}
+				\subsection{决策单调性$O(n\log n)$}
+					\inputminted{cpp}{../src/DP/决策单调性.cpp}
+
+			\section{其他算法}
+				\subsection{$O(1)$快速乘}
+					% \inputminted{cpp}{../src/其它算法/O(1)快速乘.cpp}
+				
+				\subsection{$O(n^2)$高精度}
+					% \inputminted{cpp}{../src/其它算法/高精度.cpp}
+
+				\subsection{xorshift}
+					% \inputminted{cpp}{../src/其它算法/xorshift.cpp}
+
+			\section{参考资料}
+				\subsection{常见数列}
+					\subsubsection{伯努利数}
+						\input{../src/参考资料/伯努利数.tex}
+
+			\section{注意事项}
+				\subsection{常见下毒手法}
+					\input{../src/注意事项/常见下毒手法.tex}
+
+				\subsection{场外相关}
+					\input{../src/注意事项/场外相关.tex}
+
+				\subsection{做题策略与心态调节}
+					\input{../src/注意事项/做题策略与心态调节.tex}
 
 	\end{multicols}
 

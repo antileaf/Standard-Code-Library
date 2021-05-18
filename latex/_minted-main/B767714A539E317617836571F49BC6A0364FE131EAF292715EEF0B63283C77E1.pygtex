@@ -1,0 +1,47 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{//Extended Euler\PYGZsq{}s Sieving 扩展线性筛 O(n)}
+\PYG{c+c1}{//By ysf}
+\PYG{c+c1}{//通过题目：51Nod1220 约数之和（预处理部分）}
+
+\PYG{c+c1}{//此代码以计算约数之和函数\PYGZbs{}sigma\PYGZus{}1（对10\PYGZca{}9+7取模）为例}
+\PYG{c+c1}{//适用于任何f(p\PYGZca{}k)便于计算的积性函数}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{p}\PYG{o}{=}\PYG{l+m+mi}{1000000007}\PYG{p}{;}
+
+\PYG{k+kt}{int} \PYG{n}{prime}\PYG{p}{[}\PYG{n}{maxn}\PYG{o}{/}\PYG{l+m+mi}{10}\PYG{p}{],}\PYG{n}{sigma\PYGZus{}one}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{f}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{g}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{c+c1}{//f：除掉最小质因子后剩下的部分}
+\PYG{c+c1}{//g：最小质因子的幂次，在f(p\PYGZca{}k)比较复杂时很有用，但f(p\PYGZca{}k)可以递推时就可以省略了}
+\PYG{c+c1}{//这里没有记录最小质因子，但根据线性筛的性质，每个合数只会被它最小的质因子筛掉}
+\PYG{k+kt}{bool} \PYG{n}{notp}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}\PYG{c+c1}{//顾名思义}
+
+\PYG{k+kt}{void} \PYG{n+nf}{get\PYGZus{}table}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{)\PYGZob{}}
+	\PYG{n}{sigma\PYGZus{}one}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{c+c1}{//积性函数必有f(1)=1}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+		\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{notp}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])\PYGZob{}}\PYG{c+c1}{//质数情况}
+			\PYG{n}{prime}\PYG{p}{[}\PYG{o}{++}\PYG{n}{prime}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]]}\PYG{o}{=}\PYG{n}{i}\PYG{p}{;}
+			\PYG{n}{sigma\PYGZus{}one}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}
+			\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{n}{g}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{j}\PYG{o}{\PYGZlt{}=}\PYG{n}{prime}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{i}\PYG{o}{*}\PYG{n}{prime}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+			\PYG{n}{notp}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{prime}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]]}\PYG{o}{=}\PYG{n+nb}{true}\PYG{p}{;}
+			\PYG{k}{if}\PYG{p}{(}\PYG{n}{i}\PYG{o}{\PYGZpc{}}\PYG{n}{prime}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])\PYGZob{}}\PYG{c+c1}{//加入一个新的质因子，这种情况很简单}
+				\PYG{n}{sigma\PYGZus{}one}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{prime}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]]}\PYG{o}{=}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{sigma\PYGZus{}one}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{*}\PYG{p}{(}\PYG{n}{prime}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}
+				\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{prime}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]]}\PYG{o}{=}\PYG{n}{i}\PYG{p}{;}
+				\PYG{n}{g}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{prime}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+			\PYG{p}{\PYGZcb{}}
+			\PYG{k}{else}\PYG{p}{\PYGZob{}}\PYG{c+c1}{//再加入一次最小质因子，需要再进行分类讨论}
+				\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{prime}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]]}\PYG{o}{=}\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+				\PYG{n}{g}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{prime}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]]}\PYG{o}{=}\PYG{n}{g}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}
+				\PYG{c+c1}{//对于f(p\PYGZca{}k)可以直接递推的函数，这里的判断可以改成}
+				\PYG{c+c1}{//i/prime[j]\PYGZpc{}prime[j]!=0，这样可以省下f[]的空间，}
+				\PYG{c+c1}{//但常数很可能会稍大一些}
+				\PYG{k}{if}\PYG{p}{(}\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{==}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{c+c1}{//质数的幂次，这里\PYGZbs{}sigma\PYGZus{}1可以递推}
+					\PYG{n}{sigma\PYGZus{}one}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{prime}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]]}\PYG{o}{=}\PYG{p}{(}\PYG{n}{sigma\PYGZus{}one}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{+}\PYG{n}{i}\PYG{o}{*}\PYG{n}{prime}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}
+					\PYG{c+c1}{//对于更一般的情况，可以借助g[]计算f(p\PYGZca{}k)}
+				\PYG{k}{else} \PYG{n}{sigma\PYGZus{}one}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{prime}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]]}\PYG{o}{=}\PYG{c+c1}{//否则直接利用积性，两半乘起来}
+					\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{sigma\PYGZus{}one}\PYG{p}{[}\PYG{n}{i}\PYG{o}{*}\PYG{n}{prime}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{/}\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]]}\PYG{o}{*}\PYG{n}{sigma\PYGZus{}one}\PYG{p}{[}\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]]}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}
+				\PYG{k}{break}\PYG{p}{;}
+			\PYG{p}{\PYGZcb{}}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
