@@ -1,0 +1,210 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// 动态最小生成树的离线算法比较容易，而在线算法通常极为复杂}
+\PYG{c+c1}{// 一个跑得比较快的离线做法是对时间分治，在每层分治时找出一定在/不在MST上的边，只带着不确定边继续递归}
+\PYG{c+c1}{// 简单起见，找确定边的过程用Kruskal算法实现，过程中的两种重要操作如下：}
+\PYG{c+c1}{// \PYGZhy{} Reduction：待修改边标为+INF，跑MST后把非树边删掉，减少无用边}
+\PYG{c+c1}{// \PYGZhy{} Contraction：待修改边标为\PYGZhy{}INF，跑MST后缩除待修改边之外的所有MST边，计算必须边}
+\PYG{c+c1}{// 每轮分治需要Reduction\PYGZhy{}Contraction，借此减少不确定边，从而保证复杂度}
+\PYG{c+c1}{// 复杂度证明：假设当前区间有k条待修改边，n和m表示点数和边数，那么最坏情况下R\PYGZhy{}C的效果为(n, m) \PYGZhy{}\PYGZgt{} (n, n + k \PYGZhy{} 1) \PYGZhy{}\PYGZgt{} (k + 1, 2k)}
+
+
+\PYG{c+c1}{// 全局结构体与数组定义}
+\PYG{k}{struct} \PYG{n+nc}{edge} \PYG{p}{\PYGZob{}} \PYG{c+c1}{//边的定义}
+	\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{,} \PYG{n}{w}\PYG{p}{,} \PYG{n}{id}\PYG{p}{;} \PYG{c+c1}{// id表示边在原图中的编号}
+	\PYG{k+kt}{bool} \PYG{n}{vis}\PYG{p}{;} \PYG{c+c1}{// 在Kruskal时用，记录这条边是否是树边}
+	\PYG{k+kt}{bool} \PYG{k}{operator} \PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{k}{const} \PYG{n}{edge} \PYG{o}{\PYGZam{}}\PYG{n}{e}\PYG{p}{)} \PYG{k}{const} \PYG{p}{\PYGZob{}} \PYG{k}{return} \PYG{n}{w} \PYG{o}{\PYGZlt{}} \PYG{n}{e}\PYG{p}{.}\PYG{n}{w}\PYG{p}{;} \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}} \PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{20}\PYG{p}{][}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{t}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];} \PYG{c+c1}{// 为了便于回滚，在每层分治存一个副本}
+
+
+\PYG{c+c1}{// 用于存储修改的结构体，表示第id条边的权值从u修改为v}
+\PYG{k}{struct} \PYG{n+nc}{A} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{,} \PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{a}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+
+
+\PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{[}\PYG{l+m+mi}{20}\PYG{p}{][}\PYG{n}{maxn}\PYG{p}{];} \PYG{c+c1}{// 每条边在当前图中的编号}
+\PYG{k+kt}{int} \PYG{n}{p}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{size}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{stk}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{top}\PYG{p}{;} \PYG{c+c1}{// p和size是并查集数组，stk是用来撤销的栈}
+\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{q}\PYG{p}{;} \PYG{c+c1}{// 点数，边数，修改数}
+
+
+\PYG{c+c1}{// 方便起见，附上可能需要用到的预处理代码}
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 并查集初始化}
+	\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;}
+	\PYG{n}{size}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{m}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 读入与预标号}
+	\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZpc{}d\PYGZpc{}d\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{i}\PYG{p}{].}\PYG{n}{u}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{i}\PYG{p}{].}\PYG{n}{v}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{i}\PYG{p}{].}\PYG{n}{w}\PYG{p}{);}
+	\PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;}
+	\PYG{n}{id}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{q}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 预处理出调用数组}
+	\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZpc{}d\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{v}\PYG{p}{);}
+	\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{u} \PYG{o}{=} \PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{].}\PYG{n}{w}\PYG{p}{;}
+	\PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{].}\PYG{n}{w} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{v}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{q}\PYG{p}{;} \PYG{n}{i}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)}
+	\PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{].}\PYG{n}{w} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{u}\PYG{p}{;}
+
+\PYG{n}{CDQ}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{q}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);} \PYG{c+c1}{// 这是调用方法}
+
+
+\PYG{c+c1}{// 分治主过程 O(nlog\PYGZca{}2n)}
+\PYG{c+c1}{// 需要调用Reduction和Contraction}
+\PYG{k+kt}{void} \PYG{n+nf}{CDQ}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{l}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{r}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{d}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{m}\PYG{p}{,} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{ans}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// CDQ分治}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{l} \PYG{o}{==} \PYG{n}{r}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 区间长度已减小到1，输出答案，退出}
+		\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{id}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{a}\PYG{p}{[}\PYG{n}{l}\PYG{p}{].}\PYG{n}{id}\PYG{p}{]].}\PYG{n}{w} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{n}{l}\PYG{p}{].}\PYG{n}{v}\PYG{p}{;}
+		\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}lld}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{ans} \PYG{o}{+} \PYG{n}{Kruskal}\PYG{p}{(}\PYG{n}{m}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]));}
+		\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{id}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{a}\PYG{p}{[}\PYG{n}{l}\PYG{p}{].}\PYG{n}{id}\PYG{p}{]].}\PYG{n}{w}\PYG{o}{=}\PYG{n}{a}\PYG{p}{[}\PYG{n}{l}\PYG{p}{].}\PYG{n}{u}\PYG{p}{;}
+		\PYG{k}{return}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k+kt}{int} \PYG{n}{tmp} \PYG{o}{=} \PYG{n}{top}\PYG{p}{;}
+
+	\PYG{n}{Reduction}\PYG{p}{(}\PYG{n}{l}\PYG{p}{,} \PYG{n}{r}\PYG{p}{,} \PYG{n}{d}\PYG{p}{,} \PYG{n}{m}\PYG{p}{);}
+	\PYG{n}{ans} \PYG{o}{+=} \PYG{n}{Contraction}\PYG{p}{(}\PYG{n}{l}\PYG{p}{,} \PYG{n}{r}\PYG{p}{,} \PYG{n}{d}\PYG{p}{,} \PYG{n}{m}\PYG{p}{);} \PYG{c+c1}{// R\PYGZhy{}C}
+
+	\PYG{k+kt}{int} \PYG{n}{mid} \PYG{o}{=} \PYG{p}{(}\PYG{n}{l} \PYG{o}{+} \PYG{n}{r}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{;}
+
+	\PYG{n}{copy}\PYG{p}{(}\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]} \PYG{o}{+} \PYG{n}{m} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{n}{d} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{m}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{id}\PYG{p}{[}\PYG{n}{d} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{]} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;} \PYG{c+c1}{// 准备好下一层要用的数组}
+		
+	\PYG{n}{CDQ}\PYG{p}{(}\PYG{n}{l}\PYG{p}{,} \PYG{n}{mid}\PYG{p}{,} \PYG{n}{d} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{ans}\PYG{p}{);}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{l}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{mid}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{id}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{]].}\PYG{n}{w} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{v}\PYG{p}{;} \PYG{c+c1}{// 进行左边的修改}
+
+	\PYG{n}{copy}\PYG{p}{(}\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]} \PYG{o}{+} \PYG{n}{m} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{n}{d} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{m}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{id}\PYG{p}{[}\PYG{n}{d} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{]} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;} \PYG{c+c1}{// 重新准备下一层要用的数组}
+
+	\PYG{n}{CDQ}\PYG{p}{(}\PYG{n}{mid} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r}\PYG{p}{,} \PYG{n}{d} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{ans}\PYG{p}{);}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{top}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZgt{}} \PYG{n}{tmp}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)}
+		\PYG{n}{cut}\PYG{p}{(}\PYG{n}{stk}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}\PYG{c+c1}{//撤销所有操作}
+	\PYG{n}{top} \PYG{o}{=} \PYG{n}{tmp}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{c+c1}{// Reduction（减少无用边）：待修改边标为+INF，跑MST后把非树边删掉，减少无用边}
+\PYG{c+c1}{// 需要调用Kruskal}
+\PYG{k+kt}{void} \PYG{n+nf}{Reduction}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{l}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{r}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{d}\PYG{p}{,} \PYG{k+kt}{int} \PYG{o}{\PYGZam{}}\PYG{n}{m}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{l}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{r}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{id}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{]].}\PYG{n}{w} \PYG{o}{=} \PYG{n}{INF}\PYG{p}{;}\PYG{c+c1}{//待修改的边标为INF}
+
+	\PYG{n}{Kruskal}\PYG{p}{(}\PYG{n}{m}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]);}
+
+	\PYG{n}{copy}\PYG{p}{(}\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]} \PYG{o}{+} \PYG{n}{m} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{t} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);}
+
+	\PYG{k+kt}{int} \PYG{n}{cnt} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{m}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{w} \PYG{o}{==} \PYG{n}{INF} \PYG{o}{||} \PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{vis}\PYG{p}{)\PYGZob{}} \PYG{c+c1}{// 非树边扔掉}
+			\PYG{n}{id}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{]} \PYG{o}{=} \PYG{o}{++}\PYG{n}{cnt}\PYG{p}{;} \PYG{c+c1}{// 给边重新编号}
+			\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{cnt}\PYG{p}{]} \PYG{o}{=} \PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+		\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{r}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZgt{}=} \PYG{n}{l}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)}
+		\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{id}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{]].}\PYG{n}{w} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{u}\PYG{p}{;} \PYG{c+c1}{// 把待修改的边改回去}
+
+	\PYG{n}{m}\PYG{o}{=}\PYG{n}{cnt}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{c+c1}{// Contraction（缩必须边）：待修改边标为\PYGZhy{}INF，跑MST后缩除待修改边之外的所有树边}
+\PYG{c+c1}{// 返回缩掉的边的总权值}
+\PYG{c+c1}{// 需要调用Kruskal}
+\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{Contraction}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{l}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{r}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{d}\PYG{p}{,} \PYG{k+kt}{int} \PYG{o}{\PYGZam{}}\PYG{n}{m}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{ans} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{l}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{r}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{id}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{]].}\PYG{n}{w} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{INF}\PYG{p}{;} \PYG{c+c1}{// 待修改边标为\PYGZhy{}INF}
+
+	\PYG{n}{Kruskal}\PYG{p}{(}\PYG{n}{m}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]);}
+	\PYG{n}{copy}\PYG{p}{(}\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]} \PYG{o}{+} \PYG{n}{m} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{t} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);}
+
+	\PYG{k+kt}{int} \PYG{n}{cnt} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{m} \PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{w} \PYG{o}{!=} \PYG{o}{\PYGZhy{}}\PYG{n}{INF} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{vis}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 必须边}
+			\PYG{n}{ans} \PYG{o}{+=} \PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{w}\PYG{p}{;}
+			\PYG{n}{mergeset}\PYG{p}{(}\PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{u}\PYG{p}{,} \PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{v}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{k}{else} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 不确定边}
+			\PYG{n}{id}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{]}\PYG{o}{=++}\PYG{n}{cnt}\PYG{p}{;}
+			\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{cnt}\PYG{p}{]}\PYG{o}{=}\PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{r} \PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZgt{}=} \PYG{n}{l}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{id}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{]].}\PYG{n}{w} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{u}\PYG{p}{;} \PYG{c+c1}{// 把待修改的边改回去}
+		\PYG{n}{e}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{id}\PYG{p}{[}\PYG{n}{d}\PYG{p}{][}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{id}\PYG{p}{]].}\PYG{n}{vis} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n}{m} \PYG{o}{=} \PYG{n}{cnt}\PYG{p}{;}
+
+	\PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{c+c1}{// Kruskal算法 O(mlogn)}
+\PYG{c+c1}{// 方便起见，这里直接沿用进行过缩点的并查集，在过程结束后撤销即可}
+\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{Kruskal}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{m}\PYG{p}{,} \PYG{n}{edge} \PYG{o}{*}\PYG{n}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{int} \PYG{n}{tmp} \PYG{o}{=} \PYG{n}{top}\PYG{p}{;}
+	\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{ans} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+
+	\PYG{n}{sort}\PYG{p}{(}\PYG{n}{e} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{e} \PYG{o}{+} \PYG{n}{m} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);} \PYG{c+c1}{// 比较函数在结构体中定义过了}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{m}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{findroot}\PYG{p}{(}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{u}\PYG{p}{)} \PYG{o}{!=} \PYG{n}{findroot}\PYG{p}{(}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{v}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+			\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{vis} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+			\PYG{n}{ans} \PYG{o}{+=} \PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{w}\PYG{p}{;}
+			\PYG{n}{mergeset}\PYG{p}{(}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{u}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{v}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{k}{else}
+			\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{vis} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{top}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZgt{}} \PYG{n}{tmp}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)}
+		\PYG{n}{cut}\PYG{p}{(}\PYG{n}{stk}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);} \PYG{c+c1}{// 撤销所有操作}
+	\PYG{n}{top} \PYG{o}{=} \PYG{n}{tmp}\PYG{p}{;}
+
+	\PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{c+c1}{// 以下是并查集相关函数}
+\PYG{k+kt}{int} \PYG{n}{findroot}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 因为需要撤销，不写路径压缩}
+	\PYG{k}{while} \PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{x}\PYG{p}{)}
+		\PYG{n}{x} \PYG{o}{=} \PYG{n}{p}\PYG{p}{[}\PYG{n}{x}\PYG{p}{];}
+
+	\PYG{k}{return} \PYG{n}{x}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n}{mergeset}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{y}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 按size合并，如果想跑得更快就写一个按秩合并}
+	\PYG{n}{x} \PYG{o}{=} \PYG{n}{findroot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);} \PYG{c+c1}{// 但是按秩合并要再开一个栈记录合并之前的秩}
+	\PYG{n}{y} \PYG{o}{=} \PYG{n}{findroot}\PYG{p}{(}\PYG{n}{y}\PYG{p}{);}
+
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{x} \PYG{o}{==} \PYG{n}{y}\PYG{p}{)}
+		\PYG{k}{return}\PYG{p}{;}
+
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{size}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{n}{size}\PYG{p}{[}\PYG{n}{y}\PYG{p}{])}
+		\PYG{n}{swap}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{);}
+
+	\PYG{n}{p}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n}{y}\PYG{p}{;}
+	\PYG{n}{size}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{size}\PYG{p}{[}\PYG{n}{x}\PYG{p}{];}
+	\PYG{n}{stk}\PYG{p}{[}\PYG{o}{++}\PYG{n}{top}\PYG{p}{]} \PYG{o}{=} \PYG{n}{x}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n}{cut}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 并查集撤销}
+	\PYG{k+kt}{int} \PYG{n}{y} \PYG{o}{=} \PYG{n}{x}\PYG{p}{;}
+
+	\PYG{k}{do}
+		\PYG{n}{size}\PYG{p}{[}\PYG{n}{y} \PYG{o}{=} \PYG{n}{p}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]]} \PYG{o}{\PYGZhy{}=} \PYG{n}{size}\PYG{p}{[}\PYG{n}{x}\PYG{p}{];}
+	\PYG{k}{while} \PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]}\PYG{o}{!} \PYG{o}{=} \PYG{n}{y}\PYG{p}{);}
+
+	\PYG{n}{p}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n}{x}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

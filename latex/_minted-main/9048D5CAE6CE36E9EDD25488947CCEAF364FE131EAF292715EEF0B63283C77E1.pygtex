@@ -1,0 +1,64 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// 注意Dinic适用于二分图或分层图,对于一般稀疏图ISAP更优,稠密图则HLPP更优}
+
+\PYG{k}{struct} \PYG{n+nc}{edge}\PYG{p}{\PYGZob{}}\PYG{k+kt}{int} \PYG{n}{to}\PYG{p}{,}\PYG{n}{cap}\PYG{p}{,}\PYG{n}{prev}\PYG{p}{;\PYGZcb{}}\PYG{n}{e}\PYG{p}{[}\PYG{n}{maxe}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{];}
+
+
+\PYG{k+kt}{int} \PYG{n}{last}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{len}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{d}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{cur}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{q}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{n}{memset}\PYG{p}{(}\PYG{n}{last}\PYG{p}{,}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{last}\PYG{p}{));}
+
+
+\PYG{k+kt}{void} \PYG{n+nf}{addedge}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{y}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{z}\PYG{p}{)\PYGZob{}}
+	\PYG{n}{AddEdge}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z}\PYG{p}{);}
+	\PYG{n}{AddEdge}\PYG{p}{(}\PYG{n}{y}\PYG{p}{,}\PYG{n}{x}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{k+kt}{void} \PYG{n+nf}{AddEdge}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{y}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{z}\PYG{p}{)\PYGZob{}}
+	\PYG{n}{e}\PYG{p}{[}\PYG{n}{len}\PYG{p}{].}\PYG{n}{to}\PYG{o}{=}\PYG{n}{y}\PYG{p}{;}
+	\PYG{n}{e}\PYG{p}{[}\PYG{n}{len}\PYG{p}{].}\PYG{n}{cap}\PYG{o}{=}\PYG{n}{z}\PYG{p}{;}
+	\PYG{n}{e}\PYG{p}{[}\PYG{n}{len}\PYG{p}{].}\PYG{n}{prev}\PYG{o}{=}\PYG{n}{last}\PYG{p}{[}\PYG{n}{x}\PYG{p}{];}
+	\PYG{n}{last}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{n}{len}\PYG{o}{++}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{k+kt}{int} \PYG{n+nf}{Dinic}\PYG{p}{()\PYGZob{}}
+	\PYG{k+kt}{int} \PYG{n}{flow}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k}{while}\PYG{p}{(}\PYG{n}{bfs}\PYG{p}{(),}\PYG{n}{d}\PYG{p}{[}\PYG{n}{t}\PYG{p}{]}\PYG{o}{!=}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)\PYGZob{}}
+		\PYG{n}{memcpy}\PYG{p}{(}\PYG{n}{cur}\PYG{p}{,}\PYG{n}{last}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{n}{t}\PYG{o}{+}\PYG{l+m+mi}{5}\PYG{p}{));}
+		\PYG{n}{flow}\PYG{o}{+=}\PYG{n}{dfs}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,(}\PYG{o}{\PYGZti{}}\PYG{l+m+mi}{0u}\PYG{p}{)}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{l+m+mi}{1}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{return} \PYG{n}{flow}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{k+kt}{void} \PYG{n+nf}{bfs}\PYG{p}{()\PYGZob{}}
+	\PYG{k+kt}{int} \PYG{n}{head}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{tail}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{n}{memset}\PYG{p}{(}\PYG{n}{d}\PYG{p}{,}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{n}{t}\PYG{o}{+}\PYG{l+m+mi}{5}\PYG{p}{));}
+	\PYG{n}{q}\PYG{p}{[}\PYG{n}{tail}\PYG{o}{++}\PYG{p}{]}\PYG{o}{=}\PYG{n}{s}\PYG{p}{;}
+	\PYG{n}{d}\PYG{p}{[}\PYG{n}{s}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k}{while}\PYG{p}{(}\PYG{n}{head}\PYG{o}{!=}\PYG{n}{tail}\PYG{p}{)\PYGZob{}}
+		\PYG{k+kt}{int} \PYG{n}{x}\PYG{o}{=}\PYG{n}{q}\PYG{p}{[}\PYG{n}{head}\PYG{o}{++}\PYG{p}{];}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{n}{last}\PYG{p}{[}\PYG{n}{x}\PYG{p}{];}\PYG{n}{i}\PYG{o}{!=}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{=}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{prev}\PYG{p}{)}
+            \PYG{k}{if}\PYG{p}{(}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{cap}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{d}\PYG{p}{[}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{to}\PYG{p}{]}\PYG{o}{==}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)\PYGZob{}}
+                \PYG{n}{d}\PYG{p}{[}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{to}\PYG{p}{]}\PYG{o}{=}\PYG{n}{d}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}
+                \PYG{n}{q}\PYG{p}{[}\PYG{n}{tail}\PYG{o}{++}\PYG{p}{]}\PYG{o}{=}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{to}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{k+kt}{int} \PYG{n+nf}{dfs}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{a}\PYG{p}{)\PYGZob{}}
+	\PYG{k}{if}\PYG{p}{(}\PYG{n}{x}\PYG{o}{==}\PYG{n}{t}\PYG{o}{||!}\PYG{n}{a}\PYG{p}{)}\PYG{k}{return} \PYG{n}{a}\PYG{p}{;}
+	\PYG{k+kt}{int} \PYG{n}{flow}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{f}\PYG{p}{;}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{\PYGZam{}}\PYG{n}{i}\PYG{o}{=}\PYG{n}{cur}\PYG{p}{[}\PYG{n}{x}\PYG{p}{];}\PYG{n}{i}\PYG{o}{!=}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{=}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{prev}\PYG{p}{)}
+        \PYG{k}{if}\PYG{p}{(}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{cap}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{d}\PYG{p}{[}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{to}\PYG{p}{]}\PYG{o}{==}\PYG{n}{d}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{p}{(}\PYG{n}{f}\PYG{o}{=}\PYG{n}{dfs}\PYG{p}{(}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{to}\PYG{p}{,}\PYG{n}{min}\PYG{p}{(}\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{cap}\PYG{p}{,}\PYG{n}{a}\PYG{p}{))))\PYGZob{}}
+            \PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{cap}\PYG{o}{\PYGZhy{}=}\PYG{n}{f}\PYG{p}{;}
+            \PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{1}\PYG{p}{].}\PYG{n}{cap}\PYG{o}{+=}\PYG{n}{f}\PYG{p}{;}
+            \PYG{n}{flow}\PYG{o}{+=}\PYG{n}{f}\PYG{p}{;}
+            \PYG{n}{a}\PYG{o}{\PYGZhy{}=}\PYG{n}{f}\PYG{p}{;}
+            \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{a}\PYG{p}{)}\PYG{k}{break}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+	\PYG{k}{return} \PYG{n}{flow}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

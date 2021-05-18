@@ -1,0 +1,82 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{//Simplex Method 单纯形方法求解线性规划}
+\PYG{c+c1}{//By ysf}
+\PYG{c+c1}{//通过题目：UOJ\PYGZsh{}179 线性规划（然而被hack了QAQ……）}
+
+\PYG{c+c1}{//单纯形其实是指数算法，但实践中跑得飞快，所以复杂度什么的也就无所谓了}
+
+
+\PYG{k}{const} \PYG{k+kt}{double} \PYG{n}{eps}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}10}\PYG{p}{;}
+
+\PYG{k+kt}{double} \PYG{n}{A}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{][}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{x}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,}\PYG{n}{m}\PYG{p}{,}\PYG{n}{t}\PYG{p}{,}\PYG{n}{id}\PYG{p}{[}\PYG{n}{maxn}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{];}
+
+\PYG{c+c1}{//方便起见，这里附上主函数}
+\PYG{k+kt}{int} \PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+	\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZpc{}d\PYGZpc{}d\PYGZdq{}}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{n}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{m}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{t}\PYG{p}{);}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+		\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}lf\PYGZdq{}}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]);}
+		\PYG{n}{id}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{n}{i}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{m}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{j}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{j}\PYG{o}{++}\PYG{p}{)}\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}lf\PYGZdq{}}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]);}
+		\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}lf\PYGZdq{}}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]);}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{initalize}\PYG{p}{())}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Infeasible\PYGZdq{}}\PYG{p}{);}
+	\PYG{k}{else} \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{simplex}\PYG{p}{())}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Unbounded\PYGZdq{}}\PYG{p}{);}
+	\PYG{k}{else}\PYG{p}{\PYGZob{}}
+		\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}.15lf}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{n}{A}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]);}
+		\PYG{k}{if}\PYG{p}{(}\PYG{n}{t}\PYG{p}{)\PYGZob{}}
+			\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{m}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{n}{x}\PYG{p}{[}\PYG{n}{id}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{n}{n}\PYG{p}{]]}\PYG{o}{=}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{];}
+			\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}.15lf \PYGZdq{}}\PYG{p}{,}\PYG{n}{x}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//初始化}
+\PYG{c+c1}{//对于初始解可行的问题，可以把初始化省略掉}
+\PYG{k+kt}{bool} \PYG{n+nf}{initalize}\PYG{p}{()\PYGZob{}}
+	\PYG{k}{for}\PYG{p}{(;;)\PYGZob{}}
+		\PYG{k+kt}{double} \PYG{n}{t}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{;}
+		\PYG{k+kt}{int} \PYG{n}{l}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{e}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{m}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{+}\PYG{n}{eps}\PYG{o}{\PYGZlt{}}\PYG{n}{t}\PYG{p}{)\PYGZob{}}
+			\PYG{n}{t}\PYG{o}{=}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{];}
+			\PYG{n}{l}\PYG{o}{=}\PYG{n}{i}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{l}\PYG{p}{)}\PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{[}\PYG{n}{l}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZlt{}\PYGZhy{}}\PYG{n}{eps}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{p}{(}\PYG{o}{!}\PYG{n}{e}\PYG{o}{||}\PYG{n}{id}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZlt{}}\PYG{n}{id}\PYG{p}{[}\PYG{n}{e}\PYG{p}{]))}\PYG{n}{e}\PYG{o}{=}\PYG{n}{i}\PYG{p}{;}
+		\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{e}\PYG{p}{)}\PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+		\PYG{n}{pivot}\PYG{p}{(}\PYG{n}{l}\PYG{p}{,}\PYG{n}{e}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//求解}
+\PYG{k+kt}{bool} \PYG{n+nf}{simplex}\PYG{p}{()\PYGZob{}}
+	\PYG{k}{for}\PYG{p}{(;;)\PYGZob{}}
+		\PYG{k+kt}{int} \PYG{n}{l}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{e}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZgt{}}\PYG{n}{eps}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{p}{(}\PYG{o}{!}\PYG{n}{e}\PYG{o}{||}\PYG{n}{id}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZlt{}}\PYG{n}{id}\PYG{p}{[}\PYG{n}{e}\PYG{p}{]))}\PYG{n}{e}\PYG{o}{=}\PYG{n}{i}\PYG{p}{;}
+		\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{e}\PYG{p}{)}\PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+		\PYG{k+kt}{double} \PYG{n}{t}\PYG{o}{=}\PYG{l+m+mf}{1e50}\PYG{p}{;}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{m}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{k}{if}\PYG{p}{(}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{e}\PYG{p}{]}\PYG{o}{\PYGZgt{}}\PYG{n}{eps}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{/}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{e}\PYG{p}{]}\PYG{o}{\PYGZlt{}}\PYG{n}{t}\PYG{p}{)\PYGZob{}}
+			\PYG{n}{l}\PYG{o}{=}\PYG{n}{i}\PYG{p}{;}
+			\PYG{n}{t}\PYG{o}{=}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{/}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{e}\PYG{p}{];}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{l}\PYG{p}{)}\PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+		\PYG{n}{pivot}\PYG{p}{(}\PYG{n}{l}\PYG{p}{,}\PYG{n}{e}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//转轴操作，本质是}
+\PYG{k+kt}{void} \PYG{n+nf}{pivot}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{l}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{e}\PYG{p}{)\PYGZob{}}
+	\PYG{n}{swap}\PYG{p}{(}\PYG{n}{id}\PYG{p}{[}\PYG{n}{e}\PYG{p}{],}\PYG{n}{id}\PYG{p}{[}\PYG{n}{n}\PYG{o}{+}\PYG{n}{l}\PYG{p}{]);}
+	\PYG{k+kt}{double} \PYG{n}{t}\PYG{o}{=}\PYG{n}{A}\PYG{p}{[}\PYG{n}{l}\PYG{p}{][}\PYG{n}{e}\PYG{p}{];}
+	\PYG{n}{A}\PYG{p}{[}\PYG{n}{l}\PYG{p}{][}\PYG{n}{e}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mf}{1.0}\PYG{p}{;}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{n}{A}\PYG{p}{[}\PYG{n}{l}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{o}{/=}\PYG{n}{t}\PYG{p}{;}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{m}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{k}{if}\PYG{p}{(}\PYG{n}{i}\PYG{o}{!=}\PYG{n}{l}\PYG{p}{)\PYGZob{}}
+		\PYG{n}{t}\PYG{o}{=}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{e}\PYG{p}{];}
+		\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{e}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{;}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{j}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{j}\PYG{o}{++}\PYG{p}{)}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{o}{\PYGZhy{}=}\PYG{n}{t}\PYG{o}{*}\PYG{n}{A}\PYG{p}{[}\PYG{n}{l}\PYG{p}{][}\PYG{n}{j}\PYG{p}{];}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

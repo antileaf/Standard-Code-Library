@@ -1,0 +1,108 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{//Polymial Operations 多项式操作}
+\PYG{c+c1}{//By ysf}
+\PYG{c+c1}{//通过题目：COGS2189 帕秋莉的超级多项式（板子题）}
+
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{maxn}\PYG{o}{=}\PYG{l+m+mi}{262200}\PYG{p}{;}\PYG{c+c1}{//以下所有代码均为NTT版本}
+\PYG{c+c1}{//以下所有代码均满足：A为输入（不进行修改），C为输出，n为所需长度}
+
+\PYG{c+c1}{//多项式求逆 O(n\PYGZbs{}log n)}
+\PYG{c+c1}{//要求A常数项不为0}
+\PYG{k+kt}{void} \PYG{n+nf}{getinv}\PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{A}\PYG{p}{,}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{C}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{)\PYGZob{}}
+	\PYG{k}{static} \PYG{k+kt}{int} \PYG{n}{B}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+	\PYG{n}{memset}\PYG{p}{(}\PYG{n}{C}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{));}
+	\PYG{n}{C}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{n}{qpow}\PYG{p}{(}\PYG{n}{A}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n}{p}\PYG{l+m+mi}{\PYGZhy{}2}\PYG{p}{);}\PYG{c+c1}{//一般题目直接赋值为1就可以}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{;}\PYG{n}{k}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}=}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}
+		\PYG{n}{memcpy}\PYG{p}{(}\PYG{n}{B}\PYG{p}{,}\PYG{n}{A}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{o}{*}\PYG{n}{k}\PYG{p}{);}
+		\PYG{n}{memset}\PYG{p}{(}\PYG{n}{B}\PYG{o}{+}\PYG{n}{k}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{o}{*}\PYG{n}{k}\PYG{p}{);}
+		\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{B}\PYG{p}{,}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+		\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{C}\PYG{p}{,}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{p}{(}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{);}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+			\PYG{n}{C}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{p}{((}\PYG{l+m+mi}{2}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{*}\PYG{n}{C}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{o}{*}\PYG{n}{C}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{o}{+}\PYG{n}{p}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}
+		\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{C}\PYG{p}{,}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{);}
+		\PYG{n}{memset}\PYG{p}{(}\PYG{n}{C}\PYG{o}{+}\PYG{n}{k}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{o}{*}\PYG{n}{k}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//多项式开根 O(n\PYGZbs{}log n)}
+\PYG{c+c1}{//要求A常数项可以开根/存在二次剩余}
+\PYG{c+c1}{//需要调用多项式求逆，且需要预处理2的逆元}
+\PYG{k+kt}{void} \PYG{n+nf}{getsqrt}\PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{A}\PYG{p}{,}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{C}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{)\PYGZob{}}
+	\PYG{k}{static} \PYG{k+kt}{int} \PYG{n}{B}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{D}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+	\PYG{n}{memset}\PYG{p}{(}\PYG{n}{C}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{));}
+	\PYG{n}{C}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)(}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{A}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}\PYG{o}{+}\PYG{l+m+mf}{1e\PYGZhy{}7}\PYG{p}{);}\PYG{c+c1}{//一般题目直接赋值为1就可以}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{;}\PYG{n}{k}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}=}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}
+		\PYG{n}{memcpy}\PYG{p}{(}\PYG{n}{B}\PYG{p}{,}\PYG{n}{A}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{o}{*}\PYG{n}{k}\PYG{p}{);}
+		\PYG{n}{memset}\PYG{p}{(}\PYG{n}{B}\PYG{o}{+}\PYG{n}{k}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{o}{*}\PYG{n}{k}\PYG{p}{);}
+		\PYG{n}{getinv}\PYG{p}{(}\PYG{n}{C}\PYG{p}{,}\PYG{n}{D}\PYG{p}{,}\PYG{n}{k}\PYG{p}{);}
+		\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{B}\PYG{p}{,}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+		\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{D}\PYG{p}{,}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{p}{(}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{);}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{*}\PYG{n}{D}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}
+		\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{B}\PYG{p}{,}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{);}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{k}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{n}{C}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)(}\PYG{n}{C}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{+}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}\PYG{o}{*}\PYG{n}{inv\PYGZus{}2}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}\PYG{c+c1}{//inv\PYGZus{}2是2的逆元}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//求导 O(n)}
+\PYG{k+kt}{void} \PYG{n+nf}{getderivative}\PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{A}\PYG{p}{,}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{C}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{)\PYGZob{}}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{n}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{n}{C}\PYG{p}{[}\PYG{n}{i}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{*}\PYG{n}{i}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}
+	\PYG{n}{C}\PYG{p}{[}\PYG{n}{n}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//不定积分 O(n\PYGZbs{}log n)，如果预处理过逆元可以降到O(n)}
+\PYG{k+kt}{void} \PYG{n+nf}{getintegrate}\PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{A}\PYG{p}{,}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{C}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{)\PYGZob{}}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{n}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{n}{C}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{]}\PYG{o}{*}\PYG{n}{qpow}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{n}{p}\PYG{l+m+mi}{\PYGZhy{}2}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}
+	\PYG{n}{C}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{c+c1}{//由于是不定积分，结果没有常数项}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//多项式\PYGZbs{}ln O(n\PYGZbs{}log n)}
+\PYG{c+c1}{//要求A常数项不为0/存在离散对数}
+\PYG{c+c1}{//需要调用多项式求逆、求导、不定积分}
+\PYG{k+kt}{void} \PYG{n+nf}{getln}\PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{A}\PYG{p}{,}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{C}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{)\PYGZob{}}\PYG{c+c1}{//通常情况下A常数项都是1}
+	\PYG{k}{static} \PYG{k+kt}{int} \PYG{n}{B}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+	\PYG{n}{getderivative}\PYG{p}{(}\PYG{n}{A}\PYG{p}{,}\PYG{n}{B}\PYG{p}{,}\PYG{n}{n}\PYG{p}{);}
+	\PYG{n}{memset}\PYG{p}{(}\PYG{n}{B}\PYG{o}{+}\PYG{n}{n}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{o}{*}\PYG{n}{n}\PYG{p}{);}
+	\PYG{n}{getinv}\PYG{p}{(}\PYG{n}{A}\PYG{p}{,}\PYG{n}{C}\PYG{p}{,}\PYG{n}{n}\PYG{p}{);}
+	\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{B}\PYG{p}{,}\PYG{n}{n}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+	\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{C}\PYG{p}{,}\PYG{n}{n}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{);}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{*}\PYG{n}{C}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}
+	\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{B}\PYG{p}{,}\PYG{n}{n}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{);}
+	\PYG{n}{getintegrate}\PYG{p}{(}\PYG{n}{B}\PYG{p}{,}\PYG{n}{C}\PYG{p}{,}\PYG{n}{n}\PYG{p}{);}
+	\PYG{n}{memset}\PYG{p}{(}\PYG{n}{C}\PYG{o}{+}\PYG{n}{n}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{o}{*}\PYG{n}{n}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//多项式\PYGZbs{}exp O(n\PYGZbs{}log n)}
+\PYG{c+c1}{//要求A没有常数项}
+\PYG{c+c1}{//需要调用多项式\PYGZbs{}ln}
+\PYG{c+c1}{//常数很大且总代码较长，在时间效率要求不高时最好替换为分治FFT}
+\PYG{c+c1}{//分治FFT依据：设G(x)=\PYGZbs{}exp F(x)，则有g\PYGZus{}i=\PYGZbs{}sum\PYGZus{}\PYGZob{}k=1\PYGZcb{}\PYGZca{}i f\PYGZus{}k g\PYGZus{}\PYGZob{}i\PYGZhy{}k\PYGZcb{}}
+\PYG{k+kt}{void} \PYG{n+nf}{getexp}\PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{A}\PYG{p}{,}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{C}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{)\PYGZob{}}
+	\PYG{k}{static} \PYG{k+kt}{int} \PYG{n}{B}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+	\PYG{n}{memset}\PYG{p}{(}\PYG{n}{C}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{));}
+	\PYG{n}{C}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{;}\PYG{n}{k}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}=}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}
+		\PYG{n}{getln}\PYG{p}{(}\PYG{n}{C}\PYG{p}{,}\PYG{n}{B}\PYG{p}{,}\PYG{n}{k}\PYG{p}{);}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{k}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+			\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+			\PYG{k}{if}\PYG{p}{(}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{+=}\PYG{n}{p}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{p}{(}\PYG{o}{++}\PYG{n}{B}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}\PYG{o}{\PYGZpc{}=}\PYG{n}{p}\PYG{p}{;}
+		\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{B}\PYG{p}{,}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+		\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{C}\PYG{p}{,}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{p}{(}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{);}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{n}{C}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{C}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{*}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}
+		\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{C}\PYG{p}{,}\PYG{n}{k}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{);}
+		\PYG{n}{memset}\PYG{p}{(}\PYG{n}{C}\PYG{o}{+}\PYG{n}{k}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{o}{*}\PYG{n}{k}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//多项式k次幂 O(n\PYGZbs{}log n)}
+\PYG{c+c1}{//在A常数项不为1时需要转化}
+\PYG{c+c1}{//需要调用多项式/exp、\PYGZbs{}ln}
+\PYG{c+c1}{//常数较大且总代码较长，在时间效率要求不高时最好替换为暴力快速幂}
+\PYG{k+kt}{void} \PYG{n+nf}{getpow}\PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{A}\PYG{p}{,}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{C}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{k}\PYG{p}{)\PYGZob{}}
+	\PYG{k}{static} \PYG{k+kt}{int} \PYG{n}{B}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+	\PYG{n}{getln}\PYG{p}{(}\PYG{n}{A}\PYG{p}{,}\PYG{n}{B}\PYG{p}{,}\PYG{n}{n}\PYG{p}{);}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{n}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{*}\PYG{n}{k}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}
+	\PYG{n}{getexp}\PYG{p}{(}\PYG{n}{B}\PYG{p}{,}\PYG{n}{C}\PYG{p}{,}\PYG{n}{n}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

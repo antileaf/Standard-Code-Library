@@ -1,0 +1,360 @@
+\documentclass{article}
+\title{Standard Code Library}
+\author{AntiLeaf}
+\date{}
+
+% \usepackage{CTEX}
+
+% \usepackage{CJKpunct}
+% \punctstyle{quanjiao}
+
+\usepackage{graphicx, amssymb, amsmath, textcomp, booktabs}
+\usepackage[libertine,vvarbb]{newtxmath}
+\usepackage[scr=rsfso]{mathalfa}
+%\usepackage[lining,semibold,type1]{libertine} % a bit lighter than Times--no osf in math
+\usepackage[T1]{fontenc} % best for Western European languages
+\usepackage{minted}
+\usepackage{listings, color, setspace, titlesec, fancyhdr, mdframed, multicol}
+\usepackage{fontspec}
+\usepackage{ucharclasses}
+\usepackage{xunicode, xltxtra}
+\usepackage{pdfpages}
+\usepackage{tocloft}
+\usepackage{nameref}
+\usepackage{verbatim}
+\usepackage{relsize}
+
+\usepackage{color,xcolor}
+
+\definecolor{light-gray}{gray}{0.9}    % 1.灰度
+
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+%configure space between the two columns
+\setlength{\columnsep}{13pt}
+
+%configure fonts
+\setmonofont{Consolas}[Scale=0.775]
+\newfontfamily\substitutefont{等线}[Scale=0.9]
+\setTransitionsForChinese{\begingroup\substitutefont}{\endgroup}
+
+%configure minted to display codes
+\definecolor{Gray}{rgb}{0.9,0.9,0.9}
+
+%configure section style of table of content
+\renewcommand\cftsecfont{\Large}
+
+%configure section style
+\titleformat{\section}
+{\huge}			% The style of the section title
+{\thesection.}				% a prefix
+{4pt}						% How much space exists between the prefix and the title
+{}					% How the section is represented
+% \titleformat{\section}{\huge}{}{0pt}{}
+\titlespacing{\section}{0pt}{0pt}{0pt}
+\titlespacing{\subsection}{0pt}{0pt}{0pt}
+\titlespacing{\subsubsection}{0pt}{0pt}{0pt}
+
+\usepackage{fancyhdr}
+\usepackage[inner=1.35cm, outer=0.9cm, top=1.7cm, bottom=1.7cm]{geometry}
+
+\pagestyle{fancy}
+\setlength{\headsep}{0.1cm}
+\chead{Standard Code Library}
+\rhead{\leftmark}
+\lhead{Shanghai Jiao Tong University}
+
+\cfoot{\thepage}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\setminted[cpp]{
+	style=solarized-light,
+	mathescape,
+	linenos,
+	autogobble,
+	baselinestretch=0.9,
+	tabsize=4,
+	fontsize=\normalsize,
+	%bgcolor=Gray,
+	frame=single,
+	framesep=1mm,
+	framerule=0.3pt,
+	numbersep=1mm,
+	breaklines=true,
+	breaksymbolsepleft=2pt,
+	%breaksymbolleft=\raisebox{0.8ex}{ \small\reflectbox{\carriagereturn}}, %not moe!
+	%breaksymbolright=\small\carriagereturn,
+	breakbytoken=false,
+	showtabs=true,
+	tab={\relscale{1.08} $\color{light-gray}{\vert} \ \ \ $ \relscale{1}},
+}
+
+\setminted[python]{
+	style=solarized-light,
+	mathescape,
+	linenos,
+	autogobble,
+	baselinestretch=0.9,
+	tabsize=4,
+	fontsize=\normalsize,
+	%bgcolor=Gray,
+	frame=single,
+	framesep=0.8mm,
+	framerule=0.3pt,
+	numbersep=0.8mm,
+	breaklines=true,
+	breaksymbolsepleft=2pt,
+	%breaksymbolleft=\raisebox{0.8ex}{ \small\reflectbox{\carriagereturn}}, %not moe!
+	%breaksymbolright=\small\carriagereturn,
+	breakbytoken=false,
+	showtabs=true,
+	tab={\relscale{1.08} $\color{light-gray}{\vert} \ \ \ $ \relscale{1}},
+}
+
+\begin{document}
+
+	\begin{titlepage}
+		\maketitle
+		\newpage
+	\end{titlepage}
+
+	\begin{multicols}{2}
+		
+		\begin{spacing}{1}
+			\tableofcontents
+		\end{spacing}
+		\newpage
+
+	\end{multicols}
+
+	\begin{multicols}{2}
+
+		\section{图论}
+
+			\subsection{最小生成树}
+				% \subsubsection{Boruvka算法}
+					
+				\subsubsection{动态最小生成树}
+					\inputminted{cpp}{../src/图论/动态最小生成树.cpp}
+				
+				% \subsubsection{最小树形图（朱刘算法）}
+
+				
+				% \subsubsection{斯坦纳树}
+			
+			
+			\subsection{最短路}
+				% \subsubsection{Dijkstra}
+					
+				
+				% \subsubsection{差分约束}
+
+
+				\subsubsection{k短路}
+					\inputminted{cpp}{../src/图论/k短路.cpp}
+
+			\subsection{仙人掌}
+				\subsubsection{仙人掌DP}
+					\inputminted{cpp}{../src/图论/仙人掌DP.cpp}
+			
+			\subsection{二分图}
+				% \subsubsection{匈牙利}
+
+
+				% \subsubsection{Hopcroft-Karp}
+
+
+				\subsubsection{KM二分图最大权匹配}
+					\inputminted{cpp}{../src/图论/KM二分图最大权匹配.cpp}
+
+				% \subsubsection{二分图原理}
+			
+			
+			\subsection{一般图匹配}
+				\subsubsection{高斯消元}
+					\inputminted{cpp}{../src/图论/基于线性代数的一般图匹配.cpp}
+
+				\subsubsection{带花树}
+					\inputminted{cpp}{../src/图论/带花树.cpp}
+			
+			% \subsection{支配树}
+			
+
+			% \subsection{2-SAT}
+
+
+			\subsection{最大流}
+				\subsubsection{Dinic}
+					\inputminted{cpp}{../src/图论/Dinic.cpp}
+
+				\subsubsection{ISAP}
+					\inputminted{cpp}{../src/图论/ISAP.cpp}
+
+				\subsubsection{HLPP最高标号预流推进}
+					\inputminted{cpp}{../src/图论/HLPP.cpp}
+			
+			% \subsection{费用流}
+				% \subsubsection{SPFA费用流}
+
+
+				% \subsubsection{Dijkstra费用流}
+
+
+				% \subsubsection{zkw费用流}
+			
+
+			% \subsection{网络流原理}
+				% \subsubsection{最小割}
+
+
+				% \subsubsection{费用流}
+
+
+				% \subsubsection{常见建图方法}
+
+
+				% \subsubsection{例题}
+			
+
+			% \subsection{弦图}
+				% \subsubsection{完美消除序列、最大势算法}
+
+
+				% \subsubsection{性质}
+			
+
+			% \subsection{其他}
+				% \subsubsection{Stoer-Wagner全局最小割}
+
+
+				% \subsubsection{最小割树}
+
+
+				% \subsubsection{最大团搜索}
+			
+
+		\section{字符串}
+
+			\subsection{AC自动机}
+				\inputminted{cpp}{../src/字符串/AC自动机.cpp}
+
+			\subsection{后缀数组}
+				% \subsubsection{SA-IS}
+
+			
+				\subsubsection{SAMSA}
+					\inputminted{cpp}{../src/字符串/SAMSA.cpp}
+
+			% \subsection{后缀平衡树}
+
+
+			\subsection{后缀自动机}
+				\inputminted{cpp}{../src/字符串/后缀自动机.cpp}
+
+			\subsection{回文树}
+				\inputminted{cpp}{../src/字符串/回文树.cpp}
+
+				\subsubsection{广义回文树}
+					\inputminted{cpp}{../src/字符串/广义回文树.cpp}
+
+
+			% \subsection{序列自动机}
+
+
+			\subsection{Manacher马拉车}
+				\inputminted{cpp}{../src/字符串/manacher.cpp}
+
+			\subsection{KMP}
+				
+
+				\subsubsection{ex-KMP}
+					\inputminted{cpp}{../src/字符串/exKMP.cpp}
+			
+			% \subsection{All Substring LCS}
+
+
+			% \subsection{字符串原理}
+
+
+		\section{数学}
+
+			\subsection{插值}
+				\subsubsection{牛顿插值}
+
+
+				\subsubsection{拉格朗日插值}
+
+			
+			\subsection{多项式}
+				\subsubsection{FFT}
+					\inputminted{cpp}{../src/数学/FFT.cpp}
+
+				\subsubsection{NTT}
+					\inputminted{cpp}{../src/数学/NTT.cpp}
+
+				\subsubsection{任意模数卷积（三模数NTT）}
+					\inputminted{cpp}{../src/数学/任意模数卷积.cpp}
+
+				% \subsection{毛梯梯}
+
+			
+				\subsubsection{多项式操作}
+					\inputminted{cpp}{../src/数学/多项式操作.cpp}
+
+				% \subsubsection{多项式多点求值}
+
+
+				% \subsubsection{多项式快速插值}
+
+
+				% \subsubsection{多项式复合与复合逆}
+
+				\subsubsection{拉格朗日反演}
+
+
+				% \subsubsection{分治FFT}
+
+
+				\subsubsection{半在线卷积}
+					\inputminted{cpp}{../src/数学/半在线卷积.cpp}
+
+			\subsection{FWT快速沃尔什变换}
+				\inputminted{cpp}{../src/数学/FWT.cpp}
+
+			\subsection{单纯形}
+				\inputminted{cpp}{../src/数学/单纯形.cpp}
+
+				% \subsubsection{线性规划对偶原理}
+
+
+			\subsection{线性代数}
+				% \subsubsection{高斯消元}
+
+
+				% \subsubsection{任意模数高斯消元}
+
+
+				% \subsubsection{自由元搜索}
+
+
+				\subsubsection{线性基}
+					% \inputminted{cpp}{../src/数学/线性基.cpp}
+
+
+				% \subsubsection{线性代数知识}
+
+
+			% \subsection{自适应Simpson积分}
+
+
+			% \subsection{常见结论}
+				% \subsubsection{线性齐次递推求通项}
+
+
+
+	\end{multicols}
+
+\end{document}

@@ -1,0 +1,130 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// KM Weighted Bio\PYGZhy{}Graph Matching KM二分图最大权匹配}
+\PYG{c+c1}{// By AntiLeaf}
+\PYG{c+c1}{// O(n\PYGZca{}3)}
+
+\PYG{k}{const} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{INF} \PYG{o}{=} \PYG{l+m+mh}{0x3f3f3f3f3f3f3f3f}\PYG{p}{;}
+
+\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{w}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{][}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{lx}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{ly}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{slack}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{c+c1}{// 边权 顶标 slack}
+\PYG{c+c1}{// 如果要求最大权完美匹配就把不存在的边设为\PYGZhy{}INF 否则所有边对0取max}
+
+\PYG{k+kt}{bool} \PYG{n}{visx}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{visy}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+
+\PYG{k+kt}{int} \PYG{n}{boy}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{girl}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{p}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{q}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{head}\PYG{p}{,} \PYG{n}{tail}\PYG{p}{;} \PYG{c+c1}{// p : pre}
+
+\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{N}\PYG{p}{,} \PYG{n}{e}\PYG{p}{;}
+
+\PYG{c+c1}{// 增广}
+\PYG{k+kt}{bool} \PYG{n+nf}{check}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{y}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n}{visy}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{boy}\PYG{p}{[}\PYG{n}{y}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+		\PYG{n}{visx}\PYG{p}{[}\PYG{n}{boy}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]]} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+		\PYG{n}{q}\PYG{p}{[}\PYG{n}{tail}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{boy}\PYG{p}{[}\PYG{n}{y}\PYG{p}{];}
+		\PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{while} \PYG{p}{(}\PYG{n}{y}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{boy}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]} \PYG{o}{=} \PYG{n}{p}\PYG{p}{[}\PYG{n}{y}\PYG{p}{];}
+		\PYG{n}{swap}\PYG{p}{(}\PYG{n}{y}\PYG{p}{,} \PYG{n}{girl}\PYG{p}{[}\PYG{n}{p}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]]);}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// bfs每个点}
+\PYG{k+kt}{void} \PYG{n+nf}{bfs}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n}{memset}\PYG{p}{(}\PYG{n}{q}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{q}\PYG{p}{));}
+	\PYG{n}{head} \PYG{o}{=} \PYG{n}{tail} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+
+	\PYG{n}{q}\PYG{p}{[}\PYG{n}{tail}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{x}\PYG{p}{;}
+	\PYG{n}{visx}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+
+	\PYG{k}{while} \PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{while} \PYG{p}{(}\PYG{n}{head} \PYG{o}{!=} \PYG{n}{tail}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{k+kt}{int} \PYG{n}{x} \PYG{o}{=} \PYG{n}{q}\PYG{p}{[}\PYG{n}{head}\PYG{o}{++}\PYG{p}{];}
+
+			\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{y} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{y} \PYG{o}{\PYGZlt{}=} \PYG{n}{N}\PYG{p}{;} \PYG{n}{y}\PYG{o}{++}\PYG{p}{)}
+				\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{visy}\PYG{p}{[}\PYG{n}{y}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+					\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{d} \PYG{o}{=} \PYG{n}{lx}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{+} \PYG{n}{ly}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{w}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{y}\PYG{p}{];}
+
+					\PYG{k}{if} \PYG{p}{(}\PYG{n}{d} \PYG{o}{\PYGZlt{}} \PYG{n}{slack}\PYG{p}{[}\PYG{n}{y}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+						\PYG{n}{p}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]} \PYG{o}{=} \PYG{n}{x}\PYG{p}{;}
+						\PYG{n}{slack}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]} \PYG{o}{=} \PYG{n}{d}\PYG{p}{;}
+
+						\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{slack}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{check}\PYG{p}{(}\PYG{n}{y}\PYG{p}{))}
+							\PYG{k}{return}\PYG{p}{;}
+					\PYG{p}{\PYGZcb{}}
+				\PYG{p}{\PYGZcb{}}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{d} \PYG{o}{=} \PYG{n}{INF}\PYG{p}{;}
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{N}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+			\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{visy}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+				\PYG{n}{d} \PYG{o}{=} \PYG{n}{min}\PYG{p}{(}\PYG{n}{d}\PYG{p}{,} \PYG{n}{slack}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{N}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{visx}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+				\PYG{n}{lx}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{d}\PYG{p}{;}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{visy}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+				\PYG{n}{ly}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{d}\PYG{p}{;}
+			\PYG{k}{else}
+				\PYG{n}{slack}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{d}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{N}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+			\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{visy}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{slack}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{check}\PYG{p}{(}\PYG{n}{i}\PYG{p}{))}
+				\PYG{k}{return}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// 主过程}
+\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{KM}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{N}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{c+c1}{// lx[i] = 0;}
+		\PYG{n}{ly}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{INF}\PYG{p}{;}
+		\PYG{c+c1}{// boy[i] = girl[i] = \PYGZhy{}1;}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}=} \PYG{n}{N}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)}
+			\PYG{n}{ly}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{max}\PYG{p}{(}\PYG{n}{ly}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{w}\PYG{p}{[}\PYG{n}{j}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]);}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{N}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{memset}\PYG{p}{(}\PYG{n}{slack}\PYG{p}{,} \PYG{l+m+mh}{0x3f}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{slack}\PYG{p}{));}
+		\PYG{n}{memset}\PYG{p}{(}\PYG{n}{visx}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{visx}\PYG{p}{));}
+		\PYG{n}{memset}\PYG{p}{(}\PYG{n}{visy}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{visy}\PYG{p}{));}
+		\PYG{n}{bfs}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{ans} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{N}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{ans} \PYG{o}{+=} \PYG{n}{w}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{girl}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]];}
+	\PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// 为了方便贴上主函数}
+\PYG{k+kt}{int} \PYG{n}{main}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+
+	\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZpc{}d\PYGZpc{}d\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{n}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{m}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{e}\PYG{p}{);}
+	\PYG{n}{N} \PYG{o}{=} \PYG{n}{max}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{m}\PYG{p}{);}
+
+	\PYG{k}{while} \PYG{p}{(}\PYG{n}{e}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{c}\PYG{p}{;}
+		\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZpc{}d\PYGZpc{}d\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{x}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{y}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{c}\PYG{p}{);}
+		\PYG{n}{w}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{y}\PYG{p}{]} \PYG{o}{=} \PYG{n}{max}\PYG{p}{(}\PYG{n}{c}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}lld}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{KM}\PYG{p}{());}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{1}\PYG{p}{)}
+			\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{} \PYGZdq{}}\PYG{p}{);}
+		\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZdq{}}\PYG{p}{,} \PYG{n}{w}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{girl}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]]} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0} \PYG{o}{?} \PYG{n}{girl}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{:} \PYG{l+m+mi}{0}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+
+	\PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

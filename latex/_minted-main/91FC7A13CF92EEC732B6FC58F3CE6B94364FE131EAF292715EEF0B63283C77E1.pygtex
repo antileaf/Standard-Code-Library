@@ -1,0 +1,53 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// Aho\PYGZhy{}Corasick Automata AC自动机}
+\PYG{c+c1}{// By AntiLeaf}
+\PYG{c+c1}{// 通过题目：bzoj3881 Divljak}
+
+
+\PYG{c+c1}{// 全局变量与数组定义}
+\PYG{k+kt}{int} \PYG{n}{ch}\PYG{p}{[}\PYG{n}{maxm}\PYG{p}{][}\PYG{l+m+mi}{26}\PYG{p}{]} \PYG{o}{=} \PYG{p}{\PYGZob{}\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{}\PYGZcb{},} \PYG{n}{f}\PYG{p}{[}\PYG{n}{maxm}\PYG{p}{][}\PYG{l+m+mi}{26}\PYG{p}{]} \PYG{o}{=} \PYG{p}{\PYGZob{}\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{}\PYGZcb{},} \PYG{n}{q}\PYG{p}{[}\PYG{n}{maxm}\PYG{p}{]} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{n}{sum}\PYG{p}{[}\PYG{n}{maxm}\PYG{p}{]} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{n}{cnt} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+
+
+\PYG{c+c1}{// 在字典树中插入一个字符串 O(n)}
+\PYG{k+kt}{int} \PYG{n+nf}{insert}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{c}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{x} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{while} \PYG{p}{(}\PYG{o}{*}\PYG{n}{c}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{o}{*}\PYG{n}{c} \PYG{o}{\PYGZhy{}} \PYG{l+s+sc}{\PYGZsq{}a\PYGZsq{}}\PYG{p}{])}
+            \PYG{n}{ch}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{o}{*}\PYG{n}{c} \PYG{o}{\PYGZhy{}} \PYG{l+s+sc}{\PYGZsq{}a\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{o}{++}\PYG{n}{cnt}\PYG{p}{;}
+        \PYG{n}{x} \PYG{o}{=} \PYG{n}{ch}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{o}{*}\PYG{n}{c}\PYG{o}{++} \PYG{o}{\PYGZhy{}} \PYG{l+s+sc}{\PYGZsq{}a\PYGZsq{}}\PYG{p}{];}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{n}{x}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{c+c1}{// 建AC自动机 O(n*sigma)}
+\PYG{k+kt}{void} \PYG{n+nf}{getfail}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,} \PYG{n}{head} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{tail} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{c} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{c} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{26}\PYG{p}{;} \PYG{n}{c}\PYG{o}{++}\PYG{p}{)}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{c}\PYG{p}{])}
+            \PYG{n}{q}\PYG{p}{[}\PYG{n}{tail}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{c}\PYG{p}{];} \PYG{c+c1}{// 把根节点的儿子加入队列}
+
+    \PYG{k}{while} \PYG{p}{(}\PYG{n}{head} \PYG{o}{!=} \PYG{n}{tail}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{x} \PYG{o}{=} \PYG{n}{q}\PYG{p}{[}\PYG{n}{head}\PYG{o}{++}\PYG{p}{];}
+
+        \PYG{n}{G}\PYG{p}{[}\PYG{n}{f}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);}
+        \PYG{n}{fill}\PYG{p}{(}\PYG{n}{f}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{f}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{26}\PYG{p}{,} \PYG{n}{cnt} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);}
+
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{c} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{c} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{26}\PYG{p}{;} \PYG{n}{c}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{c}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+                \PYG{k+kt}{int} \PYG{n}{y} \PYG{o}{=} \PYG{n}{f}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{];}
+
+                \PYG{k}{while} \PYG{p}{(}\PYG{n}{y}\PYG{o}{\PYGZam{}\PYGZam{}!}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{y}\PYG{p}{][}\PYG{n}{c}\PYG{p}{])}
+                    \PYG{n}{y}\PYG{o}{=}\PYG{n}{f}\PYG{p}{[}\PYG{n}{y}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{];}
+
+                \PYG{n}{f}\PYG{p}{[}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{c}\PYG{p}{]][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ch}\PYG{p}{[}\PYG{n}{y}\PYG{p}{][}\PYG{n}{c}\PYG{p}{];}
+                \PYG{n}{q}\PYG{p}{[}\PYG{n}{tail}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ch}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{c}\PYG{p}{];}
+            \PYG{p}{\PYGZcb{}}
+            \PYG{k}{else}
+                \PYG{n}{ch}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{c}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ch}\PYG{p}{[}\PYG{n}{f}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]][}\PYG{n}{c}\PYG{p}{];}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{fill}\PYG{p}{(}\PYG{n}{f}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{f}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{26}\PYG{p}{,} \PYG{n}{cnt} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,9 +1,4 @@
-﻿//Kth Shortest Path via Persistable Mergeable Heap
-//可持久化可并堆求k短路 O(SSSP+(m+k)\log n)
-//By ysf
-//通过题目：USACO Mar08 牛跑步（板子题）
-
-//注意这是个多项式算法，在k比较大时很有优势，但k比较小时最好还是用A*
+﻿//注意这是个多项式算法，在k比较大时很有优势，但k比较小时最好还是用A*
 //DAG和有环的情况都可以，有重边或自环也无所谓，但不能有零环
 //以下代码以Dijkstra+可持久化左偏树为例
 

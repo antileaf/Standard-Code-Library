@@ -1,7 +1,4 @@
-// Dinic Maximum Flow 最大流（Dinic版本） O(n^2 m)
-// By AntiLeaf
-// 注意Dinic适用于二分图或分层图，对于一般稀疏图ISAP更优，稠密图则HLPP更优
-
+// 注意Dinic适用于二分图或分层图,对于一般稀疏图ISAP更优,稠密图则HLPP更优
 
 struct edge{int to,cap,prev;}e[maxe<<1];
 
