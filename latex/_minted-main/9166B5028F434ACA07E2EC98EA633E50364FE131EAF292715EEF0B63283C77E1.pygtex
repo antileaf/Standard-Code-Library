@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// long double 快速乘}
+\PYG{c+c1}{// 在两数直接相乘会爆long long时才有必要使用}
+\PYG{c+c1}{// 常数比直接long long乘法+取模大很多,非必要时不建议使用}
+\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{mul}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{a}\PYG{p}{,}\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{b}\PYG{p}{,}\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{p}\PYG{p}{)\PYGZob{}}
+	\PYG{n}{a}\PYG{o}{\PYGZpc{}=}\PYG{n}{p}\PYG{p}{;}\PYG{n}{b}\PYG{o}{\PYGZpc{}=}\PYG{n}{p}\PYG{p}{;}
+	\PYG{k}{return} \PYG{p}{((}\PYG{n}{a}\PYG{o}{*}\PYG{n}{b}\PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{o}{*}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)((}\PYG{k+kt}{long} \PYG{k+kt}{double}\PYG{p}{)}\PYG{n}{a}\PYG{o}{/}\PYG{n}{p}\PYG{o}{*}\PYG{n}{b}\PYG{o}{+}\PYG{l+m+mf}{0.5}\PYG{p}{))}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{o}{+}\PYG{n}{p}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// 指令集快速乘}
+\PYG{c+c1}{// 试机记得测试能不能过编译}
+\PYG{k+kr}{inline} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{mul}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{a}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{b}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{p}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{ans}\PYG{p}{;}
+	\PYG{n}{\PYGZus{}\PYGZus{}asm\PYGZus{}\PYGZus{}} \PYG{n+nf}{\PYGZus{}\PYGZus{}volatile\PYGZus{}\PYGZus{}} \PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s}{mulq \PYGZpc{}\PYGZpc{}rbx}\PYG{l+s+se}{\PYGZbs{}n\PYGZbs{}t}\PYG{l+s}{divq \PYGZpc{}\PYGZpc{}rcx}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}} \PYG{o}{:}  \PYG{l+s}{\PYGZdq{}=d\PYGZdq{}}\PYG{p}{(}\PYG{n}{ans}\PYG{p}{)} \PYG{o}{:} \PYG{l+s}{\PYGZdq{}a\PYGZdq{}}\PYG{p}{(}\PYG{n}{a}\PYG{p}{),} \PYG{l+s}{\PYGZdq{}b\PYGZdq{}}\PYG{p}{(}\PYG{n}{b}\PYG{p}{),} \PYG{l+s}{\PYGZdq{}c\PYGZdq{}}\PYG{p}{(}\PYG{n}{p}\PYG{p}{));}
+	\PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -52,7 +52,7 @@
 \contentsline {subsection}{\numberline {5.3}Splay}{22}{}%
 \contentsline {subsection}{\numberline {5.4}树分治}{22}{}%
 \contentsline {subsubsection}{\numberline {5.4.1}动态树分治}{22}{}%
-\contentsline {subsubsection}{\numberline {5.4.2}紫荆花之恋}{22}{}%
+\contentsline {subsubsection}{\numberline {5.4.2}紫荆花之恋}{23}{}%
 \contentsline {subsection}{\numberline {5.5}LCT}{24}{}%
 \contentsline {subsubsection}{\numberline {5.5.1}不换根(弹飞绵羊)}{24}{}%
 \contentsline {subsubsection}{\numberline {5.5.2}换根/维护生成树(GREALD07加强版)}{25}{}%
@@ -66,14 +66,13 @@
 \contentsline {subsection}{\numberline {5.11}常见根号思路}{30}{}%
 \contentsline {section}{\numberline {6}动态规划}{30}{}%
 \contentsline {subsection}{\numberline {6.1}决策单调性$O(n\qopname \relax o{log}n)$}{30}{}%
-\contentsline {section}{\numberline {7}其他算法}{31}{}%
+\contentsline {section}{\numberline {7}Miscellaneous}{31}{}%
 \contentsline {subsection}{\numberline {7.1}$O(1)$快速乘}{31}{}%
 \contentsline {subsection}{\numberline {7.2}$O(n^2)$高精度}{31}{}%
-\contentsline {subsection}{\numberline {7.3}xorshift}{31}{}%
-\contentsline {section}{\numberline {8}参考资料}{31}{}%
-\contentsline {subsection}{\numberline {8.1}常见数列}{31}{}%
-\contentsline {subsubsection}{\numberline {8.1.1}伯努利数}{31}{}%
-\contentsline {section}{\numberline {9}注意事项}{31}{}%
-\contentsline {subsection}{\numberline {9.1}常见下毒手法}{31}{}%
-\contentsline {subsection}{\numberline {9.2}场外相关}{31}{}%
-\contentsline {subsection}{\numberline {9.3}做题策略与心态调节}{32}{}%
+\contentsline {subsection}{\numberline {7.3}xorshift}{34}{}%
+\contentsline {subsection}{\numberline {7.4}常见数列}{35}{}%
+\contentsline {subsubsection}{\numberline {7.4.1}伯努利数}{35}{}%
+\contentsline {section}{\numberline {8}注意事项}{35}{}%
+\contentsline {subsection}{\numberline {8.1}常见下毒手法}{35}{}%
+\contentsline {subsection}{\numberline {8.2}场外相关}{35}{}%
+\contentsline {subsection}{\numberline {8.3}做题策略与心态调节}{35}{}%

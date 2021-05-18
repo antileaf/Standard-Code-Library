@@ -43,7 +43,8 @@
     \PYG{n}{binary\PYGZus{}heap} \PYG{n}{heap}\PYG{p}{;}\PYG{c+c1}{//每个点的堆存的是它的子树中到它的最远距离，如果它是黑点的话还会包括自己}
     \PYG{n}{node} \PYG{o}{*}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{],}\PYG{o}{*}\PYG{n}{p}\PYG{p}{;}
     \PYG{k+kt}{bool} \PYG{n}{rev}\PYG{p}{;}
-    \PYG{n}{node}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{o}{:}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{k}\PYG{p}{),}\PYG{n}{maxsum}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{INF}\PYG{p}{),}\PYG{n}{prefix}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{INF}\PYG{p}{),}\PYG{n}{suffix}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{INF}\PYG{p}{),}\PYG{n}{key}\PYG{p}{(}\PYG{n}{k}\PYG{p}{),}\PYG{n}{rev}\PYG{p}{(}\PYG{n+nb}{false}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+    \PYG{n}{node}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{o}{:}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{k}\PYG{p}{),}\PYG{n}{maxsum}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{INF}\PYG{p}{),}\PYG{n}{prefix}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{INF}\PYG{p}{),}
+        \PYG{n}{suffix}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{INF}\PYG{p}{),}\PYG{n}{key}\PYG{p}{(}\PYG{n}{k}\PYG{p}{),}\PYG{n}{rev}\PYG{p}{(}\PYG{n+nb}{false}\PYG{p}{)\PYGZob{}\PYGZcb{}}
     \PYG{k+kr}{inline} \PYG{k+kt}{void} \PYG{n}{pushdown}\PYG{p}{()\PYGZob{}}
         \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{rev}\PYG{p}{)}\PYG{k}{return}\PYG{p}{;}
         \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{rev}\PYG{o}{\PYGZca{}=}\PYG{n+nb}{true}\PYG{p}{;}
@@ -57,13 +58,19 @@
         \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pushdown}\PYG{p}{();}
         \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pushdown}\PYG{p}{();}
         \PYG{n}{sum}\PYG{o}{=}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{sum}\PYG{o}{+}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{sum}\PYG{o}{+}\PYG{n}{key}\PYG{p}{;}
-        \PYG{n}{prefix}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{prefix}\PYG{p}{,}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{sum}\PYG{o}{+}\PYG{n}{key}\PYG{o}{+}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{prefix}\PYG{p}{);}
-        \PYG{n}{suffix}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suffix}\PYG{p}{,}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{sum}\PYG{o}{+}\PYG{n}{key}\PYG{o}{+}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suffix}\PYG{p}{);}
-        \PYG{n}{maxsum}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{max}\PYG{p}{(}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{maxsum}\PYG{p}{,}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{maxsum}\PYG{p}{),}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suffix}\PYG{o}{+}\PYG{n}{key}\PYG{o}{+}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{prefix}\PYG{p}{);}
+        \PYG{n}{prefix}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{prefix}\PYG{p}{,}
+            \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{sum}\PYG{o}{+}\PYG{n}{key}\PYG{o}{+}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{prefix}\PYG{p}{);}
+        \PYG{n}{suffix}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suffix}\PYG{p}{,}
+            \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{sum}\PYG{o}{+}\PYG{n}{key}\PYG{o}{+}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suffix}\PYG{p}{);}
+        \PYG{n}{maxsum}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{max}\PYG{p}{(}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{maxsum}\PYG{p}{,}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{maxsum}\PYG{p}{),}
+            \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suffix}\PYG{o}{+}\PYG{n}{key}\PYG{o}{+}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{prefix}\PYG{p}{);}
         \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{heap}\PYG{p}{.}\PYG{n}{empty}\PYG{p}{())\PYGZob{}}
-            \PYG{n}{prefix}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{prefix}\PYG{p}{,}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{sum}\PYG{o}{+}\PYG{n}{key}\PYG{o}{+}\PYG{n}{heap}\PYG{p}{.}\PYG{n}{top}\PYG{p}{());}
-            \PYG{n}{suffix}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{suffix}\PYG{p}{,}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{sum}\PYG{o}{+}\PYG{n}{key}\PYG{o}{+}\PYG{n}{heap}\PYG{p}{.}\PYG{n}{top}\PYG{p}{());}
-            \PYG{n}{maxsum}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{maxsum}\PYG{p}{,}\PYG{n}{max}\PYG{p}{(}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suffix}\PYG{p}{,}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{prefix}\PYG{p}{)}\PYG{o}{+}\PYG{n}{key}\PYG{o}{+}\PYG{n}{heap}\PYG{p}{.}\PYG{n}{top}\PYG{p}{());}
+            \PYG{n}{prefix}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{prefix}\PYG{p}{,}
+                \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{sum}\PYG{o}{+}\PYG{n}{key}\PYG{o}{+}\PYG{n}{heap}\PYG{p}{.}\PYG{n}{top}\PYG{p}{());}
+            \PYG{n}{suffix}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{suffix}\PYG{p}{,}
+                \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{sum}\PYG{o}{+}\PYG{n}{key}\PYG{o}{+}\PYG{n}{heap}\PYG{p}{.}\PYG{n}{top}\PYG{p}{());}
+            \PYG{n}{maxsum}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{maxsum}\PYG{p}{,}\PYG{n}{max}\PYG{p}{(}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suffix}\PYG{p}{,}
+                \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{prefix}\PYG{p}{)}\PYG{o}{+}\PYG{n}{key}\PYG{o}{+}\PYG{n}{heap}\PYG{p}{.}\PYG{n}{top}\PYG{p}{());}
             \PYG{k}{if}\PYG{p}{(}\PYG{n}{heap}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}
                 \PYG{n}{maxsum}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{maxsum}\PYG{p}{,}\PYG{n}{heap}\PYG{p}{.}\PYG{n}{top2}\PYG{p}{()}\PYG{o}{+}\PYG{n}{key}\PYG{p}{);}
             \PYG{p}{\PYGZcb{}}
@@ -133,7 +140,8 @@
         \PYG{n}{freenodes}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{();}
         \PYG{o}{*}\PYG{n}{tmp}\PYG{o}{=}\PYG{n}{node}\PYG{p}{(}\PYG{n}{z}\PYG{p}{);}
     \PYG{p}{\PYGZcb{}}
-    \PYG{n}{tmp}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{n}{tmp}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{=}\PYG{n}{tmp}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{=}\PYG{n}{null}\PYG{p}{;}\PYG{n}{heap}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{tmp}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{maxsum}\PYG{p}{);}
+    \PYG{n}{tmp}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{n}{tmp}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{=}\PYG{n}{tmp}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{=}\PYG{n}{null}\PYG{p}{;}
+    \PYG{n}{heap}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{tmp}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{maxsum}\PYG{p}{);}
     \PYG{n}{link}\PYG{p}{(}\PYG{n}{tmp}\PYG{p}{,}\PYG{n}{null}\PYG{o}{+}\PYG{n}{x}\PYG{p}{);}
     \PYG{n}{link}\PYG{p}{(}\PYG{n}{tmp}\PYG{p}{,}\PYG{n}{null}\PYG{o}{+}\PYG{n}{y}\PYG{p}{);}
     \PYG{n}{mp}\PYG{p}{[}\PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{)]}\PYG{o}{=}\PYG{n}{tmp}\PYG{p}{;}
@@ -175,7 +183,8 @@
     \PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{refresh}\PYG{p}{();}
     \PYG{k}{if}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{!=}\PYG{n}{null}\PYG{p}{)\PYGZob{}}
         \PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pushdown}\PYG{p}{();}
-        \PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{heap}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{prefix}\PYG{p}{);}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{refresh}\PYG{p}{();}
+        \PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{heap}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{prefix}\PYG{p}{);}
+        \PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{refresh}\PYG{p}{();}
         \PYG{n}{heap}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{maxsum}\PYG{p}{);}
     \PYG{p}{\PYGZcb{}}
     \PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{=}\PYG{n}{null}\PYG{p}{;}
@@ -227,23 +236,27 @@
 \PYG{k+kt}{void} \PYG{n+nf}{splay}\PYG{p}{(}\PYG{n}{node} \PYG{o}{*}\PYG{n}{x}\PYG{p}{)\PYGZob{}}
     \PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pushdown}\PYG{p}{();}
     \PYG{k}{while}\PYG{p}{(}\PYG{o}{!}\PYG{n}{isroot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{))\PYGZob{}}
-        \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{isroot}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{p}{))}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pushdown}\PYG{p}{();}
+        \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{isroot}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{p}{))}
+            \PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pushdown}\PYG{p}{();}
         \PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pushdown}\PYG{p}{();}
         \PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pushdown}\PYG{p}{();}
         \PYG{k}{if}\PYG{p}{(}\PYG{n}{isroot}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{p}{))\PYGZob{}}
             \PYG{n}{rot}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{p}{,}\PYG{n}{dir}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{1}\PYG{p}{);}
             \PYG{k}{break}\PYG{p}{;}
         \PYG{p}{\PYGZcb{}}
-        \PYG{k}{if}\PYG{p}{(}\PYG{n}{dir}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{==}\PYG{n}{dir}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{p}{))}\PYG{n}{rot}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{p}{,}\PYG{n}{dir}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{p}{)}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{1}\PYG{p}{);}
+        \PYG{k}{if}\PYG{p}{(}\PYG{n}{dir}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{==}\PYG{n}{dir}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{p}{))}
+            \PYG{n}{rot}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{p}{,}\PYG{n}{dir}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{p}{)}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{1}\PYG{p}{);}
         \PYG{k}{else} \PYG{n}{rot}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{p}{,}\PYG{n}{dir}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{1}\PYG{p}{);}
         \PYG{n}{rot}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{p}{,}\PYG{n}{dir}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{1}\PYG{p}{);}
     \PYG{p}{\PYGZcb{}}
 \PYG{p}{\PYGZcb{}}
 \PYG{k+kt}{void} \PYG{n+nf}{rot}\PYG{p}{(}\PYG{n}{node} \PYG{o}{*}\PYG{n}{x}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{d}\PYG{p}{)\PYGZob{}}
     \PYG{n}{node} \PYG{o}{*}\PYG{n}{y}\PYG{o}{=}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{d}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{1}\PYG{p}{];}
-    \PYG{k}{if}\PYG{p}{((}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{d}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{=}\PYG{n}{y}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{d}\PYG{p}{])}\PYG{o}{!=}\PYG{n}{null}\PYG{p}{)}\PYG{n}{y}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{=}\PYG{n}{x}\PYG{p}{;}
+    \PYG{k}{if}\PYG{p}{((}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{d}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{=}\PYG{n}{y}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{d}\PYG{p}{])}\PYG{o}{!=}\PYG{n}{null}\PYG{p}{)}
+        \PYG{n}{y}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{=}\PYG{n}{x}\PYG{p}{;}
     \PYG{n}{y}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{=}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{p}{;}
-    \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{isroot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{))}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{dir}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)]}\PYG{o}{=}\PYG{n}{y}\PYG{p}{;}
+    \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{isroot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{))}
+        \PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{dir}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)]}\PYG{o}{=}\PYG{n}{y}\PYG{p}{;}
     \PYG{p}{(}\PYG{n}{y}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{d}\PYG{p}{]}\PYG{o}{=}\PYG{n}{x}\PYG{p}{)}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{=}\PYG{n}{y}\PYG{p}{;}
     \PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{refresh}\PYG{p}{();}
     \PYG{n}{y}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{refresh}\PYG{p}{();}

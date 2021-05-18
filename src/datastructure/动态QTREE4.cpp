@@ -42,7 +42,8 @@ struct node{
     binary_heap heap;//每个点的堆存的是它的子树中到它的最远距离，如果它是黑点的话还会包括自己
     node *ch[2],*p;
     bool rev;
-    node(int k=0):sum(k),maxsum(-INF),prefix(-INF),suffix(-INF),key(k),rev(false){}
+    node(int k=0):sum(k),maxsum(-INF),prefix(-INF),
+        suffix(-INF),key(k),rev(false){}
     inline void pushdown(){
         if(!rev)return;
         ch[0]->rev^=true;
@@ -56,13 +57,19 @@ struct node{
         ch[0]->pushdown();
         ch[1]->pushdown();
         sum=ch[0]->sum+ch[1]->sum+key;
-        prefix=max(ch[0]->prefix,ch[0]->sum+key+ch[1]->prefix);
-        suffix=max(ch[1]->suffix,ch[1]->sum+key+ch[0]->suffix);
-        maxsum=max(max(ch[0]->maxsum,ch[1]->maxsum),ch[0]->suffix+key+ch[1]->prefix);
+        prefix=max(ch[0]->prefix,
+            ch[0]->sum+key+ch[1]->prefix);
+        suffix=max(ch[1]->suffix,
+            ch[1]->sum+key+ch[0]->suffix);
+        maxsum=max(max(ch[0]->maxsum,ch[1]->maxsum),
+            ch[0]->suffix+key+ch[1]->prefix);
         if(!heap.empty()){
-            prefix=max(prefix,ch[0]->sum+key+heap.top());
-            suffix=max(suffix,ch[1]->sum+key+heap.top());
-            maxsum=max(maxsum,max(ch[0]->suffix,ch[1]->prefix)+key+heap.top());
+            prefix=max(prefix,
+                ch[0]->sum+key+heap.top());
+            suffix=max(suffix,
+                ch[1]->sum+key+heap.top());
+            maxsum=max(maxsum,max(ch[0]->suffix,
+                ch[1]->prefix)+key+heap.top());
             if(heap.size()>1){
                 maxsum=max(maxsum,heap.top2()+key);
             }
@@ -132,7 +139,8 @@ void addedge(int x,int y,int z){
         freenodes.pop();
         *tmp=node(z);
     }
-    tmp->ch[0]=tmp->ch[1]=tmp->p=null;heap.push(tmp->maxsum);
+    tmp->ch[0]=tmp->ch[1]=tmp->p=null;
+    heap.push(tmp->maxsum);
     link(tmp,null+x);
     link(tmp,null+y);
     mp[make_pair(x,y)]=tmp;
@@ -174,7 +182,8 @@ node *access(node *x){
     x->refresh();
     if(x->ch[1]!=null){
         x->ch[1]->pushdown();
-        x->heap.push(x->ch[1]->prefix);x->refresh();
+        x->heap.push(x->ch[1]->prefix);
+        x->refresh();
         heap.push(x->ch[1]->maxsum);
     }
     x->ch[1]=null;
@@ -226,23 +235,27 @@ void cut(node *x,node *y){//断开一条实边，一条链变成两条链，需�
 void splay(node *x){
     x->pushdown();
     while(!isroot(x)){
-        if(!isroot(x->p))x->p->p->pushdown();
+        if(!isroot(x->p))
+            x->p->p->pushdown();
         x->p->pushdown();
         x->pushdown();
         if(isroot(x->p)){
             rot(x->p,dir(x)^1);
             break;
         }
-        if(dir(x)==dir(x->p))rot(x->p->p,dir(x->p)^1);
+        if(dir(x)==dir(x->p))
+            rot(x->p->p,dir(x->p)^1);
         else rot(x->p,dir(x)^1);
         rot(x->p,dir(x)^1);
     }
 }
 void rot(node *x,int d){
     node *y=x->ch[d^1];
-    if((x->ch[d^1]=y->ch[d])!=null)y->ch[d]->p=x;
+    if((x->ch[d^1]=y->ch[d])!=null)
+        y->ch[d]->p=x;
     y->p=x->p;
-    if(!isroot(x))x->p->ch[dir(x)]=y;
+    if(!isroot(x))
+        x->p->ch[dir(x)]=y;
     (y->ch[d]=x)->p=y;
     x->refresh();
     y->refresh();

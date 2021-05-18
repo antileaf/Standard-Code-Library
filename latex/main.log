@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  18 MAY 2021 21:05
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  18 MAY 2021 23:11
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1141,19 +1141,19 @@ Package fontspec Info: Could not resolve font "等线/I" (it probably doesn't
 
 
 Package fontspec Info: Font family '等线(0)' created for font '等线' with options
-(fontspec)             [Scale=0.9].
+(fontspec)             [Scale=0.95].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[0.9]"等线/OT:language=dflt;"
+(fontspec)             <->s*[0.95]"等线/OT:language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[0.9]"等线/B/OT:language=dflt;"
+(fontspec)             <->s*[0.95]"等线/B/OT:language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[0.9]"等线/BI/OT:language=dflt;"
+(fontspec)             <->s*[0.95]"等线/BI/OT:language=dflt;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
  (c:/texlive/2021/texmf-dist/tex/latex/geometry/geometry.sty
@@ -1323,7 +1323,7 @@ File: cover.pdf Graphic file (type pdf)
 
 ] (./main.toc
 LaTeX Font Info:    Font shape `TU/等线(0)/m/n' will be
-(Font)              scaled to size 12.9599pt on input line 1.
+(Font)              scaled to size 13.67995pt on input line 1.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
  (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1333,22 +1333,22 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/等线(0)/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 2.
+(Font)              scaled to size 9.49997pt on input line 2.
 )
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
  [1]
 LaTeX Font Info:    Font shape `TU/等线(0)/m/n' will be
-(Font)              scaled to size 18.66588pt on input line 132.
+(Font)              scaled to size 19.70294pt on input line 132.
 LaTeX Font Info:    Font shape `TU/等线(0)/bx/n' in size <12> not available
 (Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 134.
 LaTeX Font Info:    Font shape `TU/等线(0)/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 134.
+(Font)              scaled to size 11.39996pt on input line 134.
 LaTeX Font Info:    Font shape `TU/等线(0)/bx/n' in size <10> not available
 (Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 137.
 LaTeX Font Info:    Font shape `TU/等线(0)/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 137.
+(Font)              scaled to size 9.49997pt on input line 137.
  (./_minted-main/default-pyg-prefix.pygstyle) (./_minted-main/solarized-light.pygstyle) (./_minted-main/858009D16DEC2806A24ABEEFF0E8CE28364FE131EAF292715EEF0B63283C77E1.pygtex
 LaTeX Font Info:    Font shape `TU/Consolas(0)/m/n' will be
 (Font)              scaled to size 7.74994pt on input line 1.
@@ -1361,7 +1361,7 @@ LaTeX Font Warning: Font shape `TU/等线(0)/m/it' undefined
 
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 LaTeX Font Info:    Font shape `TU/等线(0)/m/it' will be
-(Font)              scaled to size 8.99994pt on input line 2.
+(Font)              scaled to size 9.49997pt on input line 2.
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 LaTeX Font Info:    Font shape `TU/Consolas(0)/m/n' will be
 (Font)              scaled to size 3.87497pt on input line 2.
@@ -1462,7 +1462,7 @@ Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=la
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 
 LaTeX Font Warning: Font shape `TU/等线(0)/m/sl' undefined
-(Font)              using `TU/等线(0)/m/n' instead on input line 118.
+(Font)              using `TU/等线(0)/m/n' instead on input line 117.
 
 [2]
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1492,11 +1492,11 @@ Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=la
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 LaTeX Font Info:    Font shape `TU/等线(0)/m/sl' will be
-(Font)              scaled to size 8.99994pt on input line 27.
+(Font)              scaled to size 9.49997pt on input line 25.
  [3]
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1512,7 +1512,7 @@ Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=la
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 
-Overfull \hbox (10.70317pt too wide) in paragraph at lines 66--66
+Overfull \hbox (11.2032pt too wide) in paragraph at lines 66--66
 || | |[][][][]\TU/Consolas(0)/m/n/10 heap[][].[][]push[][]([][]B[][]([][]v[][][[][]rt[][]->[][]i[][]],[][]root[][][[][]v[][][[][]rt[][]->[][]i[][]]],[][]w[][]+[][]rt[][]->[][]w[][]));[][]\TU/Consolas(0)/m/it/10 //\TU/等线(0)/m/sl/10 保 
  []
 
@@ -1936,40 +1936,15 @@ Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=la
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (./_minted-main/2771D4D4A5C55545C28655C2F1ABEF00364FE131EAF292715EEF0B63283C77E1.pygtex
+)
+runsystem(python -c "import sys; import os; import textwrap; from io import open; fname = os.path.expanduser(os.path.expandvars(\"../src/datastructure/动态QTREE4.cpp\")); f = open(fname, \"r\", encoding=\"UTF8\") if os.path.isfile(fname) else None; t = f.readlines() if f is not None else None; t_opt = t if t is not None else []; f.close() if f is not None else None; tmpfname = os.path.expanduser(os.path.expandvars(\"main.pyg\")); f = open(tmpfname, \"w\", encoding=\"UTF8\") if t is not None else None; fvstartnum = 0; fvstopnum = 0; s = fvstartnum-1 if fvstartnum != 0 else 0; e = fvstopnum if fvstopnum != 0 else len(t_opt); [f.write(textwrap.dedent(\"\".join(x))) for x in (t_opt[0:s], t_opt[s:e], t_opt[e:]) if x and t is not None]; f.close() if t is not None else os.remove(tmpfname);")...executed.
+
+runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P mathescape=True -o _minted-main/27896DB1D4068D69D056DA60DF7B65E2364FE131EAF292715EEF0B63283C77E1.pygtex main.pyg)...executed.
+
+ (./_minted-main/27896DB1D4068D69D056DA60DF7B65E2364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-
-Overfull \hbox (69.87842pt too wide) in paragraph at lines 46--46
-[]\TU/Consolas(0)/m/n/10 k[][]=[][]0[][])[][]:[][]sum[][]([][]k[][]),[][]maxsum[][]([][]-[][]INF[][]),[][]prefix[][]([][]-[][]INF[][]),[][]suffix[][]([][]-[][]INF[][]),[][]key[][]([][]k[][]),[][]rev[][]([][]false[][]) 
- []
-
-[27]
-Overfull \hbox (31.52988pt too wide) in paragraph at lines 60--60
-[]\TU/Consolas(0)/m/n/10 prefix[][]=[][]max[][]([][]ch[][][[][]0[][]][][]->[][]prefix[][],[][]ch[][][[][]0[][]][][]->[][]sum[][]+[][]key[][]+[][]ch[][][[][]1[][]][][]->[][]prefix[][]);[]|  
- []
-
-
-Overfull \hbox (31.52988pt too wide) in paragraph at lines 61--61
-[]\TU/Consolas(0)/m/n/10 suffix[][]=[][]max[][]([][]ch[][][[][]1[][]][][]->[][]suffix[][],[][]ch[][][[][]1[][]][][]->[][]sum[][]+[][]key[][]+[][]ch[][][[][]0[][]][][]->[][]suffix[][]);[]|  
- []
-
-
-Overfull \hbox (125.27087pt too wide) in paragraph at lines 62--62
-[]\TU/Consolas(0)/m/n/10 maxsum[][]=[][]max[][]([][]max[][]([][]ch[][][[][]0[][]][][]->[][]maxsum[][],[][]ch[][][[][]1[][]][][]->[][]maxsum[][]),[][]ch[][][[][]0[][]][][]->[][]suffix[][]+[][]key[][]+[][]ch[][][[][]1[][]][][]->[][]prefix[][]);[]|  
- []
-
-
-Overfull \hbox (99.70511pt too wide) in paragraph at lines 66--66
-[]\TU/Consolas(0)/m/n/10 maxsum[][]=[][]max[][]([][]maxsum[][],[][]max[][]([][]ch[][][[][]0[][]][][]->[][]suffix[][],[][]ch[][][[][]1[][]][][]->[][]prefix[][])[][]+[][]key[][]+[][]heap[][].[][]top[][]());[]|  
- []
-
-
-Overfull \hbox (23.00793pt too wide) in paragraph at lines 136--136
-[]\TU/Consolas(0)/m/n/10 tmp[][]->[][]ch[][][[][]0[][]][][]=[][]tmp[][]->[][]ch[][][[][]1[][]][][]=[][]tmp[][]->[][]p[][]=[][]null[][];[][]heap[][].[][]push[][]([][]tmp[][]->[][]maxsum[][]);[]|  
- []
-
-[28]
+ [27] [28]
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -2009,13 +1984,19 @@ Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=la
 ) (./_minted-main/2CB5B577E267F37AD24F99ADC3BA9173364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
- [30]) (../src/参考资料/伯努利数.tex
+ [30]) (./_minted-main/9166B5028F434ACA07E2EC98EA633E50364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/850003692678BF07E61E597C1CAFF204364FE131EAF292715EEF0B63283C77E1.pygtex
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+ [31] [32] [33]) (./_minted-main/64984275464294626A0B1DD731D664E9364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/伯努利数.tex
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 6.
 
-) (../src/注意事项/常见下毒手法.tex) (../src/注意事项/场外相关.tex) (../src/注意事项/做题策略与心态调节.tex [31]) [32] (./main.aux)
+) [34] (../src/attention/常见下毒手法.tex) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex)
+runsystem(del _minted-main\2771D4D4A5C55545C28655C2F1ABEF00364FE131EAF292715EEF0B63283C77E1.pygtex)...executed.
+
+ [35] (./main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.44003pt have occurred.
@@ -2023,14 +2004,16 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+runsystem(del main.pyg)...executed.
+
  ) 
 Here is how much of TeX's memory you used:
- 17919 strings out of 476919
- 351453 string characters out of 5825424
- 1015087 words of memory out of 5000000
- 37437 multiletter control sequences out of 15000+600000
+ 17936 strings out of 476919
+ 352863 string characters out of 5825424
+ 1015568 words of memory out of 5000000
+ 37444 multiletter control sequences out of 15000+600000
  415935 words of font info for 108 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 85i,17n,89p,800b,1055s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 85i,17n,89p,809b,1059s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (33 pages).
+Output written on main.pdf (36 pages).

@@ -1,0 +1,365 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// 注意如果只需要正数运算的话}
+\PYG{c+c1}{// 可以只抄英文名的运算函数}
+\PYG{c+c1}{// 按需自取}
+\PYG{c+c1}{// 乘法O(n \PYGZca{} 2)，除法O(10 * n \PYGZca{} 2)}
+
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{maxn} \PYG{o}{=} \PYG{l+m+mi}{1005}\PYG{p}{;}
+
+\PYG{k}{struct} \PYG{n+nc}{big\PYGZus{}decimal} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{int} \PYG{n}{a}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+	\PYG{k+kt}{bool} \PYG{n}{negative}\PYG{p}{;}
+
+	\PYG{n}{big\PYGZus{}decimal}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+		\PYG{n}{memset}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{a}\PYG{p}{));}
+		\PYG{n}{negative} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n}{big\PYGZus{}decimal}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{memset}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{a}\PYG{p}{));}
+		\PYG{n}{negative} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n}{negative} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+			\PYG{n}{x} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{x}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{while} \PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n}{a}\PYG{p}{[}\PYG{o}{++}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]]} \PYG{o}{=} \PYG{n}{x} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{10}\PYG{p}{;}
+			\PYG{n}{x} \PYG{o}{/=} \PYG{l+m+mi}{10}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n}{big\PYGZus{}decimal}\PYG{p}{(}\PYG{n}{string} \PYG{n}{s}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{memset}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{a}\PYG{p}{));}
+		\PYG{n}{negative} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{s} \PYG{o}{==} \PYG{l+s}{\PYGZdq{}\PYGZdq{}}\PYG{p}{)}
+			\PYG{k}{return}\PYG{p}{;}
+
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{s}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+sc}{\PYGZsq{}\PYGZhy{}\PYGZsq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n}{negative} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+			\PYG{n}{s} \PYG{o}{=} \PYG{n}{s}\PYG{p}{.}\PYG{n}{substr}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{s}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+			\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{s}\PYG{p}{[}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+
+		\PYG{k}{while} \PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{a}\PYG{p}{[}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]])}
+			\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k+kt}{void} \PYG{n}{input}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+		\PYG{n}{string} \PYG{n}{s}\PYG{p}{;}
+		\PYG{n}{cin} \PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{s}\PYG{p}{;}
+		\PYG{o}{*}\PYG{k}{this} \PYG{o}{=} \PYG{n}{s}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n}{string} \PYG{n}{str}\PYG{p}{()} \PYG{k}{const} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}
+			\PYG{k}{return} \PYG{l+s}{\PYGZdq{}0\PYGZdq{}}\PYG{p}{;}
+
+		\PYG{n}{string} \PYG{n}{s}\PYG{p}{;}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{negative}\PYG{p}{)}
+			\PYG{n}{s} \PYG{o}{=} \PYG{l+s}{\PYGZdq{}\PYGZhy{}\PYGZdq{}}\PYG{p}{;}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];} \PYG{n}{i}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)}
+			\PYG{n}{s}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}} \PYG{o}{+} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+
+		\PYG{k}{return} \PYG{n}{s}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{operator} \PYG{n}{string} \PYG{p}{()} \PYG{k}{const} \PYG{p}{\PYGZob{}}
+		\PYG{k}{return} \PYG{n}{str}\PYG{p}{();}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n}{big\PYGZus{}decimal} \PYG{k}{operator} \PYG{o}{\PYGZhy{}} \PYG{p}{()} \PYG{k}{const} \PYG{p}{\PYGZob{}}
+		\PYG{n}{big\PYGZus{}decimal} \PYG{n}{o} \PYG{o}{=} \PYG{o}{*}\PYG{k}{this}\PYG{p}{;}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}
+			\PYG{n}{o}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{\PYGZca{}=} \PYG{n+nb}{true}\PYG{p}{;}
+
+		\PYG{k}{return} \PYG{n}{o}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{n}{big\PYGZus{}decimal} \PYG{n}{abs}\PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{big\PYGZus{}decimal} \PYG{n}{o} \PYG{o}{=} \PYG{n}{u}\PYG{p}{;}
+		\PYG{n}{o}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+		\PYG{k}{return} \PYG{n}{o}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{k}{operator} \PYG{o}{\PYGZlt{}\PYGZlt{}=} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{k}\PYG{p}{;}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];} \PYG{n}{i} \PYG{o}{\PYGZgt{}} \PYG{n}{k}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)}
+			\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{k}\PYG{p}{];}
+
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{k}\PYG{p}{;} \PYG{n}{i}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)}
+			\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+
+		\PYG{k}{return} \PYG{o}{*}\PYG{k}{this}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{n}{big\PYGZus{}decimal} \PYG{k}{operator} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{k}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{big\PYGZus{}decimal} \PYG{n}{o} \PYG{o}{=} \PYG{n}{u}\PYG{p}{;}
+		\PYG{k}{return} \PYG{n}{o} \PYG{o}{\PYGZlt{}\PYGZlt{}=} \PYG{n}{k}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{k}{operator} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{n}{k}\PYG{p}{)}
+			\PYG{k}{return} \PYG{o}{*}\PYG{k}{this} \PYG{o}{=} \PYG{n}{big\PYGZus{}decimal}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+
+		\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{k}\PYG{p}{;}
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+			\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{n}{k}\PYG{p}{];}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{+} \PYG{n}{k}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+			\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+
+		\PYG{k}{return} \PYG{o}{*}\PYG{k}{this}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{n}{big\PYGZus{}decimal} \PYG{k}{operator} \PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{k}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{big\PYGZus{}decimal} \PYG{n}{o} \PYG{o}{=} \PYG{n}{u}\PYG{p}{;}
+		\PYG{k}{return} \PYG{n}{o} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{n}{k}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{k+kt}{int} \PYG{n}{cmp}\PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{||} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)}
+				\PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{n}{cmp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{u}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{v}\PYG{p}{);}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)}
+				\PYG{k}{return} \PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)}
+				\PYG{k}{return} \PYG{l+m+mi}{1}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{v}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}
+			\PYG{k}{return} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{n}{v}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{?} \PYG{l+m+mi}{\PYGZhy{}1} \PYG{o}{:} \PYG{l+m+mi}{1}\PYG{p}{;}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];} \PYG{n}{i}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)}
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{v}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+				\PYG{k}{return} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{n}{v}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{?} \PYG{l+m+mi}{\PYGZhy{}1} \PYG{o}{:} \PYG{l+m+mi}{1}\PYG{p}{;}
+
+		\PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{k+kt}{bool} \PYG{k}{operator} \PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{return} \PYG{n}{cmp}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{k+kt}{bool} \PYG{k}{operator} \PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{return} \PYG{n}{cmp}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{k+kt}{bool} \PYG{k}{operator} \PYG{o}{==} \PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{return} \PYG{n}{cmp}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{k+kt}{bool} \PYG{k}{operator} \PYG{o}{\PYGZlt{}=} \PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{return} \PYG{n}{cmp}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{)} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{k+kt}{bool} \PYG{k}{operator} \PYG{o}{\PYGZgt{}=} \PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{return} \PYG{n}{cmp}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{)} \PYG{o}{\PYGZgt{}=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{n}{big\PYGZus{}decimal} \PYG{n}{decimal\PYGZus{}plus}\PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 保证u, v均为正数的话可以直接调用}
+		\PYG{n}{big\PYGZus{}decimal} \PYG{n}{o}\PYG{p}{;}
+
+		\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{max}\PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{v}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]);}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{||} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{v}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+} \PYG{n}{v}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZgt{}=} \PYG{l+m+mi}{10}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+				\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{++}\PYG{p}{;}
+				\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{l+m+mi}{10}\PYG{p}{;}
+			\PYG{p}{\PYGZcb{}}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{])}
+			\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{++}\PYG{p}{;}
+
+		\PYG{k}{return} \PYG{n}{o}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{n}{big\PYGZus{}decimal} \PYG{n}{decimal\PYGZus{}minus}\PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 保证u, v均为正数的话可以直接调用}
+		\PYG{k+kt}{int} \PYG{n}{k} \PYG{o}{=} \PYG{n}{cmp}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{);}
+
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{k} \PYG{o}{==} \PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)}
+			\PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{n}{decimal\PYGZus{}minus}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,} \PYG{n}{u}\PYG{p}{);}
+		\PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{k} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)}
+			\PYG{k}{return} \PYG{n}{big\PYGZus{}decimal}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+
+		\PYG{n}{big\PYGZus{}decimal} \PYG{n}{o}\PYG{p}{;}
+
+		\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{v}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+				\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+=} \PYG{l+m+mi}{10}\PYG{p}{;}
+				\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{;}
+			\PYG{p}{\PYGZcb{}}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{while} \PYG{p}{(}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]])}
+			\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{;}
+
+		\PYG{k}{return} \PYG{n}{o}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{n}{big\PYGZus{}decimal} \PYG{n}{decimal\PYGZus{}multi}\PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{big\PYGZus{}decimal} \PYG{n}{o}\PYG{p}{;}
+
+		\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{+} \PYG{n}{v}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+			\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}=} \PYG{n}{v}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)}
+				\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{n}{j} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{*} \PYG{n}{v}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{j}\PYG{p}{];}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZgt{}=} \PYG{l+m+mi}{10}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+				\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{/} \PYG{l+m+mi}{10}\PYG{p}{;}
+				\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZpc{}=} \PYG{l+m+mi}{10}\PYG{p}{;}
+			\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{])}
+			\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{++}\PYG{p}{;}
+
+		\PYG{k}{return} \PYG{n}{o}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{big\PYGZus{}decimal}\PYG{p}{,} \PYG{n}{big\PYGZus{}decimal}\PYG{o}{\PYGZgt{}} \PYG{n}{decimal\PYGZus{}divide}\PYG{p}{(}\PYG{n}{big\PYGZus{}decimal} \PYG{n}{u}\PYG{p}{,} \PYG{n}{big\PYGZus{}decimal} \PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 整除}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{v} \PYG{o}{\PYGZgt{}} \PYG{n}{u}\PYG{p}{)}
+			\PYG{k}{return} \PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{n}{big\PYGZus{}decimal}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{),} \PYG{n}{u}\PYG{p}{);}
+
+		\PYG{n}{big\PYGZus{}decimal} \PYG{n}{o}\PYG{p}{;}
+		\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{v}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;}
+
+		\PYG{k+kt}{int} \PYG{n}{m} \PYG{o}{=} \PYG{n}{v}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+		\PYG{n}{v} \PYG{o}{\PYGZlt{}\PYGZlt{}=} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{m}\PYG{p}{;}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{u}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];} \PYG{n}{i} \PYG{o}{\PYGZgt{}=} \PYG{n}{m}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{k}{while} \PYG{p}{(}\PYG{n}{u} \PYG{o}{\PYGZgt{}=} \PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+				\PYG{n}{u} \PYG{o}{=} \PYG{n}{u} \PYG{o}{\PYGZhy{}} \PYG{n}{v}\PYG{p}{;}
+				\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{m} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{++}\PYG{p}{;}
+			\PYG{p}{\PYGZcb{}}
+
+			\PYG{n}{v} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{while} \PYG{p}{(}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]])}
+			\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{;}
+
+		\PYG{k}{return} \PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{n}{o}\PYG{p}{,} \PYG{n}{u}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{n}{big\PYGZus{}decimal} \PYG{k}{operator} \PYG{o}{+} \PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{||} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)}
+				\PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{n}{decimal\PYGZus{}plus}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{u}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{v}\PYG{p}{);}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)}
+				\PYG{k}{return} \PYG{n}{v} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{u}\PYG{p}{);}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)}
+				\PYG{k}{return} \PYG{n}{u} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{v}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{return} \PYG{n}{decimal\PYGZus{}plus}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{n}{big\PYGZus{}decimal} \PYG{k}{operator} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{||} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)}
+				\PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{n}{decimal\PYGZus{}minus}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{u}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{v}\PYG{p}{);}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)}
+				\PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{n}{decimal\PYGZus{}plus}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{);}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)}
+				\PYG{k}{return} \PYG{n}{decimal\PYGZus{}plus}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{v}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{return} \PYG{n}{decimal\PYGZus{}minus}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{n}{big\PYGZus{}decimal} \PYG{k}{operator} \PYG{o}{*} \PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{||} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n}{big\PYGZus{}decimal} \PYG{n}{o} \PYG{o}{=} \PYG{n}{decimal\PYGZus{}multi}\PYG{p}{(}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{u}\PYG{p}{),} \PYG{n}{abs}\PYG{p}{(}\PYG{n}{v}\PYG{p}{));}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{\PYGZca{}} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)}
+				\PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{n}{o}\PYG{p}{;}
+			\PYG{k}{return} \PYG{n}{o}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{return} \PYG{n}{decimal\PYGZus{}multi}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n}{big\PYGZus{}decimal} \PYG{k}{operator} \PYG{o}{*} \PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{x}\PYG{p}{)} \PYG{k}{const} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZgt{}=} \PYG{l+m+mi}{10}\PYG{p}{)}
+			\PYG{k}{return} \PYG{o}{*}\PYG{k}{this} \PYG{o}{*} \PYG{n}{big\PYGZus{}decimal}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);}
+
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{negative}\PYG{p}{)}
+			\PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{o}{*}\PYG{k}{this} \PYG{o}{*} \PYG{n}{x}\PYG{p}{);}
+
+		\PYG{n}{big\PYGZus{}decimal} \PYG{n}{o}\PYG{p}{;}
+
+		\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{*} \PYG{n}{x}\PYG{p}{;}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZgt{}=} \PYG{l+m+mi}{10}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+				\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{/} \PYG{l+m+mi}{10}\PYG{p}{;}
+				\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZpc{}=} \PYG{l+m+mi}{10}\PYG{p}{;}
+			\PYG{p}{\PYGZcb{}}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{])}
+			\PYG{n}{o}\PYG{p}{.}\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{++}\PYG{p}{;}
+
+		\PYG{k}{return} \PYG{n}{o}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{big\PYGZus{}decimal}\PYG{p}{,} \PYG{n}{big\PYGZus{}decimal}\PYG{o}{\PYGZgt{}} \PYG{n}{decimal\PYGZus{}div}\PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{||} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{big\PYGZus{}decimal}\PYG{p}{,} \PYG{n}{big\PYGZus{}decimal}\PYG{o}{\PYGZgt{}} \PYG{n}{o} \PYG{o}{=} \PYG{n}{decimal\PYGZus{}div}\PYG{p}{(}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{u}\PYG{p}{),} \PYG{n}{abs}\PYG{p}{(}\PYG{n}{v}\PYG{p}{));}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{\PYGZca{}} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)}
+				\PYG{k}{return} \PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{o}\PYG{p}{.}\PYG{n}{first}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{o}\PYG{p}{.}\PYG{n}{second}\PYG{p}{);}
+			\PYG{k}{return} \PYG{n}{o}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{return} \PYG{n}{decimal\PYGZus{}divide}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{n}{big\PYGZus{}decimal} \PYG{k}{operator} \PYG{o}{/} \PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// v不能是0}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{||} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n}{big\PYGZus{}decimal} \PYG{n}{o} \PYG{o}{=} \PYG{n}{abs}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{o}{/} \PYG{n}{abs}\PYG{p}{(}\PYG{n}{v}\PYG{p}{);}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{\PYGZca{}} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)}
+				\PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{n}{o}\PYG{p}{;}
+			\PYG{k}{return} \PYG{n}{o}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{return} \PYG{n}{decimal\PYGZus{}divide}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{).}\PYG{n}{first}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{friend} \PYG{n}{big\PYGZus{}decimal} \PYG{k}{operator} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{u}\PYG{p}{,} \PYG{k}{const} \PYG{n}{big\PYGZus{}decimal} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{||} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n}{big\PYGZus{}decimal} \PYG{n}{o} \PYG{o}{=} \PYG{n}{abs}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{o}{\PYGZpc{}} \PYG{n}{abs}\PYG{p}{(}\PYG{n}{v}\PYG{p}{);}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{negative} \PYG{o}{\PYGZca{}} \PYG{n}{v}\PYG{p}{.}\PYG{n}{negative}\PYG{p}{)}
+				\PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{n}{o}\PYG{p}{;}
+			\PYG{k}{return} \PYG{n}{o}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{k}{return} \PYG{n}{decimal\PYGZus{}divide}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{).}\PYG{n}{second}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}
