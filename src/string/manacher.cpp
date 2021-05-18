@@ -1,8 +1,4 @@
-//Manacher O(n)
-//By ysf
-//通过题目：51Nod1089 最长回文子串V2
-
-//n为串长，回文半径输出到p数组中
+//n为串长,回文半径输出到p数组中
 //数组要开串长的两倍
 void manacher(const char *t, int n) {
 	static char s[maxn * 2];

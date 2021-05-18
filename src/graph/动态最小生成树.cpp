@@ -1,32 +1,32 @@
-﻿// 动态最小生成树的离线算法比较容易，而在线算法通常极为复杂
-// 一个跑得比较快的离线做法是对时间分治，在每层分治时找出一定在/不在MST上的边，只带着不确定边继续递归
-// 简单起见，找确定边的过程用Kruskal算法实现，过程中的两种重要操作如下：
-// - Reduction：待修改边标为+INF，跑MST后把非树边删掉，减少无用边
-// - Contraction：待修改边标为-INF，跑MST后缩除待修改边之外的所有MST边，计算必须边
-// 每轮分治需要Reduction-Contraction，借此减少不确定边，从而保证复杂度
-// 复杂度证明：假设当前区间有k条待修改边，n和m表示点数和边数，那么最坏情况下R-C的效果为(n, m) -> (n, n + k - 1) -> (k + 1, 2k)
+﻿// 动态最小生成树的离线算法比较容易,而在线算法通常极为复杂
+// 一个跑得比较快的离线做法是对时间分治,在每层分治时找出一定在/不在MST上的边,只带着不确定边继续递归
+// 简单起见,找确定边的过程用Kruskal算法实现,过程中的两种重要操作如下:
+// - Reduction:待修改边标为+INF,跑MST后把非树边删掉,减少无用边
+// - Contraction:待修改边标为-INF,跑MST后缩除待修改边之外的所有MST边,计算必须边
+// 每轮分治需要Reduction-Contraction,借此减少不确定边,从而保证复杂度
+// 复杂度证明:假设当前区间有k条待修改边,n和m表示点数和边数,那么最坏情况下R-C的效果为(n, m) -> (n, n + k - 1) -> (k + 1, 2k)
 
 
 // 全局结构体与数组定义
 struct edge { //边的定义
 	int u, v, w, id; // id表示边在原图中的编号
-	bool vis; // 在Kruskal时用，记录这条边是否是树边
+	bool vis; // 在Kruskal时用,记录这条边是否是树边
 	bool operator < (const edge &e) const { return w < e.w; }
-} e[20][maxn], t[maxn]; // 为了便于回滚，在每层分治存一个副本
+} e[20][maxn], t[maxn]; // 为了便于回滚,在每层分治存一个副本
 
 
-// 用于存储修改的结构体，表示第id条边的权值从u修改为v
+// 用于存储修改的结构体,表示第id条边的权值从u修改为v
 struct A {
 	int id, u, v;
 } a[maxn];
 
 
 int id[20][maxn]; // 每条边在当前图中的编号
-int p[maxn], size[maxn], stk[maxn], top; // p和size是并查集数组，stk是用来撤销的栈
-int n, m, q; // 点数，边数，修改数
+int p[maxn], size[maxn], stk[maxn], top; // p和size是并查集数组,stk是用来撤销的栈
+int n, m, q; // 点数,边数,修改数
 
 
-// 方便起见，附上可能需要用到的预处理代码
+// 方便起见,附上可能需要用到的预处理代码
 for (int i = 1; i <= n; i++) { // 并查集初始化
 	p[i] = i;
 	size[i] = 1;
@@ -53,7 +53,7 @@ CDQ(1, q, 0, m, 0); // 这是调用方法
 // 分治主过程 O(nlog^2n)
 // 需要调用Reduction和Contraction
 void CDQ(int l, int r, int d, int m, long long ans) { // CDQ分治
-	if (l == r) { // 区间长度已减小到1，输出答案，退出
+	if (l == r) { // 区间长度已减小到1,输出答案,退出
 		e[d][id[d][a[l].id]].w = a[l].v;
 		printf("%lld\n", ans + Kruskal(m, e[d]));
 		e[d][id[d][a[l].id]].w=a[l].u;
@@ -88,7 +88,7 @@ void CDQ(int l, int r, int d, int m, long long ans) { // CDQ分治
 }
 
 
-// Reduction（减少无用边）：待修改边标为+INF，跑MST后把非树边删掉，减少无用边
+// Reduction(减少无用边):待修改边标为+INF,跑MST后把非树边删掉,减少无用边
 // 需要调用Kruskal
 void Reduction(int l, int r, int d, int &m) {
 	for (int i = l; i <= r; i++)
@@ -112,7 +112,7 @@ void Reduction(int l, int r, int d, int &m) {
 }
 
 
-// Contraction（缩必须边）：待修改边标为-INF，跑MST后缩除待修改边之外的所有树边
+// Contraction(缩必须边):待修改边标为-INF,跑MST后缩除待修改边之外的所有树边
 // 返回缩掉的边的总权值
 // 需要调用Kruskal
 long long Contraction(int l, int r, int d, int &m) {
@@ -149,7 +149,7 @@ long long Contraction(int l, int r, int d, int &m) {
 
 
 // Kruskal算法 O(mlogn)
-// 方便起见，这里直接沿用进行过缩点的并查集，在过程结束后撤销即可
+// 方便起见,这里直接沿用进行过缩点的并查集,在过程结束后撤销即可
 long long Kruskal(int m, edge *e) {
 	int tmp = top;
 	long long ans = 0;
@@ -175,14 +175,14 @@ long long Kruskal(int m, edge *e) {
 
 
 // 以下是并查集相关函数
-int findroot(int x) { // 因为需要撤销，不写路径压缩
+int findroot(int x) { // 因为需要撤销,不写路径压缩
 	while (p[x] != x)
 		x = p[x];
 
 	return x;
 }
 
-void mergeset(int x, int y) { // 按size合并，如果想跑得更快就写一个按秩合并
+void mergeset(int x, int y) { // 按size合并,如果想跑得更快就写一个按秩合并
 	x = findroot(x); // 但是按秩合并要再开一个栈记录合并之前的秩
 	y = findroot(y);
 

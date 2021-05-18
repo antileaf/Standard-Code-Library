@@ -24,6 +24,9 @@
 
 \usepackage{color,xcolor}
 
+\setlength{\itemindent}{0em}
+\setlength\parindent{0em}
+
 \definecolor{light-gray}{gray}{0.9}    % 1.灰度
 
 \XeTeXlinebreaklocale "zh"
@@ -33,8 +36,8 @@
 \setlength{\columnsep}{13pt}
 
 %configure fonts
-\setmonofont{Consolas}[Scale=0.775]
-\newfontfamily\substitutefont{等线}[Scale=0.95]
+\setmonofont{Consolas}[Scale=0.8]
+\newfontfamily\substitutefont{等线}[Scale=0.9]
 \setTransitionsForChinese{\begingroup\substitutefont}{\endgroup}
 
 %configure minted to display codes
@@ -55,12 +58,13 @@
 % \titlespacing{\subsubsection}{0pt}{0pt}{0pt}
 
 \usepackage{fancyhdr}
-\usepackage[inner=1.35cm, outer=0.9cm, top=1.7cm, bottom=1.7cm]{geometry}
+\usepackage[inner=1.35cm, outer=0.9cm, top=1.7cm, bottom=0.4cm]{geometry}
 
 \pagestyle{fancy}
 \setlength{\headsep}{0.1cm}
-\chead{Standard Code Library}
+\setlength{\footskip}{0.7cm}
 
+\chead{Standard Code Library}
 \cfoot{\thepage}
 
 \renewcommand{\headrulewidth}{0.5pt}
@@ -310,7 +314,7 @@
 				% \subsubsection{多项式复合与复合逆}
 
 				\subsubsection{拉格朗日反演}
-
+					\input{../src/math/拉格朗日反演.tex}
 
 				% \subsubsection{分治FFT}
 
@@ -349,6 +353,11 @@
 
 			% \subsection{常见结论}
 				% \subsubsection{线性齐次递推求通项}
+			
+				
+			\subsection{常见数列}
+				\subsubsection{伯努利数}
+					\input{../src/misc/伯努利数.tex}
 
 
 		\section{数论}
@@ -394,7 +403,9 @@
 			% \subsection{块状链表}
 
 
-			% \subsection{Treap}
+			\subsection{Treap}
+				\inputminted{cpp}{../src/datastructure/Treap.cpp}
+			
 				% \subsubsection{无旋Treap}
 
 
@@ -402,7 +413,7 @@
 
 
 			\subsection{Splay}
-				参见LCT
+				(参见LCT,除了\mintinline{cpp}{splay()}需要传一个点表示最终它的父亲,其他写法都和LCT相同)
 			
 			\subsection{树分治}
 				% \subsubsection{静态树分治}
@@ -442,17 +453,8 @@
 				\subsection{左偏树}
 					(参见k短路)
 
-				\subsection{STL}
-
-
-				\subsection{pb\_ds}
-
-
-				\subsection{rope}
-
-
 				\subsection{常见根号思路}
-
+					\input{../src/datastructure/常见根号思路.tex}
 
 			\section{动态规划}
 				\subsection{决策单调性$O(n\log n)$}
@@ -468,9 +470,13 @@
 				\subsection{xorshift}
 					\inputminted{cpp}{../src/misc/xorshift.cpp}
 					
-				\subsection{常见数列}
-					\subsubsection{伯努利数}
-						\input{../src/misc/伯努利数.tex}
+				\subsection{STL}
+					\input{../src/misc/STL.tex}
+
+				\subsection{pb\_ds}
+
+
+				\subsection{rope}
 
 			\section{注意事项}
 				\subsection{常见下毒手法}

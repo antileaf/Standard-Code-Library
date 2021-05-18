@@ -1,25 +1,21 @@
-﻿// Graph Matching Based on Linear Algebra 基于线性代数的一般图匹配 O(n^3)
-// By ysf
-// 通过题目：UOJ#79 一般图最大匹配
-
-// 这个算法基于Tutte定理和高斯消元，思维难度相对小一些，也更方便进行可行边的判定
-// 注意这个算法复杂度是满的，并且常数有点大，而带花树通常是跑不满的
-// 以及，根据Tutte定理，如果求最大匹配的大小的话直接输出Tutte矩阵的秩/2即可
+﻿// 这个算法基于Tutte定理和高斯消元,思维难度相对小一些,也更方便进行可行边的判定
+// 注意这个算法复杂度是满的,并且常数有点大,而带花树通常是跑不满的
+// 以及,根据Tutte定理,如果求最大匹配的大小的话直接输出Tutte矩阵的秩/2即可
 // 需要输出方案时才需要再写后面那些乱七八糟的东西
 
 
-// 复杂度和常数所限，1s之内500已经是这个算法的极限了
-const int maxn = 505, p = 1000000007;//p可以是任意10^9以内的质数
+// 复杂度和常数所限,1s之内500已经是这个算法的极限了
+const int maxn = 505, p = 1000000007; // p可以是任意10^9以内的质数
 
 // 全局数组和变量定义
 int A[maxn][maxn], B[maxn][maxn], t[maxn][maxn], id[maxn], a[maxn];
 bool row[maxn] = {false}, col[maxn] = {false};
-int n, m, girl[maxn]; // girl是匹配点，用来输出方案
+int n, m, girl[maxn]; // girl是匹配点,用来输出方案
 
-// 为了方便使用，贴上主函数
+// 为了方便使用,贴上主函数
 // 需要调用高斯消元和eliminate
 int main() {
-	srand(19260817); // 膜蛤专用随机种子，换一个也无所谓
+	srand(19260817); // 膜蛤专用随机种子,换一个也无所谓
 
 	scanf("%d%d", &n, &m); // 点数和边数
 	while (m--) {
@@ -30,7 +26,7 @@ int main() {
 	}
 
 	for (int i = 1; i <= n; i++)
-		id[i] = i; // 输出方案用的，因为高斯消元的时候会交换列
+		id[i] = i; // 输出方案用的,因为高斯消元的时候会交换列
 	memcpy(t, A, sizeof(t));
 	Gauss(A, NULL, n);
 	
@@ -51,7 +47,7 @@ int main() {
 		if (!girl[a[i]])
 			for (int j = i + 1; j <= n; j++)
 				if (!girl[a[j]] && t[a[i]][a[j]] && B[j][i]) {
-					// 注意上面那句if的写法，现在t是邻接矩阵的备份，
+					// 注意上面那句if的写法,现在t是邻接矩阵的备份,
 					// 逆矩阵j行i列不为0当且仅当这条边可行
 					girl[a[i]] = a[j];
 					girl[a[j]] = a[i];
@@ -68,7 +64,7 @@ int main() {
 }
 
 // 高斯消元 O(n^3)
-// 在传入B时表示计算逆矩阵，传入NULL则只需计算矩阵的秩
+// 在传入B时表示计算逆矩阵,传入NULL则只需计算矩阵的秩
 void Gauss(int A[][maxn], int B[][maxn], int n){
 	if(B) {
 		memset(B, 0, sizeof(t));

@@ -1,9 +1,3 @@
-#include <bits/stdc++.h>
-​
-using namespace std;
-​
-const int maxn = 200005;
-​
 struct edge{
 	int to, w, prev;
 }e[maxn * 2];
@@ -116,37 +110,4 @@ void dp(int x) {
 			g[x] = min(g[x], f[x] - f[y] + g[y] + min(d[x][i], sum[x] - d[x][i]));
 		}
 	}
-}
-​
-signed main() {
-​
-	memset(last, -1, sizeof(last));
-​
-	ios::sync_with_stdio(false);
-	
-	cin >> n >> m;
-​
-	cnt = n;
-	
-	while (m--) {
-		int x, y, w;
-		cin >> x >> y >> w;
-		
-		e[cnte].to = y;
-		e[cnte].w = w;
-		e[cnte].prev = last[x];
-		last[x] = cnte++;
-		
-		e[cnte].to = x;
-		e[cnte].w = w;
-		e[cnte].prev = last[y];
-		last[y] = cnte++;
-	}
-	
-	dfs(1);
-	dp(1);
-	
-	cout << g[1] << endl;
-	
-	return 0;
 }

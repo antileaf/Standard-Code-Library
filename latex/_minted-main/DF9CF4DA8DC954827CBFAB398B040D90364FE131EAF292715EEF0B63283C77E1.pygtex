@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{//要求p为质数}
+
+\PYG{n}{inv}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{n}{inv}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+	\PYG{n}{inv}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)(}\PYG{n}{p}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{p}\PYG{o}{/}\PYG{n}{i}\PYG{p}{))}\PYG{o}{*}\PYG{n}{inv}\PYG{p}{[}\PYG{n}{p}\PYG{o}{\PYGZpc{}}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}\PYG{c+c1}{//p为模数}
+\PYG{c+c1}{//$i^{-1}\equiv-\left\lfloor\frac{p}{i}\right\rfloor\times(p\bmod i)^{-1}\pmod p$}
+\PYG{c+c1}{//i\PYGZca{}\PYGZhy{}1 = \PYGZhy{}(p/i) * (p\PYGZpc{}i)\PYGZca{}\PYGZhy{}1}
+\end{Verbatim}

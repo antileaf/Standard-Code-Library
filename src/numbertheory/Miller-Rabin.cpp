@@ -1,8 +1,4 @@
-﻿//Miller–Rabin Primality Test  Miller-Rabin素性检测算法
-//By ysf
-//通过题目：Bzoj4802 欧拉函数（作为Pollard's Rho的子算法）
-
-//复杂度可以认为是常数
+﻿//复杂度可以认为是常数
 
 //封装好的函数体
 //需要调用check

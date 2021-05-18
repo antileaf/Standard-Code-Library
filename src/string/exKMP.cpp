@@ -1,14 +1,10 @@
-﻿//Extended KMP 扩展KMP
-//By AntiLeaf
-//通过题目：小作业OJ 4182
-
-//全局变量与数组定义
+﻿//全局变量与数组定义
 char s[maxn], t[maxn];
 int n, m, a[maxn];
 
 //主过程 O(n + m)
-//把t的每个后缀与s的LCP输出到a中，s的后缀和自己的LCP存在nx中
-//0-based，s的长度是m，t的长度是n
+//把t的每个后缀与s的LCP输出到a中,s的后缀和自己的LCP存在nx中
+//0-based,s的长度是m,t的长度是n
 void exKMP(const char *s, const char *t, int *a) {
 	static int nx[maxn];
 

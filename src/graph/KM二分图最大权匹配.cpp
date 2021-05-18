@@ -1,12 +1,8 @@
-// KM Weighted Bio-Graph Matching KM二分图最大权匹配
-// By AntiLeaf
-// O(n^3)
-
 const long long INF = 0x3f3f3f3f3f3f3f3f;
 
 long long w[maxn][maxn], lx[maxn], ly[maxn], slack[maxn];
 // 边权 顶标 slack
-// 如果要求最大权完美匹配就把不存在的边设为-INF 否则所有边对0取max
+// 如果要求最大权完美匹配就把不存在的边设为-INF,否则所有边对0取max
 
 bool visx[maxn], visy[maxn];
 

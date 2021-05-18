@@ -1,14 +1,10 @@
-﻿//Pollard's Rho Algorithm  Pollard's Rho质因数分解 O(n^{1/4})
-//By ysf
-//通过题目：Bzoj4802 欧拉函数
-
-//注意，虽然Pollard's Rho的理论复杂度是O(n^{1/4})的，
-//但实际跑起来比较慢，一般用于做long long范围内的质因数分解
+﻿//注意,虽然Pollard's Rho的理论复杂度是O(n^{1/4})的,
+//但实际跑起来比较慢,一般用于做long long范围内的质因数分解
 
 
 //封装好的函数体
 //需要调用solve
-void factorize(long long n,vector<long long>&v){//v用于存分解出来的质因子，重复的会放多个
+void factorize(long long n,vector<long long>&v){//v用于存分解出来的质因子,重复的会放多个
 	for(int i:{2,3,5,7,11,13,17,19})
 		while(n%i==0){
 			v.push_back(i);
@@ -19,7 +15,7 @@ void factorize(long long n,vector<long long>&v){//v用于存分解出来的质�
 }
 
 //递归过程
-//需要调用Pollard's Rho主过程，同时递归调用自身
+//需要调用Pollard's Rho主过程,同时递归调用自身
 void solve(long long n,vector<long long>&v){
 	if(n==1)return;
 	long long p;

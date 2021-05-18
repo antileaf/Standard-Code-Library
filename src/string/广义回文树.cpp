@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
  
 using namespace std;
@@ -72,7 +71,7 @@ void dfs2(int x) {
         }
  
         u = x;
-        for (int i = 0; i < len[x]; i++) { // 梯子剖分，要延长一倍
+        for (int i = 0; i < len[x]; i++) { // 梯子剖分,要延长一倍
             v[x].push_back(u);
             u = f[0][u];
         }

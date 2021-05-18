@@ -16,11 +16,13 @@ int main(){
         id[last]=i;
     }
     vis[1]=true;
-    for(int i=1;i<=cnt;i++)if(id[i])for(int x=i,pos=n;x&&!vis[x];x=par[x]){
-        vis[x]=true;
-        pos-=val[x]-val[par[x]];
-        ch[par[x]][s[pos+1]-'a']=x;
-    }
+    for(int i=1;i<=cnt;i++)
+        if(id[i])
+            for(int x=i,pos=n;x&&!vis[x];x=par[x]){
+                vis[x]=true;
+                pos-=val[x]-val[par[x]];
+                ch[par[x]][s[pos+1]-'a']=x;
+            }
     dfs(root);
     printf("\n");
     for(int i=1;i<n;i++)printf("%d ",height[i]);

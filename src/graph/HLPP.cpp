@@ -14,7 +14,7 @@ struct cmp
 {
     inline bool operator()(int a,int b) const
     {
-        return h[a]<h[b];//因为在优先队列中的节点高度不会改变，所以可以直接比较
+        return h[a]<h[b];//因为在优先队列中的节点高度不会改变,所以可以直接比较
     }
 };
 queue<int> Q;
@@ -90,7 +90,7 @@ inline int hlpp()
         inq[now=pQ.top()]=0;pQ.pop();push(now);
         if(e[now])
         {
-            if(!--gap[h[now]])//gap优化，因为当前节点是最高的所以修改的节点一定不在优先队列中，不必担心修改对优先队列会造成影响
+            if(!--gap[h[now]])//gap优化,因为当前节点是最高的所以修改的节点一定不在优先队列中，不必担心修改对优先队列会造成影响
                 for(i=1;i<=n;i++)
                     if(i!=s&&i!=t&&h[i]>h[now]&&h[i]<n+1)
                         h[i]=n+1;
