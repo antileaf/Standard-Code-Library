@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  19 MAY 2021 03:50
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  19 MAY 2021 20:01
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1402,23 +1402,30 @@ Overfull \hbox (18.95305pt too wide) in paragraph at lines 66--66
 || | |[][][][]\TU/Consolas(0)/m/n/10 heap[][].[][]push[][]([][]B[][]([][]v[][][[][]rt[][]->[][]i[][]],[][]root[][][[][]v[][][[][]rt[][]->[][]i[][]]],[][]w[][]+[][]rt[][]->[][]w[][]));[][]\TU/Consolas(0)/m/it/10 //\TU/等线(0)/m/sl/10 保 
  []
 
-) (./_minted-main/9ECAA8226DB4874FFD91E96CB7A0FC00364FE131EAF292715EEF0B63283C77E1.pygtex [4]) (./_minted-main/57F79A01897CBDE631C195356C54AD59364FE131EAF292715EEF0B63283C77E1.pygtex [5]) (./_minted-main/AAFAD48BBB0CC5EA1B1427C286B452A0364FE131EAF292715EEF0B63283C77E1.pygtex [6]) (./_minted-main/2E9C5F033E35BFB990860B52F7DEE03C364FE131EAF292715EEF0B63283C77E1.pygtex [7]) (./_minted-main/4056FAE7F94EC3642C1AB41F87BB8A7D364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/D7142F7EA115C3CDFD4114C5DE7A7A6B364FE131EAF292715EEF0B63283C77E1.pygtex [8]) (./_minted-main/D5366DDC6CDA0C13F1C14C941C468EAA364FE131EAF292715EEF0B63283C77E1.pygtex [9]
+) (./_minted-main/9ECAA8226DB4874FFD91E96CB7A0FC00364FE131EAF292715EEF0B63283C77E1.pygtex [4]) (./_minted-main/57F79A01897CBDE631C195356C54AD59364FE131EAF292715EEF0B63283C77E1.pygtex [5]) (./_minted-main/AAFAD48BBB0CC5EA1B1427C286B452A0364FE131EAF292715EEF0B63283C77E1.pygtex [6]) (./_minted-main/F711972B91EB9682CB9BCE0E9CBC3EC7364FE131EAF292715EEF0B63283C77E1.pygtex [7]) (./_minted-main/4056FAE7F94EC3642C1AB41F87BB8A7D364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/D7142F7EA115C3CDFD4114C5DE7A7A6B364FE131EAF292715EEF0B63283C77E1.pygtex [8]) (./_minted-main/D5366DDC6CDA0C13F1C14C941C468EAA364FE131EAF292715EEF0B63283C77E1.pygtex [9]
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 ) (./_minted-main/91FC7A13CF92EEC732B6FC58F3CE6B94364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
- [10]) (./_minted-main/77523AC34465C3CE175009FEDD40724C364FE131EAF292715EEF0B63283C77E1.pygtex
-Overfull \hbox (31.94537pt too wide) in paragraph at lines 7--7
-[]\TU/Consolas(0)/m/n/10 root[][],[][]last[][],[][]cnt[][]=[][]0[][],[][]val[][][[][]maxn[][]<<[][]1[][]][][]=[][]{[][]0[][]},[][]par[][][[][]maxn[][]<<[][]1[][]][][]=[][]{[][]0[][]},[][]go[][][[][]maxn[][]<<[][]1[][]] 
- []
+ [10]) (./_minted-main/8052BF2E8F0B4A24270D1C649128A5C8364FE131EAF292715EEF0B63283C77E1.pygtex [11]) (./_minted-main/ED811EAC65205808BCFB9FA420562C3B364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/6343A080C2A334C9A49B8F52E25D46D9364FE131EAF292715EEF0B63283C77E1.pygtex [12]) (./_minted-main/8F35E9CA2B423F4C50B8FE0EE15F5677364FE131EAF292715EEF0B63283C77E1.pygtex [13]) (./_minted-main/B46E9A1DF89BD5DF0A81CC3A1C757B38364FE131EAF292715EEF0B63283C77E1.pygtex [14]) (./_minted-main/0BE1B5BE174A3EAE58B72744AE28EBB9364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/math/牛顿插值.tex
 
-) (./_minted-main/DEC6007EDB5A78A5B79D3857B3FEA985364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/6343A080C2A334C9A49B8F52E25D46D9364FE131EAF292715EEF0B63283C77E1.pygtex [11]) (./_minted-main/8F35E9CA2B423F4C50B8FE0EE15F5677364FE131EAF292715EEF0B63283C77E1.pygtex [12]) (./_minted-main/B46E9A1DF89BD5DF0A81CC3A1C757B38364FE131EAF292715EEF0B63283C77E1.pygtex [13]) (./_minted-main/0BE1B5BE174A3EAE58B72744AE28EBB9364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/3E590D7D2CD392BEA0BCCFB997B5BA1D364FE131EAF292715EEF0B63283C77E1.pygtex
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 6.
+
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
+\openout3 = `main.pyg'.
+
+(./_minted-main/8E0C717F2CED29FE669E3CB4C03F6BDC364FE131EAF292715EEF0B63283C77E1.pygtex)
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
+) (../src/math/拉格朗日插值.tex) (./_minted-main/3E590D7D2CD392BEA0BCCFB997B5BA1D364FE131EAF292715EEF0B63283C77E1.pygtex
 Overfull \hbox (23.1485pt too wide) in paragraph at lines 22--22
 || | |[][][]\TU/Consolas(0)/m/n/10 w[][][[][]i[][]][][]=[][]w_inv[][][[][]n[][]-[][]i[][]-1[][]][][]=[][]Complex[][]([][]cos[][]([][]2[][]*[][]pi[][]/[][]n[][]*[][]i[][]),[][]sin[][]([][]2[][]*[][]pi[][]/[][]n[][]*[][]i[][]));[]|  
  []
 
-[14]) (./_minted-main/B54E15D22B5EC8E0AAD381712E5383A5364FE131EAF292715EEF0B63283C77E1.pygtex
+[15]) (./_minted-main/B54E15D22B5EC8E0AAD381712E5383A5364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1446,42 +1453,12 @@ Overfull \hbox (84.72682pt too wide) in paragraph at lines 58--58
 || ||[]\TU/Consolas(0)/m/n/10 }[][]w[][][[][]maxn[][]],[][]w_inv[][][[][]maxn[][]],[][]A[][][[][]maxn[][]],[][]B[][][[][]maxn[][]],[][]C[][][[][]maxn[][]],[][]D[][][[][]maxn[][]],[][]F[][][[][]maxn[][]],[][]G[][][[][]maxn[][]],[][]H[][][[][]maxn[][]];[]|  
  []
 
-[15]) (./_minted-main/6029873ED8002F560C7FF2E3B4EDEA97364FE131EAF292715EEF0B63283C77E1.pygtex
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+[16]) (./_minted-main/685324ADBBDBF41DB61E47397073ACBB364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no 、 (U+3001) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no 、 (U+3001) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no 、 (U+3001) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no 、 (U+3001) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
- [16]) (../src/math/拉格朗日反演.tex
+ [17]) (../src/math/拉格朗日反演.tex
 Missing character: There is no ， (U+FF0C) in font [lmroman10-regular]:mapping=tex-text;!
 
 
@@ -1496,12 +1473,7 @@ Package amsmath Warning: Bracket group [x^n] at formula start!
 (amsmath)                If it belongs to the formula add a \relax in
 (amsmath)                front to hide it on input line 5.
 
-) (./_minted-main/0E62A1DBC44FB9C6385A491BC20E0619364FE131EAF292715EEF0B63283C77E1.pygtex
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (./_minted-main/5B5502CC5FD28AD4D7E9715D8136067D364FE131EAF292715EEF0B63283C77E1.pygtex
+) (./_minted-main/D9B7E8CAD34EBCD4C837610D3C99A27E364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/5B5502CC5FD28AD4D7E9715D8136067D364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1520,37 +1492,15 @@ Overfull \hbox (14.35156pt too wide) in paragraph at lines 15--15
 []\TU/Consolas(0)/m/n/10 A[][][[][]i[][]+[][]j[][]+[][]([][]k[][]>>[][]1[][])][][]=[][]([][]A[][][[][]i[][]+[][]j[][]+[][]([][]k[][]>>[][]1[][])][][]-[][]A[][][[][]i[][]+[][]j[][]][][]+[][]p[][])[][]%[][]p[][];[]|  
  []
 
+[18]
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-[17]) (./_minted-main/7DF17864CE976A794970AF2B7FD7E963364FE131EAF292715EEF0B63283C77E1.pygtex
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (../src/misc/伯努利数.tex
-
-Package amsmath Warning: Foreign command \atopwithdelims;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 3.
-
-) (./_minted-main/DF9CF4DA8DC954827CBFAB398B040D90364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/95D4CE20D05D4DF46259DD2E5A625A59364FE131EAF292715EEF0B63283C77E1.pygtex
+) (./_minted-main/7B89810B39C6491A9F4AA74A42FA2C8A364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/伯努利数.tex) [19] (./_minted-main/DF9CF4DA8DC954827CBFAB398B040D90364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/95D4CE20D05D4DF46259DD2E5A625A59364FE131EAF292715EEF0B63283C77E1.pygtex
 Overfull \hbox (23.14854pt too wide) in paragraph at lines 6--6
 []\TU/Consolas(0)/m/n/10 maxn[][]=[][]5000005[][],[][]table_size[][]=[][]5000000[][],[][]p[][]=[][]1000000007[][],[][]inv_2[][]=[][]([][]p[][]+[][]1[][])[][]/[][]2[][];[]|  
  []
 
-[18]) (./_minted-main/1E0D87D692DDE1E4751ECB1EA74CA834364FE131EAF292715EEF0B63283C77E1.pygtex
+) (./_minted-main/1E0D87D692DDE1E4751ECB1EA74CA834364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 
@@ -1563,7 +1513,7 @@ Overfull \hbox (71.5315pt too wide) in paragraph at lines 37--37
 []\TU/Consolas(0)/m/n/10 long[][])[][]sigma_one[][][[][]i[][]*[][]prime[][][[][]j[][]][][]/[][]f[][][[][]i[][]]][][]*[][]sigma_one[][][[][]f[][][[][]i[][]]][][]%[][]p[][];[]|  
  []
 
-) (./_minted-main/E57D555811F8F90D747FB65CB6B5DA94364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/9F35932AF3E0287EF340D1DBE27AAD55364FE131EAF292715EEF0B63283C77E1.pygtex [19]) (./_minted-main/8901C7DED22477267ED165C186F18B63364FE131EAF292715EEF0B63283C77E1.pygtex
+) (./_minted-main/E57D555811F8F90D747FB65CB6B5DA94364FE131EAF292715EEF0B63283C77E1.pygtex [20]) (./_minted-main/9F35932AF3E0287EF340D1DBE27AAD55364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/8901C7DED22477267ED165C186F18B63364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 ) (./_minted-main/45D5BBC97DF8ED04FC3A43AD40DF8DEE364FE131EAF292715EEF0B63283C77E1.pygtex
@@ -1575,6 +1525,7 @@ Missing character: There is no 、 (U+3001) in font Consolas Italic/OT:script=la
 Missing character: There is no 、 (U+3001) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no 、 (U+3001) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no 、 (U+3001) in font Consolas Italic/OT:script=latn;language=dflt;!
+ [21]
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1603,7 +1554,6 @@ Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=la
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
- [20]
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1638,6 +1588,7 @@ Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=la
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
+ [22]
 Missing character: There is no 、 (U+3001) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no 、 (U+3001) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1648,17 +1599,16 @@ Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=la
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
- [21]
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (./_minted-main/8D50EFD0ECC81C2DEE12C123ED0FEFDA364FE131EAF292715EEF0B63283C77E1.pygtex [22]
+) (./_minted-main/8D50EFD0ECC81C2DEE12C123ED0FEFDA364FE131EAF292715EEF0B63283C77E1.pygtex [23]
 Overfull \hbox (58.33609pt too wide) in paragraph at lines 117--117
 || | |[][]\TU/Consolas(0)/m/n/10 if[][]([][]![][]u[][]||[][]max[][]([][]s[][]-[][]size[][][[][]x[][]],[][]size[][][[][]son[][][[][]x[][]]])[][]<[][]max[][]([][]s[][]-[][]size[][][[][]u[][]],[][]size[][][[][]son[][][[][]u[][]]]))[][]u[][]=[][]x[][];[]|  
  []
 
-) (./_minted-main/E6B66AB8A92F47DD9535447A030E9E80364FE131EAF292715EEF0B63283C77E1.pygtex
+[24]) (./_minted-main/E6B66AB8A92F47DD9535447A030E9E80364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1667,7 +1617,6 @@ Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=la
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
- [23]
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1678,12 +1627,12 @@ Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=la
 Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (./_minted-main/781D4B3345E768BEE2A8AEFB402A55E7364FE131EAF292715EEF0B63283C77E1.pygtex
+) (./_minted-main/781D4B3345E768BEE2A8AEFB402A55E7364FE131EAF292715EEF0B63283C77E1.pygtex [25]
 Overfull \hbox (67.133pt too wide) in paragraph at lines 47--47
 []\TU/Consolas(0)/m/n/10 sm[][][[][]maxn[][]<<[][]5[][]][][]=[][]{[][]0[][]},[][]lc[][][[][]maxn[][]<<[][]5[][]][][]=[][]{[][]0[][]},[][]rc[][][[][]maxn[][]<<[][]5[][]][][]=[][]{[][]0[][]},[][]root[][][[][]maxn[][]][][]=[][]{[][]0[][]},[][]cnt[][]=[][]0[][];[]|  
  []
 
-[24]) (./_minted-main/3C1237768E1165D4B75A7621330B2433364FE131EAF292715EEF0B63283C77E1.pygtex
+[26]) (./_minted-main/3C1237768E1165D4B75A7621330B2433364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1732,7 +1681,7 @@ Overfull \hbox (14.35162pt too wide) in paragraph at lines 35--35
 || | |[][][]\TU/Consolas(0)/m/n/10 chain_cnt[][]=[][]ch[][][[][]0[][]][][]->[][]chain_cnt[][]+[][]ch[][][[][]1[][]][][]->[][]chain_cnt[][]+[][]tree_cnt[][];[]|  
  []
 
-[25]
+
 Overfull \hbox (75.92992pt too wide) in paragraph at lines 63--63
 || | |[][][]\TU/Consolas(0)/m/n/10 x[][]->[][]tree_sum[][]+=[][]([][]x[][]->[][]ch[][][[][]1[][]][][]->[][]rev[][]?[][]x[][]->[][]ch[][][[][]1[][]][][]->[][]sumr[][]:[][]x[][]->[][]ch[][][[][]1[][]][][]->[][]suml[][])[][]-[][]y[][]->[][]suml[][];[]|  
  []
@@ -1743,52 +1692,20 @@ Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=la
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (./_minted-main/27896DB1D4068D69D056DA60DF7B65E2364FE131EAF292715EEF0B63283C77E1.pygtex [26]
+[27]) (./_minted-main/27896DB1D4068D69D056DA60DF7B65E2364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
- [27]
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (./_minted-main/49CF1EF5139314CA499AA0C6843EE3A3364FE131EAF292715EEF0B63283C77E1.pygtex
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
  [28]
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (../src/datastructure/常见根号思路.tex
-Missing character: There is no ： (U+FF1A) in font [lmroman10-regular]:mapping=tex-text;!
-) (./_minted-main/916713130A51D4C0C84B8E8DCF061800364FE131EAF292715EEF0B63283C77E1.pygtex [29]) (./_minted-main/9166B5028F434ACA07E2EC98EA633E50364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/850003692678BF07E61E597C1CAFF204364FE131EAF292715EEF0B63283C77E1.pygtex
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+) (./_minted-main/5A72BB37570373D4BC0728F6033F3629364FE131EAF292715EEF0B63283C77E1.pygtex [29]) (./_minted-main/41278A901CCB849F574FFD0ED03C9C3B364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/datastructure/常见根号思路.tex [30]) (./_minted-main/916713130A51D4C0C84B8E8DCF061800364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/9166B5028F434ACA07E2EC98EA633E50364FE131EAF292715EEF0B63283C77E1.pygtex [31]) (./_minted-main/850003692678BF07E61E597C1CAFF204364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
- [30] [31] [32]) (./_minted-main/64984275464294626A0B1DD731D664E9364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/STL.tex
+ [32] [33]) (./_minted-main/64984275464294626A0B1DD731D664E9364FE131EAF292715EEF0B63283C77E1.pygtex [34]) (../src/misc/STL.tex
 \openout4 = `main.pyg'.
 
  (./_minted-main/6586EBC95E6F505FBE99B8A1EA863A69364FE131EAF292715EEF0B63283C77E1.pygtex)
@@ -1847,7 +1764,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--11
  (./_minted-main/9B18D647E1183B16B067A2F2B621AB6B364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
- (./_minted-main/088464BEA93F2DAE06332EA8E5B7FD52364FE131EAF292715EEF0B63283C77E1.pygtex) [33]
+ (./_minted-main/088464BEA93F2DAE06332EA8E5B7FD52364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
  (./_minted-main/55767157FCEB798B35A5D6C88737C8AB364FE131EAF292715EEF0B63283C77E1.pygtex)
@@ -1886,7 +1803,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--11
  (./_minted-main/C1BDA1B3B7D7D0C09A60ED4DF051ADD4364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
- (./_minted-main/EFA52AAD2988FFC7641F2026E659552B364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/常见下毒手法.tex) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex) [34] (./main.aux)
+ (./_minted-main/EFA52AAD2988FFC7641F2026E659552B364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/常见下毒手法.tex) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex [35]) [36] (./main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.44003pt have occurred.
@@ -1898,12 +1815,12 @@ runsystem(del main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 18114 strings out of 476919
- 366278 string characters out of 5825424
- 1010835 words of memory out of 5000000
- 37513 multiletter control sequences out of 15000+600000
+ 18132 strings out of 476919
+ 367220 string characters out of 5825424
+ 1021499 words of memory out of 5000000
+ 37519 multiletter control sequences out of 15000+600000
  415935 words of font info for 108 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 85i,17n,89p,809b,1075s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 85i,17n,89p,809b,1087s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (35 pages).
+Output written on main.pdf (37 pages).

@@ -1,11 +1,4 @@
 \begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{c+c1}{// Half\PYGZhy{}Online Convolution 半在线卷积}
-\PYG{c+c1}{// By AntiLeaf}
-\PYG{c+c1}{// O(n\PYGZbs{}log\PYGZca{}2 n)}
-\PYG{c+c1}{// 通过题目：自己出的题}
-
-
-\PYG{c+c1}{// 主过程，递归调用自身}
 \PYG{k+kt}{void} \PYG{n+nf}{solve}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{l}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{r}\PYG{p}{)} \PYG{p}{\PYGZob{}}
 	\PYG{k}{if} \PYG{p}{(}\PYG{n}{r} \PYG{o}{\PYGZlt{}=} \PYG{n}{m}\PYG{p}{)}
 		\PYG{k}{return}\PYG{p}{;}

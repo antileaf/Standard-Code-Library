@@ -19,16 +19,6 @@ void gauss() {
 				b[j] ^= b[i];
 			}
 	}
-
-	/*
-	printf("after gauss:\n");
-	for (int i = 63; ~i; i--) {
-		for (int j = 63; ~j; j--)
-			printf("%llu", a[i] >> j & 1);
-		printf(" %llu\n", b[i]);
-	}
-	*/
-	
 }
 
 bool check() {

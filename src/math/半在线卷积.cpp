@@ -1,10 +1,3 @@
-// Half-Online Convolution 半在线卷积
-// By AntiLeaf
-// O(n\log^2 n)
-// 通过题目：自己出的题
-
-
-// 主过程，递归调用自身
 void solve(int l, int r) {
 	if (r <= m)
 		return;

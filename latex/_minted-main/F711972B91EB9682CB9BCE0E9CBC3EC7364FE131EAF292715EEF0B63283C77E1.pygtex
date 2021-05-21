@@ -1,8 +1,4 @@
 \begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{c+c1}{// Blossom 带花树 O(nm)}
-\PYG{c+c1}{// By ysf}
-\PYG{c+c1}{// 通过题目:UOJ\PYGZsh{}79 一般图最大匹配}
-
 \PYG{c+c1}{// 带花树通常比高斯消元快很多,但在只需要求最大匹配大小的时候并没有高斯消元好写}
 \PYG{c+c1}{// 当然输出方案要方便很多}
 
