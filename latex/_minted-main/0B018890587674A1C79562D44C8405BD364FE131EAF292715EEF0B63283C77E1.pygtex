@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{t} \PYG{o}{=} \PYG{n}{s}\PYG{p}{;} \PYG{n}{t}\PYG{p}{;} \PYG{p}{(}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{t}\PYG{p}{)} \PYG{o}{\PYGZam{}=} \PYG{n}{s}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{// do something}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
