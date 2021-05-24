@@ -1,0 +1,26 @@
+\sout{让fstqwq手撕}
+
+\begin{itemize}
+	\item 如果$M = 2^k$, 则只能维护$[1, M - 2]$范围
+	\item 找叶子: $i$对应的叶子就是$i + M$
+	\item 单点修改: 找到叶子然后向上跳
+	\item 区间查询: 左右区间各扩展一位, 转换成开区间查询
+\begin{minted}{cpp}
+int query(int l, int r) {
+    l += M - 1;
+    r += M + 1;
+
+    int ans = 0;
+    while (l ^ r != 1) {
+        ans += sum[l ^ 1] + sum[r ^ 1];
+
+        l >>= 1;
+        r >>= 1;
+    }
+
+    return ans;
+}
+\end{minted}
+	
+	\item 区间修改要标记永久化, 麻烦得很, 建议写普通的递归线段树
+\end{itemize}

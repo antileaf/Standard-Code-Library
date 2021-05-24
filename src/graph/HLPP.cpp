@@ -1,115 +1,147 @@
-#include<cstdio>
-#include<cstring>
-#include<algorithm>
-#include<queue>
-using std::min;
-using std::vector;
-using std::queue;
-using std::priority_queue;
-const int N=2e4+5,M=2e5+5,inf=0x3f3f3f3f;
-int n,s,t,tot;
-int v[M<<1],w[M<<1],first[N],next[M<<1];
-int h[N],e[N],gap[N<<1],inq[N];//节点高度是可以到达2n-1的
-struct cmp
-{
-    inline bool operator()(int a,int b) const
-    {
-        return h[a]<h[b];//因为在优先队列中的节点高度不会改变,所以可以直接比较
-    }
+#include <bits/stdc++.h>
+
+using namespace std;
+
+constexpr int maxn = 1205, maxe = 120005, inf = 2147483647;
+
+struct edge {
+	int to, cap, prev;
+} e[maxe * 2];
+
+int n, m, s, t;
+int last[maxn], cnte;
+int h[maxn], ex[maxn], gap[maxn * 2];
+bool inq[maxn];
+
+struct cmp {
+	bool operator() (int x, int y) const {
+		return h[x] < h[y];
+	}
 };
-queue<int> Q;
-priority_queue<int,vector<int>,cmp> pQ;
-inline void add_edge(int from,int to,int flow)
-{
-    tot+=2;
-    v[tot+1]=from;v[tot]=to;w[tot]=flow;w[tot+1]=0;
-    next[tot]=first[from];first[from]=tot;
-    next[tot+1]=first[to];first[to]=tot+1;
-    return;
+
+priority_queue<int, vector<int>, cmp> heap;
+
+void AddEdge(int x, int y, int z) {
+	e[cnte].to = y;
+	e[cnte].cap = z;
+	e[cnte].prev = last[x];
+	last[x] = cnte++;
 }
-inline bool bfs()
-{
-    int now;
-    register int go;
-    memset(h+1,0x3f,sizeof(int)*n);
-    h[t]=0;Q.push(t);
-    while(!Q.empty())
-    {
-        now=Q.front();Q.pop();
-        for(go=first[now];go;go=next[go])
-            if(w[go^1]&&h[v[go]]>h[now]+1)
-                h[v[go]]=h[now]+1,Q.push(v[go]);
-    }
-    return h[s]!=inf;
+
+void addedge(int x, int y, int z) {
+	AddEdge(x, y, z);
+	AddEdge(y, x, 0);
 }
-inline void push(int now)//推送
-{
-    int d;
-    register int go;
-    for(go=first[now];go;go=next[go])
-        if(w[go]&&h[v[go]]+1==h[now])
-        {
-            d=min(e[now],w[go]);
-            w[go]-=d;w[go^1]+=d;e[now]-=d;e[v[go]]+=d;
-            if(v[go]!=s&&v[go]!=t&&!inq[v[go]])
-                pQ.push(v[go]),inq[v[go]]=1;
-            if(!e[now])//已经推送完毕可以直接退出
-                break;
-        }
-    return;
+
+bool bfs() {
+	static int q[maxn];
+
+	fill(h, h + n + 1, 2 * n);
+	int head = 0, tail = 0;
+	q[tail++] = t;
+	h[t] = 0;
+	
+	while (head < tail) {
+		int x = q[head++];
+		for (int i = last[x]; ~i; i = e[i].prev)
+			if (e[i ^ 1].cap && h[e[i].to] > h[x] + 1) {
+				h[e[i].to] = h[x] + 1;
+				q[tail++] = e[i].to;
+			}
+	}
+
+	return h[s] < 2 * n;
 }
-inline void relabel(int now)//重贴标签
-{
-    register int go;
-    h[now]=inf;
-    for(go=first[now];go;go=next[go])
-        if(w[go]&&h[v[go]]+1<h[now])
-            h[now]=h[v[go]]+1;
-    return;
+
+void push(int x) {
+	for (int i = last[x]; ~i; i = e[i].prev)
+		if (e[i].cap && h[x] == h[e[i].to] + 1) {
+			int d = min(ex[x], e[i].cap);
+
+			e[i].cap -= d;
+			e[i ^ 1].cap += d;
+			ex[x] -= d;
+			ex[e[i].to] += d;
+
+			if (e[i].to != s && e[i].to != t && !inq[e[i].to]) {
+				heap.push(e[i].to);
+				inq[e[i].to] = true;
+			}
+
+			if (!ex[x])
+				break;
+		}
 }
-inline int hlpp()
-{
-    int now,d;
-    register int i,go;
-    if(!bfs())//s和t不连通
-        return 0;
-    h[s]=n;
-    memset(gap,0,sizeof(int)*(n<<1));
-    for(i=1;i<=n;i++)
-        if(h[i]<inf)
-            ++gap[h[i]];
-    for(go=first[s];go;go=next[go])
-        if(d=w[go])
-        {
-            w[go]-=d;w[go^1]+=d;e[s]-=d;e[v[go]]+=d;
-            if(v[go]!=s&&v[go]!=t&&!inq[v[go]])
-                pQ.push(v[go]),inq[v[go]]=1;
-        }
-    while(!pQ.empty())
-    {
-        inq[now=pQ.top()]=0;pQ.pop();push(now);
-        if(e[now])
-        {
-            if(!--gap[h[now]])//gap优化,因为当前节点是最高的所以修改的节点一定不在优先队列中，不必担心修改对优先队列会造成影响
-                for(i=1;i<=n;i++)
-                    if(i!=s&&i!=t&&h[i]>h[now]&&h[i]<n+1)
-                        h[i]=n+1;
-            relabel(now);++gap[h[now]];
-            pQ.push(now);inq[now]=1;
-        }
-    }
-    return e[t];
+
+void relabel(int x) {
+	h[x] = 2 * n;
+	
+	for (int i = last[x]; ~i; i = e[i].prev)
+		if (e[i].cap)
+			h[x] = min(h[x], h[e[i].to] + 1);
 }
-int m;
-signed main()
-{
-    int u,v,w;
-    scanf("%d%d%d%d",&n,&m,&s,&t);
-    while(m--)
-    {
-        scanf("%d%d%d",&u,&v,&w);
-        add_edge(u,v,w);
-    }
-    printf("%d\n",hlpp());
-    return 0;
+
+int hlpp() {
+	if (!bfs())
+		return 0;
+	
+	// memset(gap, 0, sizeof(int) * 2 * n);
+	h[s] = n;
+
+	for (int i = 1; i <= n; i++)
+		gap[h[i]]++;
+	
+	for (int i = last[s]; ~i; i = e[i].prev)
+		if (e[i].cap) {
+			int d = e[i].cap;
+
+			e[i].cap -= d;
+			e[i ^ 1].cap += d;
+			ex[s] -= d;
+			ex[e[i].to] += d;
+
+			if (e[i].to != s && e[i].to != t && !inq[e[i].to]) {
+					heap.push(e[i].to);
+					inq[e[i].to] = true;
+			}
+		}
+	
+	while (!heap.empty()) {
+		int x = heap.top();
+		heap.pop();
+		inq[x] = false;
+
+		push(x);
+		if (ex[x]) {
+			if (!--gap[h[x]]) { // gap
+				for (int i = 1; i <= n; i++)
+				 	if (i != s && i != t && h[i] > h[x])
+					 	h[i] = n + 1;
+			}
+
+			relabel(x);
+			++gap[h[x]];
+			heap.push(x);
+			inq[x] = true;
+		}	
+	}
+
+	return ex[t];
+}
+
+int main() {
+
+	memset(last, -1, sizeof(last));
+
+	scanf("%d%d%d%d", &n, &m, &s, &t);
+
+	while (m--) {
+		int x, y, z;
+		scanf("%d%d%d", &x, &y, &z);
+		addedge(x, y, z);
+	}
+
+	printf("%d\n", hlpp());
+
+	return 0;
 }
