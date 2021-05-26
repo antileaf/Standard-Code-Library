@@ -5,8 +5,8 @@
 \contentsline {subsubsection}{\numberline {1.1.3}Steiner Tree 斯坦纳树}{3}{}%
 \contentsline {subsection}{\numberline {1.2}最短路}{3}{}%
 \contentsline {subsubsection}{\numberline {1.2.1}k短路}{3}{}%
-\contentsline {subsection}{\numberline {1.3}仙人掌}{4}{}%
-\contentsline {subsubsection}{\numberline {1.3.1}仙人掌DP}{4}{}%
+\contentsline {subsection}{\numberline {1.3}仙人掌}{5}{}%
+\contentsline {subsubsection}{\numberline {1.3.1}仙人掌DP}{5}{}%
 \contentsline {subsection}{\numberline {1.4}二分图}{5}{}%
 \contentsline {subsubsection}{\numberline {1.4.1}KM二分图最大权匹配}{5}{}%
 \contentsline {subsection}{\numberline {1.5}一般图匹配}{6}{}%
@@ -23,11 +23,11 @@
 \contentsline {subsection}{\numberline {2.1}AC自动机}{13}{}%
 \contentsline {subsection}{\numberline {2.2}后缀数组}{13}{}%
 \contentsline {subsubsection}{\numberline {2.2.1}SA-IS}{13}{}%
-\contentsline {subsubsection}{\numberline {2.2.2}SAMSA}{14}{}%
+\contentsline {subsubsection}{\numberline {2.2.2}SAMSA}{15}{}%
 \contentsline {subsection}{\numberline {2.3}后缀自动机}{15}{}%
 \contentsline {subsection}{\numberline {2.4}回文树}{15}{}%
 \contentsline {subsubsection}{\numberline {2.4.1}广义回文树}{16}{}%
-\contentsline {subsection}{\numberline {2.5}Manacher马拉车}{17}{}%
+\contentsline {subsection}{\numberline {2.5}Manacher马拉车}{18}{}%
 \contentsline {subsection}{\numberline {2.6}KMP}{18}{}%
 \contentsline {subsubsection}{\numberline {2.6.1}ex-KMP}{18}{}%
 \contentsline {section}{\numberline {3}数学}{18}{}%
@@ -51,7 +51,7 @@
 \contentsline {subsection}{\numberline {4.1}$O(n)$预处理逆元}{23}{}%
 \contentsline {subsection}{\numberline {4.2}杜教筛}{23}{}%
 \contentsline {subsection}{\numberline {4.3}线性筛}{23}{}%
-\contentsline {subsection}{\numberline {4.4}Miller-Rabin}{23}{}%
+\contentsline {subsection}{\numberline {4.4}Miller-Rabin}{24}{}%
 \contentsline {subsection}{\numberline {4.5}Pollard's Rho}{24}{}%
 \contentsline {section}{\numberline {5}数据结构}{24}{}%
 \contentsline {subsection}{\numberline {5.1}线段树}{24}{}%
@@ -62,10 +62,10 @@
 \contentsline {subsection}{\numberline {5.4}Splay}{26}{}%
 \contentsline {subsection}{\numberline {5.5}树分治}{26}{}%
 \contentsline {subsubsection}{\numberline {5.5.1}动态树分治}{26}{}%
-\contentsline {subsubsection}{\numberline {5.5.2}紫荆花之恋}{26}{}%
+\contentsline {subsubsection}{\numberline {5.5.2}紫荆花之恋}{27}{}%
 \contentsline {subsection}{\numberline {5.6}LCT}{28}{}%
 \contentsline {subsubsection}{\numberline {5.6.1}不换根(弹飞绵羊)}{28}{}%
-\contentsline {subsubsection}{\numberline {5.6.2}换根/维护生成树(GREALD07加强版)}{28}{}%
+\contentsline {subsubsection}{\numberline {5.6.2}换根/维护生成树(GREALD07加强版)}{29}{}%
 \contentsline {subsubsection}{\numberline {5.6.3}维护子树信息}{30}{}%
 \contentsline {subsubsection}{\numberline {5.6.4}模板题:动态QTREE4(询问树上相距最远点)}{31}{}%
 \contentsline {subsection}{\numberline {5.7}虚树}{33}{}%
