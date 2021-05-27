@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.20)  25 MAY 2021 13:57
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.20)  27 MAY 2021 17:17
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1192,32 +1192,32 @@ runsystem(del main.aex)...executed.
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 118.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 119.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 119.
  (c:/texlive/2021/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 118.
-LaTeX Font Info:    Trying to load font information for T3+cmr on input line 118.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 119.
+LaTeX Font Info:    Trying to load font information for T3+cmr on input line 119.
  (c:/texlive/2021/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    ... okay on input line 119.
 \c@lstlisting=\count351
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
@@ -1225,56 +1225,56 @@ Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 118.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 118.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 118.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 118.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 118.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 118.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 118.
-LaTeX Font Info:    Redeclaring math accent \check on input line 118.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 118.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 118.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 118.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 118.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 118.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 118.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 118.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 118.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 118.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 118.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 118.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 118.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 118.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 118.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 118.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 118.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 119.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 119.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 119.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 119.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 119.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 119.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 119.
+LaTeX Font Info:    Redeclaring math accent \check on input line 119.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 119.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 119.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 119.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 119.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 119.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 119.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 119.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 119.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 119.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 119.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 119.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 119.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 119.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 119.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 119.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 119.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 118.
+(Font)              `operators' in the math version `normal' on input line 119.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 118.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 119.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 118.
+(Font)              `operators' in the math version `bold' on input line 119.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 118.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 119.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 118.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 119.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 118.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 119.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 118.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 119.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 118.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 119.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/m/n on input line 118.
+(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/m/n on input line 119.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 118.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 119.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 118.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 119.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 118.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 119.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/b/n on input line 118.
+(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/b/n on input line 119.
  (c:/texlive/2021/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
  (c:/texlive/2021/texmf-dist/tex/latex/graphics/lscape.sty
@@ -1351,16 +1351,16 @@ LaTeX Font Info:    Font shape `TU/等线(0)/m/n' will be
 
  [1]
 LaTeX Font Info:    Font shape `TU/等线(0)/m/n' will be
-(Font)              scaled to size 18.66588pt on input line 137.
+(Font)              scaled to size 18.66588pt on input line 138.
 LaTeX Font Info:    Font shape `TU/等线(0)/bx/n' in size <12> not available
-(Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 139.
-LaTeX Font Info:    Font shape `TU/等线(0)/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 139.
-LaTeX Font Info:    Font shape `TU/等线(0)/bx/n' in size <10> not available
 (Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 140.
 LaTeX Font Info:    Font shape `TU/等线(0)/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 140.
- (../src/graph/Boruvka.tex) (./_minted-main/default-pyg-prefix.pygstyle) (./_minted-main/solarized-light.pygstyle) (./_minted-main/942EE11375BFB706BA3B363FC423C193364FE131EAF292715EEF0B63283C77E1.pygtex
+(Font)              scaled to size 10.79993pt on input line 140.
+LaTeX Font Info:    Font shape `TU/等线(0)/bx/n' in size <10> not available
+(Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 141.
+LaTeX Font Info:    Font shape `TU/等线(0)/b/n' will be
+(Font)              scaled to size 8.99994pt on input line 141.
+ (../src/graph/Boruvka.tex) (./_minted-main/default-pyg-prefix.pygstyle) (./_minted-main/materiallight.pygstyle) (./_minted-main/942EE11375BFB706BA3B363FC423C193364FE131EAF292715EEF0B63283C77E1.pygtex
 LaTeX Font Info:    Font shape `TU/Consolas(0)/m/n' will be
 (Font)              scaled to size 8.00003pt on input line 1.
 LaTeX Font Info:    Font shape `TU/Consolas(0)/m/it' will be
@@ -1405,12 +1405,7 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.40001> not available
 LaTeX Font Warning: Font shape `TU/等线(0)/m/sl' undefined
 (Font)              using `TU/等线(0)/m/n' instead on input line 115.
 
-[2]) (../src/graph/steiner.tex)
-runsystem(python -c "import sys; import os; import textwrap; from io import open; fname = os.path.expanduser(os.path.expandvars(\"../src/graph/k短路.cpp\")); f = open(fname, \"r\", encoding=\"UTF8\") if os.path.isfile(fname) else None; t = f.readlines() if f is not None else None; t_opt = t if t is not None else []; f.close() if f is not None else None; tmpfname = os.path.expanduser(os.path.expandvars(\"main.pyg\")); f = open(tmpfname, \"w\", encoding=\"UTF8\") if t is not None else None; fvstartnum = 0; fvstopnum = 0; s = fvstartnum-1 if fvstartnum != 0 else 0; e = fvstopnum if fvstopnum != 0 else len(t_opt); [f.write(textwrap.dedent(\"\".join(x))) for x in (t_opt[0:s], t_opt[s:e], t_opt[e:]) if x and t is not None]; f.close() if t is not None else os.remove(tmpfname);")...executed.
-
-runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P mathescape=True -o _minted-main/D080D95C1CC22E2502731C7E6941B1A3364FE131EAF292715EEF0B63283C77E1.pygtex main.pyg)...executed.
-
- (./_minted-main/D080D95C1CC22E2502731C7E6941B1A3364FE131EAF292715EEF0B63283C77E1.pygtex
+[2]) (../src/graph/steiner.tex) (./_minted-main/D080D95C1CC22E2502731C7E6941B1A3364FE131EAF292715EEF0B63283C77E1.pygtex
 LaTeX Font Info:    Font shape `TU/等线(0)/m/sl' will be
 (Font)              scaled to size 8.99994pt on input line 10.
  [3]) (./_minted-main/9ECAA8226DB4874FFD91E96CB7A0FC00364FE131EAF292715EEF0B63283C77E1.pygtex [4]) (./_minted-main/57F79A01897CBDE631C195356C54AD59364FE131EAF292715EEF0B63283C77E1.pygtex [5]) (./_minted-main/AAFAD48BBB0CC5EA1B1427C286B452A0364FE131EAF292715EEF0B63283C77E1.pygtex [6]) (./_minted-main/F711972B91EB9682CB9BCE0E9CBC3EC7364FE131EAF292715EEF0B63283C77E1.pygtex [7]) (./_minted-main/2DE6FC605CB84BEBAD9440E05A66B4B0364FE131EAF292715EEF0B63283C77E1.pygtex
@@ -1861,9 +1856,9 @@ runsystem(del main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 18265 strings out of 476919
- 371223 string characters out of 5825424
- 1036052 words of memory out of 5000000
+ 18266 strings out of 476919
+ 371015 string characters out of 5825424
+ 1035978 words of memory out of 5000000
  37613 multiletter control sequences out of 15000+600000
  416041 words of font info for 109 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
