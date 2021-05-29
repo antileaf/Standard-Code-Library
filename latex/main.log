@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.20)  27 MAY 2021 17:17
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  28 MAY 2021 02:54
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/AntiLeaf/Documents/GitHub/Standard-Code-Library/latex/main
-(c:/Users/AntiLeaf/Documents/GitHub/Standard-Code-Library/latex/main.tex
+**c:/Users/antil/Documents/GitHub/Standard-Code-Library/latex/main
+(c:/Users/antil/Documents/GitHub/Standard-Code-Library/latex/main.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18> (c:/texlive/2021/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
@@ -1192,32 +1192,32 @@ runsystem(del main.aex)...executed.
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 119.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 119.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 122.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 122.
  (c:/texlive/2021/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 119.
-LaTeX Font Info:    Trying to load font information for T3+cmr on input line 119.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 122.
+LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 122.
+LaTeX Font Info:    Trying to load font information for T3+cmr on input line 122.
  (c:/texlive/2021/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    ... okay on input line 122.
 \c@lstlisting=\count351
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
@@ -1225,56 +1225,56 @@ Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 119.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 119.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 119.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 119.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 119.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 119.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 119.
-LaTeX Font Info:    Redeclaring math accent \check on input line 119.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 119.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 119.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 119.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 119.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 119.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 119.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 119.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 119.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 119.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 119.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 119.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 119.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 119.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 119.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 119.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 119.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 122.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 122.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 122.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 122.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 122.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 122.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 122.
+LaTeX Font Info:    Redeclaring math accent \check on input line 122.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 122.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 122.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 122.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 122.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 122.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 122.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 122.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 122.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 122.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 122.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 122.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 122.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 122.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 122.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 122.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 122.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 119.
+(Font)              `operators' in the math version `normal' on input line 122.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 119.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 122.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 119.
+(Font)              `operators' in the math version `bold' on input line 122.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 119.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 122.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 119.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 122.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 119.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 122.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 119.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 122.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 119.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 122.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/m/n on input line 119.
+(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/m/n on input line 122.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 119.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 122.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 119.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 122.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 119.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 122.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/b/n on input line 119.
+(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/b/n on input line 122.
  (c:/texlive/2021/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
  (c:/texlive/2021/texmf-dist/tex/latex/graphics/lscape.sty
@@ -1351,15 +1351,15 @@ LaTeX Font Info:    Font shape `TU/等线(0)/m/n' will be
 
  [1]
 LaTeX Font Info:    Font shape `TU/等线(0)/m/n' will be
-(Font)              scaled to size 18.66588pt on input line 138.
+(Font)              scaled to size 18.66588pt on input line 141.
 LaTeX Font Info:    Font shape `TU/等线(0)/bx/n' in size <12> not available
-(Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 140.
+(Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 143.
 LaTeX Font Info:    Font shape `TU/等线(0)/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 140.
+(Font)              scaled to size 10.79993pt on input line 143.
 LaTeX Font Info:    Font shape `TU/等线(0)/bx/n' in size <10> not available
-(Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 141.
+(Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 144.
 LaTeX Font Info:    Font shape `TU/等线(0)/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 141.
+(Font)              scaled to size 8.99994pt on input line 144.
  (../src/graph/Boruvka.tex) (./_minted-main/default-pyg-prefix.pygstyle) (./_minted-main/materiallight.pygstyle) (./_minted-main/942EE11375BFB706BA3B363FC423C193364FE131EAF292715EEF0B63283C77E1.pygtex
 LaTeX Font Info:    Font shape `TU/Consolas(0)/m/n' will be
 (Font)              scaled to size 8.00003pt on input line 1.
@@ -1646,83 +1646,33 @@ Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=la
 Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (./_minted-main/781D4B3345E768BEE2A8AEFB402A55E7364FE131EAF292715EEF0B63283C77E1.pygtex [28]
-Overfull \hbox (67.133pt too wide) in paragraph at lines 47--47
-[]\TU/Consolas(0)/m/n/10 sm[][][[][]maxn[][]<<[][]5[][]][][]=[][]{[][]0[][]},[][]lc[][][[][]maxn[][]<<[][]5[][]][][]=[][]{[][]0[][]},[][]rc[][][[][]maxn[][]<<[][]5[][]][][]=[][]{[][]0[][]},[][]root[][][[][]maxn[][]][][]=[][]{[][]0[][]},[][]cnt[][]=[][]0[][];[]|  
- []
+) (./_minted-main/A7583DD0C8C14BEE34A60920972DC4C8364FE131EAF292715EEF0B63283C77E1.pygtex [28] [29])
+runsystem(python -c "import sys; import os; import textwrap; from io import open; fname = os.path.expanduser(os.path.expandvars(\"../src/datastructure/LCT维护子树信息.cpp\")); f = open(fname, \"r\", encoding=\"UTF8\") if os.path.isfile(fname) else None; t = f.readlines() if f is not None else None; t_opt = t if t is not None else []; f.close() if f is not None else None; tmpfname = os.path.expanduser(os.path.expandvars(\"main.pyg\")); f = open(tmpfname, \"w\", encoding=\"UTF8\") if t is not None else None; fvstartnum = 0; fvstopnum = 0; s = fvstartnum-1 if fvstartnum != 0 else 0; e = fvstopnum if fvstopnum != 0 else len(t_opt); [f.write(textwrap.dedent(\"\".join(x))) for x in (t_opt[0:s], t_opt[s:e], t_opt[e:]) if x and t is not None]; f.close() if t is not None else os.remove(tmpfname);")...executed.
 
-[29]) (./_minted-main/3C1237768E1165D4B75A7621330B2433364FE131EAF292715EEF0B63283C77E1.pygtex
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P mathescape=True -o _minted-main/6875C72BC05017B394ACE62584AA69D5364FE131EAF292715EEF0B63283C77E1.pygtex main.pyg)...executed.
 
-Overfull \hbox (172.69594pt too wide) in paragraph at lines 20--20
-|| | |[][]\TU/Consolas(0)/m/n/10 node[][]()[][]:[][]w[][]([][]0[][]),[][]chain_cnt[][]([][]0[][]),[][]tree_cnt[][]([][]0[][]),[][]sum[][]([][]0[][]),[][]suml[][]([][]0[][]),[][]sumr[][]([][]0[][]),[][]tree_sum[][]([][]0[][]),[][]rev[][]([][]false[][]),[][]col[][]([][]false[][]) 
- []
-
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-
-Overfull \hbox (124.31288pt too wide) in paragraph at lines 31--31
-|| | |[][][]\TU/Consolas(0)/m/n/10 suml[][]=[][]([][]ch[][][[][]0[][]][][]->[][]rev[][]?[][]ch[][][[][]0[][]][][]->[][]sumr[][]:[][]ch[][][[][]0[][]][][]->[][]suml[][])[][]+[][]([][]ch[][][[][]1[][]][][]->[][]rev[][]?[][]ch[][][[][]1[][]][][]->[][]sumr[][]:[][]ch[][][[][]1[][]][][]->[][]suml[][])[]|  
- []
-
-
-Overfull \hbox (31.94542pt too wide) in paragraph at lines 32--32
-|| | |[][][][]\TU/Consolas(0)/m/n/10 +[][]([][]tree_cnt[][]+[][]ch[][][[][]1[][]][][]->[][]chain_cnt[][])[][]*[][]([][]ch[][][[][]0[][]][][]->[][]sum[][]+[][]w[][])[][]+[][]tree_sum[][];[]|  
- []
-
-
-Overfull \hbox (124.31288pt too wide) in paragraph at lines 33--33
-|| | |[][][]\TU/Consolas(0)/m/n/10 sumr[][]=[][]([][]ch[][][[][]0[][]][][]->[][]rev[][]?[][]ch[][][[][]0[][]][][]->[][]suml[][]:[][]ch[][][[][]0[][]][][]->[][]sumr[][])[][]+[][]([][]ch[][][[][]1[][]][][]->[][]rev[][]?[][]ch[][][[][]1[][]][][]->[][]suml[][]:[][]ch[][][[][]1[][]][][]->[][]sumr[][])[]|  
- []
-
-
-Overfull \hbox (31.94542pt too wide) in paragraph at lines 34--34
-|| | |[][][][]\TU/Consolas(0)/m/n/10 +[][]([][]tree_cnt[][]+[][]ch[][][[][]0[][]][][]->[][]chain_cnt[][])[][]*[][]([][]ch[][][[][]1[][]][][]->[][]sum[][]+[][]w[][])[][]+[][]tree_sum[][];[]|  
- []
-
-
-Overfull \hbox (14.35162pt too wide) in paragraph at lines 35--35
-|| | |[][][]\TU/Consolas(0)/m/n/10 chain_cnt[][]=[][]ch[][][[][]0[][]][][]->[][]chain_cnt[][]+[][]ch[][][[][]1[][]][][]->[][]chain_cnt[][]+[][]tree_cnt[][];[]|  
- []
-
-
-Overfull \hbox (75.92992pt too wide) in paragraph at lines 63--63
-|| | |[][][]\TU/Consolas(0)/m/n/10 x[][]->[][]tree_sum[][]+=[][]([][]x[][]->[][]ch[][][[][]1[][]][][]->[][]rev[][]?[][]x[][]->[][]ch[][][[][]1[][]][][]->[][]sumr[][]:[][]x[][]->[][]ch[][][[][]1[][]][][]->[][]suml[][])[][]-[][]y[][]->[][]suml[][];[]|  
- []
-
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-[30]
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (./_minted-main/27896DB1D4068D69D056DA60DF7B65E2364FE131EAF292715EEF0B63283C77E1.pygtex
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
- [31]
+ (./_minted-main/6875C72BC05017B394ACE62584AA69D5364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
- [32]) (./_minted-main/A7BF9010781322EC9D3A9ECA88BEEACD364FE131EAF292715EEF0B63283C77E1.pygtex
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+ [30]) (./_minted-main/27896DB1D4068D69D056DA60DF7B65E2364FE131EAF292715EEF0B63283C77E1.pygtex
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+ [31] [32]
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+) (./_minted-main/A7BF9010781322EC9D3A9ECA88BEEACD364FE131EAF292715EEF0B63283C77E1.pygtex [33]
 Overfull \hbox (58.3361pt too wide) in paragraph at lines 79--79
 || | |[][][][][][]\TU/Consolas(0)/m/n/10 virtree[][].[][]add[][]([][]s[][][[][]top[][]-1[][]],[][]s[][][[][]top[][]],[][]d[][][[][]s[][][[][]top[][]]][][]-[][]d[][][[][]s[][][[][]top[][]-1[][]]]);[]|  
  []
@@ -1737,7 +1687,7 @@ Overfull \hbox (58.33618pt too wide) in paragraph at lines 92--92
 \TU/Consolas(0)/m/n/10 %d[][]\n[][]"[][],[][]ans[][]-[][]virtree[][].[][]ans_sum[][],[][]virtree[][].[][]ans_min[][],[][]virtree[][].[][]ans_max[][]);[]|  
  []
 
-[33]) (./_minted-main/5A72BB37570373D4BC0728F6033F3629364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/41278A901CCB849F574FFD0ED03C9C3B364FE131EAF292715EEF0B63283C77E1.pygtex [34]) (../src/datastructure/常见根号思路.tex) (./_minted-main/916713130A51D4C0C84B8E8DCF061800364FE131EAF292715EEF0B63283C77E1.pygtex [35]) (./_minted-main/9166B5028F434ACA07E2EC98EA633E50364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/850003692678BF07E61E597C1CAFF204364FE131EAF292715EEF0B63283C77E1.pygtex
+) (./_minted-main/5A72BB37570373D4BC0728F6033F3629364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/41278A901CCB849F574FFD0ED03C9C3B364FE131EAF292715EEF0B63283C77E1.pygtex [34]) (../src/datastructure/常见根号思路.tex) (./_minted-main/916713130A51D4C0C84B8E8DCF061800364FE131EAF292715EEF0B63283C77E1.pygtex [35]) (./_minted-main/9166B5028F434ACA07E2EC98EA633E50364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/850003692678BF07E61E597C1CAFF204364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
  [36] [37] [38]) (./_minted-main/64984275464294626A0B1DD731D664E9364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/枚举子集.tex
@@ -1832,7 +1782,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--11
  (./_minted-main/BF35D5104D3C26C7F7EF0A87DC85654F364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
- (./_minted-main/EDABF43131DE36097BC84E283F3C8D88364FE131EAF292715EEF0B63283C77E1.pygtex)
+ (./_minted-main/EDABF43131DE36097BC84E283F3C8D88364FE131EAF292715EEF0B63283C77E1.pygtex) [39]
 \openout4 = `main.pyg'.
 
  (./_minted-main/AF7CE4B92C721AA418FF53FC13357000364FE131EAF292715EEF0B63283C77E1.pygtex)
@@ -1844,7 +1794,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--11
  (./_minted-main/C1BDA1B3B7D7D0C09A60ED4DF051ADD4364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
- (./_minted-main/EFA52AAD2988FFC7641F2026E659552B364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/常见下毒手法.tex [39]) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex) [40] (./main.aux)
+ (./_minted-main/EFA52AAD2988FFC7641F2026E659552B364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/常见下毒手法.tex) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex)
+runsystem(del _minted-main\3C1237768E1165D4B75A7621330B2433364FE131EAF292715EEF0B63283C77E1.pygtex)...executed.
+
+ [40] (./main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.44003pt have occurred.
@@ -1856,12 +1809,12 @@ runsystem(del main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 18266 strings out of 476919
- 371015 string characters out of 5825424
- 1035978 words of memory out of 5000000
- 37613 multiletter control sequences out of 15000+600000
+ 18268 strings out of 476919
+ 371154 string characters out of 5825424
+ 1037006 words of memory out of 5000000
+ 37614 multiletter control sequences out of 15000+600000
  416041 words of font info for 109 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 85i,17n,89p,812b,1115s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 85i,17n,89p,1191b,1115s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (41 pages).

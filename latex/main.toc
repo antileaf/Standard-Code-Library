@@ -65,7 +65,7 @@
 \contentsline {subsubsection}{\numberline {5.5.2}紫荆花之恋}{27}{}%
 \contentsline {subsection}{\numberline {5.6}LCT}{28}{}%
 \contentsline {subsubsection}{\numberline {5.6.1}不换根(弹飞绵羊)}{28}{}%
-\contentsline {subsubsection}{\numberline {5.6.2}换根/维护生成树(GREALD07加强版)}{29}{}%
+\contentsline {subsubsection}{\numberline {5.6.2}换根/维护生成树}{29}{}%
 \contentsline {subsubsection}{\numberline {5.6.3}维护子树信息}{30}{}%
 \contentsline {subsubsection}{\numberline {5.6.4}模板题:动态QTREE4(询问树上相距最远点)}{31}{}%
 \contentsline {subsection}{\numberline {5.7}虚树}{33}{}%
@@ -81,9 +81,9 @@
 \contentsline {subsection}{\numberline {7.3}xorshift}{39}{}%
 \contentsline {subsection}{\numberline {7.4}枚举子集}{39}{}%
 \contentsline {subsection}{\numberline {7.5}STL}{39}{}%
-\contentsline {subsection}{\numberline {7.6}pb\_ds}{39}{}%
-\contentsline {subsection}{\numberline {7.7}rope}{39}{}%
-\contentsline {section}{\numberline {8}注意事项}{39}{}%
-\contentsline {subsection}{\numberline {8.1}常见下毒手法}{39}{}%
+\contentsline {subsection}{\numberline {7.6}pb\_ds}{40}{}%
+\contentsline {subsection}{\numberline {7.7}rope}{40}{}%
+\contentsline {section}{\numberline {8}注意事项}{40}{}%
+\contentsline {subsection}{\numberline {8.1}常见下毒手法}{40}{}%
 \contentsline {subsection}{\numberline {8.2}场外相关}{40}{}%
 \contentsline {subsection}{\numberline {8.3}做题策略与心态调节}{40}{}%
