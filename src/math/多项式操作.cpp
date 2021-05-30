@@ -135,10 +135,10 @@ void get_pow(int *A, int *C, int n, int k) {
 
 // 多项式除法, A / B, 结果输出在C
 // A的次数为n, B的次数为m
-void get_div(int *A, int *B, int *C, int n, int m) {
+void getdiv(int *A, int *B, int *C, int n, int m) {
 	static int f[maxn], g[maxn], gi[maxn];
 
-	// assert(n > m);
+	assert(n >= m);
 
 	int N = 1;
 	while (N < (n - m + 1))
@@ -153,7 +153,7 @@ void get_div(int *A, int *B, int *C, int n, int m) {
 	for (int i = 0; i < m && i < n - m + 1; i++)
 		g[i] = B[m - i - 1];
 	
-	get_inv(g, gi, N);
+	getinv(g, gi, N);
 
 	for (int i = n - m + 1; i < N; i++)
 		gi[i] = 0;
@@ -170,12 +170,13 @@ void get_div(int *A, int *B, int *C, int n, int m) {
 		C[i] = f[n - m - i];
 }
 
-void get_mod(int *A, int *B, int *C, int *D, int n, int m) {
+// 多项式取模, 余数输出到C, 商输出到D
+void getmod(int *A, int *B, int *C, int *D, int n, int m) {
 	static int b[maxn], d[maxn];
 
-	// assert(n > m);
+	assert(n >= m);
 
-	get_div(A, B, d, n, m);
+	getdiv(A, B, d, n, m);
 	
 	if (D) { // D是商，可以选择不要
 		for (int i = 0; i < n - m + 1; i++)
