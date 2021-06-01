@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  1 JUN 2021 05:17
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.20)  1 JUN 2021 14:01
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/antil/Documents/GitHub/Standard-Code-Library/latex/main
-(c:/Users/antil/Documents/GitHub/Standard-Code-Library/latex/main.tex
+**c:/Users/AntiLeaf/Documents/GitHub/Standard-Code-Library/latex/main
+(c:/Users/AntiLeaf/Documents/GitHub/Standard-Code-Library/latex/main.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18> (c:/texlive/2021/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
@@ -1473,12 +1473,12 @@ Package amsmath Warning: Bracket group [x^n] at formula start!
 (amsmath)                If it belongs to the formula add a \relax in
 (amsmath)                front to hide it on input line 5.
 
-) (./_minted-main/D9B7E8CAD34EBCD4C837610D3C99A27E364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/384E3C129A66033FF9E11A5AAF150D01364FE131EAF292715EEF0B63283C77E1.pygtex [24]) (./_minted-main/4767ADF39D68F5B98D9B12AFFD62FF07364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/7B89810B39C6491A9F4AA74A42FA2C8A364FE131EAF292715EEF0B63283C77E1.pygtex [25]) (../src/math/伯努利数.tex) (./_minted-main/FDCB10387362F9F07A995063A187AA4C364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/DF9CF4DA8DC954827CBFAB398B040D90364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/95D4CE20D05D4DF46259DD2E5A625A59364FE131EAF292715EEF0B63283C77E1.pygtex [26]
+) (./_minted-main/D9B7E8CAD34EBCD4C837610D3C99A27E364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/384E3C129A66033FF9E11A5AAF150D01364FE131EAF292715EEF0B63283C77E1.pygtex [24]) (./_minted-main/4767ADF39D68F5B98D9B12AFFD62FF07364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/7B89810B39C6491A9F4AA74A42FA2C8A364FE131EAF292715EEF0B63283C77E1.pygtex [25]) (../src/math/线性代数.tex) (../src/math/伯努利数.tex) (./_minted-main/FDCB10387362F9F07A995063A187AA4C364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/DF9CF4DA8DC954827CBFAB398B040D90364FE131EAF292715EEF0B63283C77E1.pygtex [26]) (./_minted-main/95D4CE20D05D4DF46259DD2E5A625A59364FE131EAF292715EEF0B63283C77E1.pygtex
 Overfull \hbox (23.14854pt too wide) in paragraph at lines 6--6
 []\TU/Consolas(0)/m/n/10 maxn[][]=[][]5000005[][],[][]table_size[][]=[][]5000000[][],[][]p[][]=[][]1000000007[][],[][]inv_2[][]=[][]([][]p[][]+[][]1[][])[][]/[][]2[][];[]|  
  []
 
-) (./_minted-main/71E7C4A067067AB89359ED42328555AD364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/E57D555811F8F90D747FB65CB6B5DA94364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/9F35932AF3E0287EF340D1DBE27AAD55364FE131EAF292715EEF0B63283C77E1.pygtex [27]
+) (./_minted-main/71E7C4A067067AB89359ED42328555AD364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/E57D555811F8F90D747FB65CB6B5DA94364FE131EAF292715EEF0B63283C77E1.pygtex [27]) (./_minted-main/9F35932AF3E0287EF340D1DBE27AAD55364FE131EAF292715EEF0B63283C77E1.pygtex
 Overfull \hbox (1.35924pt too wide) in paragraph at lines 38--38
 []\TU/Consolas(0)/m/n/10 c[][]=[][]rand[][]()[][]%[][]([][]n[][]-2[][])[][]+[][]1[][],[][]i[][]=[][]1[][],[][]k[][]=[][]2[][],[][]x[][]=[][]rand[][]()[][]%[][]([][]n[][]-3[][])[][]+[][]2[][],[][]u[][]=[][]2[][];[][]\TU/Consolas(0)/m/it/10 //\TU/等线(0)/m/sl/10 注 
  []
@@ -1548,6 +1548,7 @@ Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=la
 Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
+ [29]
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1555,7 +1556,7 @@ Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=la
 )
 \openout4 = `main.pyg'.
 
- (./_minted-main/0CDD691DFAD601F164404E6E3FB69AB6364FE131EAF292715EEF0B63283C77E1.pygtex) [29] (./_minted-main/59137087FC054BF725CAE3EA1D649E63364FE131EAF292715EEF0B63283C77E1.pygtex
+ (./_minted-main/0CDD691DFAD601F164404E6E3FB69AB6364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/59137087FC054BF725CAE3EA1D649E63364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1614,15 +1615,14 @@ Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=la
  [34]) (./_minted-main/27896DB1D4068D69D056DA60DF7B65E2364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
- [35]
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
- [36]
+ [35] [36]
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (./_minted-main/A7BF9010781322EC9D3A9ECA88BEEACD364FE131EAF292715EEF0B63283C77E1.pygtex
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
+) (./_minted-main/A7BF9010781322EC9D3A9ECA88BEEACD364FE131EAF292715EEF0B63283C77E1.pygtex [37]
 Overfull \hbox (58.3361pt too wide) in paragraph at lines 79--79
 || | |[][][][][][]\TU/Consolas(0)/m/n/10 virtree[][].[][]add[][]([][]s[][][[][]top[][]-1[][]],[][]s[][][[][]top[][]],[][]d[][][[][]s[][][[][]top[][]]][][]-[][]d[][][[][]s[][][[][]top[][]-1[][]]]);[]|  
  []
@@ -1632,7 +1632,7 @@ Overfull \hbox (49.5392pt too wide) in paragraph at lines 89--89
 []\TU/Consolas(0)/m/n/10 i[][]=[][]top[][]-1[][];[][]i[][];[][]i[][]--[][])[][]virtree[][].[][]add[][]([][]s[][][[][]i[][]],[][]s[][][[][]i[][]+[][]1[][]],[][]d[][][[][]s[][][[][]i[][]+[][]1[][]]][][]-[][]d[][][[][]s[][][[][]i[][]]]);[]|  
  []
 
-[37]
+
 Overfull \hbox (58.33618pt too wide) in paragraph at lines 92--92
 \TU/Consolas(0)/m/n/10 %d[][]\n[][]"[][],[][]ans[][]-[][]virtree[][].[][]ans_sum[][],[][]virtree[][].[][]ans_min[][],[][]virtree[][].[][]ans_max[][]);[]|  
  []
@@ -1744,7 +1744,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--11
  (./_minted-main/C1BDA1B3B7D7D0C09A60ED4DF051ADD4364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
- (./_minted-main/EFA52AAD2988FFC7641F2026E659552B364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/常见下毒手法.tex [43]) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex) [44] (./main.aux)
+ (./_minted-main/EFA52AAD2988FFC7641F2026E659552B364FE131EAF292715EEF0B63283C77E1.pygtex) [43]) (../src/attention/常见下毒手法.tex) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex) [44] (./main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.44003pt have occurred.
@@ -1756,12 +1756,12 @@ runsystem(del main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 18281 strings out of 476919
- 372215 string characters out of 5825424
- 1037225 words of memory out of 5000000
- 37619 multiletter control sequences out of 15000+600000
+ 18285 strings out of 476919
+ 372288 string characters out of 5825424
+ 1037197 words of memory out of 5000000
+ 37620 multiletter control sequences out of 15000+600000
  416041 words of font info for 109 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 85i,17n,89p,1191b,1127s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 85i,17n,89p,1194b,1131s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (45 pages).
