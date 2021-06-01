@@ -138,6 +138,123 @@
 
 	\begin{multicols}{2}
 
+		\section{数学}
+
+			\subsection{插值}
+				\subsubsection{牛顿插值}
+					\input{../src/math/牛顿插值.tex}
+
+				\subsubsection{拉格朗日插值}
+					\input{../src/math/拉格朗日插值.tex}
+			
+			\subsection{多项式}
+				\subsubsection{FFT}
+					\inputminted{cpp}{../src/math/FFT.cpp}
+
+				\subsubsection{NTT}
+					\inputminted{cpp}{../src/math/NTT.cpp}
+
+				\subsubsection{任意模数卷积(三模数NTT)}
+					\inputminted{cpp}{../src/math/任意模数卷积.cpp}
+
+				% \subsection{毛梯梯}
+
+			
+				\subsubsection{多项式操作}
+					\inputminted{cpp}{../src/math/多项式操作.cpp}
+
+				\subsubsection{更优秀的多项式多点求值}
+					这个做法不需要写求逆和取模, 但是神乎其技, 完全搞不懂原理 \\
+					清空和复制之类的地方容易抄错, 抄的时候要注意
+					\inputminted{cpp}{../src/math/更优秀的多项式多点求值.cpp}
+
+				% \subsubsection{多项式快速插值}
+
+
+				% \subsubsection{多项式复合与复合逆}
+
+
+				\subsubsection{拉格朗日反演}
+					\input{../src/math/拉格朗日反演.tex}
+
+				% \subsubsection{分治FFT}
+
+
+				\subsubsection{半在线卷积}
+					\inputminted{cpp}{../src/math/半在线卷积.cpp}
+				
+				\subsubsection{常系数齐次线性递推$O(k\log k\log n)$}
+					如果只有一次这个操作可以像代码里一样加上一个只求一次逆的优化, 否则就乖乖每次做完整的除法和取模
+					\inputminted{cpp}{../src/math/常系数齐次线性递推.cpp}
+				
+
+			\subsection{FWT快速沃尔什变换}
+				\inputminted{cpp}{../src/math/FWT.cpp}
+
+			\subsection{单纯形}
+				\inputminted{cpp}{../src/math/单纯形.cpp}
+
+				% \subsubsection{线性规划对偶原理}
+
+
+			\subsection{线性代数}
+				% \subsubsection{高斯消元}
+
+
+				% \subsubsection{任意模数高斯消元}
+
+
+				% \subsubsection{自由元搜索}
+
+
+				\subsubsection{线性基}
+					% \inputminted{cpp}{../src/math/线性基.cpp}
+
+
+				\subsubsection{线性代数知识}
+					\input{../src/math/线性代数.tex}
+
+			% \subsection{自适应Simpson积分}
+
+
+			% \subsection{常见结论}
+				% \subsubsection{线性齐次递推求通项}
+			
+				
+			\subsection{常见数列}
+				\subsubsection{伯努利数}
+					\input{../src/math/伯努利数.tex}
+				
+				\subsubsection{分拆数}
+					\inputminted{cpp}{../src/math/分拆数.cpp}
+
+
+		\section{数论}
+
+			\subsection{$O(n)$预处理逆元}
+				\inputminted{cpp}{../src/numbertheory/O(n)求逆元.cpp}
+
+			\subsection{杜教筛}
+				\inputminted{cpp}{../src/numbertheory/杜教筛.cpp}
+			
+			\subsection{线性筛}
+				\inputminted{cpp}{../src/numbertheory/扩展线性筛.cpp}
+
+			% \subsection{min_25筛}
+
+
+			\subsection{Miller-Rabin}
+				\inputminted{cpp}{../src/numbertheory/Miller-Rabin.cpp}
+
+			\subsection{Pollard's Rho}
+				\inputminted{cpp}{../src/numbertheory/Pollard-Rho.cpp}
+			
+			% \subsection{组合数取模}
+
+
+			%\subsection{扩展欧几里得}
+
+
 		\section{图论}
 
 			\subsection{最小生成树}
@@ -248,6 +365,84 @@
 				% \subsubsection{最大团搜索}
 			
 
+		\section{数据结构}
+
+			\subsection{线段树}
+				\subsubsection{非递归线段树}
+					\input{../src/datastructure/非递归线段树.tex}
+
+				\subsubsection{主席树}
+					这种东西能不能手撕啊
+	
+			\subsection{陈丹琦分治}
+				\inputminted{cpp}{../src/datastructure/CDQ分治.cpp}
+	
+			% \subsection{整体二分}
+
+
+			% \subsection{块状链表}
+	
+	
+			\subsection{Treap}
+				\inputminted{cpp}{../src/datastructure/Treap.cpp}
+				
+				% \subsubsection{无旋Treap}
+
+
+				% \subsubsection{可持久化Treap}
+	
+	
+			\subsection{Splay}
+				(参见LCT,除了\mintinline{cpp}{splay()}需要传一个点表示最终它的父亲,其他写法都和LCT相同)
+				
+			\subsection{树分治}
+				% \subsubsection{静态树分治}
+
+				
+				\subsubsection{动态树分治}
+					\inputminted{cpp}{../src/datastructure/动态树分治.cpp}
+
+				\subsubsection{紫荆花之恋}
+					\inputminted{cpp}{../src/datastructure/紫荆花之恋.cpp}
+	
+			\subsection{LCT}
+				\subsubsection{不换根(弹飞绵羊)}
+					\inputminted{cpp}{../src/datastructure/LCT(不换根).cpp}
+			
+				\subsubsection{换根/维护生成树}
+					\inputminted{cpp}{../src/datastructure/LCT(换根).cpp}
+
+				\subsubsection{维护子树信息}
+					\inputminted{cpp}{../src/datastructure/LCT维护子树信息.cpp}
+					
+				\subsubsection{模板题:动态QTREE4(询问树上相距最远点)}
+						\inputminted{cpp}{../src/datastructure/动态QTREE4.cpp}
+	
+			% \subsection{K-D树}
+	
+	
+			% \subsection{树分块}
+	
+	
+			% \subsection{树上莫队}
+			
+	
+			\subsection{虚树}
+				\inputminted{cpp}{../src/datastructure/虚树.cpp}
+	
+	
+			\subsection{长链剖分}
+				\inputminted{cpp}{../src/datastructure/长链剖分.cpp}
+	
+			\subsection{梯子剖分}
+				\inputminted{cpp}{../src/datastructure/梯子剖分.cpp}
+					
+			\subsection{左偏树}
+				(参见k短路)
+	
+			\subsection{常见根号思路}
+				\input{../src/datastructure/常见根号思路.tex}
+
 		\section{字符串}
 
 			\subsection{AC自动机}
@@ -291,200 +486,7 @@
 
 
 			% \subsection{字符串原理}
-
-
-		\section{数学}
-
-			\subsection{插值}
-				\subsubsection{牛顿插值}
-					\input{../src/math/牛顿插值.tex}
-
-				\subsubsection{拉格朗日插值}
-					\input{../src/math/拉格朗日插值.tex}
-			
-			\subsection{多项式}
-				\subsubsection{FFT}
-					\inputminted{cpp}{../src/math/FFT.cpp}
-
-				\subsubsection{NTT}
-					\inputminted{cpp}{../src/math/NTT.cpp}
-
-				\subsubsection{任意模数卷积(三模数NTT)}
-					\inputminted{cpp}{../src/math/任意模数卷积.cpp}
-
-				% \subsection{毛梯梯}
-
-			
-				\subsubsection{多项式操作}
-					\inputminted{cpp}{../src/math/多项式操作.cpp}
-
-				\subsubsection{更优秀的多项式多点求值}
-					这个做法不需要写求逆和取模, 但是神乎其技, 完全搞不懂原理 \\
-					清空和复制之类的地方容易抄错, 抄的时候要注意
-					\inputminted{cpp}{../src/math/更优秀的多项式多点求值.cpp}
-
-				% \subsubsection{多项式快速插值}
-
-
-				% \subsubsection{多项式复合与复合逆}
-
-				\subsubsection{拉格朗日反演}
-					\input{../src/math/拉格朗日反演.tex}
-
-				% \subsubsection{分治FFT}
-
-
-				\subsubsection{半在线卷积}
-					\inputminted{cpp}{../src/math/半在线卷积.cpp}
 				
-				\subsubsection{常系数齐次线性递推$O(k\log k\log n)$}
-					如果只有一次这个操作可以像代码里一样加上一个只求一次逆的优化, 否则就乖乖每次做完整的除法和取模
-					\inputminted{cpp}{../src/math/常系数齐次线性递推.cpp}
-				
-
-			\subsection{FWT快速沃尔什变换}
-				\inputminted{cpp}{../src/math/FWT.cpp}
-
-			\subsection{单纯形}
-				\inputminted{cpp}{../src/math/单纯形.cpp}
-
-				% \subsubsection{线性规划对偶原理}
-
-
-			\subsection{线性代数}
-				% \subsubsection{高斯消元}
-
-
-				% \subsubsection{任意模数高斯消元}
-
-
-				% \subsubsection{自由元搜索}
-
-
-				\subsubsection{线性基}
-					% \inputminted{cpp}{../src/math/线性基.cpp}
-
-
-				\subsubsection{线性代数知识}
-					\input{../src/math/线性代数.tex}
-
-			% \subsection{自适应Simpson积分}
-
-
-			% \subsection{常见结论}
-				% \subsubsection{线性齐次递推求通项}
-			
-				
-			\subsection{常见数列}
-				\subsubsection{伯努利数}
-					\input{../src/math/伯努利数.tex}
-				
-				\subsubsection{分拆数}
-					\inputminted{cpp}{../src/math/分拆数.cpp}
-
-
-		\section{数论}
-
-			\subsection{$O(n)$预处理逆元}
-				\inputminted{cpp}{../src/numbertheory/O(n)求逆元.cpp}
-
-			\subsection{杜教筛}
-				\inputminted{cpp}{../src/numbertheory/杜教筛.cpp}
-			
-			\subsection{线性筛}
-				\inputminted{cpp}{../src/numbertheory/扩展线性筛.cpp}
-
-			% \subsection{min_25筛}
-
-
-			\subsection{Miller-Rabin}
-				\inputminted{cpp}{../src/numbertheory/Miller-Rabin.cpp}
-
-			\subsection{Pollard's Rho}
-				\inputminted{cpp}{../src/numbertheory/Pollard-Rho.cpp}
-			
-			% \subsection{组合数取模}
-
-
-			%\subsection{扩展欧几里得}
-				
-
-		\section{数据结构}
-
-			\subsection{线段树}
-				\subsubsection{非递归线段树}
-					\input{../src/datastructure/非递归线段树.tex}
-
-				\subsubsection{主席树}
-					这种东西能不能手撕啊
-
-			\subsection{陈丹琦分治}
-				\inputminted{cpp}{../src/datastructure/CDQ分治.cpp}
-
-			% \subsection{整体二分}
-
-
-			% \subsection{块状链表}
-
-
-			\subsection{Treap}
-				\inputminted{cpp}{../src/datastructure/Treap.cpp}
-			
-				% \subsubsection{无旋Treap}
-
-
-				% \subsubsection{可持久化Treap}
-
-
-			\subsection{Splay}
-				(参见LCT,除了\mintinline{cpp}{splay()}需要传一个点表示最终它的父亲,其他写法都和LCT相同)
-			
-			\subsection{树分治}
-				% \subsubsection{静态树分治}
-
-				
-				\subsubsection{动态树分治}
-					\inputminted{cpp}{../src/datastructure/动态树分治.cpp}
-
-				\subsubsection{紫荆花之恋}
-					\inputminted{cpp}{../src/datastructure/紫荆花之恋.cpp}
-
-				\subsection{LCT}
-					\subsubsection{不换根(弹飞绵羊)}
-						\inputminted{cpp}{../src/datastructure/LCT(不换根).cpp}
-				
-					\subsubsection{换根/维护生成树}
-						\inputminted{cpp}{../src/datastructure/LCT(换根).cpp}
-
-					\subsubsection{维护子树信息}
-						\inputminted{cpp}{../src/datastructure/LCT维护子树信息.cpp}
-					
-					\subsubsection{模板题:动态QTREE4(询问树上相距最远点)}
-						\inputminted{cpp}{../src/datastructure/动态QTREE4.cpp}
-
-				% \subsection{K-D树}
-
-
-				% \subsection{树分块}
-
-
-				% \subsection{树上莫队}
-
-				\subsection{虚树}
-					\inputminted{cpp}{../src/datastructure/虚树.cpp}
-
-
-				\subsection{长链剖分}
-					\inputminted{cpp}{../src/datastructure/长链剖分.cpp}
-
-				\subsection{梯子剖分}
-					\inputminted{cpp}{../src/datastructure/梯子剖分.cpp}
-				
-				\subsection{左偏树}
-					(参见k短路)
-
-				\subsection{常见根号思路}
-					\input{../src/datastructure/常见根号思路.tex}
 
 			\section{动态规划}
 				\subsection{决策单调性$O(n\log n)$}
