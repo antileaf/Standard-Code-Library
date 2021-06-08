@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{void} \PYG{n+nf}{update}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{l}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{r}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{d}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{n}{l} \PYG{o}{+=} \PYG{n}{N} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r} \PYG{o}{+=} \PYG{n}{N} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{l} \PYG{o}{\PYGZca{}} \PYG{n}{r} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{l} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{l} \PYG{o}{\PYGZlt{}} \PYG{n}{N}\PYG{p}{)} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{l}\PYG{p}{]} \PYG{o}{=} \PYG{n}{max}\PYG{p}{(}\PYG{n}{tree}\PYG{p}{[}\PYG{n}{l} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{l} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+m+mi}{1} \PYG{o}{|} \PYG{l+m+mi}{1}\PYG{p}{])} \PYG{o}{+} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{l}\PYG{p}{],}
+                    \PYG{n}{tree}\PYG{p}{[}\PYG{n}{r}\PYG{p}{]} \PYG{o}{=} \PYG{n}{max}\PYG{p}{(}\PYG{n}{tree}\PYG{p}{[}\PYG{n}{r} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{r} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+m+mi}{1} \PYG{o}{|} \PYG{l+m+mi}{1}\PYG{p}{])} \PYG{o}{+} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{r}\PYG{p}{];}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{l} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{l} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{d}\PYG{p}{,} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{l} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{d}\PYG{p}{;}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{r} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{r} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{d}\PYG{p}{,} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{r} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{d}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{for} \PYG{p}{(;} \PYG{n}{l}\PYG{p}{;} \PYG{n}{l} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{)}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{l} \PYG{o}{\PYGZlt{}} \PYG{n}{N}\PYG{p}{)} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{l}\PYG{p}{]} \PYG{o}{=} \PYG{n}{max}\PYG{p}{(}\PYG{n}{tree}\PYG{p}{[}\PYG{n}{l} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{l} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+m+mi}{1} \PYG{o}{|} \PYG{l+m+mi}{1}\PYG{p}{])} \PYG{o}{+} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{l}\PYG{p}{],}
+                    \PYG{n}{tree}\PYG{p}{[}\PYG{n}{r}\PYG{p}{]} \PYG{o}{=} \PYG{n}{max}\PYG{p}{(}\PYG{n}{tree}\PYG{p}{[}\PYG{n}{r} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{r} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+m+mi}{1} \PYG{o}{|} \PYG{l+m+mi}{1}\PYG{p}{])} \PYG{o}{+} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{r}\PYG{p}{];}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{query}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{l}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{r}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{maxl} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{INF}\PYG{p}{,} \PYG{n}{maxr} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{INF}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{n}{l} \PYG{o}{+=} \PYG{n}{N} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r} \PYG{o}{+=} \PYG{n}{N} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{l} \PYG{o}{\PYGZca{}} \PYG{n}{r} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{l} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{maxl} \PYG{o}{+=} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{l}\PYG{p}{],} \PYG{n}{maxr} \PYG{o}{+=} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{r}\PYG{p}{];}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{l} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{cmax}\PYG{p}{(}\PYG{n}{maxl}\PYG{p}{,} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{l} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{]);}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{r} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{cmax}\PYG{p}{(}\PYG{n}{maxr}\PYG{p}{,} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{r} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{]);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{for} \PYG{p}{(;} \PYG{n}{l}\PYG{p}{;} \PYG{n}{l} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{)}
+        \PYG{n}{maxl} \PYG{o}{+=} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{l}\PYG{p}{],} \PYG{n}{maxr} \PYG{o}{+=} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{r}\PYG{p}{];.}
+
+    \PYG{k}{return} \PYG{n}{max}\PYG{p}{(}\PYG{n}{maxl}\PYG{p}{,} \PYG{n}{maxr}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

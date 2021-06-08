@@ -21,6 +21,66 @@ int query(int l, int r) {
     return ans;
 }
 \end{minted}
-	
-	\item 区间修改要标记永久化, 麻烦得很, 建议写普通的递归线段树
+
 \end{itemize}
+	
+区间修改要标记永久化,并且求区间和和求最值的代码不太一样 \\
+
+\textbf{区间加, 区间求和}
+\begin{minted}{cpp}
+void update(int l, int r, int d) {
+    int len = 1, cntl = 0, cntr = 0; // cntl、cntr是左、右两边分别实际修改的区间长度
+    for (l += n - 1, r += n + 1; l ^ r ^ 1; l >>= 1, r >>= 1, len <<= 1) {
+        tree[l] += cntl * d, tree[r] += cntr * d;
+        if (~l & 1) tree[l ^ 1] += d * len, mark[l ^ 1] += d, cntl += len;
+        if (r & 1) tree[r ^ 1] += d * len, mark[r ^ 1] += d, cntr += len;
+    }
+
+    for (; l; l >>= 1, r >>= 1)
+        tree[l] += cntl * d, tree[r] += cntr * d;
+}
+
+int query(int l, int r) {
+    int ans = 0, len = 1, cntl = 0, cntr = 0;
+    for (l += n - 1, r += n + 1; l ^ r ^ 1; l >>= 1, r >>= 1, len <<= 1) {
+        ans += cntl * mark[l] + cntr * mark[r];
+        if (~l & 1) ans += tree[l ^ 1], cntl += len;
+        if (r & 1) ans += tree[r ^ 1], cntr += len;
+    }
+
+    for (; l; l >>= 1, r >>= 1)
+        ans += cntl * mark[l] + cntr * mark[r];
+
+    return ans;
+}
+\end{minted}
+
+\textbf{区间加, 区间求最大值}
+\begin{minted}{cpp}
+void update(int l, int r, int d) {
+    for (l += N - 1, r += N + 1; l ^ r ^ 1; l >>= 1, r >>= 1) {
+        if (l < N) tree[l] = max(tree[l << 1], tree[l << 1 | 1]) + mark[l],
+                    tree[r] = max(tree[r << 1], tree[r << 1 | 1]) + mark[r];
+        if (~l & 1) tree[l ^ 1] += d, mark[l ^ 1] += d;
+        if (r & 1) tree[r ^ 1] += d, mark[r ^ 1] += d;
+    }
+
+    for (; l; l >>= 1, r >>= 1)
+        if (l < N) tree[l] = max(tree[l << 1], tree[l << 1 | 1]) + mark[l],
+                    tree[r] = max(tree[r << 1], tree[r << 1 | 1]) + mark[r];
+}
+
+void query(int l, int r) {
+    int maxl = -INF, maxr = -INF;
+    for (l += N - 1, r += N + 1; l ^ r ^ 1; l >>= 1, r >>= 1) {
+        maxl += mark[l], maxr += mark[r];
+        if (~l & 1) cmax(maxl, tree[l ^ 1]);
+        if (r & 1) cmax(maxr, tree[r ^ 1]);
+    }
+
+    for (; l; l >>= 1, r >>= 1)
+        maxl += mark[l], maxr += mark[r];.
+        
+    return max(maxl, maxr);
+}
+\end{minted}
