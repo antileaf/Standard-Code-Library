@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  9 JUN 2021 00:06
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  9 JUN 2021 11:44
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1482,31 +1482,20 @@ Overfull \hbox (18.75005pt too wide) in paragraph at lines 164--164
 [19]) (./_minted-main/4056FAE7F94EC3642C1AB41F87BB8A7D364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/D7142F7EA115C3CDFD4114C5DE7A7A6B364FE131EAF292715EEF0B63283C77E1.pygtex [20]) (./_minted-main/D63396523ED0CC2821D7F0A44EBEBC48364FE131EAF292715EEF0B63283C77E1.pygtex [21]) (./_minted-main/A128195CF4875D6DFE7D89163357DA74364FE131EAF292715EEF0B63283C77E1.pygtex [22]) (../src/datastructure/非递归线段树.tex
 \openout3 = `main.pyg'.
 
- (./_minted-main/E8CB34B4818015B118F8E99CBF6D398A364FE131EAF292715EEF0B63283C77E1.pygtex)
+ (./_minted-main/79381F6A3EE4A7D5B8D6A2568332562B364FE131EAF292715EEF0B63283C77E1.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 27--28
 
  []
 
 \openout3 = `main.pyg'.
 
-runsystem(python -c "import sys; import os; import textwrap; from io import open; fname = os.path.expanduser(os.path.expandvars(\"main.pyg\")); f = open(fname, \"r\", encoding=\"UTF8\") if os.path.isfile(fname) else None; t = f.readlines() if f is not None else None; t_opt = t if t is not None else []; f.close() if f is not None else None; tmpfname = os.path.expanduser(os.path.expandvars(\"main.pyg\")); f = open(tmpfname, \"w\", encoding=\"UTF8\") if t is not None else None; fvstartnum = 0; fvstopnum = 0; s = fvstartnum-1 if fvstartnum != 0 else 0; e = fvstopnum if fvstopnum != 0 else len(t_opt); [f.write(textwrap.dedent(\"\".join(x))) for x in (t_opt[0:s], t_opt[s:e], t_opt[e:]) if x and t is not None]; f.close() if t is not None else os.remove(tmpfname);")...executed.
-
-runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P mathescape=True -o _minted-main/D55DA9D94DD14DB07C586B9DBB0CF2D3364FE131EAF292715EEF0B63283C77E1.pygtex main.pyg)...executed.
-
-(./_minted-main/D55DA9D94DD14DB07C586B9DBB0CF2D3364FE131EAF292715EEF0B63283C77E1.pygtex
-Missing character: There is no 、 (U+3001) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no 、 (U+3001) in font Consolas Italic/OT:script=latn;language=dflt;!
-)
+(./_minted-main/728B0C53FCA5F737E6D0AF678CD93D32364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout3 = `main.pyg'.
 
-runsystem(python -c "import sys; import os; import textwrap; from io import open; fname = os.path.expanduser(os.path.expandvars(\"main.pyg\")); f = open(fname, \"r\", encoding=\"UTF8\") if os.path.isfile(fname) else None; t = f.readlines() if f is not None else None; t_opt = t if t is not None else []; f.close() if f is not None else None; tmpfname = os.path.expanduser(os.path.expandvars(\"main.pyg\")); f = open(tmpfname, \"w\", encoding=\"UTF8\") if t is not None else None; fvstartnum = 0; fvstopnum = 0; s = fvstartnum-1 if fvstartnum != 0 else 0; e = fvstopnum if fvstopnum != 0 else len(t_opt); [f.write(textwrap.dedent(\"\".join(x))) for x in (t_opt[0:s], t_opt[s:e], t_opt[e:]) if x and t is not None]; f.close() if t is not None else os.remove(tmpfname);")...executed.
-
-runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P mathescape=True -o _minted-main/48FDE671152CF274D39480EA652D55CE364FE131EAF292715EEF0B63283C77E1.pygtex main.pyg)...executed.
-
- (./_minted-main/48FDE671152CF274D39480EA652D55CE364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/8901C7DED22477267ED165C186F18B63364FE131EAF292715EEF0B63283C77E1.pygtex
+ (./_minted-main/138C7DC6AE9B58C6FEFB8301C6154F65364FE131EAF292715EEF0B63283C77E1.pygtex [23])) (./_minted-main/8901C7DED22477267ED165C186F18B63364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
- [23]) (./_minted-main/45D5BBC97DF8ED04FC3A43AD40DF8DEE364FE131EAF292715EEF0B63283C77E1.pygtex
+) (./_minted-main/45D5BBC97DF8ED04FC3A43AD40DF8DEE364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1543,15 +1532,15 @@ Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=la
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
-Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
  [24]
+Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
+Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
@@ -1653,7 +1642,7 @@ Overfull \hbox (58.33618pt too wide) in paragraph at lines 92--92
 \TU/Consolas(0)/m/n/10 %d[][]\n[][]"[][],[][]ans[][]-[][]virtree[][].[][]ans_sum[][],[][]virtree[][].[][]ans_min[][],[][]virtree[][].[][]ans_max[][]);[]|  
  []
 
-) (./_minted-main/5A72BB37570373D4BC0728F6033F3629364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/41278A901CCB849F574FFD0ED03C9C3B364FE131EAF292715EEF0B63283C77E1.pygtex [33]) (../src/datastructure/常见根号思路.tex) (./_minted-main/91FC7A13CF92EEC732B6FC58F3CE6B94364FE131EAF292715EEF0B63283C77E1.pygtex
+) (./_minted-main/5A72BB37570373D4BC0728F6033F3629364FE131EAF292715EEF0B63283C77E1.pygtex [33]) (./_minted-main/41278A901CCB849F574FFD0ED03C9C3B364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/datastructure/常见根号思路.tex) (./_minted-main/91FC7A13CF92EEC732B6FC58F3CE6B94364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ： (U+FF1A) in font Consolas Italic/OT:script=latn;language=dflt;!
  [34]) (./_minted-main/8052BF2E8F0B4A24270D1C649128A5C8364FE131EAF292715EEF0B63283C77E1.pygtex [35]) (./_minted-main/77523AC34465C3CE175009FEDD40724C364FE131EAF292715EEF0B63283C77E1.pygtex
@@ -1768,12 +1757,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--11
  (./_minted-main/C1BDA1B3B7D7D0C09A60ED4DF051ADD4364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
- (./_minted-main/EFA52AAD2988FFC7641F2026E659552B364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/常见下毒手法.tex) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex [44])
-runsystem(del _minted-main\8EBBCBE6BA1EA9677161EFCBEF1FEE96364FE131EAF292715EEF0B63283C77E1.pygtex)...executed.
-
-runsystem(del _minted-main\4BC62AA6FDA4E03F2C9C34E941648CC5364FE131EAF292715EEF0B63283C77E1.pygtex)...executed.
-
- [45] (./main.aux)
+ (./_minted-main/EFA52AAD2988FFC7641F2026E659552B364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/常见下毒手法.tex) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex [44]) [45] (./main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.44003pt have occurred.
@@ -1785,10 +1769,10 @@ runsystem(del main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 18299 strings out of 476919
- 373381 string characters out of 5825424
+ 18295 strings out of 476919
+ 373085 string characters out of 5825424
  1036431 words of memory out of 5000000
- 37626 multiletter control sequences out of 15000+600000
+ 37624 multiletter control sequences out of 15000+600000
  416041 words of font info for 109 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  85i,17n,89p,1190b,1137s stack positions out of 5000i,500n,10000p,200000b,80000s

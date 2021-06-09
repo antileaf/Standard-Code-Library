@@ -49,7 +49,7 @@
 \contentsline {section}{\numberline {4}数据结构}{23}{}%
 \contentsline {subsection}{\numberline {4.1}线段树}{23}{}%
 \contentsline {subsubsection}{\numberline {4.1.1}非递归线段树}{23}{}%
-\contentsline {subsubsection}{\numberline {4.1.2}主席树}{23}{}%
+\contentsline {subsubsection}{\numberline {4.1.2}主席树}{24}{}%
 \contentsline {subsection}{\numberline {4.2}陈丹琦分治}{24}{}%
 \contentsline {subsection}{\numberline {4.3}Treap}{24}{}%
 \contentsline {subsection}{\numberline {4.4}Splay}{25}{}%
