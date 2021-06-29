@@ -1,0 +1,18 @@
+\subsubsection{莫比乌斯反演}
+	$$ \begin{aligned}
+		f(n) = \sum_{d | n} g(d) \Leftrightarrow g(n) = \sum_{d | n} \mu\left( \frac n d \right) f(d) \\
+		f(d) = \sum_{d | k} g(k) \Leftrightarrow g(d) = \sum_{d | k} \mu\left( \frac k d \right) f(k)
+	\end{aligned} $$
+
+\subsubsection{其他常用公式}
+	$$ \begin{aligned}
+		\mu * I = e \quad (e(n) = [n = 1]) \\
+		\varphi * I = id \\
+		\mu * id = \varphi \\
+		\sigma_0 = I * I ,\, sigma_1 = id * I ,\, sigma_k = id^{k - 1} * I \\
+		\sum_{i = 1} ^ n \left[(i, n) = 1\right] i = n \frac {\varphi(n) + e(n)} 2
+	\end{aligned} $$
+	$$ \begin{aligned}
+		\sum_{i = 1} ^ n \sum_{j = 1} ^ i \left[(i, j) = d\right] = S_\varphi \left( \left\lfloor \frac n d \right\rfloor \right) \\
+		\sum_{i = 1} ^ n \sum_{j = 1} ^ m \left[(i, j) = d\right] = \sum_{d | k} \mu\left( \frac k d \right) \left\lfloor \frac n k \right\rfloor \left\lfloor \frac m k \right\rfloor
+	\end{aligned} $$

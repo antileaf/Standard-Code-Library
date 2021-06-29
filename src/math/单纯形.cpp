@@ -64,7 +64,7 @@ bool initalize() {
 }
 
 //求解
-bool simplex(){
+bool simplex() {
 	while (true) {
 		int l = 0, e = 0;
 		for (int i = 1; i <= n; i++)

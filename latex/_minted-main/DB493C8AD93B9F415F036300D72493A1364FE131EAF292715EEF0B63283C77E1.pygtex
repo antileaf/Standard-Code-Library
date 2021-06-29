@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{o}{\PYGZhy{}}\PYG{n}{fsanitize}\PYG{o}{=}\PYG{p}{(}\PYG{n}{address}\PYG{o}{/}\PYG{n}{undefined}\PYG{p}{)}
+\end{Verbatim}

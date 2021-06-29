@@ -1,0 +1,15 @@
+任意模数卷积有两种比较naive的做法, 三模数NTT和拆系数FFT. 一般来说后者常数比前者小一些.
+
+但卷积答案不超过$10^18$的时候可以改用双模数NTT, 比FFT是要快的.
+
+\textbf{三模数NTT}
+
+原理是选取三个乘积大于结果的NTT模数, 最后中国剩余定理合并.
+
+\inputminted[]{cpp}{../src/math/三模数NTT.cpp}
+
+\textbf{拆系数FFT}
+
+原理是选一个数$M$, 把每一项改写成$a M + b$的形式再分别相乘.
+
+\inputminted[]{cpp}{../src/math/拆系数FFT.cpp}

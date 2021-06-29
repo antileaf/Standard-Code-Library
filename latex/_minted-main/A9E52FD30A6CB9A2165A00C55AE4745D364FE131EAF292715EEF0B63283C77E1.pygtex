@@ -3,9 +3,9 @@
 \PYG{k+kt}{char} \PYG{n}{s}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{t}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
 \PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{a}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
 
-\PYG{c+c1}{//主过程 O(n + m)}
-\PYG{c+c1}{//把t的每个后缀与s的LCP输出到a中,s的后缀和自己的LCP存在nx中}
-\PYG{c+c1}{//0\PYGZhy{}based,s的长度是m,t的长度是n}
+\PYG{c+c1}{// 主过程 O(n + m)}
+\PYG{c+c1}{// 把t的每个后缀与s的LCP输出到a中, s的后缀和自己的LCP存在nx中}
+\PYG{c+c1}{// 0\PYGZhy{}based, s的长度是m, t的长度是n}
 \PYG{k+kt}{void} \PYG{n+nf}{exKMP}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{s}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{t}\PYG{p}{,} \PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{a}\PYG{p}{)} \PYG{p}{\PYGZob{}}
 	\PYG{k}{static} \PYG{k+kt}{int} \PYG{n}{nx}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
 

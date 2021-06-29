@@ -1,6 +1,6 @@
-﻿// 这个东西虽然只需要抄板子但还是极其难写，常数极其巨大，没必要的时候就不要用
-// 如果维护子树最小值就需要套一个可删除的堆来维护，复杂度会变成O(n\log^2 n)
-// 注意由于这道题与边权有关，需要边权拆点变点权
+﻿// 这个东西虽然只需要抄板子但还是极其难写, 常数极其巨大, 没必要的时候就不要用
+// 如果维护子树最小值就需要套一个可删除的堆来维护, 复杂度会变成O(n\log^2 n)
+// 注意由于这道题与边权有关, 需要边权拆点变点权
 
 // 宏定义
 #define isroot(x) ((x) -> p == null || ((x) != (x) -> p -> ch[0]&& (x) != (x) -> p -> ch[1]))
@@ -9,7 +9,7 @@
 // 节点类定义
 struct node { // 以维护子树中黑点到根距离和为例
 	int w, chain_cnt, tree_cnt;
-	long long sum, suml, sumr, tree_sum; // 由于换根需要子树反转，需要维护两个方向的信息
+	long long sum, suml, sumr, tree_sum; // 由于换根需要子树反转, 需要维护两个方向的信息
 	bool rev, col;
 	node *ch[2], *p;
 
@@ -43,7 +43,7 @@ node *newnode(int w) {
 	node *x = nodes.front(); // 因为有删边加边, 可以用一个队列维护可用结点
 	nodes.pop();
 	initalize(x);
-	x->w = w;
+	x -> w = w;
 	x -> refresh();
 	return x;
 }
@@ -52,7 +52,7 @@ node *newnode(int w) {
 // 记得在进行操作之前对所有结点调用一遍
 inline void initalize(node *x) {
 	*x = node();
-	x->ch[0]=x->ch[1]=x->p=null;
+	x -> ch[0] = x -> ch[1] = x -> p = null;
 }
 
 // 注意一下在Access的同时更新子树信息的方法
@@ -89,8 +89,8 @@ node *getroot(node *x) {
 void makeroot(node *x) {
 	access(x);
 	splay(x);
-	x->rev ^= true;
-	x->pushdown();
+	x -> rev ^= true;
+	x -> pushdown();
 }
 
 // 连接两个点
@@ -99,7 +99,7 @@ void link(node *x, node *y) {
 	makeroot(x);
 	makeroot(y);
 
-	x->p = y;
+	x -> p = y;
 	y -> tree_cnt += x -> chain_cnt;
 	y -> tree_sum += x -> suml;
 	y -> refresh();

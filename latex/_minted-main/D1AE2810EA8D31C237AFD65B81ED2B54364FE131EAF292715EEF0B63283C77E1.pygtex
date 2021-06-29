@@ -1,0 +1,55 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{//以下为三模数NTT, 原理是选取三个乘积大于结果的NTT模数, 最后中国剩余定理合并}
+\PYG{c+c1}{//以对23333333(不是质数)取模为例}
+\PYG{k}{constexpr} \PYG{k+kt}{int} \PYG{n}{maxn} \PYG{o}{=} \PYG{l+m+mi}{262200}\PYG{p}{,} \PYG{n}{Mod} \PYG{o}{=} \PYG{l+m+mi}{23333333}\PYG{p}{,} \PYG{n}{g} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{n}{m}\PYG{p}{[]} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{998244353}\PYG{p}{,} \PYG{l+m+mi}{1004535809}\PYG{p}{,} \PYG{l+m+mi}{1045430273}\PYG{p}{\PYGZcb{},} \PYG{n}{m0\PYGZus{}inv} \PYG{o}{=} \PYG{l+m+mi}{669690699}\PYG{p}{,} \PYG{n}{m1\PYGZus{}inv} \PYG{o}{=} \PYG{l+m+mi}{332747959}\PYG{p}{,} \PYG{n}{M\PYGZus{}inv} \PYG{o}{=} \PYG{l+m+mi}{942377029}\PYG{p}{;} \PYG{c+c1}{// 这三个模数最小原根都是3}
+\PYG{k}{constexpr} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{M} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{*} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{];}
+
+\PYG{c+c1}{// 主函数(当然更多时候包装一下比较好)}
+\PYG{c+c1}{// 用来卷积的是A和B}
+\PYG{c+c1}{// 需要调用mul}
+\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,} \PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{A}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{B}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{C}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{D}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{ans}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{][}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n+nf}{main}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+	\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{n}\PYG{p}{);}
+
+	\PYG{k}{while} \PYG{p}{(}\PYG{n}{N} \PYG{o}{\PYGZlt{}} \PYG{n}{n} \PYG{o}{*} \PYG{l+m+mi}{2}\PYG{p}{)}
+		\PYG{n}{N} \PYG{o}{*=} \PYG{l+m+mi}{2}\PYG{p}{;}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{mul}\PYG{p}{(}\PYG{n}{m}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{ans}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d \PYGZdq{}}\PYG{p}{,} \PYG{n}{China}\PYG{p}{(}\PYG{n}{ans}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{i}\PYG{p}{],} \PYG{n}{ans}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{i}\PYG{p}{],} \PYG{n}{ans}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]));}
+
+	\PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// mul O(n\PYGZbs{}log n)}
+\PYG{c+c1}{// 包装了模NTT模数的卷积}
+\PYG{c+c1}{// 需要调用NTT}
+\PYG{k+kt}{void} \PYG{n+nf}{mul}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{p}\PYG{p}{,} \PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{ans}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n}{copy}\PYG{p}{(}\PYG{n}{A}\PYG{p}{,} \PYG{n}{A} \PYG{o}{+} \PYG{n}{N}\PYG{p}{,} \PYG{n}{C}\PYG{p}{);}
+	\PYG{n}{copy}\PYG{p}{(}\PYG{n}{B}\PYG{p}{,} \PYG{n}{B} \PYG{o}{+} \PYG{n}{N}\PYG{p}{,} \PYG{n}{D}\PYG{p}{);}
+
+	\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{C}\PYG{p}{,} \PYG{n}{N}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{p}\PYG{p}{);}
+	\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{D}\PYG{p}{,} \PYG{n}{N}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{p}\PYG{p}{);}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{N}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{ans}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{C}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{*} \PYG{n}{D}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZpc{}} \PYG{n}{p}\PYG{p}{;}
+
+	\PYG{n}{NTT}\PYG{p}{(}\PYG{n}{ans}\PYG{p}{,} \PYG{n}{N}\PYG{p}{,} \PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{,} \PYG{n}{p}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// 中国剩余定理 O(1)}
+\PYG{c+c1}{// 由于直接合并会爆long long, 采用神奇的方法合并}
+\PYG{c+c1}{// 需要调用O(1)快速乘}
+\PYG{k+kr}{inline} \PYG{k+kt}{int} \PYG{n+nf}{China}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{a0}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{a1}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{a2}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{A} \PYG{o}{=} \PYG{p}{(}\PYG{n}{mul}\PYG{p}{((}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{a0} \PYG{o}{*} \PYG{n}{m1\PYGZus{}inv}\PYG{p}{,} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{M}\PYG{p}{)} \PYG{o}{+} \PYG{n}{mul}\PYG{p}{((}\PYG{k+kt}{long} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{a1} \PYG{o}{*} \PYG{n}{m0\PYGZus{}inv}\PYG{p}{,} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{M}\PYG{p}{))} \PYG{o}{\PYGZpc{}} \PYG{n}{M}\PYG{p}{;}
+	\PYG{k+kt}{int} \PYG{n}{k} \PYG{o}{=} \PYG{p}{((}\PYG{n}{a2} \PYG{o}{\PYGZhy{}} \PYG{n}{A}\PYG{p}{)} \PYG{o}{\PYGZpc{}} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{+} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{])} \PYG{o}{\PYGZpc{}} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{*} \PYG{n}{M\PYGZus{}inv} \PYG{o}{\PYGZpc{}} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{];}
+	\PYG{k}{return} \PYG{p}{(}\PYG{n}{k} \PYG{o}{\PYGZpc{}} \PYG{n}{Mod} \PYG{o}{*} \PYG{p}{(}\PYG{n}{M} \PYG{o}{\PYGZpc{}} \PYG{n}{Mod}\PYG{p}{)} \PYG{o}{\PYGZpc{}} \PYG{n}{Mod} \PYG{o}{+} \PYG{n}{A} \PYG{o}{\PYGZpc{}} \PYG{n}{Mod}\PYG{p}{)} \PYG{o}{\PYGZpc{}} \PYG{n}{Mod}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

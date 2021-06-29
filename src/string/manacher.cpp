@@ -19,7 +19,7 @@ void manacher(const char *t, int n) {
 		while (s[i - p[i]] == s[i + p[i]])
 			p[i]++;
 
-		if(i + p[i] > mx){
+		if (i + p[i] > mx) {
 			mx = i + p[i];
 			j = i;
 		}

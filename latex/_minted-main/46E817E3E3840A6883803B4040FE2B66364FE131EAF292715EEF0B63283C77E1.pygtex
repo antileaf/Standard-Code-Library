@@ -1,7 +1,7 @@
 \begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{c+c1}{// 这个东西虽然只需要抄板子但还是极其难写，常数极其巨大，没必要的时候就不要用}
-\PYG{c+c1}{// 如果维护子树最小值就需要套一个可删除的堆来维护，复杂度会变成O(n\PYGZbs{}log\PYGZca{}2 n)}
-\PYG{c+c1}{// 注意由于这道题与边权有关，需要边权拆点变点权}
+\PYG{c+c1}{// 这个东西虽然只需要抄板子但还是极其难写, 常数极其巨大, 没必要的时候就不要用}
+\PYG{c+c1}{// 如果维护子树最小值就需要套一个可删除的堆来维护, 复杂度会变成O(n\PYGZbs{}log\PYGZca{}2 n)}
+\PYG{c+c1}{// 注意由于这道题与边权有关, 需要边权拆点变点权}
 
 \PYG{c+c1}{// 宏定义}
 \PYG{c+cp}{\PYGZsh{}define isroot(x) ((x) \PYGZhy{}\PYGZgt{} p == null || ((x) != (x) \PYGZhy{}\PYGZgt{} p \PYGZhy{}\PYGZgt{} ch[0]\PYGZam{}\PYGZam{} (x) != (x) \PYGZhy{}\PYGZgt{} p \PYGZhy{}\PYGZgt{} ch[1]))}
@@ -10,7 +10,7 @@
 \PYG{c+c1}{// 节点类定义}
 \PYG{k}{struct} \PYG{n+nc}{node} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 以维护子树中黑点到根距离和为例}
 	\PYG{k+kt}{int} \PYG{n}{w}\PYG{p}{,} \PYG{n}{chain\PYGZus{}cnt}\PYG{p}{,} \PYG{n}{tree\PYGZus{}cnt}\PYG{p}{;}
-	\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{sum}\PYG{p}{,} \PYG{n}{suml}\PYG{p}{,} \PYG{n}{sumr}\PYG{p}{,} \PYG{n}{tree\PYGZus{}sum}\PYG{p}{;} \PYG{c+c1}{// 由于换根需要子树反转，需要维护两个方向的信息}
+	\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{sum}\PYG{p}{,} \PYG{n}{suml}\PYG{p}{,} \PYG{n}{sumr}\PYG{p}{,} \PYG{n}{tree\PYGZus{}sum}\PYG{p}{;} \PYG{c+c1}{// 由于换根需要子树反转, 需要维护两个方向的信息}
 	\PYG{k+kt}{bool} \PYG{n}{rev}\PYG{p}{,} \PYG{n}{col}\PYG{p}{;}
 	\PYG{n}{node} \PYG{o}{*}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{],} \PYG{o}{*}\PYG{n}{p}\PYG{p}{;}
 
@@ -44,7 +44,7 @@
 	\PYG{n}{node} \PYG{o}{*}\PYG{n}{x} \PYG{o}{=} \PYG{n}{nodes}\PYG{p}{.}\PYG{n}{front}\PYG{p}{();} \PYG{c+c1}{// 因为有删边加边, 可以用一个队列维护可用结点}
 	\PYG{n}{nodes}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{();}
 	\PYG{n}{initalize}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);}
-	\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{w} \PYG{o}{=} \PYG{n}{w}\PYG{p}{;}
+	\PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{w} \PYG{o}{=} \PYG{n}{w}\PYG{p}{;}
 	\PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{refresh}\PYG{p}{();}
 	\PYG{k}{return} \PYG{n}{x}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
@@ -53,7 +53,7 @@
 \PYG{c+c1}{// 记得在进行操作之前对所有结点调用一遍}
 \PYG{k+kr}{inline} \PYG{k+kt}{void} \PYG{n+nf}{initalize}\PYG{p}{(}\PYG{n}{node} \PYG{o}{*}\PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
 	\PYG{o}{*}\PYG{n}{x} \PYG{o}{=} \PYG{n}{node}\PYG{p}{();}
-	\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{=}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p}\PYG{o}{=}\PYG{n}{null}\PYG{p}{;}
+	\PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{p} \PYG{o}{=} \PYG{n}{null}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
 \PYG{c+c1}{// 注意一下在Access的同时更新子树信息的方法}
@@ -90,8 +90,8 @@
 \PYG{k+kt}{void} \PYG{n+nf}{makeroot}\PYG{p}{(}\PYG{n}{node} \PYG{o}{*}\PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
 	\PYG{n}{access}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);}
 	\PYG{n}{splay}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);}
-	\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{rev} \PYG{o}{\PYGZca{}=} \PYG{n+nb}{true}\PYG{p}{;}
-	\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pushdown}\PYG{p}{();}
+	\PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{rev} \PYG{o}{\PYGZca{}=} \PYG{n+nb}{true}\PYG{p}{;}
+	\PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{pushdown}\PYG{p}{();}
 \PYG{p}{\PYGZcb{}}
 
 \PYG{c+c1}{// 连接两个点}
@@ -100,7 +100,7 @@
 	\PYG{n}{makeroot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);}
 	\PYG{n}{makeroot}\PYG{p}{(}\PYG{n}{y}\PYG{p}{);}
 
-	\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{p} \PYG{o}{=} \PYG{n}{y}\PYG{p}{;}
+	\PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{p} \PYG{o}{=} \PYG{n}{y}\PYG{p}{;}
 	\PYG{n}{y} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{tree\PYGZus{}cnt} \PYG{o}{+=} \PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{chain\PYGZus{}cnt}\PYG{p}{;}
 	\PYG{n}{y} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{tree\PYGZus{}sum} \PYG{o}{+=} \PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{suml}\PYG{p}{;}
 	\PYG{n}{y} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{refresh}\PYG{p}{();}

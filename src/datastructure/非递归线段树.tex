@@ -5,101 +5,14 @@
 	\item 找叶子: $i$对应的叶子就是$i + M$
 	\item 单点修改: 找到叶子然后向上跳
 	\item 区间查询: 左右区间各扩展一位, 转换成开区间查询
-\begin{minted}{cpp}
-int query(int l, int r) {
-	l += M - 1;
-	r += M + 1;
-
-	int ans = 0;
-	while (l ^ r != 1) {
-		ans += sum[l ^ 1] + sum[r ^ 1];
-
-		l >>= 1;
-		r >>= 1;
-	}
-
-	return ans;
-}
-\end{minted}
+	\inputminted{cpp}{../src/datastructure/非递归线段树单点修改.cpp}
 
 \end{itemize}
 	
 区间修改要标记永久化,并且求区间和和求最值的代码不太一样 \\
 
 \textbf{区间加, 区间求和}
-\begin{minted}{cpp}
-void update(int l, int r, int d) {
-	int len = 1, cntl = 0, cntr = 0; // cntl、cntr是左右两边分别实际修改的区间长度
-	for (l += n - 1, r += n + 1; l ^ r ^ 1; l >>= 1, r >>= 1, len <<= 1) {
-		tree[l] += cntl * d, tree[r] += cntr * d;
-		if (~l & 1) tree[l ^ 1] += d * len, mark[l ^ 1] += d, cntl += len;
-		if (r & 1) tree[r ^ 1] += d * len, mark[r ^ 1] += d, cntr += len;
-	}
-
-	for (; l; l >>= 1, r >>= 1)
-		tree[l] += cntl * d, tree[r] += cntr * d;
-}
-
-int query(int l, int r) {
-	int ans = 0, len = 1, cntl = 0, cntr = 0;
-	for (l += n - 1, r += n + 1; l ^ r ^ 1; l >>= 1, r >>= 1, len <<= 1) {
-		ans += cntl * mark[l] + cntr * mark[r];
-		if (~l & 1) ans += tree[l ^ 1], cntl += len;
-		if (r & 1) ans += tree[r ^ 1], cntr += len;
-	}
-
-	for (; l; l >>= 1, r >>= 1)
-		ans += cntl * mark[l] + cntr * mark[r];
-
-	return ans;
-}
-\end{minted}
+\inputminted{cpp}{../src/datastructure/非递归线段树区间加区间求和.cpp}
 
 \textbf{区间加, 区间求最大值}
-\begin{minted}{cpp}
-void update(int l, int r, int d) {
-	for (l += N - 1, r += N + 1; l ^ r ^ 1; l >>= 1, r >>= 1) {
-		if (l < N) {
-			tree[l] = max(tree[l << 1], tree[l << 1 | 1]) + mark[l];
-			tree[r] = max(tree[r << 1], tree[r << 1 | 1]) + mark[r];
-		}
-
-		if (~l & 1) {
-			tree[l ^ 1] += d;
-			mark[l ^ 1] += d;
-		}
-		if (r & 1) {
-			tree[r ^ 1] += d;
-			mark[r ^ 1] += d;
-		}
-	}
-
-	for (; l; l >>= 1, r >>= 1)
-		if (l < N) tree[l] = max(tree[l << 1], tree[l << 1 | 1]) + mark[l],
-					tree[r] = max(tree[r << 1], tree[r << 1 | 1]) + mark[r];
-}
-
-void query(int l, int r) {
-	int maxl = -INF, maxr = -INF;
-
-	for (l += N - 1, r += N + 1; l ^ r ^ 1; l >>= 1, r >>= 1) {
-		maxl += mark[l];
-		maxr += mark[r];
-
-		if (~l & 1)
-			maxl = max(maxl, tree[l ^ 1]);
-		if (r & 1)
-			maxr = max(maxr, tree[r ^ 1]);
-	}
-
-	while (l) {
-		maxl += mark[l];
-		maxr += mark[r];
-
-		l >>= 1;
-		r >>= 1;
-	}
-	
-	return max(maxl, maxr);
-}
-\end{minted}
+\inputminted{cpp}{../src/datastructure/非递归线段树区间加区间求最大值.cpp}

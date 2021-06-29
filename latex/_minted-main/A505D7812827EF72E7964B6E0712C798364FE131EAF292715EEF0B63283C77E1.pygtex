@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{void} \PYG{n+nf}{update}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{l}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{r}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{d}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{int} \PYG{n}{len} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{cntl} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{cntr} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{c+c1}{// cntl, cntr是左右两边分别实际修改的区间长度}
+	\PYG{k}{for} \PYG{p}{(}\PYG{n}{l} \PYG{o}{+=} \PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r} \PYG{o}{+=} \PYG{n}{n} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{l} \PYG{o}{\PYGZca{}} \PYG{n}{r} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{l} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{len} \PYG{o}{\PYGZlt{}\PYGZlt{}=} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{tree}\PYG{p}{[}\PYG{n}{l}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{cntl} \PYG{o}{*} \PYG{n}{d}\PYG{p}{,} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{r}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{cntr} \PYG{o}{*} \PYG{n}{d}\PYG{p}{;}
+		\PYG{k}{if} \PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{l} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{l} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{d} \PYG{o}{*} \PYG{n}{len}\PYG{p}{,} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{l} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{d}\PYG{p}{,} \PYG{n}{cntl} \PYG{o}{+=} \PYG{n}{len}\PYG{p}{;}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{r} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{r} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{d} \PYG{o}{*} \PYG{n}{len}\PYG{p}{,} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{r} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{d}\PYG{p}{,} \PYG{n}{cntr} \PYG{o}{+=} \PYG{n}{len}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{for} \PYG{p}{(;} \PYG{n}{l}\PYG{p}{;} \PYG{n}{l} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{)}
+		\PYG{n}{tree}\PYG{p}{[}\PYG{n}{l}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{cntl} \PYG{o}{*} \PYG{n}{d}\PYG{p}{,} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{r}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{cntr} \PYG{o}{*} \PYG{n}{d}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{int} \PYG{n+nf}{query}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{l}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{r}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{int} \PYG{n}{ans} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{len} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{cntl} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{cntr} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k}{for} \PYG{p}{(}\PYG{n}{l} \PYG{o}{+=} \PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r} \PYG{o}{+=} \PYG{n}{n} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{l} \PYG{o}{\PYGZca{}} \PYG{n}{r} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{l} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{len} \PYG{o}{\PYGZlt{}\PYGZlt{}=} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{ans} \PYG{o}{+=} \PYG{n}{cntl} \PYG{o}{*} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{l}\PYG{p}{]} \PYG{o}{+} \PYG{n}{cntr} \PYG{o}{*} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{r}\PYG{p}{];}
+		\PYG{k}{if} \PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{l} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{ans} \PYG{o}{+=} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{l} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{cntl} \PYG{o}{+=} \PYG{n}{len}\PYG{p}{;}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{r} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{ans} \PYG{o}{+=} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{r} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{cntr} \PYG{o}{+=} \PYG{n}{len}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{for} \PYG{p}{(;} \PYG{n}{l}\PYG{p}{;} \PYG{n}{l} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{)}
+		\PYG{n}{ans} \PYG{o}{+=} \PYG{n}{cntl} \PYG{o}{*} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{l}\PYG{p}{]} \PYG{o}{+} \PYG{n}{cntr} \PYG{o}{*} \PYG{n}{mark}\PYG{p}{[}\PYG{n}{r}\PYG{p}{];}
+
+	\PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

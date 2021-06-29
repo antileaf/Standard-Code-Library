@@ -20,7 +20,7 @@
 		\PYG{k}{while} \PYG{p}{(}\PYG{n}{s}\PYG{p}{[}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]]} \PYG{o}{==} \PYG{n}{s}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]])}
 			\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{++}\PYG{p}{;}
 
-		\PYG{k}{if}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{n}{mx}\PYG{p}{)\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{n}{mx}\PYG{p}{)} \PYG{p}{\PYGZob{}}
 			\PYG{n}{mx} \PYG{o}{=} \PYG{n}{i} \PYG{o}{+} \PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
 			\PYG{n}{j} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;}
 		\PYG{p}{\PYGZcb{}}

@@ -154,8 +154,8 @@
 				\subsubsection{NTT}
 					\inputminted{cpp}{../src/math/NTT.cpp}
 
-				\subsubsection{任意模数卷积(三模数NTT)}
-					\inputminted{cpp}{../src/math/任意模数卷积.cpp}
+				\subsubsection{任意模数卷积}
+					\input{../src/math/任意模数卷积.tex}
 
 				% \subsection{毛梯梯}
 
@@ -201,14 +201,14 @@
 				% \subsubsection{高斯消元}
 
 
-				% \subsubsection{任意模数高斯消元}
-
+				\subsubsection{行列式取模}
+					\inputminted{cpp}{../src/math/行列式取模.cpp}
 
 				% \subsubsection{自由元搜索}
 
 
 				\subsubsection{线性基}
-					% \inputminted{cpp}{../src/math/线性基.cpp}
+					\inputminted{cpp}{../src/math/线性基.cpp}
 
 
 				\subsubsection{线性代数知识}
@@ -227,6 +227,9 @@
 				
 				\subsubsection{分拆数}
 					\inputminted{cpp}{../src/math/分拆数.cpp}
+				
+				\subsubsection{斯特林数}
+					\input{../src/math/斯特林数.tex}
 
 
 		\section{数论}
@@ -252,8 +255,12 @@
 			% \subsection{组合数取模}
 
 
-			%\subsection{扩展欧几里得}
+			% \subsection{扩展欧几里得}
 
+			
+			\subsection{常用公式}
+				\input{../src/numbertheory/公式.tex}
+				
 
 		\section{图论}
 
@@ -430,7 +437,6 @@
 			\subsection{虚树}
 				\inputminted{cpp}{../src/datastructure/虚树.cpp}
 	
-	
 			\subsection{长链剖分}
 				\inputminted{cpp}{../src/datastructure/长链剖分.cpp}
 	
@@ -444,6 +450,11 @@
 				\input{../src/datastructure/常见根号思路.tex}
 
 		\section{字符串}
+			\subsection{KMP}
+				\inputminted{cpp}{../src/string/KMP.cpp}
+				
+				\subsubsection{ex-KMP}
+					\inputminted{cpp}{../src/string/exKMP.cpp}
 
 			\subsection{AC自动机}
 				\inputminted{cpp}{../src/string/AC自动机.cpp}
@@ -475,17 +486,12 @@
 
 			\subsection{Manacher马拉车}
 				\inputminted{cpp}{../src/string/manacher.cpp}
-
-			\subsection{KMP}
-				
-
-				\subsubsection{ex-KMP}
-					\inputminted{cpp}{../src/string/exKMP.cpp}
 			
 			% \subsection{All Substring LCS}
 
 
-			% \subsection{字符串原理}
+			\subsection{字符串原理}
+				\input{../src/string/字符串原理.tex}
 				
 
 			\section{动态规划}
@@ -498,6 +504,12 @@
 				
 				\subsection{$O(n^2)$高精度}
 					\inputminted{cpp}{../src/misc/高精度.cpp}
+				
+				\subsection{笛卡尔树}
+					\inputminted{cpp}{../src/misc/笛卡尔树.cpp}
+				
+				\subsection{常用NTT素数及原根}
+					\input{../src/misc/常用NTT素数及原根.tex}
 
 				\subsection{xorshift}
 					\inputminted{cpp}{../src/misc/xorshift.cpp}
@@ -512,6 +524,10 @@
 
 
 				\subsection{rope}
+
+				
+				\subsection{编译选项}
+					\input{../src/misc/编译选项.tex}
 					
 
 			\section{注意事项}
