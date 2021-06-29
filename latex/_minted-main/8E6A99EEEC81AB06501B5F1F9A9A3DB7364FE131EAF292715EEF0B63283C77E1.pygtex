@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{modify}\PYG{p}{(}\PYG{n}{point\PYGZus{}iterator}\PYG{p}{,} \PYG{k}{const} \PYG{n}{key}\PYG{p}{)}
+\end{Verbatim}

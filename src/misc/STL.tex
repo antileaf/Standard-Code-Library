@@ -1,42 +1,38 @@
-\noindent
+\subsubsection{vector}
+	\begin{itemize}
+		\item \mintinline{cpp}{vector(int nSize)}: 创建一个vector, 元素个数为nSize
+		\item \mintinline{cpp}{vector(int nSize, const T &value)}: 创建一个vector, 元素个数为nSize, 且值均为value
+		\item \mintinline{cpp}{vector(begin, end)}: 复制[begin, end)区间内另一个数组的元素到vector中
+		\item \mintinline{cpp}{void assign(int n, const T &x)}: 设置向量中前n个元素的值为x
+		\item \mintinline{cpp}{void assign(const_iterator first, const_iterator last)}: 向量中[first, last)中元素设置成当前向量元素
+	\end{itemize}
 
-\begin{enumerate}
-	\item vector
-		\begin{itemize}
-			\item \mintinline{cpp}{vector(int nSize)}:创建一个vector,元素个数为nSize
-			\item \mintinline{cpp}{vector(int nSize,const t& t)}:创建一个vector，元素个数为nSize,且值均为t
-			\item \mintinline{cpp}{vector(begin,end)}:复制[begin,end)区间内另一个数组的元素到vector中
-			\item \mintinline{cpp}{void assign(int n,const T& x)}:设置向量中前n个元素的值为x
-			\item \mintinline{cpp}{void assign(const_iterator first,const_iterator last)}:向量中[first,last)中元素设置成当前向量元素
-		\end{itemize}
-	
-	\item list
-		\begin{itemize}
-			\item \mintinline{cpp}{assign()} 给list赋值 
-			\item \mintinline{cpp}{back()} 返回最后一个元素 
-			\item \mintinline{cpp}{begin()} 返回指向第一个元素的迭代器 
-			\item \mintinline{cpp}{clear()} 删除所有元素 
-			\item \mintinline{cpp}{empty()} 如果list是空的则返回true 
-			\item \mintinline{cpp}{end()} 返回末尾的迭代器
-			\item \mintinline{cpp}{erase()} 删除一个元素
-			\item \mintinline{cpp}{front()} 返回第一个元素
-			\item \mintinline{cpp}{insert()} 插入一个元素到list中
-			\item \mintinline{cpp}{max_size()} 返回list能容纳的最大元素数量
-			\item \mintinline{cpp}{merge()} 合并两个list
-			\item \mintinline{cpp}{pop_back()} 删除最后一个元素
-			\item \mintinline{cpp}{pop_front()} 删除第一个元素
-			\item \mintinline{cpp}{push_back()} 在list的末尾添加一个元素
-			\item \mintinline{cpp}{push_front()} 在list的头部添加一个元素
-			\item \mintinline{cpp}{rbegin()} 返回指向第一个元素的逆向迭代器
-			\item \mintinline{cpp}{remove()} 从list删除元素
-			\item \mintinline{cpp}{remove_if()} 按指定条件删除元素
-			\item \mintinline{cpp}{rend()} 指向list末尾的逆向迭代器
-			\item \mintinline{cpp}{resize()} 改变list的大小
-			\item \mintinline{cpp}{reverse()} 把list的元素倒转
-			\item \mintinline{cpp}{size()} 返回list中的元素个数
-			\item \mintinline{cpp}{sort()} 给list排序
-			\item \mintinline{cpp}{splice()} 合并两个list
-			\item \mintinline{cpp}{swap()} 交换两个list
-			\item \mintinline{cpp}{unique()} 删除list中重复的元
-		\end{itemize}
-\end{enumerate}
+\subsubsection{list}
+	\begin{itemize}
+		\item \mintinline{cpp}{assign()} 给list赋值 
+		\item \mintinline{cpp}{back()} 返回最后一个元素 
+		\item \mintinline{cpp}{begin()} 返回指向第一个元素的迭代器 
+		\item \mintinline{cpp}{clear()} 删除所有元素 
+		\item \mintinline{cpp}{empty()} 如果list是空的则返回true 
+		\item \mintinline{cpp}{end()} 返回末尾的迭代器
+		\item \mintinline{cpp}{erase()} 删除一个元素
+		\item \mintinline{cpp}{front()} 返回第一个元素
+		\item \mintinline{cpp}{insert()} 插入一个元素到list中
+		\item \mintinline{cpp}{max_size()} 返回list能容纳的最大元素数量
+		\item \mintinline{cpp}{merge()} 合并两个list
+		\item \mintinline{cpp}{pop_back()} 删除最后一个元素
+		\item \mintinline{cpp}{pop_front()} 删除第一个元素
+		\item \mintinline{cpp}{push_back()} 在list的末尾添加一个元素
+		\item \mintinline{cpp}{push_front()} 在list的头部添加一个元素
+		\item \mintinline{cpp}{rbegin()} 返回指向第一个元素的逆向迭代器
+		\item \mintinline{cpp}{remove()} 从list删除元素
+		\item \mintinline{cpp}{remove_if()} 按指定条件删除元素
+		\item \mintinline{cpp}{rend()} 指向list末尾的逆向迭代器
+		\item \mintinline{cpp}{resize()} 改变list的大小
+		\item \mintinline{cpp}{reverse()} 把list的元素倒转
+		\item \mintinline{cpp}{size()} 返回list中的元素个数
+		\item \mintinline{cpp}{sort()} 给list排序
+		\item \mintinline{cpp}{splice()} 合并两个list
+		\item \mintinline{cpp}{swap()} 交换两个list
+		\item \mintinline{cpp}{unique()} 删除list中重复的元
+	\end{itemize}

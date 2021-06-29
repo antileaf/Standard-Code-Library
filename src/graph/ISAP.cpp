@@ -28,7 +28,7 @@ void addedge(int x, int y, int z) {
 
 
 // 真·加边函数 O(1)
-void AddEdge(int x, int y, int z){
+void AddEdge(int x, int y, int z) {
 	e[cnte].to = y;
 	e[cnte].cap = z;
 	e[cnte].prev = last[x];
@@ -86,7 +86,7 @@ int ISAP() {
 // bfs函数 O(n+m)
 // 预处理到t的距离标号
 // 在测试数据组数较少时可以省略,把所有距离标号初始化为0
-void bfs(){
+void bfs() {
 	memset(d, -1, sizeof(d));
 
 	int head = 0, tail = 0;
@@ -113,7 +113,7 @@ int augment() {
 	for (int x = t; x != s; x = e[p[x] ^ 1].to)
 		a = min(a, e[p[x]].cap);
 
-	for (int x = t; x != s; x = e[p[x] ^ 1].to){
+	for (int x = t; x != s; x = e[p[x] ^ 1].to) {
 		e[p[x]].cap -= a;
 		e[p[x] ^ 1].cap += a;
 	}

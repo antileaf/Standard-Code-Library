@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{c+cpf}{\PYGZlt{}ext/pb\PYGZus{}ds/assoc\PYGZus{}container.hpp\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{c+cpf}{\PYGZlt{}ext/pb\PYGZus{}ds/hash\PYGZus{}policy.hpp\PYGZgt{}}
+\PYG{k}{using} \PYG{k}{namespace} \PYG{n+nn}{\PYGZus{}\PYGZus{}gnu\PYGZus{}pbds}\PYG{p}{;}
+
+\PYG{n}{cc\PYGZus{}hash\PYGZus{}table}\PYG{o}{\PYGZlt{}}\PYG{n}{string}\PYG{p}{,} \PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{mp1}\PYG{p}{;} \PYG{c+c1}{// 拉链法}
+\PYG{n}{gp\PYGZus{}hash\PYGZus{}table}\PYG{o}{\PYGZlt{}}\PYG{n}{string}\PYG{p}{,} \PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{mp2}\PYG{p}{;} \PYG{c+c1}{// 查探法(快一些)}
+\end{Verbatim}
