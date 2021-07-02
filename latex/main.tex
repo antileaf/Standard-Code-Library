@@ -213,6 +213,9 @@
 
 				\subsubsection{线性代数知识}
 					\input{../src/math/线性代数.tex}
+				
+				\subsubsection{矩阵树定理}
+					
 
 			% \subsection{自适应Simpson积分}
 
@@ -279,14 +282,24 @@
 			
 			
 			\subsection{最短路}
-				% \subsubsection{Dijkstra}
-					
+				\subsubsection{Dijkstra}
+					见k短路(注意那边是求到$t$的最短路)
 				
 				% \subsubsection{差分约束}
 
 
 				\subsubsection{k短路}
 					\inputminted{cpp}{../src/graph/k短路.cpp}
+			
+			\subsection{Tarjan}
+				\subsubsection{强连通分量}
+
+				
+				\subsubsection{割点 点双}
+
+
+				\subsection{桥 边双}
+
 
 			\subsection{仙人掌}
 				\subsubsection{仙人掌DP}
@@ -355,6 +368,10 @@
 				% \subsubsection{例题}
 			
 
+			\subsection{弦图相关}
+				From NEW CODE!!
+				\input{../src/graph/弦图相关.tex}
+
 			% \subsection{弦图}
 				% \subsubsection{完美消除序列、最大势算法}
 
@@ -377,6 +394,9 @@
 			\subsection{线段树}
 				\subsubsection{非递归线段树}
 					\input{../src/datastructure/非递归线段树.tex}
+				
+				\subsubsection{线段树维护矩形并}
+
 
 				\subsubsection{主席树}
 					这种东西能不能手撕啊
@@ -480,7 +500,6 @@
 					(代码是梯子剖分的版本,压力不大的题目换成直接倍增就好了,常数只差不到一倍)
 					\inputminted{cpp}{../src/string/广义回文树.cpp}
 
-
 			% \subsection{序列自动机}
 
 
@@ -497,7 +516,10 @@
 			\section{动态规划}
 				\subsection{决策单调性$O(n\log n)$}
 					\inputminted{cpp}{../src/DP/决策单调性.cpp}
+				
+				\subsection{例题}
 
+				
 			\section{Miscellaneous}
 				\subsection{$O(1)$快速乘}
 					\inputminted{cpp}{../src/misc/O(1)快速乘.cpp}

@@ -121,7 +121,7 @@ void Dijkstra() {
 
 // dfs求出每个点的堆 总计O(m\log n)
 // 需要调用merge, 同时递归调用自身
-void dfs(int x){
+void dfs(int x) {
 	root[x] = merge(root[x], root[v[p[x]]]);
 
 	for (int i = 0; i < (int)G[x].size(); i++)

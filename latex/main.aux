@@ -19,6 +19,7 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.5.1}行列式取模}{10}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.5.2}线性基}{10}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.5.3}线性代数知识}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.5.4}矩阵树定理}{10}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.6}常见数列}{10}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.6.1}伯努利数}{10}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.6.2}分拆数}{11}{}\protected@file@percent }
@@ -38,74 +39,77 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}动态最小生成树}{13}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3}Steiner Tree 斯坦纳树}{15}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}最短路}{15}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}k短路}{15}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}仙人掌}{16}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}仙人掌DP}{16}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}二分图}{17}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}KM二分图最大权匹配}{17}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}一般图匹配}{18}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}高斯消元}{18}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}带花树}{19}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.3}带权带花树}{20}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}最大流}{21}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.1}Dinic}{21}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.2}ISAP}{22}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.3}HLPP最高标号预流推进}{23}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}费用流}{24}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.1}SPFA费用流}{24}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}数据结构}{24}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}线段树}{24}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}非递归线段树}{24}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}主席树}{25}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}陈丹琦分治}{25}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Dijkstra}{15}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}k短路}{15}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Tarjan}{16}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}强连通分量}{16}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}割点 点双}{16}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}桥 边双}{16}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}仙人掌}{16}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}仙人掌DP}{16}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}二分图}{17}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.1}KM二分图最大权匹配}{17}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}一般图匹配}{18}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.1}高斯消元}{18}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.2}带花树}{19}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.3}带权带花树}{20}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.8}最大流}{22}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.8.1}Dinic}{22}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.8.2}ISAP}{22}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.8.3}HLPP最高标号预流推进}{23}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9}费用流}{24}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.1}SPFA费用流}{24}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.10}弦图相关}{25}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}数据结构}{25}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}线段树}{25}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}非递归线段树}{25}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}线段树维护矩形并}{26}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}主席树}{26}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}陈丹琦分治}{26}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Treap}{26}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Splay}{27}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}树分治}{27}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}动态树分治}{27}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}紫荆花之恋}{28}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}LCT}{29}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1}不换根(弹飞绵羊)}{29}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.2}换根/维护生成树}{30}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.3}维护子树信息}{31}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}树分治}{28}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}动态树分治}{28}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}紫荆花之恋}{29}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}LCT}{30}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1}不换根(弹飞绵羊)}{30}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.2}换根/维护生成树}{31}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.3}维护子树信息}{32}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.4}模板题:动态QTREE4(询问树上相距最远点)}{33}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.7}虚树}{35}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.8}长链剖分}{36}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.9}梯子剖分}{36}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.10}左偏树}{36}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.11}常见根号思路}{36}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.10}左偏树}{37}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.11}常见根号思路}{37}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5}字符串}{37}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}KMP}{37}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}ex-KMP}{37}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}ex-KMP}{38}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}AC自动机}{38}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}后缀数组}{38}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}SA-IS}{38}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}SAMSA}{39}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}后缀数组}{39}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}SA-IS}{39}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}SAMSA}{40}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4}后缀自动机}{40}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}回文树}{40}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.1}广义回文树}{40}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Manacher马拉车}{42}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}字符串原理}{42}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}回文树}{41}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.1}广义回文树}{41}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Manacher马拉车}{43}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}字符串原理}{43}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6}动态规划}{43}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}决策单调性$O(n\qopname  \relax o{log}n)$}{43}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Miscellaneous}{43}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}$O(1)$快速乘}{43}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}$O(n^2)$高精度}{43}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}笛卡尔树}{46}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}例题}{44}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Miscellaneous}{44}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}$O(1)$快速乘}{44}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}$O(n^2)$高精度}{44}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}笛卡尔树}{47}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.4}常用NTT素数及原根}{47}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.5}xorshift}{47}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.6}枚举子集}{47}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.7}STL}{47}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {7.7.1}vector}{47}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.7.2}list}{47}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.8}pb\_ds}{47}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.8.1}哈希表}{47}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.7.2}list}{48}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.8}pb\_ds}{48}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.8.1}哈希表}{48}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {7.8.2}堆}{48}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {7.8.3}平衡树}{48}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.9}rope}{48}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.10}编译选项}{48}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}注意事项}{48}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}常见下毒手法}{48}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}场外相关}{48}{}\protected@file@percent }
 \gdef\minted@oldcachelist{,
   default-pyg-prefix.pygstyle,
   material.pygstyle,
@@ -129,12 +133,12 @@
   69FB4C1B24C9A2C5A2D5EE9E856C2860364FE131EAF292715EEF0B63283C77E1.pygtex,
   69D3F5D066814E81BD120AC60440A5BC364FE131EAF292715EEF0B63283C77E1.pygtex,
   942EE11375BFB706BA3B363FC423C193364FE131EAF292715EEF0B63283C77E1.pygtex,
-  DCF7ADC154F4D99A0749D5F831CF5899364FE131EAF292715EEF0B63283C77E1.pygtex,
+  30A1BDAB3462B1B360CC2A7FCF800995364FE131EAF292715EEF0B63283C77E1.pygtex,
   9ECAA8226DB4874FFD91E96CB7A0FC00364FE131EAF292715EEF0B63283C77E1.pygtex,
   57F79A01897CBDE631C195356C54AD59364FE131EAF292715EEF0B63283C77E1.pygtex,
   AAFAD48BBB0CC5EA1B1427C286B452A0364FE131EAF292715EEF0B63283C77E1.pygtex,
   F711972B91EB9682CB9BCE0E9CBC3EC7364FE131EAF292715EEF0B63283C77E1.pygtex,
-  2DE6FC605CB84BEBAD9440E05A66B4B0364FE131EAF292715EEF0B63283C77E1.pygtex,
+  847A50A71B244B25621955EEC60033DC364FE131EAF292715EEF0B63283C77E1.pygtex,
   4056FAE7F94EC3642C1AB41F87BB8A7D364FE131EAF292715EEF0B63283C77E1.pygtex,
   089539A2E4695266529AF202F3FC6958364FE131EAF292715EEF0B63283C77E1.pygtex,
   D63396523ED0CC2821D7F0A44EBEBC48364FE131EAF292715EEF0B63283C77E1.pygtex,
@@ -236,5 +240,10 @@
   C909C0AF799E2E1E22AAA8208E30D0E3364FE131EAF292715EEF0B63283C77E1.pygtex,
   83DE492AF00C88CC8137E7A6CC4D955D364FE131EAF292715EEF0B63283C77E1.pygtex,
   DB493C8AD93B9F415F036300D72493A1364FE131EAF292715EEF0B63283C77E1.pygtex}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.9}rope}{49}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.10}编译选项}{49}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}注意事项}{49}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}常见下毒手法}{49}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}场外相关}{49}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.3}做题策略与心态调节}{49}{}\protected@file@percent }
 \gdef \@abspage@last{50}

@@ -29,7 +29,7 @@
 
 
 \PYG{c+c1}{// 真·加边函数 O(1)}
-\PYG{k+kt}{void} \PYG{n+nf}{AddEdge}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{z}\PYG{p}{)\PYGZob{}}
+\PYG{k+kt}{void} \PYG{n+nf}{AddEdge}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{z}\PYG{p}{)} \PYG{p}{\PYGZob{}}
 	\PYG{n}{e}\PYG{p}{[}\PYG{n}{cnte}\PYG{p}{].}\PYG{n}{to} \PYG{o}{=} \PYG{n}{y}\PYG{p}{;}
 	\PYG{n}{e}\PYG{p}{[}\PYG{n}{cnte}\PYG{p}{].}\PYG{n}{cap} \PYG{o}{=} \PYG{n}{z}\PYG{p}{;}
 	\PYG{n}{e}\PYG{p}{[}\PYG{n}{cnte}\PYG{p}{].}\PYG{n}{prev} \PYG{o}{=} \PYG{n}{last}\PYG{p}{[}\PYG{n}{x}\PYG{p}{];}
@@ -87,7 +87,7 @@
 \PYG{c+c1}{// bfs函数 O(n+m)}
 \PYG{c+c1}{// 预处理到t的距离标号}
 \PYG{c+c1}{// 在测试数据组数较少时可以省略,把所有距离标号初始化为0}
-\PYG{k+kt}{void} \PYG{n+nf}{bfs}\PYG{p}{()\PYGZob{}}
+\PYG{k+kt}{void} \PYG{n+nf}{bfs}\PYG{p}{()} \PYG{p}{\PYGZob{}}
 	\PYG{n}{memset}\PYG{p}{(}\PYG{n}{d}\PYG{p}{,} \PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{d}\PYG{p}{));}
 
 	\PYG{k+kt}{int} \PYG{n}{head} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{tail} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
@@ -114,7 +114,7 @@
 	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x} \PYG{o}{=} \PYG{n}{t}\PYG{p}{;} \PYG{n}{x} \PYG{o}{!=} \PYG{n}{s}\PYG{p}{;} \PYG{n}{x} \PYG{o}{=} \PYG{n}{e}\PYG{p}{[}\PYG{n}{p}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{].}\PYG{n}{to}\PYG{p}{)}
 		\PYG{n}{a} \PYG{o}{=} \PYG{n}{min}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{e}\PYG{p}{[}\PYG{n}{p}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]].}\PYG{n}{cap}\PYG{p}{);}
 
-	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x} \PYG{o}{=} \PYG{n}{t}\PYG{p}{;} \PYG{n}{x} \PYG{o}{!=} \PYG{n}{s}\PYG{p}{;} \PYG{n}{x} \PYG{o}{=} \PYG{n}{e}\PYG{p}{[}\PYG{n}{p}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{].}\PYG{n}{to}\PYG{p}{)\PYGZob{}}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x} \PYG{o}{=} \PYG{n}{t}\PYG{p}{;} \PYG{n}{x} \PYG{o}{!=} \PYG{n}{s}\PYG{p}{;} \PYG{n}{x} \PYG{o}{=} \PYG{n}{e}\PYG{p}{[}\PYG{n}{p}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{].}\PYG{n}{to}\PYG{p}{)} \PYG{p}{\PYGZob{}}
 		\PYG{n}{e}\PYG{p}{[}\PYG{n}{p}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]].}\PYG{n}{cap} \PYG{o}{\PYGZhy{}=} \PYG{n}{a}\PYG{p}{;}
 		\PYG{n}{e}\PYG{p}{[}\PYG{n}{p}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{].}\PYG{n}{cap} \PYG{o}{+=} \PYG{n}{a}\PYG{p}{;}
 	\PYG{p}{\PYGZcb{}}

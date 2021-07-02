@@ -122,7 +122,7 @@
 
 \PYG{c+c1}{// dfs求出每个点的堆 总计O(m\PYGZbs{}log n)}
 \PYG{c+c1}{// 需要调用merge, 同时递归调用自身}
-\PYG{k+kt}{void} \PYG{n}{dfs}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)\PYGZob{}}
+\PYG{k+kt}{void} \PYG{n}{dfs}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
 	\PYG{n}{root}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n}{merge}\PYG{p}{(}\PYG{n}{root}\PYG{p}{[}\PYG{n}{x}\PYG{p}{],} \PYG{n}{root}\PYG{p}{[}\PYG{n}{v}\PYG{p}{[}\PYG{n}{p}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]]]);}
 
 	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
