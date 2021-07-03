@@ -1,0 +1,28 @@
+给定一个原始线性规划:
+
+$$
+\begin{aligned}
+\text{Minimize}&&\sum_{j=1}^n c_j x_j\\
+\text{Where}&&\sum_{j=1}^n a_{ij} x_j\ge b_i,\\
+&&x_j\ge 0
+\end{aligned}
+$$
+
+定义它的对偶线性规划为:
+
+$$
+\begin{aligned}
+\text{Maximize}&&\sum_{i=1}^m b_i y_i\\
+\text{Where}&&\sum_{i=1}^m a_{ij} y_i\le c_j,\\
+&&y_i\ge 0
+\end{aligned}
+$$
+
+用矩阵可以更形象地表示为:
+$$
+\begin{aligned}
+\text{Minimize}&& \mathbf c^T \mathbf x &&&& \text{Maximize} && \mathbf b^{T}\mathbf y\\
+\text{Where}&& A\mathbf x \ge \mathbf b, && \Longleftrightarrow && \text{Where} && A^T\mathbf y \le \mathbf c,\\
+&& \mathbf x\ge 0 &&&&&& \mathbf y\ge 0
+\end{aligned}
+$$

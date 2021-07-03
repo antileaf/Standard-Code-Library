@@ -194,8 +194,8 @@
 			\subsection{单纯形}
 				\inputminted{cpp}{../src/math/单纯形.cpp}
 
-				% \subsubsection{线性规划对偶原理}
-
+				\subsubsection{线性规划对偶原理}
+					\input{../src/math/线性规划对偶原理.tex}
 
 			\subsection{线性代数}
 				% \subsubsection{高斯消元}
@@ -233,6 +233,13 @@
 				
 				\subsubsection{斯特林数}
 					\input{../src/math/斯特林数.tex}
+			
+			\subsection{常用公式及结论}
+				\subsubsection{方差}
+					\input{../src/math/方差.tex}
+				
+				\subsubsection{连通图计数}
+					\input{../src/math/连通图计数.tex}
 
 
 		\section{数论}
@@ -258,8 +265,9 @@
 			% \subsection{组合数取模}
 
 
-			% \subsection{扩展欧几里得}
-
+			\subsection{扩展欧几里德}
+				\inputminted[]{cpp}{../src/math/exgcd.cpp}
+				\input{../src/math/exgcd.tex}
 			
 			\subsection{常用公式}
 				\input{../src/numbertheory/公式.tex}
@@ -285,23 +293,27 @@
 				\subsubsection{Dijkstra}
 					见k短路(注意那边是求到$t$的最短路)
 				
+				\subsubsection{Johnson算法(负权图多源最短路)}
+					\input{../src/graph/johnson.tex}
+				
 				% \subsubsection{差分约束}
 
 
 				\subsubsection{k短路}
 					\inputminted{cpp}{../src/graph/k短路.cpp}
 			
-			\subsection{Tarjan}
+			\subsection{Tarjan算法}
 				\subsubsection{强连通分量}
-
+					\inputminted[]{cpp}{../src/graph/强连通分量.cpp}
 				
 				\subsubsection{割点 点双}
+					\inputminted{cpp}{../src/graph/割点点双.cpp}
 
-
-				\subsection{桥 边双}
+				\subsubsection{桥 边双}
 
 
 			\subsection{仙人掌}
+				一般来说仙人掌问题都可以通过圆方树转成有两种点的树上问题来做.
 				\subsubsection{仙人掌DP}
 					\inputminted{cpp}{../src/graph/仙人掌DP.cpp}
 			
@@ -349,8 +361,8 @@
 				\subsubsection{SPFA费用流}
 					\inputminted{cpp}{../src/graph/SPFA费用流.cpp}
 
-				% \subsubsection{Dijkstra费用流}
-
+				\subsubsection{Dijkstra费用流}
+					\input{../src/graph/dijkstra费用流.tex}
 
 				% \subsubsection{zkw费用流}
 			
@@ -410,17 +422,22 @@
 			% \subsection{块状链表}
 	
 	
-			\subsection{Treap}
-				\inputminted{cpp}{../src/datastructure/Treap.cpp}
-				
+			\subsection{平衡树}
+				pb\_ds平衡树在misc(倒数第二章)里.
+
+				\subsubsection{Treap}
+					\inputminted{cpp}{../src/datastructure/Treap.cpp}
+					
 				% \subsubsection{无旋Treap}
 
 
 				% \subsubsection{可持久化Treap}
-	
-	
-			\subsection{Splay}
-				(参见LCT,除了\mintinline{cpp}{splay()}需要传一个点表示最终它的父亲,其他写法都和LCT相同)
+		
+		
+				\subsubsection{Splay}
+					如果插入的话可以直接找到底然后splay一下, 也可以直接splay前驱后继.
+					\inputminted[]{cpp}{../src/datastructure/文艺平衡树.cpp}
+				
 				
 			\subsection{树分治}
 				% \subsubsection{静态树分治}
@@ -445,8 +462,11 @@
 				\subsubsection{模板题:动态QTREE4(询问树上相距最远点)}
 						\inputminted{cpp}{../src/datastructure/动态QTREE4.cpp}
 	
-			% \subsection{K-D树}
-	
+			\subsection{K-D树}
+
+				
+				\subsubsection{动态K-D树}
+					\inputminted{cpp}{../src/datastructure/动态KD树.cpp}
 	
 			% \subsection{树分块}
 	
