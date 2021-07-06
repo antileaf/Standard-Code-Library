@@ -98,7 +98,7 @@
 }
 
 \setminted[python]{
-	style=material,
+	style=materiallight,
 	mathescape,
 	linenos,
 	autogobble,
@@ -168,8 +168,8 @@
 					清空和复制之类的地方容易抄错, 抄的时候要注意
 					\inputminted{cpp}{../src/math/更优秀的多项式多点求值.cpp}
 
-				% \subsubsection{多项式快速插值}
-
+				\subsubsection{多项式快速插值}
+					\input{../src/math/多项式快速插值.tex}
 
 				% \subsubsection{多项式复合与复合逆}
 
@@ -177,8 +177,8 @@
 				\subsubsection{拉格朗日反演}
 					\input{../src/math/拉格朗日反演.tex}
 
-				% \subsubsection{分治FFT}
-
+				\subsubsection{分治FFT}
+					\inputminted{cpp}{../src/math/分治FFT.cpp}
 
 				\subsubsection{半在线卷积}
 					\inputminted{cpp}{../src/math/半在线卷积.cpp}
@@ -217,13 +217,10 @@
 				\subsubsection{矩阵树定理}
 					
 
-			% \subsection{自适应Simpson积分}
+			\subsection{自适应Simpson积分}
+				Forked from fstqwq's template.
+				\inputminted{cpp}{../src/math/simpson.cpp}
 
-
-			% \subsection{常见结论}
-				% \subsubsection{线性齐次递推求通项}
-			
-				
 			\subsection{常见数列}
 				\subsubsection{伯努利数}
 					\input{../src/math/伯努利数.tex}
@@ -240,6 +237,9 @@
 				
 				\subsubsection{连通图计数}
 					\input{../src/math/连通图计数.tex}
+
+				\subsubsection{线性齐次线性常系数递推求通项}
+					\includegraphics[scale = 0.27]{../src/math/线性齐次线性常系数递推.png}
 
 
 		\section{数论}
@@ -304,7 +304,7 @@
 			
 			\subsection{Tarjan算法}
 				\subsubsection{强连通分量}
-					\inputminted[]{cpp}{../src/graph/强连通分量.cpp}
+					\inputminted{cpp}{../src/graph/强连通分量.cpp}
 				
 				\subsubsection{割点 点双}
 					\inputminted{cpp}{../src/graph/割点点双.cpp}
@@ -327,8 +327,8 @@
 				\subsubsection{KM二分图最大权匹配}
 					\inputminted{cpp}{../src/graph/KM二分图最大权匹配.cpp}
 
-				% \subsubsection{二分图原理}
-			
+				\subsubsection{二分图原理}
+					\input{../src/graph/二分图原理.tex}
 			
 			\subsection{一般图匹配}
 				\subsubsection{高斯消元}
@@ -336,10 +336,14 @@
 
 				\subsubsection{带花树}
 					\inputminted{cpp}{../src/graph/带花树.cpp}
-
+				
 				\subsubsection{带权带花树}
 					(有一说一这玩意实在太难写了, 抄之前建议先想想算法是不是假的或者有SB做法)
 					\inputminted{cpp}{../src/graph/带权带花树.cpp}
+				
+				\subsubsection{原理}
+					\input{../src/graph/一般图匹配原理.tex}
+
 			
 			% \subsection{支配树}
 			
@@ -367,25 +371,15 @@
 				% \subsubsection{zkw费用流}
 			
 
-			% \subsection{网络流原理}
-				% \subsubsection{最小割}
-
-
-				% \subsubsection{费用流}
-
-
-				% \subsubsection{常见建图方法}
-
-
-				% \subsubsection{例题}
-			
+			\subsection{网络流原理}
+				\input{../src/graph/网络流原理.tex}
 
 			\subsection{弦图相关}
 				From NEW CODE!!
 				\input{../src/graph/弦图相关.tex}
 
 			% \subsection{弦图}
-				% \subsubsection{完美消除序列、最大势算法}
+				% \subsubsection{完美消除序列, 最大势算法}
 
 
 				% \subsubsection{性质}
@@ -416,8 +410,10 @@
 			\subsection{陈丹琦分治}
 				\inputminted{cpp}{../src/datastructure/CDQ分治.cpp}
 	
-			% \subsection{整体二分}
+			\subsection{整体二分}
+				修改和询问都要划分, 备份一下, 递归之前copy回去.
 
+				如果是满足可减性的问题(例如查询区间$k$小数)可以直接在划分的时候把询问的$k$修改一下. 否则需要维护一个全局的数据结构, 一般来说可以先递归右边再递归左边, 具体维护方法视情况而定.
 
 			% \subsection{块状链表}
 	
@@ -428,10 +424,8 @@
 				\subsubsection{Treap}
 					\inputminted{cpp}{../src/datastructure/Treap.cpp}
 					
-				% \subsubsection{无旋Treap}
-
-
-				% \subsubsection{可持久化Treap}
+				\subsubsection{无旋Treap/可持久化Treap}
+					\inputminted{cpp}{../src/datastructure/无旋Treap.cpp}
 		
 		
 				\subsubsection{Splay}
@@ -480,7 +474,7 @@
 			\subsection{长链剖分}
 				\inputminted{cpp}{../src/datastructure/长链剖分.cpp}
 	
-			\subsection{梯子剖分}
+			\subsubsection{梯子剖分}
 				\inputminted{cpp}{../src/datastructure/梯子剖分.cpp}
 					
 			\subsection{左偏树}
@@ -517,7 +511,7 @@
 				\inputminted{cpp}{../src/string/回文树.cpp}
 
 				\subsubsection{广义回文树}
-					(代码是梯子剖分的版本,压力不大的题目换成直接倍增就好了,常数只差不到一倍)
+					(代码是梯子剖分的版本, 压力不大的题目换成直接倍增就好了,常数只差不到一倍)
 					\inputminted{cpp}{../src/string/广义回文树.cpp}
 
 			% \subsection{序列自动机}
@@ -531,7 +525,6 @@
 
 			\subsection{字符串原理}
 				\input{../src/string/字符串原理.tex}
-				
 
 			\section{动态规划}
 				\subsection{决策单调性$O(n\log n)$}
@@ -543,6 +536,9 @@
 			\section{Miscellaneous}
 				\subsection{$O(1)$快速乘}
 					\inputminted{cpp}{../src/misc/O(1)快速乘.cpp}
+				
+				\subsection{Python Decimal}
+					\inputminted{python}{../src/misc/decimal.py}
 				
 				\subsection{$O(n^2)$高精度}
 					\inputminted{cpp}{../src/misc/高精度.cpp}
@@ -571,17 +567,21 @@
 				\subsection{编译选项}
 					\input{../src/misc/编译选项.tex}
 					
+				\subsection{注意事项}
 
-			\section{注意事项}
-				\subsection{常见下毒手法}
-					\input{../src/attention/常见下毒手法.tex}
+					\subsubsection{常见下毒手法}
+						\input{../src/attention/常见下毒手法.tex}
 
-				\subsection{场外相关}
-					\input{../src/attention/场外相关.tex}
+					\subsubsection{场外相关}
+						\input{../src/attention/场外相关.tex}
 
-				\subsection{做题策略与心态调节}
-					\input{../src/attention/做题策略与心态调节.tex}
+					\subsubsection{做题策略与心态调节}
+						\input{../src/attention/做题策略与心态调节.tex}
+				
+				\subsection{附录: Cheat Sheet}
+					见最后几页.
 
 	\end{multicols}
 
+	\includepdf[pages = 1-10]{../src/misc/Cheat.pdf}
 \end{document}

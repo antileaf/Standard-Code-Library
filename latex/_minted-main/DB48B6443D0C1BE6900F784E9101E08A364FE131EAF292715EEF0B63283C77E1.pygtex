@@ -1,0 +1,75 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{struct} \PYG{n+nc}{node} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{int} \PYG{n}{val}\PYG{p}{,} \PYG{n}{size}\PYG{p}{;}
+	\PYG{n}{node} \PYG{o}{*}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{];}
+
+	\PYG{n}{node}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{val}\PYG{p}{)} \PYG{o}{:} \PYG{n}{val}\PYG{p}{(}\PYG{n}{val}\PYG{p}{),} \PYG{n}{size}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{p}{\PYGZob{}\PYGZcb{}}
+
+	\PYG{k+kr}{inline} \PYG{k+kt}{void} \PYG{n}{refresh}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+		\PYG{n}{size} \PYG{o}{=} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{size} \PYG{o}{+} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{size}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+
+\PYG{p}{\PYGZcb{}} \PYG{n}{null}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+
+\PYG{n}{node} \PYG{o}{*}\PYG{n+nf}{copied}\PYG{p}{(}\PYG{n}{node} \PYG{o}{*}\PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 如果不用可持久化的话, 直接用就行了}
+	\PYG{k}{return} \PYG{k}{new} \PYG{n}{node}\PYG{p}{(}\PYG{o}{*}\PYG{n}{x}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{node} \PYG{o}{*}\PYG{n+nf}{merge}\PYG{p}{(}\PYG{n}{node} \PYG{o}{*}\PYG{n}{x}\PYG{p}{,} \PYG{n}{node} \PYG{o}{*}\PYG{n}{y}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{x} \PYG{o}{==} \PYG{n}{null}\PYG{p}{)}
+		\PYG{k}{return} \PYG{n}{y}\PYG{p}{;}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{y} \PYG{o}{==} \PYG{n}{null}\PYG{p}{)}
+		\PYG{k}{return} \PYG{n}{x}\PYG{p}{;}
+
+	\PYG{n}{node} \PYG{o}{*}\PYG{n}{z}\PYG{p}{;}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{rand}\PYG{p}{()} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{size} \PYG{o}{+} \PYG{n}{y} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{size}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{size}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{z} \PYG{o}{=} \PYG{n}{copied}\PYG{p}{(}\PYG{n}{y}\PYG{p}{);}
+		\PYG{n}{z} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{merge}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]);}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{else} \PYG{p}{\PYGZob{}}
+		\PYG{n}{z} \PYG{o}{=} \PYG{n}{copied}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);}
+		\PYG{n}{z} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{merge}\PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{y}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n}{z} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{refresh}\PYG{p}{();} \PYG{c+c1}{// 因为每次只有一边会递归到儿子, 所以z不可能取到null}
+	\PYG{k}{return} \PYG{n}{z}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{node}\PYG{o}{*}\PYG{p}{,} \PYG{n}{node}\PYG{o}{*\PYGZgt{}} \PYG{n}{split}\PYG{p}{(}\PYG{n}{node} \PYG{o}{*}\PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{k}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 左边大小为k}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{x} \PYG{o}{==} \PYG{n}{null}\PYG{p}{)}
+		\PYG{k}{return} \PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{n}{null}\PYG{p}{,} \PYG{n}{null}\PYG{p}{);}
+
+	\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{node}\PYG{o}{*}\PYG{p}{,} \PYG{n}{node}\PYG{o}{*\PYGZgt{}} \PYG{n}{pi}\PYG{p}{(}\PYG{n}{null}\PYG{p}{,} \PYG{n}{null}\PYG{p}{);}
+
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{k} \PYG{o}{\PYGZlt{}=} \PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{size}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{pi} \PYG{o}{=} \PYG{n}{split}\PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{k}\PYG{p}{);}
+
+		\PYG{n}{node} \PYG{o}{*}\PYG{n}{z} \PYG{o}{=} \PYG{n}{copied}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);}
+		\PYG{n}{z} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{pi}\PYG{p}{.}\PYG{n}{second}\PYG{p}{;}
+		\PYG{n}{z} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{refresh}\PYG{p}{();}
+		\PYG{n}{pi}\PYG{p}{.}\PYG{n}{second} \PYG{o}{=} \PYG{n}{z}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{else} \PYG{p}{\PYGZob{}}
+		\PYG{n}{pi} \PYG{o}{=} \PYG{n}{split}\PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{k} \PYG{o}{\PYGZhy{}} \PYG{n}{x} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{size} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{);}
+
+		\PYG{n}{node} \PYG{o}{*}\PYG{n}{y} \PYG{o}{=} \PYG{n}{copied}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);}
+		\PYG{n}{y} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{pi}\PYG{p}{.}\PYG{n}{first}\PYG{p}{;}
+		\PYG{n}{y} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{refresh}\PYG{p}{();}
+		\PYG{n}{pi}\PYG{p}{.}\PYG{n}{first} \PYG{o}{=} \PYG{n}{y}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{return} \PYG{n}{pi}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// 记得初始化null}
+\PYG{k+kt}{int} \PYG{n}{main}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{null}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{null}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{ch}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{null}\PYG{p}{;}
+	\PYG{n}{null} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{size} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+
+	\PYG{c+c1}{// do something}
+
+	\PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

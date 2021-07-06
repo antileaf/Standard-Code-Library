@@ -2,7 +2,7 @@
 \PYG{c+c1}{// 注意如果只需要正数运算的话}
 \PYG{c+c1}{// 可以只抄英文名的运算函数}
 \PYG{c+c1}{// 按需自取}
-\PYG{c+c1}{// 乘法O(n \PYGZca{} 2)，除法O(10 * n \PYGZca{} 2)}
+\PYG{c+c1}{// 乘法O(n \PYGZca{} 2), 除法O(10 * n \PYGZca{} 2)}
 
 \PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{maxn} \PYG{o}{=} \PYG{l+m+mi}{1005}\PYG{p}{;}
 
