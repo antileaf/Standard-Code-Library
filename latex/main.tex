@@ -186,7 +186,6 @@
 				\subsubsection{常系数齐次线性递推$O(k\log k\log n)$}
 					如果只有一次这个操作可以像代码里一样加上一个只求一次逆的优化, 否则就乖乖每次做完整的除法和取模
 					\inputminted{cpp}{../src/math/常系数齐次线性递推.cpp}
-				
 
 			\subsection{FWT快速沃尔什变换}
 				\inputminted{cpp}{../src/math/FWT.cpp}
@@ -198,8 +197,11 @@
 					\input{../src/math/线性规划对偶原理.tex}
 
 			\subsection{线性代数}
-				% \subsubsection{高斯消元}
+				\subsubsection{矩阵乘法}
+					\inputminted{cpp}{../src/math/矩阵乘法.cpp}
 
+				\subsubsection{高斯消元}
+					\input{../src/math/高斯消元.tex}
 
 				\subsubsection{行列式取模}
 					\inputminted{cpp}{../src/math/行列式取模.cpp}
@@ -318,8 +320,8 @@
 					\inputminted{cpp}{../src/graph/仙人掌DP.cpp}
 			
 			\subsection{二分图}
-				% \subsubsection{匈牙利}
-
+				\subsubsection{匈牙利}
+					\inputminted{cpp}{../src/graph/hungary.cpp}
 
 				% \subsubsection{Hopcroft-Karp}
 
@@ -348,7 +350,12 @@
 			% \subsection{支配树}
 			
 
-			% \subsection{2-SAT}
+			\subsection{2-SAT}
+				如果限制满足对称性, 那么可以使用Tarjan算法求SCC搞定. 
+				
+				具体来说就是, 如果某个变量的两个点在同一SCC中则显然无解, 否则按拓扑序倒序尝试选择每个SCC即可.
+
+				如果要字典序最小或者不满足对称性就用dfs, 注意可以压位优化.
 
 
 			\subsection{最大流}

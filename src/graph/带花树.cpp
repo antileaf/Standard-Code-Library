@@ -1,4 +1,4 @@
-﻿// 带花树通常比高斯消元快很多,但在只需要求最大匹配大小的时候并没有高斯消元好写
+﻿// 带花树通常比高斯消元快很多, 但在只需要求最大匹配大小的时候并没有高斯消元好写
 // 当然输出方案要方便很多
 
 // 全局数组与变量定义
@@ -31,17 +31,17 @@ bool bfs(int s) {
 	q[tail++] = s;
 	t[s] = 1;
 
-	while (head != tail){
+	while (head != tail) {
 		int x = q[head++];
-		for (int y : G[x]){
+		for (int y : G[x]) {
 			if (findroot(y) == findroot(x) || t[y] == 2)
 				continue;
 
-			if (!t[y]){
+			if (!t[y]) {
 				t[y] = 2;
 				p[y] = x;
 
-				if (!girl[y]){
+				if (!girl[y]) {
 					for (int u = y, t; u; u = t) {
 						t = girl[p[u]];
 						girl[p[u]] = u;
@@ -49,11 +49,13 @@ bool bfs(int s) {
 					}
 					return true;
 				}
+
 				t[girl[y]] = 1;
 				q[tail++] = girl[y];
 			}
 			else if (t[y] == 1) {
 				int z = LCA(x, y);
+
 				shrink(x, y, z);
 				shrink(y, x, z);
 			}
@@ -65,7 +67,7 @@ bool bfs(int s) {
 
 //缩奇环 O(n)
 void shrink(int x, int y, int z) {
-	while (findroot(x) != z){
+	while (findroot(x) != z) {
 		p[x] = y;
 		y = girl[x];
 
@@ -74,9 +76,9 @@ void shrink(int x, int y, int z) {
 			q[tail++] = y;
 		}
 
-		if(findroot(x) == x)
+		if (findroot(x) == x)
 			f[x] = z;
-		if(findroot(y) == y)
+		if (findroot(y) == y)
 			f[y] = z;
 
 		x = p[y];
