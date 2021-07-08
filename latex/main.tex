@@ -232,6 +232,12 @@
 				
 				\subsubsection{斯特林数}
 					\input{../src/math/斯特林数.tex}
+				
+				\subsubsection{贝尔数}
+					\input{../src/math/贝尔数.tex}
+				
+				\subsubsection{卡特兰数}
+					\input{../src/math/卡特兰数.tex}
 			
 			\subsection{常用公式及结论}
 				\subsubsection{方差}
@@ -268,7 +274,7 @@
 
 
 			\subsection{扩展欧几里德}
-				\inputminted[]{cpp}{../src/math/exgcd.cpp}
+				\inputminted{cpp}{../src/math/exgcd.cpp}
 				\input{../src/math/exgcd.tex}
 			
 			\subsection{常用公式}
@@ -409,7 +415,10 @@
 					\input{../src/datastructure/非递归线段树.tex}
 				
 				\subsubsection{线段树维护矩形并}
+					为线段树的每个结点维护$cover_i$表示这个区间被完全覆盖的次数.
 
+					更新时分情况讨论, 如果当前区间已被完全覆盖则长度就是区间长度, 否则长度是左右儿子相加.
+					\inputminted{cpp}{../src/datastructure/线段树维护矩形并.cpp}
 
 				\subsubsection{主席树}
 					这种东西能不能手撕啊

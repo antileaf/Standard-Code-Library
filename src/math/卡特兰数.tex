@@ -1,0 +1,14 @@
+$$C_n = \frac 1 {n + 1}{2n\choose n} = {2n \choose n} - {2n \choose n - 1}$$
+
+\begin{itemize}
+	\item $n$个元素按顺序入栈, 出栈序列方案数
+	\item 长为$2n$的合法括号序列数
+	\item $n + 1$个叶子的满二叉树个数
+\end{itemize}
+
+递推式: 
+$$C_n = \sum_{i = 0} ^ {n - 1} C_i C_{n - i - 1}$$
+$$C_n = C_{n - 1} \frac {4n - 2} {n + 1}$$
+
+扩展: 如果有$n$个左括号和$m$个右括号, 方案数为
+$${n + m \choose n} - {n + m \choose m - 1}$$
