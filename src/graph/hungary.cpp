@@ -8,7 +8,7 @@ bool dfs(int x) {
 		if (!vis[y]) {
 			vis[y] = true;
 
-			if (!boy[y] || dfs(y)) {
+			if (!boy[y] || dfs(boy[y])) {
 				girl[x] = y;
 				boy[y] = x;
 

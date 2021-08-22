@@ -2,7 +2,7 @@ char s[maxn], t[maxn];
 int fail[maxn];
 int n, m;
 
-void init() {
+void init() { // 注意字符串是0-based, 但是fail是1-based
 	// memset(fail, 0, sizeof(fail));
 
 	for (int i = 1; i < m; i++) {

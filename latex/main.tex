@@ -164,7 +164,7 @@
 					\inputminted{cpp}{../src/math/多项式操作.cpp}
 
 				\subsubsection{更优秀的多项式多点求值}
-					这个做法不需要写求逆和取模, 但是神乎其技, 完全搞不懂原理 \\
+					这个做法不需要写取模, 求逆也只有一次, 但是神乎其技, 完全搞不懂原理 \\
 					清空和复制之类的地方容易抄错, 抄的时候要注意
 					\inputminted{cpp}{../src/math/更优秀的多项式多点求值.cpp}
 
@@ -255,11 +255,14 @@
 			\subsection{$O(n)$预处理逆元}
 				\inputminted{cpp}{../src/numbertheory/O(n)求逆元.cpp}
 
+			\subsection{线性筛}
+				\inputminted{cpp}{../src/numbertheory/扩展线性筛.cpp}
+
 			\subsection{杜教筛}
 				\inputminted{cpp}{../src/numbertheory/杜教筛.cpp}
 			
-			\subsection{线性筛}
-				\inputminted{cpp}{../src/numbertheory/扩展线性筛.cpp}
+			% \subsection{Powerful-Number筛}
+
 
 			% \subsection{min_25筛}
 
@@ -290,8 +293,8 @@
 				\subsubsection{动态最小生成树}
 					\inputminted{cpp}{../src/graph/动态最小生成树.cpp}
 				
-				% \subsubsection{最小树形图(朱刘算法)}
-
+				\subsubsection{最小树形图(朱刘算法)}
+					\input{../src/graph/最小树形图.tex}
 				
 				\subsubsection{Steiner Tree 斯坦纳树}
 					\input{../src/graph/steiner.tex}
@@ -369,6 +372,7 @@
 					\inputminted{cpp}{../src/graph/Dinic.cpp}
 
 				\subsubsection{ISAP}
+					\textbf{可能有毒, 慎用.}
 					\inputminted{cpp}{../src/graph/ISAP.cpp}
 
 				\subsubsection{HLPP最高标号预流推进}
@@ -510,6 +514,9 @@
 				\inputminted{cpp}{../src/string/AC自动机.cpp}
 
 			\subsection{后缀数组}
+				% \subsubsection{倍增}
+					
+
 				\subsubsection{SA-IS}
 					\inputminted{cpp}{../src/string/sais.cpp}
 			

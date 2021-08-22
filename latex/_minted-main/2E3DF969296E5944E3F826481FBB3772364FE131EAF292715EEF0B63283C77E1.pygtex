@@ -9,7 +9,7 @@
 		\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{y}\PYG{p}{])} \PYG{p}{\PYGZob{}}
 			\PYG{n}{vis}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
 
-			\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{boy}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]} \PYG{o}{||} \PYG{n}{dfs}\PYG{p}{(}\PYG{n}{y}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+			\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{boy}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]} \PYG{o}{||} \PYG{n}{dfs}\PYG{p}{(}\PYG{n}{boy}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]))} \PYG{p}{\PYGZob{}}
 				\PYG{n}{girl}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n}{y}\PYG{p}{;}
 				\PYG{n}{boy}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]} \PYG{o}{=} \PYG{n}{x}\PYG{p}{;}
 

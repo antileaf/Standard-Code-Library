@@ -1,11 +1,4 @@
-// Aho-Corasick Automata AC自动机
-// By AntiLeaf
-// 通过题目：bzoj3881 Divljak
-
-
-// 全局变量与数组定义
-int ch[maxm][26] = {{0}}, f[maxm][26] = {{0}}, q[maxm] = {0}, sum[maxm] = {0}, cnt = 0;
-
+int ch[maxm][26], f[maxm][26], q[maxm], sum[maxm], cnt = 0;
 
 // 在字典树中插入一个字符串 O(n)
 int insert(const char *c) {
@@ -18,8 +11,7 @@ int insert(const char *c) {
     return x;
 }
 
-
-// 建AC自动机 O(n*sigma)
+// 建AC自动机 O(n * sigma)
 void getfail() {
     int x, head = 0, tail = 0;
 
@@ -36,9 +28,6 @@ void getfail() {
         for (int c = 0; c < 26; c++) {
             if (ch[x][c]) {
                 int y = f[x][0];
-
-                while (y&&!ch[y][c])
-                    y=f[y][0];
 
                 f[ch[x][c]][0] = ch[y][c];
                 q[tail++] = ch[x][c];

@@ -3,7 +3,7 @@
 \PYG{k+kt}{int} \PYG{n}{fail}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
 \PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,} \PYG{n}{m}\PYG{p}{;}
 
-\PYG{k+kt}{void} \PYG{n+nf}{init}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+\PYG{k+kt}{void} \PYG{n+nf}{init}\PYG{p}{()} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 注意字符串是0\PYGZhy{}based, 但是fail是1\PYGZhy{}based}
 	\PYG{c+c1}{// memset(fail, 0, sizeof(fail));}
 
 	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{m}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}

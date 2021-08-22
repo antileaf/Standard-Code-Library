@@ -47,6 +47,8 @@ int *sais(int *s, int len, int m) {
 	int *sbuc = new int[m + 1];
 
 	memset(buc, 0, sizeof(int) * (m + 1));
+	memset(lbuc, 0, sizeof(int) * (m + 1));
+	memset(sbuc, 0, sizeof(int) * (m + 1));
 
 	for (int i = 0; i <= n; i++)
 		buc[s[i]]++;
