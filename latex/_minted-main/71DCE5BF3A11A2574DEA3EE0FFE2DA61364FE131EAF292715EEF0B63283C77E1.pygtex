@@ -4,7 +4,7 @@
 
 \PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);} \PYG{c+c1}{// 在末尾添加x}
 \PYG{n}{insert}\PYG{p}{(}\PYG{n}{pos}\PYG{p}{,} \PYG{n}{x}\PYG{p}{);} \PYG{c+c1}{// 在pos插入x, 自然支持整个char数组的一次插入}
-\PYG{n}{erase}\PYG{p}{(}\PYG{n}{pos}\PYG{p}{,} \PYG{n}{x}\PYG{p}{);} \PYG{c+c1}{// 从pos开始删除x个}
+\PYG{n}{erase}\PYG{p}{(}\PYG{n}{pos}\PYG{p}{,} \PYG{n}{x}\PYG{p}{);} \PYG{c+c1}{// 从pos开始删除x个, 不要只传一个参数, 有毒}
 \PYG{n}{copy}\PYG{p}{(}\PYG{n}{pos}\PYG{p}{,} \PYG{n}{len}\PYG{p}{,} \PYG{n}{x}\PYG{p}{);} \PYG{c+c1}{// 从pos开始到pos + len为止的部分, 赋值给x}
 \PYG{n}{replace}\PYG{p}{(}\PYG{n}{pos}\PYG{p}{,} \PYG{n}{x}\PYG{p}{);} \PYG{c+c1}{// 从pos开始换成x}
 \PYG{n}{substr}\PYG{p}{(}\PYG{n}{pos}\PYG{p}{,} \PYG{n}{x}\PYG{p}{);} \PYG{c+c1}{// 提取pos开始x个}

@@ -96,9 +96,9 @@
 \contentsline {subsubsection}{\numberline {4.4.1}Treap}{32}{}%
 \contentsline {subsubsection}{\numberline {4.4.2}无旋Treap/可持久化Treap}{33}{}%
 \contentsline {subsubsection}{\numberline {4.4.3}Splay}{34}{}%
-\contentsline {subsection}{\numberline {4.5}树分治}{34}{}%
-\contentsline {subsubsection}{\numberline {4.5.1}动态树分治}{34}{}%
-\contentsline {subsubsection}{\numberline {4.5.2}紫荆花之恋}{35}{}%
+\contentsline {subsection}{\numberline {4.5}树分治}{35}{}%
+\contentsline {subsubsection}{\numberline {4.5.1}动态树分治}{35}{}%
+\contentsline {subsubsection}{\numberline {4.5.2}紫荆花之恋}{36}{}%
 \contentsline {subsection}{\numberline {4.6}LCT}{37}{}%
 \contentsline {subsubsection}{\numberline {4.6.1}不换根(弹飞绵羊)}{37}{}%
 \contentsline {subsubsection}{\numberline {4.6.2}换根/维护生成树}{38}{}%
@@ -119,7 +119,7 @@
 \contentsline {subsubsection}{\numberline {5.3.1}SA-IS}{47}{}%
 \contentsline {subsubsection}{\numberline {5.3.2}SAMSA}{49}{}%
 \contentsline {subsection}{\numberline {5.4}后缀自动机}{49}{}%
-\contentsline {subsection}{\numberline {5.5}回文树}{49}{}%
+\contentsline {subsection}{\numberline {5.5}回文树}{50}{}%
 \contentsline {subsubsection}{\numberline {5.5.1}广义回文树}{50}{}%
 \contentsline {subsection}{\numberline {5.6}Manacher马拉车}{52}{}%
 \contentsline {subsection}{\numberline {5.7}字符串原理}{52}{}%
@@ -133,18 +133,18 @@
 \contentsline {subsection}{\numberline {7.4}笛卡尔树}{56}{}%
 \contentsline {subsection}{\numberline {7.5}常用NTT素数及原根}{56}{}%
 \contentsline {subsection}{\numberline {7.6}xorshift}{56}{}%
-\contentsline {subsection}{\numberline {7.7}枚举子集}{56}{}%
+\contentsline {subsection}{\numberline {7.7}枚举子集}{57}{}%
 \contentsline {subsection}{\numberline {7.8}STL}{57}{}%
 \contentsline {subsubsection}{\numberline {7.8.1}vector}{57}{}%
 \contentsline {subsubsection}{\numberline {7.8.2}list}{57}{}%
 \contentsline {subsection}{\numberline {7.9}pb\_ds}{57}{}%
 \contentsline {subsubsection}{\numberline {7.9.1}哈希表}{57}{}%
 \contentsline {subsubsection}{\numberline {7.9.2}堆}{57}{}%
-\contentsline {subsubsection}{\numberline {7.9.3}平衡树}{57}{}%
+\contentsline {subsubsection}{\numberline {7.9.3}平衡树}{58}{}%
 \contentsline {subsection}{\numberline {7.10}rope}{58}{}%
 \contentsline {subsection}{\numberline {7.11}编译选项}{58}{}%
 \contentsline {subsection}{\numberline {7.12}注意事项}{58}{}%
 \contentsline {subsubsection}{\numberline {7.12.1}常见下毒手法}{58}{}%
 \contentsline {subsubsection}{\numberline {7.12.2}场外相关}{58}{}%
 \contentsline {subsubsection}{\numberline {7.12.3}做题策略与心态调节}{58}{}%
-\contentsline {subsection}{\numberline {7.13}附录: Cheat Sheet}{58}{}%
+\contentsline {subsection}{\numberline {7.13}附录: Cheat Sheet}{59}{}%
