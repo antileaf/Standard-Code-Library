@@ -6,7 +6,7 @@
 
 设我们要求和的函数是$f(n)$, 构造一个方便求前缀和的\textbf{积性}函数$g(n)$使得$g(p) = f(p)$.
 
-那么就存在一个函数$h = f * g ^ {-1}$, 也就是$f = g *h$. 可以证明$h(p) = 0$, 所以只有Powerful Number的$h$值不为0.
+那么就存在一个积性函数$h = f * g ^ {-1}$, 也就是$f = g *h$. 可以证明$h(p) = 0$, 所以只有Powerful Number的$h$值不为0.
 
 $$ \begin{aligned}
 	S_f(i) = \sum_{d = 1} ^ n h(d) S_g \left( \left\lfloor \frac n d \right\rfloor \right)
@@ -23,3 +23,12 @@ $$ \begin{aligned}
 处理完之后DFS就行了. (显然只需要筛$\sqrt n$以内的质数.)
 
 复杂度取决于杜教筛的复杂度, 特殊题目构造的好也可以做到$O \left( \sqrt n \right)$.
+
+例题:
+
+\begin{itemize}
+	\item $f \left( p ^ k \right) = p ^ k \left( p ^ k - 1 \right)$
+		\subitem $g(n) = \text{id}(n) \varphi(n)$.
+	\item $f \left( p ^ k \right) = p \, \text{xor} \, k$
+		\subitem $n$为偶数时$g(n) = 3 \varphi(n)$, 否则$g(n) = \varphi(n)$.
+\end{itemize}
