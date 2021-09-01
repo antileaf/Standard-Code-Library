@@ -15,4 +15,11 @@
 	\PYG{n}{\PYGZus{}\PYGZus{}asm\PYGZus{}\PYGZus{}} \PYG{n+nf}{\PYGZus{}\PYGZus{}volatile\PYGZus{}\PYGZus{}} \PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s}{mulq \PYGZpc{}\PYGZpc{}rbx}\PYG{l+s+se}{\PYGZbs{}n\PYGZbs{}t}\PYG{l+s}{divq \PYGZpc{}\PYGZpc{}rcx}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}} \PYG{o}{:}  \PYG{l+s}{\PYGZdq{}=d\PYGZdq{}}\PYG{p}{(}\PYG{n}{ans}\PYG{p}{)} \PYG{o}{:} \PYG{l+s}{\PYGZdq{}a\PYGZdq{}}\PYG{p}{(}\PYG{n}{a}\PYG{p}{),} \PYG{l+s}{\PYGZdq{}b\PYGZdq{}}\PYG{p}{(}\PYG{n}{b}\PYG{p}{),} \PYG{l+s}{\PYGZdq{}c\PYGZdq{}}\PYG{p}{(}\PYG{n}{p}\PYG{p}{));}
 	\PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// int乘法取模, 大概比直接做快一倍}
+\PYG{k+kr}{inline} \PYG{k+kt}{int} \PYG{n}{mul\PYGZus{}mod}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{a}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{b}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{mo}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{int} \PYG{n}{ans}\PYG{p}{;}
+	\PYG{n}{\PYGZus{}\PYGZus{}asm\PYGZus{}\PYGZus{}} \PYG{n+nf}{\PYGZus{}\PYGZus{}volatile\PYGZus{}\PYGZus{}} \PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s}{mull \PYGZpc{}\PYGZpc{}ebx}\PYG{l+s+se}{\PYGZbs{}n\PYGZbs{}t}\PYG{l+s}{divl \PYGZpc{}\PYGZpc{}ecx}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}} \PYG{o}{:} \PYG{l+s}{\PYGZdq{}=d\PYGZdq{}}\PYG{p}{(}\PYG{n}{ans}\PYG{p}{)}\PYG{o}{:}\PYG{l+s}{\PYGZdq{}a\PYGZdq{}}\PYG{p}{(}\PYG{n}{a}\PYG{p}{),}\PYG{l+s}{\PYGZdq{}b\PYGZdq{}}\PYG{p}{(}\PYG{n}{b}\PYG{p}{),}\PYG{l+s}{\PYGZdq{}c\PYGZdq{}}\PYG{p}{(}\PYG{n}{mo}\PYG{p}{));}
+	\PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
 \end{Verbatim}

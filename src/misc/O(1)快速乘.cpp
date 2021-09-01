@@ -14,3 +14,10 @@ inline long long mul(const long long a, const long long b, const long long p) {
 	__asm__ __volatile__ ("\tmulq %%rbx\n\tdivq %%rcx\n" :  "=d"(ans) : "a"(a), "b"(b), "c"(p));
 	return ans;
 }
+
+// int乘法取模, 大概比直接做快一倍
+inline int mul_mod(int a, int b, int mo) {
+	int ans;
+	__asm__ __volatile__ ("\tmull %%ebx\n\tdivl %%ecx\n" : "=d"(ans):"a"(a),"b"(b),"c"(mo));
+	return ans;
+}

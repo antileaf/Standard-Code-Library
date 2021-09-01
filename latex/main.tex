@@ -184,7 +184,7 @@
 					\inputminted{cpp}{../src/math/半在线卷积.cpp}
 				
 				\subsubsection{常系数齐次线性递推$O(k\log k\log n)$}
-					如果只有一次这个操作可以像代码里一样加上一个只求一次逆的优化, 否则就乖乖每次做完整的除法和取模
+					如果只有一次这个操作可以照抄, 否则就开一个全局flag.
 					\inputminted{cpp}{../src/math/常系数齐次线性递推.cpp}
 
 			\subsection{FWT快速沃尔什变换}
@@ -224,6 +224,12 @@
 				\inputminted{cpp}{../src/math/simpson.cpp}
 
 			\subsection{常见数列}
+				\subsubsection{斐波那契数}
+
+
+				\subsubsection{卢卡斯数}
+
+
 				\subsubsection{伯努利数}
 					\input{../src/math/伯努利数.tex}
 				
@@ -247,7 +253,13 @@
 					\input{../src/math/连通图计数.tex}
 
 				\subsubsection{线性齐次线性常系数递推求通项}
-					\includegraphics[scale = 0.26]{../src/math/线性齐次线性常系数递推.png}
+					\includegraphics[scale = 0.265]{../src/math/线性齐次线性常系数递推.png}
+				
+				\subsubsection{上升幂, 下降幂与普通幂的转换}
+					\input{../src/math/幂的转换.tex}
+			
+			\subsection{常用生成函数}
+				\input{../src/math/常见生成函数.tex}
 
 
 		\section{数论}
@@ -264,8 +276,8 @@
 			\subsection{Powerful Number筛}
 				\input{../src/numbertheory/PN.tex}
 
-			% \subsection{min_25筛}
-
+			\subsection{min25筛}
+				\input{../src/numbertheory/min25.tex}
 
 			\subsection{Miller-Rabin}
 				\inputminted{cpp}{../src/numbertheory/Miller-Rabin.cpp}
@@ -389,6 +401,9 @@
 					\input{../src/graph/dijkstra费用流.tex}
 
 				% \subsubsection{zkw费用流}
+
+
+				% \subsubsection{网络单纯形}
 			
 
 			\subsection{网络流原理}
@@ -526,8 +541,8 @@
 				\subsubsection{SAMSA}
 				 	\inputminted{cpp}{../src/string/SAMSA.cpp}
 
-			% \subsection{后缀平衡树}
-
+			\subsection{后缀平衡树}
+				\input{../src/string/后缀平衡树.tex}
 
 			\subsection{后缀自动机}
 				(广义后缀自动机复杂度就是$O\left(n\left|\Sigma\right|\right)$, 也没法做到更低了)
