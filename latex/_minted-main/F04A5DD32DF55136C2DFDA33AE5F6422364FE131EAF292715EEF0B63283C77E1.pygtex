@@ -26,17 +26,22 @@
 	\PYG{n}{Complex} \PYG{o}{\PYGZam{}}\PYG{k}{operator} \PYG{o}{+=} \PYG{p}{(}\PYG{k}{const} \PYG{n}{Complex} \PYG{o}{\PYGZam{}}\PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
 		\PYG{k}{return} \PYG{o}{*}\PYG{k}{this} \PYG{o}{=} \PYG{o}{*}\PYG{k}{this} \PYG{o}{+} \PYG{n}{x}\PYG{p}{;}
 	\PYG{p}{\PYGZcb{}}
-\PYG{p}{\PYGZcb{}} \PYG{n}{w}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{w\PYGZus{}inv}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{p}{\PYGZcb{}} \PYG{n}{omega}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{omega\PYGZus{}inv}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
 
-\PYG{c+c1}{// FFT初始化 O(n)}
-\PYG{c+c1}{// 需要调用sin, cos函数}
+\PYG{k+kt}{int} \PYG{n}{fft\PYGZus{}n}\PYG{p}{;} \PYG{c+c1}{// 要在主函数里初始化}
+
+\PYG{c+c1}{// FFT初始化}
 \PYG{k+kt}{void} \PYG{n+nf}{FFT\PYGZus{}init}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{)} \PYG{p}{\PYGZob{}}
 	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{c+c1}{// 根据单位根的旋转性质可以节省计算单位根逆元的时间}
-		\PYG{n}{w}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{w\PYGZus{}inv}\PYG{p}{[}\PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{Complex}\PYG{p}{(}\PYG{n}{cos}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{pi} \PYG{o}{/} \PYG{n}{n} \PYG{o}{*} \PYG{n}{i}\PYG{p}{),} \PYG{n}{sin}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{pi} \PYG{o}{/} \PYG{n}{n} \PYG{o}{*} \PYG{n}{i}\PYG{p}{));}
+		\PYG{n}{omega}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{Complex}\PYG{p}{(}\PYG{n}{cos}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{pi} \PYG{o}{/} \PYG{n}{n} \PYG{o}{*} \PYG{n}{i}\PYG{p}{),} \PYG{n}{sin}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{pi} \PYG{o}{/} \PYG{n}{n} \PYG{o}{*} \PYG{n}{i}\PYG{p}{));}
+
+	\PYG{n}{omega\PYGZus{}inv}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{omega}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{n}{omega\PYGZus{}inv}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{omega}\PYG{p}{[}\PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{n}{i}\PYG{p}{];}
 	\PYG{c+c1}{// 当然不存单位根也可以, 只不过在FFT次数较多时很可能会增大常数}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{c+c1}{// FFT主过程 O(n\PYGZbs{}log n)}
+\PYG{c+c1}{// FFT主过程}
 \PYG{k+kt}{void} \PYG{n+nf}{FFT}\PYG{p}{(}\PYG{n}{Complex} \PYG{o}{*}\PYG{n}{A}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{tp}\PYG{p}{)} \PYG{p}{\PYGZob{}}
 	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{k}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
 		\PYG{n}{k} \PYG{o}{=} \PYG{n}{n}\PYG{p}{;}
@@ -48,10 +53,10 @@
 			\PYG{n}{swap}\PYG{p}{(}\PYG{n}{A}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{A}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]);}
 	\PYG{p}{\PYGZcb{}}
 
-	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{;}\PYG{n}{k} \PYG{o}{\PYGZlt{}=} \PYG{n}{n}\PYG{p}{;} \PYG{n}{k} \PYG{o}{*=} \PYG{l+m+mi}{2}\PYG{p}{)}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{m} \PYG{o}{=} \PYG{n}{fft\PYGZus{}n} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}=} \PYG{n}{n}\PYG{p}{;} \PYG{n}{k} \PYG{o}{*=} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{m} \PYG{o}{/=} \PYG{l+m+mi}{2}\PYG{p}{)}
 		\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i} \PYG{o}{+=} \PYG{n}{k}\PYG{p}{)}
-			\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{k} \PYG{o}{*} \PYG{l+m+mi}{2}\PYG{p}{;}\PYG{n}{j}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
-				\PYG{n}{Complex} \PYG{n}{a} \PYG{o}{=} \PYG{n}{A}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{n}{j}\PYG{p}{],} \PYG{n}{b} \PYG{o}{=} \PYG{p}{(}\PYG{n}{tp} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{o}{?} \PYG{n+nl}{w} \PYG{p}{:} \PYG{n}{w\PYGZus{}inv}\PYG{p}{)[}\PYG{n}{n} \PYG{o}{/} \PYG{n}{k} \PYG{o}{*} \PYG{n}{j}\PYG{p}{]} \PYG{o}{*} \PYG{n}{A}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{n}{j} \PYG{o}{+} \PYG{p}{(}\PYG{n}{k} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{)];}
+			\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{k} \PYG{o}{*} \PYG{l+m+mi}{2}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+				\PYG{n}{Complex} \PYG{n}{a} \PYG{o}{=} \PYG{n}{A}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{n}{j}\PYG{p}{],} \PYG{n}{b} \PYG{o}{=} \PYG{p}{(}\PYG{n}{tp} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{o}{?} \PYG{n+nl}{omega} \PYG{p}{:} \PYG{n}{omega\PYGZus{}inv}\PYG{p}{)[}\PYG{n}{m} \PYG{o}{*} \PYG{n}{j}\PYG{p}{]} \PYG{o}{*} \PYG{n}{A}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{n}{j} \PYG{o}{+} \PYG{p}{(}\PYG{n}{k} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{)];}
 
 				\PYG{n}{A}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{a} \PYG{o}{+} \PYG{n}{b}\PYG{p}{;}
 				\PYG{n}{A}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{n}{j} \PYG{o}{+} \PYG{n}{k} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{n}{a} \PYG{o}{\PYGZhy{}} \PYG{n}{b}\PYG{p}{;}

@@ -25,17 +25,22 @@ struct Complex {
 	Complex &operator += (const Complex &x) {
 		return *this = *this + x;
 	}
-} w[maxn], w_inv[maxn];
+} omega[maxn], omega_inv[maxn];
 
-// FFT初始化 O(n)
-// 需要调用sin, cos函数
+int fft_n; // 要在主函数里初始化
+
+// FFT初始化
 void FFT_init(int n) {
 	for (int i = 0; i < n; i++) // 根据单位根的旋转性质可以节省计算单位根逆元的时间
-		w[i] = w_inv[n - i - 1] = Complex(cos(2 * pi / n * i), sin(2 * pi / n * i));
+		omega[i] = Complex(cos(2 * pi / n * i), sin(2 * pi / n * i));
+	
+	omega_inv[0] = omega[0];
+	for (int i = 1; i < n; i++)
+		omega_inv[i] = omega[n - i];
 	// 当然不存单位根也可以, 只不过在FFT次数较多时很可能会增大常数
 }
 
-// FFT主过程 O(n\log n)
+// FFT主过程
 void FFT(Complex *A, int n, int tp) {
 	for (int i = 1, j = 0, k; i < n - 1; i++) {
 		k = n;
@@ -47,10 +52,10 @@ void FFT(Complex *A, int n, int tp) {
 			swap(A[i], A[j]);
 	}
 
-	for (int k = 2;k <= n; k *= 2)
+	for (int k = 2, m = fft_n / 2; k <= n; k *= 2, m /= 2)
 		for (int i = 0; i < n; i += k)
-			for (int j = 0; j < k * 2;j++) {
-				Complex a = A[i + j], b = (tp > 0? w : w_inv)[n / k * j] * A[i + j + (k / 2)];
+			for (int j = 0; j < k * 2; j++) {
+				Complex a = A[i + j], b = (tp > 0? omega : omega_inv)[m * j] * A[i + j + (k / 2)];
 
 				A[i + j] = a + b;
 				A[i + j + k / 2] = a - b;
