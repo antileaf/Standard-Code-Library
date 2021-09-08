@@ -1,3 +1,16 @@
+\textbf{阶}: 最小的整数$k$使得$a ^ k \equiv 1 \pmod p$, 记为$\delta_p(a)$.
+
+显然$a$在原根以下的幂次是两两不同的.
+
+一个性质: 如果$a, b$均与$p$互质, 则 $ \delta_p(ab)=\delta_p(a)\delta_p(b) $ 的充分必要条件是$ \gcd\big(\delta_p(a),\delta_p(b)\big)=1 $.
+
+另外, 如果$a$与$p$互质, 则有$ \delta_p(a^k)=\dfrac{\delta_p(a)}{\gcd\big(\delta_p(a),k\big)} $. (也就是环上一次跳$k$步的周期.)
+
+\textbf{原根}: 阶等于$\varphi(p)$的数.
+
+只有形如$2, 4, p ^ k, 2 p ^ k$($p$是奇素数)的数才有原根, 并且如果一个数$n$有原根, 那么原根的个数是$\varphi(\varphi(n))$个.
+
+暴力找原根代码:
 \begin{minted}{python}
 def split(n): # 分解质因数
     i = 2
@@ -33,15 +46,3 @@ def getg(p): # 找原根
 
 print(getg(int(input())))
 \end{minted}
-
-\textbf{阶}: 最小的整数$k$使得$a ^ k \equiv 1 \pmod p$, 记为$\delta_p(a)$.
-
-显然$a$在原根以下的幂次是两两不同的.
-
-一个性质: 如果$a, b$均与$p$互质, 则 $ \delta_p(ab)=\delta_p(a)\delta_p(b) $ 的充分必要条件是$ \gcd\big(\delta_p(a),\delta_p(b)\big)=1 $.
-
-另外, 如果$a$与$p$互质, 则有$ \delta_p(a^k)=\dfrac{\delta_p(a)}{\gcd\big(\delta_p(a),k\big)} $. (也就是环上一次跳$k$步的周期.)
-
-\textbf{原根}: 阶等于$\varphi(p)$的数.
-
-只有形如$2, 4, p ^ k, 2 p ^ k$($p$是奇素数)的数才有原根, 并且如果一个数$n$有原根, 那么原根的个数是$\varphi(\varphi(n))$个.
