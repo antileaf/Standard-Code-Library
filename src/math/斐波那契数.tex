@@ -1,0 +1,32 @@
+斐波那契数: $F_0 = 0, \, F_1 = 1, \, F_n = F_{n - 1} + F_{n - 2}$
+
+$0, \, 1, \, 1, \, 2, \, 3, \, 5, \, 8, \, 13, \, 21, \, 34, \, 55, \, 89, \, \dots$
+
+卢卡斯数: $L_0 = 2, \, L_1 = 1$
+
+$2, \, 1, \, 3, \, 4, \, 7, \, 11, \, 18, \, 29, \, 47, \, 76, \, 123, \, 199, \, \dots$
+
+\textbf{通项公式}
+
+$\phi = \frac {1 + \sqrt 5} 2, \; \hat\phi = \frac {1 - \sqrt 5} 2$
+
+$F_n = \frac {\phi^n - {\hat\phi} ^ n} {\sqrt 5}, \; L_n = \phi ^ n + {\hat\phi} ^ n$
+
+实际上有$\frac {L_n + F_n \sqrt 5} 2 = \left( \frac {1 + \sqrt 5} 2 \right) ^ n$, 所以求通项的话写一个类然后快速幂就可以同时得到两者.
+
+\textbf{快速倍增法}
+
+$F_{2k} = F_k \left( 2 F_{k + 1} - F_k \right), \; F_{2k + 1} = F_{k + 1} ^ 2 + F_k ^ 2$
+
+\begin{minted} {cpp}
+pair<int, int> fib(int n) { // 返回F(n)和F(n + 1)
+    if (n == 0) return {0, 1};
+    auto p = fib(n >> 1);
+    int c = p.first * (2 * p.second - p.first);
+    int d = p.first * p.first + p.second * p.second;
+    if (n & 1)
+        return {d, c + d};
+    else
+        return {c, d};
+}
+\end{minted}
