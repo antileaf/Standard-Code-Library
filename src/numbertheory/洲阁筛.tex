@@ -22,7 +22,7 @@ $$ g_{i, j} = g_{i - 1, j} - p_i ^ k g_{i - 1, \left\lfloor \frac j {p_i} \right
 
 ~\\
 
-\textbf{2. 所有质因子都$\le \sqrt n$}
+\textbf{2. z所有质因子都$\le \sqrt n$}
 
 类似的道理, 我们继续DP: $h_{i, j}$表示只含有第$i$到$m$个质数作为质因子的所有数的$f(i)$之和. (这里不需要对每个次幂单独DP了; 另外倒着DP是为了方便卡上限.)
 
@@ -37,3 +37,7 @@ $$ h_{i, j} = h_{i + 1, j} + \sum_{c} f(p_i ^ c) h_{i + 1, \left\lfloor \frac j 
 预处理$\sqrt n$以内的部分之后跑两次DP, 最后把两部分的贡献加起来就行了.
 
 两部分的复杂度都是$\Theta \left( \frac {n ^ {\frac 3 4}} {\log n} \right)$的.
+
+以下代码以洛谷P5325($f(p^k) = p^k (p^k - 1)$)为例.
+
+\inputminted{cpp}{../src/numbertheory/洲阁筛.cpp}
