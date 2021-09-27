@@ -22,7 +22,7 @@ $$ g_{i, j} = g_{i - 1, j} - p_i ^ k g_{i - 1, \left\lfloor \frac j {p_i} \right
 
 ~\\
 
-\textbf{2. z所有质因子都$\le \sqrt n$}
+\textbf{2. 所有质因子都$\le \sqrt n$}
 
 类似的道理, 我们继续DP: $h_{i, j}$表示只含有第$i$到$m$个质数作为质因子的所有数的$f(i)$之和. (这里不需要对每个次幂单独DP了; 另外倒着DP是为了方便卡上限.)
 
