@@ -1,8 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-constexpr int maxn = 1205, maxe = 120005, inf = 2147483647;
+constexpr int maxn = 1205, maxe = 120005;
 
 struct edge {
 	int to, cap, prev;
@@ -10,7 +6,8 @@ struct edge {
 
 int n, m, s, t;
 int last[maxn], cnte;
-int h[maxn], ex[maxn], gap[maxn * 2];
+int h[maxn], gap[maxn * 2];
+long long ex[maxn]; // 多余流量
 bool inq[maxn];
 
 struct cmp {
@@ -21,7 +18,7 @@ struct cmp {
 
 priority_queue<int, vector<int>, cmp> heap;
 
-void AddEdge(int x, int y, int z) {
+void adde(int x, int y, int z) {
 	e[cnte].to = y;
 	e[cnte].cap = z;
 	e[cnte].prev = last[x];
@@ -29,14 +26,14 @@ void AddEdge(int x, int y, int z) {
 }
 
 void addedge(int x, int y, int z) {
-	AddEdge(x, y, z);
-	AddEdge(y, x, 0);
+	adde(x, y, z);
+	adde(y, x, 0);
 }
 
 bool bfs() {
 	static int q[maxn];
 
-	fill(h, h + n + 1, 2 * n);
+	fill(h, h + n + 1, 2 * n); // 如果没有全局的n, 记得改这里
 	int head = 0, tail = 0;
 	q[tail++] = t;
 	h[t] = 0;
@@ -56,7 +53,7 @@ bool bfs() {
 void push(int x) {
 	for (int i = last[x]; ~i; i = e[i].prev)
 		if (e[i].cap && h[x] == h[e[i].to] + 1) {
-			int d = min(ex[x], e[i].cap);
+			int d = min(ex[x], (long long)e[i].cap);
 
 			e[i].cap -= d;
 			e[i ^ 1].cap += d;
@@ -81,7 +78,7 @@ void relabel(int x) {
 			h[x] = min(h[x], h[e[i].to] + 1);
 }
 
-int hlpp() {
+long long hlpp() {
 	if (!bfs())
 		return 0;
 	
@@ -129,19 +126,5 @@ int hlpp() {
 	return ex[t];
 }
 
-int main() {
-
-	memset(last, -1, sizeof(last));
-
-	scanf("%d%d%d%d", &n, &m, &s, &t);
-
-	while (m--) {
-		int x, y, z;
-		scanf("%d%d%d", &x, &y, &z);
-		addedge(x, y, z);
-	}
-
-	printf("%d\n", hlpp());
-
-	return 0;
-}
+//记得初始化
+memset(last, -1, sizeof(last));

@@ -22,15 +22,26 @@ struct Complex {
 		return Complex(a * x.a - b * x.b, a * x.b + b * x.a);
 	}
 
+	Complex operator * (double x) const {
+		return Complex(a * x, b * x);
+	}
+
 	Complex &operator += (const Complex &x) {
 		return *this = *this + x;
 	}
+
+	Complex conj() const { // 共轭, 一般只有MTT需要用
+		return Complex(a, -b);
+	}
 } omega[maxn], omega_inv[maxn];
+const Complex ima = Complex(0, 1);
 
 int fft_n; // 要在主函数里初始化
 
 // FFT初始化
 void FFT_init(int n) {
+	fft_n = n;
+
 	for (int i = 0; i < n; i++) // 根据单位根的旋转性质可以节省计算单位根逆元的时间
 		omega[i] = Complex(cos(2 * pi / n * i), sin(2 * pi / n * i));
 	
@@ -41,7 +52,7 @@ void FFT_init(int n) {
 }
 
 // FFT主过程
-void FFT(Complex *A, int n, int tp) {
+void FFT(Complex *a, int n, int tp) {
 	for (int i = 1, j = 0, k; i < n - 1; i++) {
 		k = n;
 		do
@@ -49,19 +60,21 @@ void FFT(Complex *A, int n, int tp) {
 		while (j < k);
 
 		if (i < j)
-			swap(A[i], A[j]);
+			swap(a[i], a[j]);
 	}
 
 	for (int k = 2, m = fft_n / 2; k <= n; k *= 2, m /= 2)
 		for (int i = 0; i < n; i += k)
-			for (int j = 0; j < k * 2; j++) {
-				Complex a = A[i + j], b = (tp > 0? omega : omega_inv)[m * j] * A[i + j + (k / 2)];
+			for (int j = 0; j < k / 2; j++) {
+				Complex u = a[i + j], v = (tp > 0 ? omega : omega_inv)[m * j] * a[i + j + k / 2];
 
-				A[i + j] = a + b;
-				A[i + j + k / 2] = a - b;
+				a[i + j] = u + v;
+				a[i + j + k / 2] = u - v;
 			}
 
 	if (tp < 0)
-		for (int i = 0; i < n; i++)
-			A[i].a /= n;
+		for (int i = 0; i < n; i++) {
+			a[i].a /= n;
+			a[i].b /= n; // 一般情况下是不需要的, 只有MTT时才需要
+		}
 }

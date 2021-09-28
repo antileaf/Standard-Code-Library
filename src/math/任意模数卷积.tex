@@ -1,15 +1,19 @@
-任意模数卷积有两种比较naive的做法, 三模数NTT和拆系数FFT. 一般来说后者常数比前者小一些.
+三模数NTT和直接拆系数FFT都太慢了, 不要用.
 
-但卷积答案不超过$10 ^ {18}$的时候可以改用双模数NTT, 比FFT是要快的.
+MTT的原理就是拆系数FFT, 只不过优化了做变换的次数.
 
-\textbf{三模数NTT}
+考虑要对$A(x)$, $B(x)$两个多项式做DFT, 可以构造两个复多项式
 
-原理是选取三个乘积大于结果的NTT模数, 最后中国剩余定理合并.
+$$ P(x) = A(x) + iB(x) \quad Q(x) = A(x) - iB(x) $$
 
-\inputminted[]{cpp}{../src/math/三模数NTT.cpp}
+只需要DFT一个, 另一个DFT实际上就是前者反转再取共轭, 再利用
 
-\textbf{拆系数FFT}
+$$ A(x) = \frac {P(x) + Q(x)} 2 \quad B(x) = \frac {P(x) - Q(x)} {2i} $$
 
-原理是选一个数$M$, 把每一项改写成$a M + b$的形式再分别相乘.
+即可还原出$A(x)$, $B(x)$.
 
-\inputminted[]{cpp}{../src/math/拆系数FFT.cpp}
+IDFT的道理更简单, 如果要对$A(x)$和$B(x)$做IDFT, 只需要对$A(x) + i B(x)$做IDFT即可, 因为IDFT的结果必定为实数, 所以结果的实部和虚部就分别是$A(x)$和$B(x)$.
+
+\textbf{实际上任何同时对两个实序列进行DFT, 或者同时对结果为实序列的DFT进行逆变换时都可以按照上面的方法优化, 可以减少一半的DFT次数.}
+
+\inputminted{cpp}{../src/math/MTT.cpp}

@@ -1,0 +1,38 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{bool} \PYG{n}{vis}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{stk}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{top}\PYG{p}{;}
+
+\PYG{c+c1}{// 主函数}
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i} \PYG{o}{+=} \PYG{l+m+mi}{2}\PYG{p}{)}
+	\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{i} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+			\PYG{n}{top} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+			\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dfs}\PYG{p}{(}\PYG{n}{i}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+				\PYG{k}{while} \PYG{p}{(}\PYG{n}{top}\PYG{p}{)}
+					\PYG{n}{vis}\PYG{p}{[}\PYG{n}{stk}\PYG{p}{[}\PYG{n}{top}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{]]} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+
+				\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dfs}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+					\PYG{n}{bad} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+					\PYG{k}{break}\PYG{p}{;}
+				\PYG{p}{\PYGZcb{}}
+			\PYG{p}{\PYGZcb{}}
+		\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{// 最后stk中的所有元素就是选中的值}
+
+\PYG{c+c1}{// dfs}
+\PYG{k+kt}{bool} \PYG{n}{dfs}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{x} \PYG{o}{\PYGZca{}} \PYG{l+m+mi}{1}\PYG{p}{])}
+		\PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{x}\PYG{p}{])}
+		\PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+
+	\PYG{n}{vis}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+	\PYG{n}{stk}\PYG{p}{[}\PYG{o}{++}\PYG{n}{top}\PYG{p}{]} \PYG{o}{=} \PYG{n}{x}\PYG{p}{;}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+		\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dfs}\PYG{p}{(}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]))}
+			\PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+
+	\PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

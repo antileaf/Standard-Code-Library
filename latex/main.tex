@@ -154,10 +154,8 @@
 				\subsubsection{NTT}
 					\inputminted{cpp}{../src/math/NTT.cpp}
 
-				\subsubsection{任意模数卷积}
+				\subsubsection{任意模数卷积(MTT, 毛梯梯)}
 					\input{../src/math/任意模数卷积.tex}
-
-				% \subsection{毛梯梯}
 
 			
 				\subsubsection{多项式操作}
@@ -336,7 +334,7 @@
 					\inputminted{cpp}{../src/graph/割点点双.cpp}
 
 				\subsubsection{桥 边双}
-
+					\inputminted{cpp}{../src/graph/边双.cpp}
 
 			\subsection{仙人掌}
 				一般来说仙人掌问题都可以通过圆方树转成有两种点的树上问题来做.
@@ -380,6 +378,8 @@
 				具体来说就是, 如果某个变量的两个点在同一SCC中则显然无解, 否则按拓扑序倒序尝试选择每个SCC即可.
 
 				如果要字典序最小或者不满足对称性就用dfs, 注意可以压位优化.
+
+				\inputminted{cpp}{../src/graph/2sat.cpp}
 
 
 			\subsection{最大流}

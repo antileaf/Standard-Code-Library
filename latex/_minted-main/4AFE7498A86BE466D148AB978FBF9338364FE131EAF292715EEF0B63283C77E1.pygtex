@@ -1,0 +1,37 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{[}\PYG{n}{maxe}\PYG{p}{],} \PYG{n}{v}\PYG{p}{[}\PYG{n}{maxe}\PYG{p}{];}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{G}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];} \PYG{c+c1}{// 存的是边的编号}
+
+\PYG{k+kt}{int} \PYG{n}{stk}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{top}\PYG{p}{,} \PYG{n}{dfn}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{low}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],} \PYG{n}{tim}\PYG{p}{,} \PYG{n}{bcc\PYGZus{}cnt}\PYG{p}{;}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{bcc}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+
+\PYG{k+kt}{bool} \PYG{n}{isbridge}\PYG{p}{[}\PYG{n}{maxe}\PYG{p}{];}
+
+\PYG{k+kt}{void} \PYG{n+nf}{dfs}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{pr}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// 这里pr是入边的编号}
+	\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{o}{++}\PYG{n}{tim}\PYG{p}{;}
+	\PYG{n}{stk}\PYG{p}{[}\PYG{o}{++}\PYG{n}{top}\PYG{p}{]} \PYG{o}{=} \PYG{n}{x}\PYG{p}{;}
+
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n+nl}{i} \PYG{p}{:} \PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+		\PYG{k+kt}{int} \PYG{n}{y} \PYG{o}{=} \PYG{p}{(}\PYG{n}{u}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{==} \PYG{n}{x} \PYG{o}{?} \PYG{n}{v}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{:} \PYG{n}{u}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+
+		\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{y}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+			\PYG{n}{dfs}\PYG{p}{(}\PYG{n}{y}\PYG{p}{,} \PYG{n}{i}\PYG{p}{);}
+			\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{],} \PYG{n}{low}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]);}
+
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{])}
+				\PYG{n}{bridge}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{i} \PYG{o}{!=} \PYG{n}{pr}\PYG{p}{)}
+			\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{],} \PYG{n}{dfn}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]);}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{==} \PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+		\PYG{n}{bcc\PYGZus{}cnt}\PYG{o}{++}\PYG{p}{;}
+		\PYG{k+kt}{int} \PYG{n}{y}\PYG{p}{;}
+		\PYG{k}{do} \PYG{p}{\PYGZob{}}
+			\PYG{n}{y} \PYG{o}{=} \PYG{n}{stk}\PYG{p}{[}\PYG{n}{top}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{];}
+			\PYG{n}{bcc}\PYG{p}{[}\PYG{n}{bcc\PYGZus{}cnt}\PYG{p}{].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{y}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}} \PYG{k}{while} \PYG{p}{(}\PYG{n}{y} \PYG{o}{!=} \PYG{n}{x}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
