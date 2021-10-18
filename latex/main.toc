@@ -144,7 +144,7 @@
 \contentsline {subsection}{\numberline {7.3}$O(n^2)$高精度}{58}{}%
 \contentsline {subsection}{\numberline {7.4}笛卡尔树}{61}{}%
 \contentsline {subsection}{\numberline {7.5}常用NTT素数及原根}{61}{}%
-\contentsline {subsection}{\numberline {7.6}xorshift}{61}{}%
+\contentsline {subsection}{\numberline {7.6}xorshift}{62}{}%
 \contentsline {subsection}{\numberline {7.7}枚举子集}{62}{}%
 \contentsline {subsection}{\numberline {7.8}STL}{62}{}%
 \contentsline {subsubsection}{\numberline {7.8.1}vector}{62}{}%
