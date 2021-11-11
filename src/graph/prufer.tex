@@ -4,11 +4,11 @@
 
 相应的, 由Prufer编码重构树的方法: 按顺序读入序列, 每次选取编号最小的且度数为$1$的结点, 把这个点和序列当前点连上, 然后两个点剩余度数同时$-1$. 
 
-\large\textbf{Prufer编码的性质}
+\textbf{Prufer编码的性质}
 
 \begin{itemize}
-	\item 每个至少$2$个结点的树都唯一对应一个Prufer编码. (当然也就可以做无根树哈希.)
-	\item 每个点在Prufer序列中出现的次数恰好是度数$-1$. 所以如果给定某些点的度数然后求方案数, 就可以用简单的组合数解决.
+    \item 每个至少$2$个结点的树都唯一对应一个Prufer编码. (当然也就可以做无根树哈希.)
+    \item 每个点在Prufer序列中出现的次数恰好是度数$-1$. 所以如果给定某些点的度数然后求方案数, 就可以用简单的组合数解决.
 \end{itemize}
 
 
@@ -21,37 +21,38 @@ vector<vector<int>> adj;
 vector<int> parent;
 
 void dfs(int v) {
-  for (int u : adj[v]) {
-    if (u != parent[v]) parent[u] = v, dfs(u);
-  }
+    for (int u : adj[v]) {
+        if (u != parent[v]) parent[u] = v, dfs(u);
+    }
 }
 
 vector<int> pruefer_code() { // pruefer是德语
-  int n = adj.size();
-  parent.resize(n), parent[n - 1] = -1;
-  dfs(n - 1);
+    int n = adj.size();
+    parent.resize(n), parent[n - 1] = -1;
+    dfs(n - 1);
 
-  int ptr = -1;
-  vector<int> degree(n);
-  for (int i = 0; i < n; i++) {
-    degree[i] = adj[i].size();
-    if (degree[i] == 1 && ptr == -1) ptr = i;
-  }
-
-  vector<int> code(n - 2);
-  int leaf = ptr;
-  for (int i = 0; i < n - 2; i++) {
-    int next = parent[leaf];
-    code[i] = next;
-    if (--degree[next] == 1 && next < ptr) {
-      leaf = next;
-    } else {
-      ptr++;
-      while (degree[ptr] != 1) ptr++;
-      leaf = ptr;
+    int ptr = -1;
+    vector<int> degree(n);
+    for (int i = 0; i < n; i++) {
+        degree[i] = adj[i].size();
+        if (degree[i] == 1 && ptr == -1) ptr = i;
     }
-  }
-  return code;
+
+    vector<int> code(n - 2);
+    int leaf = ptr;
+    for (int i = 0; i < n - 2; i++) {
+        int next = parent[leaf];
+        code[i] = next;
+        if (--degree[next] == 1 && next < ptr)
+            leaf = next;
+        else {
+            ptr++;
+            while (degree[ptr] != 1)
+              ptr++;
+            leaf = ptr;
+       }
+    }
+    return code;
 }
 \end{minted}
 
@@ -59,26 +60,26 @@ vector<int> pruefer_code() { // pruefer是德语
 \begin{minted}{cpp}
 // 0-based
 vector<pair<int, int>> pruefer_decode(vector<int> const& code) {
-	int n = code.size() + 2;
-	vector<int> degree(n, 1);
-	for (int i : code) degree[i]++;
+    int n = code.size() + 2;
+    vector<int> degree(n, 1);
+    for (int i : code) degree[i]++;
 
-	int ptr = 0;
-	while (degree[ptr] != 1) ptr++;
-	int leaf = ptr;
+    int ptr = 0;
+    while (degree[ptr] != 1) ptr++;
+    int leaf = ptr;
 
-	vector<pair<int, int>> edges;
-	for (int v : code) {
-	edges.emplace_back(leaf, v);
-	if (--degree[v] == 1 && v < ptr) {
-		leaf = v;
-	} else {
-		ptr++;
-		while (degree[ptr] != 1) ptr++;
-		leaf = ptr;
-	}
-	}
-	edges.emplace_back(leaf, n - 1);
-	return edges;
+    vector<pair<int, int>> edges;
+    for (int v : code) {
+    edges.emplace_back(leaf, v);
+    if (--degree[v] == 1 && v < ptr) {
+        leaf = v;
+    } else {
+        ptr++;
+        while (degree[ptr] != 1) ptr++;
+        leaf = ptr;
+    }
+    }
+    edges.emplace_back(leaf, n - 1);
+    return edges;
 }
 \end{minted}
