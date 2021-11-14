@@ -9,7 +9,7 @@ void FWT_or(int *A, int n, int tp) {
 				if (tp > 0)
 					A[i + j + k / 2] = (A[i + j + k / 2] + A[i + j]) % p;
 				else
-					A[i + j + k / 2] = (A[i + j + k / 2] - A[i + j] + p)%p;
+					A[i + j + k / 2] = (A[i + j + k / 2] - A[i + j] + p) % p;
 			}
 }
 
