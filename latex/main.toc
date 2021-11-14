@@ -33,7 +33,7 @@
 \contentsline {subsubsection}{\numberline {1.7.6}卡特兰数}{15}{}%
 \contentsline {subsection}{\numberline {1.8}常用公式及结论}{15}{}%
 \contentsline {subsubsection}{\numberline {1.8.1}方差}{15}{}%
-\contentsline {subsubsection}{\numberline {1.8.2}连通图计数}{15}{}%
+\contentsline {subsubsection}{\numberline {1.8.2}连通图计数}{16}{}%
 \contentsline {subsubsection}{\numberline {1.8.3}线性齐次线性常系数递推求通项}{16}{}%
 \contentsline {subsubsection}{\numberline {1.8.4}上升幂, 下降幂与普通幂的转换}{16}{}%
 \contentsline {subsection}{\numberline {1.9}常用生成函数}{16}{}%
@@ -44,10 +44,10 @@
 \contentsline {subsubsection}{\numberline {1.9.5}三角函数与反三角函数}{16}{}%
 \contentsline {section}{\numberline {2}数论}{16}{}%
 \contentsline {subsection}{\numberline {2.1}$O(n)$预处理逆元}{16}{}%
-\contentsline {subsection}{\numberline {2.2}线性筛}{16}{}%
+\contentsline {subsection}{\numberline {2.2}线性筛}{17}{}%
 \contentsline {subsection}{\numberline {2.3}杜教筛}{17}{}%
 \contentsline {subsection}{\numberline {2.4}Powerful Number筛}{17}{}%
-\contentsline {subsection}{\numberline {2.5}洲阁筛}{17}{}%
+\contentsline {subsection}{\numberline {2.5}洲阁筛}{18}{}%
 \contentsline {subsection}{\numberline {2.6}Miller-Rabin}{19}{}%
 \contentsline {subsection}{\numberline {2.7}Pollard's Rho}{19}{}%
 \contentsline {subsection}{\numberline {2.8}扩展欧几里德}{20}{}%
@@ -62,8 +62,8 @@
 \contentsline {subsubsection}{\numberline {3.1.2}动态最小生成树}{21}{}%
 \contentsline {subsubsection}{\numberline {3.1.3}最小树形图(朱刘算法)}{22}{}%
 \contentsline {subsubsection}{\numberline {3.1.4}Steiner Tree 斯坦纳树}{22}{}%
-\contentsline {subsection}{\numberline {3.2}最短路}{22}{}%
-\contentsline {subsubsection}{\numberline {3.2.1}Dijkstra}{22}{}%
+\contentsline {subsection}{\numberline {3.2}最短路}{23}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Dijkstra}{23}{}%
 \contentsline {subsubsection}{\numberline {3.2.2}Johnson算法(负权图多源最短路)}{23}{}%
 \contentsline {subsubsection}{\numberline {3.2.3}k短路}{23}{}%
 \contentsline {subsection}{\numberline {3.3}Tarjan算法}{24}{}%
@@ -82,32 +82,32 @@
 \contentsline {subsubsection}{\numberline {3.6.3}带权带花树}{29}{}%
 \contentsline {subsubsection}{\numberline {3.6.4}原理}{31}{}%
 \contentsline {subsection}{\numberline {3.7}2-SAT}{31}{}%
-\contentsline {subsection}{\numberline {3.8}最大流}{31}{}%
-\contentsline {subsubsection}{\numberline {3.8.1}Dinic}{31}{}%
+\contentsline {subsection}{\numberline {3.8}最大流}{32}{}%
+\contentsline {subsubsection}{\numberline {3.8.1}Dinic}{32}{}%
 \contentsline {subsubsection}{\numberline {3.8.2}ISAP}{32}{}%
 \contentsline {subsubsection}{\numberline {3.8.3}HLPP最高标号预流推进}{33}{}%
 \contentsline {subsection}{\numberline {3.9}费用流}{34}{}%
 \contentsline {subsubsection}{\numberline {3.9.1}SPFA费用流}{34}{}%
 \contentsline {subsubsection}{\numberline {3.9.2}Dijkstra费用流}{34}{}%
-\contentsline {subsection}{\numberline {3.10}网络流原理}{34}{}%
-\contentsline {subsubsection}{\numberline {3.10.1}最小割}{34}{}%
+\contentsline {subsection}{\numberline {3.10}网络流原理}{35}{}%
+\contentsline {subsubsection}{\numberline {3.10.1}最小割}{35}{}%
 \contentsline {subsubsection}{\numberline {3.10.2}费用流}{35}{}%
 \contentsline {subsubsection}{\numberline {3.10.3}上下界网络流}{35}{}%
 \contentsline {subsubsection}{\numberline {3.10.4}常见建图方法}{35}{}%
 \contentsline {subsubsection}{\numberline {3.10.5}例题}{35}{}%
 \contentsline {subsection}{\numberline {3.11}Prufer序列}{35}{}%
-\contentsline {subsection}{\numberline {3.12}弦图相关}{35}{}%
+\contentsline {subsection}{\numberline {3.12}弦图相关}{36}{}%
 \contentsline {section}{\numberline {4}数据结构}{36}{}%
 \contentsline {subsection}{\numberline {4.1}线段树}{36}{}%
 \contentsline {subsubsection}{\numberline {4.1.1}非递归线段树}{36}{}%
-\contentsline {subsubsection}{\numberline {4.1.2}线段树维护矩形并}{36}{}%
+\contentsline {subsubsection}{\numberline {4.1.2}线段树维护矩形并}{37}{}%
 \contentsline {subsubsection}{\numberline {4.1.3}主席树}{37}{}%
 \contentsline {subsection}{\numberline {4.2}陈丹琦分治}{37}{}%
 \contentsline {subsection}{\numberline {4.3}整体二分}{38}{}%
 \contentsline {subsection}{\numberline {4.4}平衡树}{38}{}%
 \contentsline {subsubsection}{\numberline {4.4.1}Treap}{38}{}%
 \contentsline {subsubsection}{\numberline {4.4.2}无旋Treap/可持久化Treap}{39}{}%
-\contentsline {subsubsection}{\numberline {4.4.3}Splay}{39}{}%
+\contentsline {subsubsection}{\numberline {4.4.3}Splay}{40}{}%
 \contentsline {subsection}{\numberline {4.5}树分治}{40}{}%
 \contentsline {subsubsection}{\numberline {4.5.1}动态树分治}{40}{}%
 \contentsline {subsubsection}{\numberline {4.5.2}紫荆花之恋}{41}{}%
@@ -118,33 +118,33 @@
 \contentsline {subsubsection}{\numberline {4.6.4}模板题:动态QTREE4(询问树上相距最远点)}{46}{}%
 \contentsline {subsection}{\numberline {4.7}K-D树}{49}{}%
 \contentsline {subsubsection}{\numberline {4.7.1}动态K-D树}{49}{}%
-\contentsline {subsection}{\numberline {4.8}虚树}{49}{}%
+\contentsline {subsection}{\numberline {4.8}虚树}{50}{}%
 \contentsline {subsection}{\numberline {4.9}长链剖分}{51}{}%
 \contentsline {subsubsection}{\numberline {4.9.1}梯子剖分}{51}{}%
 \contentsline {subsection}{\numberline {4.10}左偏树}{52}{}%
 \contentsline {subsection}{\numberline {4.11}常见根号思路}{52}{}%
 \contentsline {section}{\numberline {5}字符串}{52}{}%
 \contentsline {subsection}{\numberline {5.1}KMP}{52}{}%
-\contentsline {subsubsection}{\numberline {5.1.1}ex-KMP}{52}{}%
+\contentsline {subsubsection}{\numberline {5.1.1}ex-KMP}{53}{}%
 \contentsline {subsection}{\numberline {5.2}AC自动机}{53}{}%
 \contentsline {subsection}{\numberline {5.3}后缀数组}{53}{}%
 \contentsline {subsubsection}{\numberline {5.3.1}倍增}{53}{}%
 \contentsline {subsubsection}{\numberline {5.3.2}SA-IS}{54}{}%
 \contentsline {subsubsection}{\numberline {5.3.3}SAMSA}{55}{}%
-\contentsline {subsection}{\numberline {5.4}后缀平衡树}{55}{}%
+\contentsline {subsection}{\numberline {5.4}后缀平衡树}{56}{}%
 \contentsline {subsection}{\numberline {5.5}后缀自动机}{56}{}%
 \contentsline {subsection}{\numberline {5.6}回文树}{56}{}%
 \contentsline {subsubsection}{\numberline {5.6.1}广义回文树}{56}{}%
 \contentsline {subsection}{\numberline {5.7}Manacher马拉车}{58}{}%
 \contentsline {subsection}{\numberline {5.8}字符串原理}{58}{}%
-\contentsline {section}{\numberline {6}动态规划}{58}{}%
-\contentsline {subsection}{\numberline {6.1}决策单调性$O(n\qopname \relax o{log}n)$}{58}{}%
+\contentsline {section}{\numberline {6}动态规划}{59}{}%
+\contentsline {subsection}{\numberline {6.1}决策单调性$O(n\qopname \relax o{log}n)$}{59}{}%
 \contentsline {subsection}{\numberline {6.2}例题}{59}{}%
 \contentsline {section}{\numberline {7}Miscellaneous}{59}{}%
 \contentsline {subsection}{\numberline {7.1}$O(1)$快速乘}{59}{}%
 \contentsline {subsection}{\numberline {7.2}Python Decimal}{59}{}%
 \contentsline {subsection}{\numberline {7.3}$O(n^2)$高精度}{60}{}%
-\contentsline {subsection}{\numberline {7.4}笛卡尔树}{62}{}%
+\contentsline {subsection}{\numberline {7.4}笛卡尔树}{63}{}%
 \contentsline {subsection}{\numberline {7.5}常用NTT素数及原根}{63}{}%
 \contentsline {subsection}{\numberline {7.6}xorshift}{63}{}%
 \contentsline {subsection}{\numberline {7.7}枚举子集}{63}{}%
@@ -156,9 +156,10 @@
 \contentsline {subsubsection}{\numberline {7.9.2}堆}{64}{}%
 \contentsline {subsubsection}{\numberline {7.9.3}平衡树}{64}{}%
 \contentsline {subsection}{\numberline {7.10}rope}{64}{}%
-\contentsline {subsection}{\numberline {7.11}编译选项}{64}{}%
-\contentsline {subsection}{\numberline {7.12}注意事项}{64}{}%
-\contentsline {subsubsection}{\numberline {7.12.1}常见下毒手法}{64}{}%
-\contentsline {subsubsection}{\numberline {7.12.2}场外相关}{65}{}%
-\contentsline {subsubsection}{\numberline {7.12.3}做题策略与心态调节}{65}{}%
-\contentsline {subsection}{\numberline {7.13}附录: Cheat Sheet}{65}{}%
+\contentsline {subsection}{\numberline {7.11}OEIS}{65}{}%
+\contentsline {subsection}{\numberline {7.12}编译选项}{65}{}%
+\contentsline {subsection}{\numberline {7.13}注意事项}{65}{}%
+\contentsline {subsubsection}{\numberline {7.13.1}常见下毒手法}{65}{}%
+\contentsline {subsubsection}{\numberline {7.13.2}场外相关}{65}{}%
+\contentsline {subsubsection}{\numberline {7.13.3}做题策略与心态调节}{65}{}%
+\contentsline {subsection}{\numberline {7.14}附录: Cheat Sheet}{65}{}%
