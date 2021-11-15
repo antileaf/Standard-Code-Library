@@ -163,4 +163,4 @@
 \contentsline {subsubsection}{\numberline {7.13.1}常见下毒手法}{66}{}%
 \contentsline {subsubsection}{\numberline {7.13.2}场外相关}{66}{}%
 \contentsline {subsubsection}{\numberline {7.13.3}做题策略与心态调节}{66}{}%
-\contentsline {subsection}{\numberline {7.14}附录: Cheat Sheet}{66}{}%
+\contentsline {subsection}{\numberline {7.14}附录: Cheat Sheet}{67}{}%

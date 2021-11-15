@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  15 NOV 2021 15:48
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.20)  15 NOV 2021 17:29
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/antil/Documents/GitHub/Standard-Code-Library/latex/main
-(c:/Users/antil/Documents/GitHub/Standard-Code-Library/latex/main.tex
+**c:/Users/AntiLeaf/Documents/GitHub/Standard-Code-Library/latex/main
+(c:/Users/AntiLeaf/Documents/GitHub/Standard-Code-Library/latex/main.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18> (c:/texlive/2021/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
@@ -1428,7 +1428,14 @@ LaTeX Font Info:    Font shape `TU/等线(0)/m/sl' will be
  (./_minted-main/3B373D74B8631925FC09C0C3E87061D5364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/1347F2922CF259CFD5FDA87DB669E9E5364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/06A85ED0D1DC2575522010CA04485B29364FE131EAF292715EEF0B63283C77E1.pygtex [13]) (../src/math/线性代数.tex) (../src/math/矩阵树定理.tex) (./_minted-main/3545F23DB5FE5F0DA88CA7FA1ED35BFA364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/math/斐波那契数.tex
 \openout3 = `main.pyg'.
 
- (./_minted-main/138A3D69CCB2D63ED84C5FE16A8B8CDC364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/math/伯努利数.tex) [14] (./_minted-main/8959DE18CBFCB9C77277307C86E52345364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/math/斯特林数.tex) (../src/math/贝尔数.tex) (../src/math/卡特兰数.tex) (../src/math/方差.tex [15]) (../src/math/连通图计数.tex)
+ (./_minted-main/138A3D69CCB2D63ED84C5FE16A8B8CDC364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/math/伯努利数.tex
+Missing character: There is no 指 (U+6307) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 数 (U+6570) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 生 (U+751F) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 成 (U+6210) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 函 (U+51FD) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 数 (U+6570) in font [lmroman10-regular]:mapping=tex-text;!
+ [14]) (./_minted-main/8959DE18CBFCB9C77277307C86E52345364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/math/斯特林数.tex) (../src/math/贝尔数.tex) (../src/math/卡特兰数.tex) (../src/math/方差.tex [15]) (../src/math/连通图计数.tex)
 File: ../src/math/线性齐次线性常系数递推.png Graphic file (type bmp)
 <../src/math/线性齐次线性常系数递推.png>
  (../src/math/幂的转换.tex) (../src/math/常见生成函数.tex) (./_minted-main/F57555EB96600C6390AA7AC9610F6215364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/71E7C4A067067AB89359ED42328555AD364FE131EAF292715EEF0B63283C77E1.pygtex [16]) (./_minted-main/5347397AB887AE92BADA03804430BFF3364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/numbertheory/PN.tex [17]) (../src/numbertheory/洲阁筛.tex
@@ -1687,28 +1694,29 @@ Underfull \hbox (badness 6775) in paragraph at lines 2--62
  (./_minted-main/9764B578E8FF3D4515C0E13D393E1509364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
- (./_minted-main/F60C98D35B0C8179C68DFC319D04B66F364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/71DCE5BF3A11A2574DEA3EE0FFE2DA61364FE131EAF292715EEF0B63283C77E1.pygtex [64]) (../src/misc/oeis.tex
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+ (./_minted-main/F60C98D35B0C8179C68DFC319D04B66F364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/71DCE5BF3A11A2574DEA3EE0FFE2DA61364FE131EAF292715EEF0B63283C77E1.pygtex [64]) (../src/misc/oeis.tex [65]
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
 []\TU/lmr/m/n/10 1, 2, 6, 30, 210, 2310, 30030, 510510,
  []
 
 
-Underfull \hbox (badness 5771) in paragraph at lines 90--91
+Underfull \hbox (badness 5771) in paragraph at lines 112--113
 \TU/lmr/m/n/10 9699690, 223092870, 6469693230, 200560490130,
  []
 
 
-Overfull \hbox (2.75742pt too wide) in paragraph at lines 100--101
+Overfull \hbox (2.75742pt too wide) in paragraph at lines 122--123
 \TU/lmr/m/n/10 2305843009213693951, 618970019642690137449562111,
  []
 
+Missing character: There is no ， (U+FF0C) in font [lmroman10-regular]:mapping=tex-text;!
 ) (../src/misc/编译选项.tex
 \openout4 = `main.pyg'.
 
  (./_minted-main/C909C0AF799E2E1E22AAA8208E30D0E3364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
- (./_minted-main/C3958A82C3FEEBC157B06697C31733D0364FE131EAF292715EEF0B63283C77E1.pygtex) [65]
+ (./_minted-main/C3958A82C3FEEBC157B06697C31733D0364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
  (./_minted-main/DB493C8AD93B9F415F036300D72493A1364FE131EAF292715EEF0B63283C77E1.pygtex)
@@ -1717,103 +1725,19 @@ Overfull \hbox (2.75742pt too wide) in paragraph at lines 100--101
  (./_minted-main/D08533287791D1ACD190B5018ECD3F6B364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/常见下毒手法.tex
 \openout4 = `main.pyg'.
 
- (./_minted-main/2A263F378B83BB5BECFDF6B8DA7D66C8364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex)
+ (./_minted-main/2A263F378B83BB5BECFDF6B8DA7D66C8364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex) [66]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 1>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 1>
- [66]
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 1>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf, page 1>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf, page 1>
  [67]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 2>
+<use ../src/misc/Cheat.pdf, page 1>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 2>
+<use ../src/misc/Cheat.pdf, page 1>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 2>
- [68]
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 3>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 3>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 3>
- [69]
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 4>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 4>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 4>
- [70]
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 5>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 5>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 5>
- [71]
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 6>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 6>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 6>
- [72]
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 7>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 7>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 7>
- [73]
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 8>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 8>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 8>
- [74]
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 9>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 9>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 9>
- [75]
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 10>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 10>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 10>
- [76] (./main.aux)
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 0.44003pt have occurred.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-runsystem(del main.pyg)...executed.
-
- ) 
-Here is how much of TeX's memory you used:
- 18785 strings out of 476919
- 401309 string characters out of 5825424
- 1037958 words of memory out of 5000000
- 37817 multiletter control sequences out of 15000+600000
- 416113 words of font info for 118 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 85i,17n,89p,1190b,1441s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-Output written on main.pdf (77 pages).
+<use ../src/mis

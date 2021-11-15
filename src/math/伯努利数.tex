@@ -1,9 +1,13 @@
 \begin{math}
-    \begin{aligned}B(x)=\sum_{i\ge 0}\frac{B_i x^i}{i!}=\frac x{e^x-1}\end{aligned} \\
+    指数生成函数: \begin{aligned}B(x)=\sum_{i\ge 0}\frac{B_i x^i}{i!}=\frac x{e^x-1}\end{aligned} \\
     \begin{aligned}B_n=[n=0]-\sum_{i=0}^{n-1}{n\choose i}\frac{B_i}{n-k+1}\end{aligned} \\
     \begin{aligned}\sum_{i=0}^n{n+1\choose i}B_i=0\end{aligned} \\
     \begin{aligned}S_n(m)=\sum_{i=0}^{m-1}i^n=\sum_{i=0}^n{n\choose i}B_{n-i}\frac{m^{i+1}}{i+1}\end{aligned}
 \end{math}
+
+$ B_0 = 1,\; B_1 = -\frac 1 2,\; B_4 = -\frac 1 {30},\; B_6 = \frac 1 {42},\; B_8 = -\frac 1{30},\; \dots$.
+
+(除了$B_1 = -\frac 1 2$以外, 伯努利数的奇数项都是$0$.)
 
 自然数幂次和关于次数的EGF:
 $$ \begin{aligned} F(x)=&\sum_{k=0}^\infty \frac{\sum_{i=0}^n i^k}{k!}x^k\\ =&\sum_{i=0}^n e^{ix}\\ =&\frac{e^{(n+1)x-1}}{e^x-1} \end{aligned} $$
