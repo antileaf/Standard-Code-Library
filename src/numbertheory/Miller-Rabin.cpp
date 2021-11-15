@@ -11,7 +11,7 @@ bool Miller_Rabin(long long n) {
 		return false;
 
 	for (int i : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}) {
-		if (i > n)
+		if (i >= n)
 			break;
 		if (!check(n, i))
 			return false;
