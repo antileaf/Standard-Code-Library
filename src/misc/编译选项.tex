@@ -1,8 +1,9 @@
 \begin{itemize}
-	\item \mintinline{cpp}{-O2 -g -std=c++11}: 狗都知道
+	\item \mintinline{cpp}{-O2 -g -std=c++14}: 狗都知道
 	\item \mintinline{cpp}{-Wall -Wextra -Wshadow -Wconversion}: 更多警告
+		\subitem --\; \mintinline{cpp}{-Werror}: 强制将所有Warning变成Error
 	\item \mintinline{cpp}{-fsanitize=(address/undefined)}: 检查有符号整数溢出(算ub)/数组越界
-		\subitem 注意无符号类型溢出不算ub
-	\item \mintinline{cpp}{-fno-ms-extensions(关闭一些和msvc保持一致的特性, 例如, 不标返回值类型的函数会报CE而不是默认为\mintinline{cpp}{int}).}
-		\subitem 但是不写return的话它还是管不了
+		\subitem --\;注意无符号类型溢出不算ub.
+	\item \mintinline{cpp}{-fno-ms-extensions}: 关闭一些和msvc保持一致的特性, 例如, 不标返回值类型的函数会报CE而不是默认为\mintinline{cpp}{int}.
+		\subitem --\;但是不写return的话它还是管不了.
 \end{itemize}

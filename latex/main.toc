@@ -158,6 +158,10 @@
 \contentsline {subsubsection}{\numberline {7.9.3}平衡树}{64}{}%
 \contentsline {subsection}{\numberline {7.10}rope}{65}{}%
 \contentsline {subsection}{\numberline {7.11}OEIS}{65}{}%
+\contentsline {subsubsection}{\numberline {7.11.1}计数相关}{65}{}%
+\contentsline {subsubsection}{\numberline {7.11.2}线性递推数列}{65}{}%
+\contentsline {subsubsection}{\numberline {7.11.3}数论相关}{66}{}%
+\contentsline {subsubsection}{\numberline {7.11.4}其他}{66}{}%
 \contentsline {subsection}{\numberline {7.12}编译选项}{66}{}%
 \contentsline {subsection}{\numberline {7.13}注意事项}{66}{}%
 \contentsline {subsubsection}{\numberline {7.13.1}常见下毒手法}{66}{}%
