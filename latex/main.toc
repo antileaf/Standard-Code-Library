@@ -158,9 +158,9 @@
 \contentsline {subsubsection}{\numberline {7.9.3}平衡树}{64}{}%
 \contentsline {subsection}{\numberline {7.10}rope}{65}{}%
 \contentsline {subsection}{\numberline {7.11}OEIS}{65}{}%
-\contentsline {subsection}{\numberline {7.12}编译选项}{65}{}%
-\contentsline {subsection}{\numberline {7.13}注意事项}{65}{}%
-\contentsline {subsubsection}{\numberline {7.13.1}常见下毒手法}{65}{}%
+\contentsline {subsection}{\numberline {7.12}编译选项}{66}{}%
+\contentsline {subsection}{\numberline {7.13}注意事项}{66}{}%
+\contentsline {subsubsection}{\numberline {7.13.1}常见下毒手法}{66}{}%
 \contentsline {subsubsection}{\numberline {7.13.2}场外相关}{66}{}%
 \contentsline {subsubsection}{\numberline {7.13.3}做题策略与心态调节}{66}{}%
 \contentsline {subsection}{\numberline {7.14}附录: Cheat Sheet}{66}{}%
