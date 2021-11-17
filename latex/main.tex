@@ -28,6 +28,11 @@
 
 \usepackage{color,xcolor}
 
+\usepackage{enumitem}
+\setenumerate[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3.5pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3.5pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3.5pt}
+
 \setlength{\itemindent}{0em}
 \setlength\parindent{0em}
 
@@ -392,7 +397,7 @@
 					\textbf{可能有毒, 慎用.}
 					\inputminted{cpp}{../src/graph/ISAP.cpp}
 
-				\subsubsection{HLPP最高标号预流推进}
+				\subsubsection{HLPP 最高标号预流推进}
 					\inputminted{cpp}{../src/graph/HLPP.cpp}
 			
 			\subsection{费用流}
@@ -451,7 +456,11 @@
 					这种东西能不能手撕啊
 	
 			\subsection{陈丹琦分治}
-				\inputminted{cpp}{../src/datastructure/CDQ分治.cpp}
+				\subsubsection{动态图连通性(分治并查集)}
+					\inputminted{cpp}{../src/datastructure/分治并查集.cpp}
+
+				\subsubsection{四维偏序}
+					\inputminted{cpp}{../src/datastructure/CDQ分治.cpp}
 	
 			\subsection{整体二分}
 				修改和询问都要划分, 备份一下, 递归之前copy回去.
@@ -473,7 +482,7 @@
 		
 				\subsubsection{Splay}
 					如果插入的话可以直接找到底然后splay一下, 也可以直接splay前驱后继.
-					\inputminted[]{cpp}{../src/datastructure/文艺平衡树.cpp}
+					\inputminted{cpp}{../src/datastructure/文艺平衡树.cpp}
 				
 				
 			\subsection{树分治}
@@ -501,7 +510,6 @@
 	
 			\subsection{K-D树}
 
-				
 				\subsubsection{动态K-D树}
 					\inputminted{cpp}{../src/datastructure/动态KD树.cpp}
 	
@@ -572,63 +580,66 @@
 			\subsection{字符串原理}
 				\input{../src/string/字符串原理.tex}
 
-			\section{动态规划}
-				\subsection{决策单调性$O(n\log n)$}
-					\inputminted{cpp}{../src/DP/决策单调性.cpp}
-				
-				\subsection{例题}
+		\section{动态规划}
+			\subsection{决策单调性$O(n\log n)$}
+				\inputminted{cpp}{../src/DP/决策单调性.cpp}
+			
+			\subsection{例题}
 
-				
-			\section{Miscellaneous}
-				\subsection{$O(1)$快速乘}
-					\inputminted{cpp}{../src/misc/O(1)快速乘.cpp}
-				
-				\subsection{Python Decimal}
-					\inputminted{python}{../src/misc/decimal.py}
-				
-				\subsection{$O(n^2)$高精度}
-					\inputminted{cpp}{../src/misc/高精度.cpp}
-				
-				\subsection{笛卡尔树}
-					\inputminted{cpp}{../src/misc/笛卡尔树.cpp}
-				
-				\subsection{常用NTT素数及原根}
-					\input{../src/misc/常用NTT素数及原根.tex}
+			
+		\section{Miscellaneous}
+			\subsection{$O(1)$快速乘}
+				\inputminted{cpp}{../src/misc/O(1)快速乘.cpp}
+			
+			\subsection{Python Decimal}
+				\inputminted{python}{../src/misc/decimal.py}
+			
+			\subsection{$O(n^2)$高精度}
+				\inputminted{cpp}{../src/misc/高精度.cpp}
+			
+			\subsection{笛卡尔树}
+				\inputminted{cpp}{../src/misc/笛卡尔树.cpp}
+			
+			\subsection{常用NTT素数及原根}
+				\input{../src/misc/常用NTT素数及原根.tex}
 
-				\subsection{xorshift}
-					\inputminted{cpp}{../src/misc/xorshift.cpp}
+			\subsection{xorshift}
+				\inputminted{cpp}{../src/misc/xorshift.cpp}
+			
+			\subsection{枚举子集}
+				\input{../src/misc/枚举子集.tex}
 				
-				\subsection{枚举子集}
-					\input{../src/misc/枚举子集.tex}
-					
-				\subsection{STL}
-					\input{../src/misc/STL.tex}
+			\subsection{STL}
+				\input{../src/misc/STL.tex}
 
-				\subsection{pb\_ds}
-					\input{../src/misc/pbds.tex}
+			\subsection{pb\_ds}
+				\input{../src/misc/pbds.tex}
 
-				\subsection{rope}
-					\inputminted{cpp}{../src/misc/rope.cpp}
+			\subsection{rope}
+				\inputminted{cpp}{../src/misc/rope.cpp}
 
-				\subsection{OEIS}
-					\input{../src/misc/oeis.tex}
+			\subsection{OEIS}
+				\input{../src/misc/oeis.tex}
+			
+			\subsection{编译选项}
+				\input{../src/misc/编译选项.tex}
 				
-				\subsection{编译选项}
-					\input{../src/misc/编译选项.tex}
-					
-				\subsection{注意事项}
+			\subsection{注意事项}
 
-					\subsubsection{常见下毒手法}
-						\input{../src/attention/常见下毒手法.tex}
+				\subsubsection{常见下毒手法}
+					\input{../src/attention/常见下毒手法.tex}
 
-					\subsubsection{场外相关}
-						\input{../src/attention/场外相关.tex}
+				\subsubsection{场外相关}
+					\input{../src/attention/场外相关.tex}
 
-					\subsubsection{做题策略与心态调节}
-						\input{../src/attention/做题策略与心态调节.tex}
+				\subsubsection{做题策略与心态调节}
+					\input{../src/attention/做题策略与心态调节.tex}
 				
-				\subsection{附录: Cheat Sheet}
-					见最后几页.
+			\subsection{附录: 骂人的艺术 —梁实秋}
+				\input{../src/misc/骂人的艺术.tex}
+			
+			\subsection{附录: Cheat Sheet}
+				见最后几页.
 
 	\end{multicols}
 

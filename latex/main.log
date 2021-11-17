@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  15 NOV 2021 20:09
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  18 NOV 2021 06:07
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1104,6 +1104,14 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+) (c:/texlive/2021/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip169
+\enit@outerparindent=\dimen266
+\enit@toks=\toks39
+\enit@inbox=\box122
+\enit@count@id=\count348
+\enitdp@description=\count349
 )
 
 Package fontspec Info: Font family 'Consolas(0)' created for font 'Consolas'
@@ -1172,18 +1180,18 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
  (c:/texlive/2021/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count348
-\Gm@cntv=\count349
-\c@Gm@tempcnt=\count350
-\Gm@bindingoffset=\dimen266
-\Gm@wd@mp=\dimen267
-\Gm@odd@mp=\dimen268
-\Gm@even@mp=\dimen269
-\Gm@layoutwidth=\dimen270
-\Gm@layoutheight=\dimen271
-\Gm@layouthoffset=\dimen272
-\Gm@layoutvoffset=\dimen273
-\Gm@dimlist=\toks39
+\Gm@cnth=\count350
+\Gm@cntv=\count351
+\c@Gm@tempcnt=\count352
+\Gm@bindingoffset=\dimen267
+\Gm@wd@mp=\dimen268
+\Gm@odd@mp=\dimen269
+\Gm@even@mp=\dimen270
+\Gm@layoutwidth=\dimen271
+\Gm@layoutheight=\dimen272
+\Gm@layouthoffset=\dimen273
+\Gm@layoutvoffset=\dimen274
+\Gm@dimlist=\toks40
 )
 runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > main.aex <nul: /p x=^%~$PATH:i>> main.aex)...executed.
 
@@ -1192,89 +1200,89 @@ runsystem(del main.aex)...executed.
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 122.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 122.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 127.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 127.
  (c:/texlive/2021/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 122.
-LaTeX Font Info:    Trying to load font information for T3+cmr on input line 122.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 127.
+LaTeX Font Info:    Trying to load font information for T3+cmr on input line 127.
  (c:/texlive/2021/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 122.
-\c@lstlisting=\count351
+LaTeX Font Info:    ... okay on input line 127.
+\c@lstlisting=\count353
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 122.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 122.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 122.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 122.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 122.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 122.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 122.
-LaTeX Font Info:    Redeclaring math accent \check on input line 122.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 122.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 122.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 122.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 122.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 122.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 122.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 122.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 122.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 122.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 122.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 122.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 122.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 122.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 122.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 122.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 122.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 127.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 127.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 127.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 127.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 127.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 127.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 127.
+LaTeX Font Info:    Redeclaring math accent \check on input line 127.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 127.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 127.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 127.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 127.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 127.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 127.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 127.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 127.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 127.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 127.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 127.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 127.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 127.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 127.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 127.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 127.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 122.
+(Font)              `operators' in the math version `normal' on input line 127.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 122.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 127.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 122.
+(Font)              `operators' in the math version `bold' on input line 127.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 122.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 127.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 122.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 122.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 122.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 122.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/m/n on input line 122.
+(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/m/n on input line 127.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 122.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 122.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 122.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/b/n on input line 122.
+(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/b/n on input line 127.
  (c:/texlive/2021/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
  (c:/texlive/2021/texmf-dist/tex/latex/graphics/lscape.sty
@@ -1351,15 +1359,15 @@ LaTeX Font Info:    Font shape `TU/等线(0)/m/n' will be
 
  [2]
 LaTeX Font Info:    Font shape `TU/等线(0)/m/n' will be
-(Font)              scaled to size 18.66588pt on input line 141.
+(Font)              scaled to size 18.66588pt on input line 146.
 LaTeX Font Info:    Font shape `TU/等线(0)/bx/n' in size <12> not available
-(Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 143.
+(Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 148.
 LaTeX Font Info:    Font shape `TU/等线(0)/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 143.
+(Font)              scaled to size 10.79993pt on input line 148.
 LaTeX Font Info:    Font shape `TU/等线(0)/bx/n' in size <10> not available
-(Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 144.
+(Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 149.
 LaTeX Font Info:    Font shape `TU/等线(0)/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 144.
+(Font)              scaled to size 8.99994pt on input line 149.
  (../src/math/牛顿插值.tex
 
 Package amsmath Warning: Foreign command \atopwithdelims;
@@ -1428,17 +1436,10 @@ LaTeX Font Info:    Font shape `TU/等线(0)/m/sl' will be
  (./_minted-main/3B373D74B8631925FC09C0C3E87061D5364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/1347F2922CF259CFD5FDA87DB669E9E5364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/06A85ED0D1DC2575522010CA04485B29364FE131EAF292715EEF0B63283C77E1.pygtex [13]) (../src/math/线性代数.tex) (../src/math/矩阵树定理.tex) (./_minted-main/3545F23DB5FE5F0DA88CA7FA1ED35BFA364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/math/斐波那契数.tex
 \openout3 = `main.pyg'.
 
- (./_minted-main/138A3D69CCB2D63ED84C5FE16A8B8CDC364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/math/伯努利数.tex
-Missing character: There is no 指 (U+6307) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 数 (U+6570) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 生 (U+751F) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 成 (U+6210) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 函 (U+51FD) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no 数 (U+6570) in font [lmroman10-regular]:mapping=tex-text;!
- [14]) (./_minted-main/8959DE18CBFCB9C77277307C86E52345364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/math/斯特林数.tex) (../src/math/贝尔数.tex) (../src/math/卡特兰数.tex) (../src/math/方差.tex [15]) (../src/math/连通图计数.tex)
+ (./_minted-main/138A3D69CCB2D63ED84C5FE16A8B8CDC364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/math/伯努利数.tex [14]) (./_minted-main/8959DE18CBFCB9C77277307C86E52345364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/math/斯特林数.tex) (../src/math/贝尔数.tex) (../src/math/卡特兰数.tex) (../src/math/方差.tex [15]) (../src/math/连通图计数.tex)
 File: ../src/math/线性齐次线性常系数递推.png Graphic file (type bmp)
 <../src/math/线性齐次线性常系数递推.png>
- (../src/math/幂的转换.tex) (../src/math/常见生成函数.tex) (./_minted-main/F57555EB96600C6390AA7AC9610F6215364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/71E7C4A067067AB89359ED42328555AD364FE131EAF292715EEF0B63283C77E1.pygtex [16]) (./_minted-main/5347397AB887AE92BADA03804430BFF3364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/numbertheory/PN.tex [17]) (../src/numbertheory/洲阁筛.tex
+ (../src/math/幂的转换.tex) (../src/math/常见生成函数.tex) (./_minted-main/F57555EB96600C6390AA7AC9610F6215364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/71E7C4A067067AB89359ED42328555AD364FE131EAF292715EEF0B63283C77E1.pygtex [16]) (./_minted-main/5347397AB887AE92BADA03804430BFF3364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/numbertheory/PN.tex) (../src/numbertheory/洲阁筛.tex [17]
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
@@ -1456,12 +1457,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--36
 (./_minted-main/0A870148B87934D29F618C3368F159B7364FE131EAF292715EEF0B63283C77E1.pygtex [18])) (./_minted-main/C3EF4B6257137FCFD4443424105F2058364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/69D3F5D066814E81BD120AC60440A5BC364FE131EAF292715EEF0B63283C77E1.pygtex [19]) (./_minted-main/D96B8601FFC9A176624690C4868249E8364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/numbertheory/exgcd.tex) (../src/numbertheory/原根.tex
 \openout3 = `main.pyg'.
 
- (./_minted-main/76540DEBEA29CC4A9F319885155A97CEA715929D0EBECFFE128EBB71CDA52DBA.pygtex)) (../src/numbertheory/公式.tex [20]) (../src/graph/Boruvka.tex) (./_minted-main/942EE11375BFB706BA3B363FC423C193364FE131EAF292715EEF0B63283C77E1.pygtex [21] [22]) (../src/graph/最小树形图.tex) (../src/graph/steiner.tex) (../src/graph/johnson.tex) (./_minted-main/30A1BDAB3462B1B360CC2A7FCF800995364FE131EAF292715EEF0B63283C77E1.pygtex [23]) (./_minted-main/37A836CB6C519AEBDD6AA5659B19D336364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/91962C5868B707733BCE657393DFFF3A364FE131EAF292715EEF0B63283C77E1.pygtex [24]
+ (./_minted-main/76540DEBEA29CC4A9F319885155A97CEA715929D0EBECFFE128EBB71CDA52DBA.pygtex)) (../src/numbertheory/公式.tex [20]) (../src/graph/Boruvka.tex) (./_minted-main/942EE11375BFB706BA3B363FC423C193364FE131EAF292715EEF0B63283C77E1.pygtex [21]) (../src/graph/最小树形图.tex) (../src/graph/steiner.tex [22]) (../src/graph/johnson.tex) (./_minted-main/30A1BDAB3462B1B360CC2A7FCF800995364FE131EAF292715EEF0B63283C77E1.pygtex [23]) (./_minted-main/37A836CB6C519AEBDD6AA5659B19D336364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/91962C5868B707733BCE657393DFFF3A364FE131EAF292715EEF0B63283C77E1.pygtex
 Overfull \hbox (1.15625pt too wide) in paragraph at lines 32--32
 || | |[][][][][][][]\TU/Consolas(0)/m/n/10 bcc[][][[][]bcc_cnt[][]].[][]push_back[][]([][]pi[][].[][]second[][]);[]|  
  []
 
-) (./_minted-main/4AFE7498A86BE466D148AB978FBF9338364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/9ECAA8226DB4874FFD91E96CB7A0FC00364FE131EAF292715EEF0B63283C77E1.pygtex [25]) (./_minted-main/2E3DF969296E5944E3F826481FBB3772364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/57F79A01897CBDE631C195356C54AD59364FE131EAF292715EEF0B63283C77E1.pygtex [26]) (../src/graph/二分图原理.tex) (./_minted-main/CB828F32F67C60AFD415B0DECF9A2A95364FE131EAF292715EEF0B63283C77E1.pygtex [27] [28]) (./_minted-main/422C74649E401CF18EF6718832B57008364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/847A50A71B244B25621955EEC60033DC364FE131EAF292715EEF0B63283C77E1.pygtex [29] [30]) (../src/graph/一般图匹配原理.tex) (./_minted-main/F6F1D6E42A0230025B75051E75FC5044364FE131EAF292715EEF0B63283C77E1.pygtex [31]) (./_minted-main/4056FAE7F94EC3642C1AB41F87BB8A7D364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/4D7A22ED428216703EB526E4F004EF79364FE131EAF292715EEF0B63283C77E1.pygtex [32]) (./_minted-main/5AEEB662324C30A1F4B68F30D0C55578364FE131EAF292715EEF0B63283C77E1.pygtex [33]) (./_minted-main/A128195CF4875D6DFE7D89163357DA74364FE131EAF292715EEF0B63283C77E1.pygtex [34]) (../src/graph/dijkstra费用流.tex) (../src/graph/网络流原理.tex
+[24]) (./_minted-main/4AFE7498A86BE466D148AB978FBF9338364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/9ECAA8226DB4874FFD91E96CB7A0FC00364FE131EAF292715EEF0B63283C77E1.pygtex [25]) (./_minted-main/2E3DF969296E5944E3F826481FBB3772364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/57F79A01897CBDE631C195356C54AD59364FE131EAF292715EEF0B63283C77E1.pygtex [26]) (../src/graph/二分图原理.tex) (./_minted-main/CB828F32F67C60AFD415B0DECF9A2A95364FE131EAF292715EEF0B63283C77E1.pygtex [27]) (./_minted-main/422C74649E401CF18EF6718832B57008364FE131EAF292715EEF0B63283C77E1.pygtex [28]) (./_minted-main/847A50A71B244B25621955EEC60033DC364FE131EAF292715EEF0B63283C77E1.pygtex [29] [30]) (../src/graph/一般图匹配原理.tex) (./_minted-main/F6F1D6E42A0230025B75051E75FC5044364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/4056FAE7F94EC3642C1AB41F87BB8A7D364FE131EAF292715EEF0B63283C77E1.pygtex [31]) (./_minted-main/4D7A22ED428216703EB526E4F004EF79364FE131EAF292715EEF0B63283C77E1.pygtex [32]) (./_minted-main/5AEEB662324C30A1F4B68F30D0C55578364FE131EAF292715EEF0B63283C77E1.pygtex [33]) (./_minted-main/A128195CF4875D6DFE7D89163357DA74364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/graph/dijkstra费用流.tex) (../src/graph/网络流原理.tex [34]
 File: ../src/graph/上下界网络流.png Graphic file (type bmp)
 <../src/graph/上下界网络流.png>
 
@@ -1475,26 +1476,26 @@ Overfull \hbox (2.73727pt too wide) in paragraph at lines 24--25
  (./_minted-main/27B44DF3A1931A4FEEEBB4A76314E530364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout3 = `main.pyg'.
 
- (./_minted-main/F81C40C3DDD3DDF4DB2CA5E697465286364FE131EAF292715EEF0B63283C77E1.pygtex [35])) (../src/graph/弦图相关.tex) (../src/datastructure/非递归线段树.tex (./_minted-main/D4B2E5C8E5DA73740A1EAB6E0BF7E8E8364FE131EAF292715EEF0B63283C77E1.pygtex)
+ (./_minted-main/F81C40C3DDD3DDF4DB2CA5E697465286364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/graph/弦图相关.tex [35]) (../src/datastructure/非递归线段树.tex (./_minted-main/D4B2E5C8E5DA73740A1EAB6E0BF7E8E8364FE131EAF292715EEF0B63283C77E1.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
  []
 
-(./_minted-main/A505D7812827EF72E7964B6E0712C798364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/58D42AE9C9ABD080C8AF558D4E6C2F93364FE131EAF292715EEF0B63283C77E1.pygtex [36])) (./_minted-main/1C035EAEF258F8752108A7E20FC22A81364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/4D0DDF7559BC5BB87584E0E229B228DD364FE131EAF292715EEF0B63283C77E1.pygtex [37]) (./_minted-main/EBFFE0DD34B0662F5C4DE1244E25F8F9364FE131EAF292715EEF0B63283C77E1.pygtex [38]
+(./_minted-main/A505D7812827EF72E7964B6E0712C798364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/58D42AE9C9ABD080C8AF558D4E6C2F93364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/1C035EAEF258F8752108A7E20FC22A81364FE131EAF292715EEF0B63283C77E1.pygtex [36]) (./_minted-main/9DF5BD0BD28060D5080A34D1191E1086364FE131EAF292715EEF0B63283C77E1.pygtex [37]) (./_minted-main/4D0DDF7559BC5BB87584E0E229B228DD364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/EBFFE0DD34B0662F5C4DE1244E25F8F9364FE131EAF292715EEF0B63283C77E1.pygtex [38]
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (./_minted-main/DB48B6443D0C1BE6900F784E9101E08A364FE131EAF292715EEF0B63283C77E1.pygtex [39]) (./_minted-main/BEFD4BC2D4D5B1C77A8F600764CE59C1364FE131EAF292715EEF0B63283C77E1.pygtex [40]) (./_minted-main/24F5782C3DB9852A5496B3D0326CF9F0364FE131EAF292715EEF0B63283C77E1.pygtex [41]) (./_minted-main/94BE370934C73ECB2C81D56B9A930523364FE131EAF292715EEF0B63283C77E1.pygtex [42]) (./_minted-main/7C8E1CCDAD0882198CC47E790F9E5318364FE131EAF292715EEF0B63283C77E1.pygtex
+) (./_minted-main/DB48B6443D0C1BE6900F784E9101E08A364FE131EAF292715EEF0B63283C77E1.pygtex [39]) (./_minted-main/BEFD4BC2D4D5B1C77A8F600764CE59C1364FE131EAF292715EEF0B63283C77E1.pygtex [40]) (./_minted-main/24F5782C3DB9852A5496B3D0326CF9F0364FE131EAF292715EEF0B63283C77E1.pygtex [41]) (./_minted-main/94BE370934C73ECB2C81D56B9A930523364FE131EAF292715EEF0B63283C77E1.pygtex [42]) (./_minted-main/7C8E1CCDAD0882198CC47E790F9E5318364FE131EAF292715EEF0B63283C77E1.pygtex [43]
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
- [43]) (./_minted-main/A7583DD0C8C14BEE34A60920972DC4C8364FE131EAF292715EEF0B63283C77E1.pygtex [44]) (./_minted-main/46E817E3E3840A6883803B4040FE2B66364FE131EAF292715EEF0B63283C77E1.pygtex [45]) (./_minted-main/5F8009D7D1EA7B6BC8FE2D18B3EC6E35364FE131EAF292715EEF0B63283C77E1.pygtex [46] [47] [48]) (./_minted-main/BA5B4A5FFC428D9DED4645436E9C1445364FE131EAF292715EEF0B63283C77E1.pygtex [49]) (./_minted-main/6C980A5F96A37FAB6D706D62FC506931364FE131EAF292715EEF0B63283C77E1.pygtex [50]) (./_minted-main/5A72BB37570373D4BC0728F6033F3629364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/41278A901CCB849F574FFD0ED03C9C3B364FE131EAF292715EEF0B63283C77E1.pygtex [51]) (../src/datastructure/常见根号思路.tex) (./_minted-main/51A9AFEC19250B2E9074B3E8D7AB3993364FE131EAF292715EEF0B63283C77E1.pygtex [52]) (./_minted-main/A9E52FD30A6CB9A2165A00C55AE4745D364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/397313531BC0D4ED2636CD69E045453E364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/F741D474879272C2BB9EBD2E4EB19313364FE131EAF292715EEF0B63283C77E1.pygtex [53]) (./_minted-main/3AC3A8386F7D96ACA0310DE4CD409C2C364FE131EAF292715EEF0B63283C77E1.pygtex [54]) (./_minted-main/0C3A8039554EBE7A3A384E0E62C4FD68364FE131EAF292715EEF0B63283C77E1.pygtex [55]) (../src/string/后缀平衡树.tex) (./_minted-main/ED811EAC65205808BCFB9FA420562C3B364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/92C12C193DB2BDAB1B2DF0EBCE5D80B4364FE131EAF292715EEF0B63283C77E1.pygtex [56]) (./_minted-main/8F35E9CA2B423F4C50B8FE0EE15F5677364FE131EAF292715EEF0B63283C77E1.pygtex [57]) (./_minted-main/1FB5FA51CF948722F3DB7C9790733FE1364FE131EAF292715EEF0B63283C77E1.pygtex [58]) (../src/string/字符串原理.tex) (./_minted-main/916713130A51D4C0C84B8E8DCF061800364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/B3B561305662AA34DB367A5F2AC5E6EB364FE131EAF292715EEF0B63283C77E1.pygtex [59]) (./_minted-main/EC1C8990C1E9BD6C42180B4F92E167F8A715929D0EBECFFE128EBB71CDA52DBA.pygtex) (./_minted-main/65B691DB974DC95885FCF4B98A8858FD364FE131EAF292715EEF0B63283C77E1.pygtex [60] [61] [62]) (./_minted-main/3C256A547034F06DF0134AD40BBAD060364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/常用NTT素数及原根.tex) (./_minted-main/64984275464294626A0B1DD731D664E9364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/枚举子集.tex
+) (./_minted-main/A7583DD0C8C14BEE34A60920972DC4C8364FE131EAF292715EEF0B63283C77E1.pygtex [44]) (./_minted-main/46E817E3E3840A6883803B4040FE2B66364FE131EAF292715EEF0B63283C77E1.pygtex [45] [46]) (./_minted-main/5F8009D7D1EA7B6BC8FE2D18B3EC6E35364FE131EAF292715EEF0B63283C77E1.pygtex [47] [48]) (./_minted-main/BA5B4A5FFC428D9DED4645436E9C1445364FE131EAF292715EEF0B63283C77E1.pygtex [49]) (./_minted-main/6C980A5F96A37FAB6D706D62FC506931364FE131EAF292715EEF0B63283C77E1.pygtex [50]) (./_minted-main/5A72BB37570373D4BC0728F6033F3629364FE131EAF292715EEF0B63283C77E1.pygtex [51]) (./_minted-main/41278A901CCB849F574FFD0ED03C9C3B364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/datastructure/常见根号思路.tex [52]) (./_minted-main/51A9AFEC19250B2E9074B3E8D7AB3993364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/A9E52FD30A6CB9A2165A00C55AE4745D364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/397313531BC0D4ED2636CD69E045453E364FE131EAF292715EEF0B63283C77E1.pygtex [53]) (./_minted-main/F741D474879272C2BB9EBD2E4EB19313364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/3AC3A8386F7D96ACA0310DE4CD409C2C364FE131EAF292715EEF0B63283C77E1.pygtex [54]) (./_minted-main/0C3A8039554EBE7A3A384E0E62C4FD68364FE131EAF292715EEF0B63283C77E1.pygtex [55]) (../src/string/后缀平衡树.tex) (./_minted-main/ED811EAC65205808BCFB9FA420562C3B364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/92C12C193DB2BDAB1B2DF0EBCE5D80B4364FE131EAF292715EEF0B63283C77E1.pygtex [56]) (./_minted-main/8F35E9CA2B423F4C50B8FE0EE15F5677364FE131EAF292715EEF0B63283C77E1.pygtex [57] [58]) (./_minted-main/1FB5FA51CF948722F3DB7C9790733FE1364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/string/字符串原理.tex) (./_minted-main/916713130A51D4C0C84B8E8DCF061800364FE131EAF292715EEF0B63283C77E1.pygtex [59]) (./_minted-main/B3B561305662AA34DB367A5F2AC5E6EB364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/EC1C8990C1E9BD6C42180B4F92E167F8A715929D0EBECFFE128EBB71CDA52DBA.pygtex) (./_minted-main/65B691DB974DC95885FCF4B98A8858FD364FE131EAF292715EEF0B63283C77E1.pygtex [60] [61] [62]) (./_minted-main/3C256A547034F06DF0134AD40BBAD060364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/常用NTT素数及原根.tex) (./_minted-main/64984275464294626A0B1DD731D664E9364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/枚举子集.tex
 \openout4 = `main.pyg'.
 
  (./_minted-main/B20FCC2397E71AE49E65839A507D0A34364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout3 = `main.pyg'.
 
- (./_minted-main/0B018890587674A1C79562D44C8405BD364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/misc/STL.tex
+ (./_minted-main/0B018890587674A1C79562D44C8405BD364FE131EAF292715EEF0B63283C77E1.pygtex [63])) (../src/misc/STL.tex
 \openout4 = `main.pyg'.
 
  (./_minted-main/6586EBC95E6F505FBE99B8A1EA863A69364FE131EAF292715EEF0B63283C77E1.pygtex)
@@ -1511,12 +1512,12 @@ Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=la
 
  (./_minted-main/1DA45E0F5B23287E9E6273C0720F7601364FE131EAF292715EEF0B63283C77E1.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 2--8
-[][]\TU/Consolas(0)/m/n/10 void[] []assign[][]([][]const_iterator[] []first[][],[] []const_iterator[]
+[][]\TU/Consolas(0)/m/n/10 void[] []assign[][]([][]const_iterator[] []first[][],[] []const_iterator[] []last[][])[]\TU/lmr/m/n/10 :
  []
 
 \openout4 = `main.pyg'.
 
-(./_minted-main/6DB0B3788375EB0A4749D45641B8895E364FE131EAF292715EEF0B63283C77E1.pygtex) [63]
+(./_minted-main/6DB0B3788375EB0A4749D45641B8895E364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
  (./_minted-main/86EE06DEF678E810E6B775239A160018364FE131EAF292715EEF0B63283C77E1.pygtex)
@@ -1654,13 +1655,9 @@ File: ../src/misc/pbds_heap.png Graphic file (type bmp)
 \openout4 = `main.pyg'.
 
  (./_minted-main/40713AAE670725A475E162B9025DC2C7364FE131EAF292715EEF0B63283C77E1.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 2--58
-[][]\TU/Consolas(0)/m/n/10 insert[][]([][]x[][])[]\TU/lmr/m/n/10 : \TU/等线(0)/m/sl/10 向 树 中 插 入 一 个 元 素\TU/lmr/m/n/10 x, \TU/等线(0)/m/sl/10 返
- []
-
 \openout4 = `main.pyg'.
 
-(./_minted-main/4E7C87339B158E5F5A0065FB7278AEEC364FE131EAF292715EEF0B63283C77E1.pygtex)
+ (./_minted-main/4E7C87339B158E5F5A0065FB7278AEEC364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
  (./_minted-main/3108A275C2AD15DFC90F9DF4F56E11F7364FE131EAF292715EEF0B63283C77E1.pygtex)
@@ -1673,13 +1670,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--58
 \openout4 = `main.pyg'.
 
  (./_minted-main/FE656A7C40EA56260BDBA08E115B6186364FE131EAF292715EEF0B63283C77E1.pygtex)
-Underfull \hbox (badness 6775) in paragraph at lines 2--62
-[][]\TU/Consolas(0)/m/n/10 lower_bound[][]([][]x[][])[] []/[] []upper_bound[][]([][]x[][])[]\TU/lmr/m/n/10 : \TU/等线(0)/m/sl/10 返 回 第 一 个$\OMS/cmsy/m/n/10 ^^U$\TU/等线(0)/m/sl/10 或
- []
-
 \openout4 = `main.pyg'.
 
-(./_minted-main/F8E9C71551113F7350595D668ABCBA99364FE131EAF292715EEF0B63283C77E1.pygtex)
+ (./_minted-main/F8E9C71551113F7350595D668ABCBA99364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
  (./_minted-main/52C3111CE3CD8BB6A9D33244BEACEE4A364FE131EAF292715EEF0B63283C77E1.pygtex)
@@ -1695,17 +1688,7 @@ Underfull \hbox (badness 6775) in paragraph at lines 2--62
 \openout4 = `main.pyg'.
 
  (./_minted-main/F60C98D35B0C8179C68DFC319D04B66F364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/71DCE5BF3A11A2574DEA3EE0FFE2DA61364FE131EAF292715EEF0B63283C77E1.pygtex [64]) (../src/misc/oeis.tex [65]
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
-[]\TU/lmr/m/n/10 1, 2, 6, 30, 210, 2310, 30030, 510510,
- []
-
-
-Underfull \hbox (badness 5771) in paragraph at lines 135--136
-\TU/lmr/m/n/10 9699690, 223092870, 6469693230, 200560490130,
- []
-
-
-Overfull \hbox (2.75742pt too wide) in paragraph at lines 139--140
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 \TU/lmr/m/n/10 2305843009213693951, 618970019642690137449562111,
  []
 
@@ -1731,7 +1714,11 @@ Missing character: There is no ， (U+FF0C) in font [lmroman10-regular]:mapping=
  (./_minted-main/1C2766C0203CA8489F178B9955964C54364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/常见下毒手法.tex
 \openout4 = `main.pyg'.
 
- (./_minted-main/2A263F378B83BB5BECFDF6B8DA7D66C8364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex [66])
+ (./_minted-main/2A263F378B83BB5BECFDF6B8DA7D66C8364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex) (../src/misc/骂人的艺术.tex [66]
+Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
+)
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
@@ -1822,12 +1809,12 @@ runsystem(del main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 18795 strings out of 476919
- 402115 string characters out of 5825424
- 1038104 words of memory out of 5000000
- 37821 multiletter control sequences out of 15000+600000
- 416113 words of font info for 118 fonts, out of 8000000 for 9000
+ 19129 strings out of 476919
+ 408088 string characters out of 5825424
+ 1050269 words of memory out of 5000000
+ 38143 multiletter control sequences out of 15000+600000
+ 416129 words of font info for 120 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 85i,17n,89p,1190b,1441s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 85i,17n,89p,1190b,1452s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (78 pages).
