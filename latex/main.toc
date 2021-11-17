@@ -9,7 +9,7 @@
 \contentsline {subsubsection}{\numberline {1.2.4}多项式操作}{5}{}%
 \contentsline {subsubsection}{\numberline {1.2.5}更优秀的多项式多点求值}{7}{}%
 \contentsline {subsubsection}{\numberline {1.2.6}多项式快速插值}{8}{}%
-\contentsline {subsubsection}{\numberline {1.2.7}拉格朗日反演}{10}{}%
+\contentsline {subsubsection}{\numberline {1.2.7}拉格朗日反演(多项式复合逆)}{10}{}%
 \contentsline {subsubsection}{\numberline {1.2.8}分治FFT}{10}{}%
 \contentsline {subsubsection}{\numberline {1.2.9}半在线卷积}{10}{}%
 \contentsline {subsubsection}{\numberline {1.2.10}常系数齐次线性递推$O(k\qopname \relax o{log}k\qopname \relax o{log}n)$}{11}{}%
@@ -136,7 +136,8 @@
 \contentsline {subsubsection}{\numberline {5.3.3}SAMSA}{56}{}%
 \contentsline {subsection}{\numberline {5.4}后缀平衡树}{56}{}%
 \contentsline {subsection}{\numberline {5.5}后缀自动机}{56}{}%
-\contentsline {subsection}{\numberline {5.6}回文树}{56}{}%
+\contentsline {subsubsection}{\numberline {5.5.1}区间本质不同子串计数(后缀自动机+LCT+线段树)}{56}{}%
+\contentsline {subsection}{\numberline {5.6}回文树}{57}{}%
 \contentsline {subsubsection}{\numberline {5.6.1}广义回文树}{57}{}%
 \contentsline {subsection}{\numberline {5.7}Manacher马拉车}{59}{}%
 \contentsline {subsection}{\numberline {5.8}字符串原理}{59}{}%
@@ -146,10 +147,10 @@
 \contentsline {section}{\numberline {7}Miscellaneous}{60}{}%
 \contentsline {subsection}{\numberline {7.1}$O(1)$快速乘}{60}{}%
 \contentsline {subsection}{\numberline {7.2}Python Decimal}{60}{}%
-\contentsline {subsection}{\numberline {7.3}$O(n^2)$高精度}{60}{}%
+\contentsline {subsection}{\numberline {7.3}$O(n^2)$高精度}{61}{}%
 \contentsline {subsection}{\numberline {7.4}笛卡尔树}{63}{}%
-\contentsline {subsection}{\numberline {7.5}常用NTT素数及原根}{63}{}%
-\contentsline {subsection}{\numberline {7.6}xorshift}{63}{}%
+\contentsline {subsection}{\numberline {7.5}常用NTT素数及原根}{64}{}%
+\contentsline {subsection}{\numberline {7.6}xorshift}{64}{}%
 \contentsline {subsection}{\numberline {7.7}枚举子集}{64}{}%
 \contentsline {subsection}{\numberline {7.8}STL}{64}{}%
 \contentsline {subsubsection}{\numberline {7.8.1}vector}{64}{}%
@@ -157,17 +158,17 @@
 \contentsline {subsection}{\numberline {7.9}pb\_ds}{64}{}%
 \contentsline {subsubsection}{\numberline {7.9.1}哈希表}{64}{}%
 \contentsline {subsubsection}{\numberline {7.9.2}堆}{64}{}%
-\contentsline {subsubsection}{\numberline {7.9.3}平衡树}{64}{}%
+\contentsline {subsubsection}{\numberline {7.9.3}平衡树}{65}{}%
 \contentsline {subsection}{\numberline {7.10}rope}{65}{}%
 \contentsline {subsection}{\numberline {7.11}OEIS}{65}{}%
 \contentsline {subsubsection}{\numberline {7.11.1}计数相关}{65}{}%
-\contentsline {subsubsection}{\numberline {7.11.2}线性递推数列}{65}{}%
-\contentsline {subsubsection}{\numberline {7.11.3}数论相关}{65}{}%
+\contentsline {subsubsection}{\numberline {7.11.2}线性递推数列}{66}{}%
+\contentsline {subsubsection}{\numberline {7.11.3}数论相关}{66}{}%
 \contentsline {subsubsection}{\numberline {7.11.4}其他}{66}{}%
 \contentsline {subsection}{\numberline {7.12}编译选项}{66}{}%
 \contentsline {subsection}{\numberline {7.13}注意事项}{66}{}%
 \contentsline {subsubsection}{\numberline {7.13.1}常见下毒手法}{66}{}%
 \contentsline {subsubsection}{\numberline {7.13.2}场外相关}{66}{}%
 \contentsline {subsubsection}{\numberline {7.13.3}做题策略与心态调节}{66}{}%
-\contentsline {subsection}{\numberline {7.14}附录: 骂人的艺术 —梁实秋}{66}{}%
-\contentsline {subsection}{\numberline {7.15}附录: Cheat Sheet}{67}{}%
+\contentsline {subsection}{\numberline {7.14}附录: 骂人的艺术 —梁实秋}{67}{}%
+\contentsline {subsection}{\numberline {7.15}附录: Cheat Sheet}{68}{}%

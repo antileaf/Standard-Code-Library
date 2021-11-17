@@ -19,7 +19,7 @@ void NTT(int *a, int n, int tp) { // n为变换长度, tp为1或-1, 表示正/�
 			j ^= (k >>= 1);
 		while (j < k);
 
-		if(i < j)
+		if (i < j)
 			swap(a[i], a[j]);
 	}
 

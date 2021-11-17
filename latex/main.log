@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  18 NOV 2021 06:07
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  18 NOV 2021 07:17
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1422,7 +1422,7 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <7.55997> not available
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.40001> not available
 (Font)              size <5> substituted on input line 10.
 
-) (./_minted-main/5491D3B07AF2DDE878693CAC1A8D33B9364FE131EAF292715EEF0B63283C77E1.pygtex
+) (./_minted-main/D2243BB76F44C1F564DA1A3BAB3FD49B364FE131EAF292715EEF0B63283C77E1.pygtex
 
 LaTeX Font Warning: Font shape `TU/等线(0)/m/sl' undefined
 (Font)              using `TU/等线(0)/m/n' instead on input line 9.
@@ -1489,13 +1489,13 @@ Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=la
 ) (./_minted-main/DB48B6443D0C1BE6900F784E9101E08A364FE131EAF292715EEF0B63283C77E1.pygtex [39]) (./_minted-main/BEFD4BC2D4D5B1C77A8F600764CE59C1364FE131EAF292715EEF0B63283C77E1.pygtex [40]) (./_minted-main/24F5782C3DB9852A5496B3D0326CF9F0364FE131EAF292715EEF0B63283C77E1.pygtex [41]) (./_minted-main/94BE370934C73ECB2C81D56B9A930523364FE131EAF292715EEF0B63283C77E1.pygtex [42]) (./_minted-main/7C8E1CCDAD0882198CC47E790F9E5318364FE131EAF292715EEF0B63283C77E1.pygtex [43]
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (./_minted-main/A7583DD0C8C14BEE34A60920972DC4C8364FE131EAF292715EEF0B63283C77E1.pygtex [44]) (./_minted-main/46E817E3E3840A6883803B4040FE2B66364FE131EAF292715EEF0B63283C77E1.pygtex [45] [46]) (./_minted-main/5F8009D7D1EA7B6BC8FE2D18B3EC6E35364FE131EAF292715EEF0B63283C77E1.pygtex [47] [48]) (./_minted-main/BA5B4A5FFC428D9DED4645436E9C1445364FE131EAF292715EEF0B63283C77E1.pygtex [49]) (./_minted-main/6C980A5F96A37FAB6D706D62FC506931364FE131EAF292715EEF0B63283C77E1.pygtex [50]) (./_minted-main/5A72BB37570373D4BC0728F6033F3629364FE131EAF292715EEF0B63283C77E1.pygtex [51]) (./_minted-main/41278A901CCB849F574FFD0ED03C9C3B364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/datastructure/常见根号思路.tex [52]) (./_minted-main/51A9AFEC19250B2E9074B3E8D7AB3993364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/A9E52FD30A6CB9A2165A00C55AE4745D364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/397313531BC0D4ED2636CD69E045453E364FE131EAF292715EEF0B63283C77E1.pygtex [53]) (./_minted-main/F741D474879272C2BB9EBD2E4EB19313364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/3AC3A8386F7D96ACA0310DE4CD409C2C364FE131EAF292715EEF0B63283C77E1.pygtex [54]) (./_minted-main/0C3A8039554EBE7A3A384E0E62C4FD68364FE131EAF292715EEF0B63283C77E1.pygtex [55]) (../src/string/后缀平衡树.tex) (./_minted-main/ED811EAC65205808BCFB9FA420562C3B364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/92C12C193DB2BDAB1B2DF0EBCE5D80B4364FE131EAF292715EEF0B63283C77E1.pygtex [56]) (./_minted-main/8F35E9CA2B423F4C50B8FE0EE15F5677364FE131EAF292715EEF0B63283C77E1.pygtex [57] [58]) (./_minted-main/1FB5FA51CF948722F3DB7C9790733FE1364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/string/字符串原理.tex) (./_minted-main/916713130A51D4C0C84B8E8DCF061800364FE131EAF292715EEF0B63283C77E1.pygtex [59]) (./_minted-main/B3B561305662AA34DB367A5F2AC5E6EB364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/EC1C8990C1E9BD6C42180B4F92E167F8A715929D0EBECFFE128EBB71CDA52DBA.pygtex) (./_minted-main/65B691DB974DC95885FCF4B98A8858FD364FE131EAF292715EEF0B63283C77E1.pygtex [60] [61] [62]) (./_minted-main/3C256A547034F06DF0134AD40BBAD060364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/常用NTT素数及原根.tex) (./_minted-main/64984275464294626A0B1DD731D664E9364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/枚举子集.tex
+) (./_minted-main/A7583DD0C8C14BEE34A60920972DC4C8364FE131EAF292715EEF0B63283C77E1.pygtex [44]) (./_minted-main/46E817E3E3840A6883803B4040FE2B66364FE131EAF292715EEF0B63283C77E1.pygtex [45] [46]) (./_minted-main/5F8009D7D1EA7B6BC8FE2D18B3EC6E35364FE131EAF292715EEF0B63283C77E1.pygtex [47] [48]) (./_minted-main/BA5B4A5FFC428D9DED4645436E9C1445364FE131EAF292715EEF0B63283C77E1.pygtex [49]) (./_minted-main/6C980A5F96A37FAB6D706D62FC506931364FE131EAF292715EEF0B63283C77E1.pygtex [50]) (./_minted-main/5A72BB37570373D4BC0728F6033F3629364FE131EAF292715EEF0B63283C77E1.pygtex [51]) (./_minted-main/41278A901CCB849F574FFD0ED03C9C3B364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/datastructure/常见根号思路.tex [52]) (./_minted-main/51A9AFEC19250B2E9074B3E8D7AB3993364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/A9E52FD30A6CB9A2165A00C55AE4745D364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/397313531BC0D4ED2636CD69E045453E364FE131EAF292715EEF0B63283C77E1.pygtex [53]) (./_minted-main/F741D474879272C2BB9EBD2E4EB19313364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/3AC3A8386F7D96ACA0310DE4CD409C2C364FE131EAF292715EEF0B63283C77E1.pygtex [54]) (./_minted-main/0C3A8039554EBE7A3A384E0E62C4FD68364FE131EAF292715EEF0B63283C77E1.pygtex [55]) (../src/string/后缀平衡树.tex) (./_minted-main/ED811EAC65205808BCFB9FA420562C3B364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/string/区间本质不同子串统计.tex [56] (./_minted-main/9CCA06F354A690C0399C2BF0CC10960A364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/92C12C193DB2BDAB1B2DF0EBCE5D80B4364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/8F35E9CA2B423F4C50B8FE0EE15F5677364FE131EAF292715EEF0B63283C77E1.pygtex [57] [58]) (./_minted-main/1FB5FA51CF948722F3DB7C9790733FE1364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/string/字符串原理.tex) (./_minted-main/916713130A51D4C0C84B8E8DCF061800364FE131EAF292715EEF0B63283C77E1.pygtex [59]) (./_minted-main/B3B561305662AA34DB367A5F2AC5E6EB364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/EC1C8990C1E9BD6C42180B4F92E167F8A715929D0EBECFFE128EBB71CDA52DBA.pygtex [60]) (./_minted-main/65B691DB974DC95885FCF4B98A8858FD364FE131EAF292715EEF0B63283C77E1.pygtex [61] [62]) (./_minted-main/3C256A547034F06DF0134AD40BBAD060364FE131EAF292715EEF0B63283C77E1.pygtex [63]) (../src/misc/常用NTT素数及原根.tex) (./_minted-main/64984275464294626A0B1DD731D664E9364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/枚举子集.tex
 \openout4 = `main.pyg'.
 
  (./_minted-main/B20FCC2397E71AE49E65839A507D0A34364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout3 = `main.pyg'.
 
- (./_minted-main/0B018890587674A1C79562D44C8405BD364FE131EAF292715EEF0B63283C77E1.pygtex [63])) (../src/misc/STL.tex
+ (./_minted-main/0B018890587674A1C79562D44C8405BD364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/misc/STL.tex
 \openout4 = `main.pyg'.
 
  (./_minted-main/6586EBC95E6F505FBE99B8A1EA863A69364FE131EAF292715EEF0B63283C77E1.pygtex)
@@ -1604,6 +1604,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--8
  (./_minted-main/CA3D8D0743F511345B8686B1788FE715364FE131EAF292715EEF0B63283C77E1.pygtex)
 File: ../src/misc/pbds_heap.png Graphic file (type bmp)
 <../src/misc/pbds_heap.png>
+ [64]
 \openout4 = `main.pyg'.
 
  (./_minted-main/F4F12836D5C99D680DB1DC8879050E23364FE131EAF292715EEF0B63283C77E1.pygtex)
@@ -1687,7 +1688,7 @@ File: ../src/misc/pbds_heap.png Graphic file (type bmp)
  (./_minted-main/9764B578E8FF3D4515C0E13D393E1509364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
- (./_minted-main/F60C98D35B0C8179C68DFC319D04B66F364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/71DCE5BF3A11A2574DEA3EE0FFE2DA61364FE131EAF292715EEF0B63283C77E1.pygtex [64]) (../src/misc/oeis.tex [65]
+ (./_minted-main/F60C98D35B0C8179C68DFC319D04B66F364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/71DCE5BF3A11A2574DEA3EE0FFE2DA61364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/oeis.tex [65]
 Underfull \hbox (badness 10000) in paragraph at lines 139--140
 \TU/lmr/m/n/10 2305843009213693951, 618970019642690137449562111,
  []
@@ -1714,90 +1715,93 @@ Missing character: There is no ， (U+FF0C) in font [lmroman10-regular]:mapping=
  (./_minted-main/1C2766C0203CA8489F178B9955964C54364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/常见下毒手法.tex
 \openout4 = `main.pyg'.
 
- (./_minted-main/2A263F378B83BB5BECFDF6B8DA7D66C8364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex) (../src/misc/骂人的艺术.tex [66]
+ (./_minted-main/2A263F378B83BB5BECFDF6B8DA7D66C8364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex [66]) (../src/misc/骂人的艺术.tex
 Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
 )
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 1>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 1>
+Overfull \vbox (13.29367pt too high) has occurred while \output is active []
+
  [67]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 1>
+<use ../src/misc/Cheat.pdf>
+File: ../src/misc/Cheat.pdf Graphic file (type pdf)
+<use ../src/misc/Cheat.pdf>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf, page 1>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf, page 1>
  [68]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 2>
+<use ../src/misc/Cheat.pdf, page 1>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 2>
+<use ../src/misc/Cheat.pdf, page 1>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 2>
+<use ../src/misc/Cheat.pdf, page 1>
  [69]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 3>
+<use ../src/misc/Cheat.pdf, page 2>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 3>
+<use ../src/misc/Cheat.pdf, page 2>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 3>
+<use ../src/misc/Cheat.pdf, page 2>
  [70]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 4>
+<use ../src/misc/Cheat.pdf, page 3>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 4>
+<use ../src/misc/Cheat.pdf, page 3>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 4>
+<use ../src/misc/Cheat.pdf, page 3>
  [71]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 5>
+<use ../src/misc/Cheat.pdf, page 4>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 5>
+<use ../src/misc/Cheat.pdf, page 4>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 5>
+<use ../src/misc/Cheat.pdf, page 4>
  [72]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 6>
+<use ../src/misc/Cheat.pdf, page 5>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 6>
+<use ../src/misc/Cheat.pdf, page 5>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 6>
+<use ../src/misc/Cheat.pdf, page 5>
  [73]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 7>
+<use ../src/misc/Cheat.pdf, page 6>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 7>
+<use ../src/misc/Cheat.pdf, page 6>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 7>
+<use ../src/misc/Cheat.pdf, page 6>
  [74]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 8>
+<use ../src/misc/Cheat.pdf, page 7>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 8>
+<use ../src/misc/Cheat.pdf, page 7>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 8>
+<use ../src/misc/Cheat.pdf, page 7>
  [75]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 9>
+<use ../src/misc/Cheat.pdf, page 8>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 9>
+<use ../src/misc/Cheat.pdf, page 8>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 9>
+<use ../src/misc/Cheat.pdf, page 8>
  [76]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 10>
+<use ../src/misc/Cheat.pdf, page 9>
+File: ../src/misc/Cheat.pdf Graphic file (type pdf)
+<use ../src/misc/Cheat.pdf, page 9>
+File: ../src/misc/Cheat.pdf Graphic file (type pdf)
+<use ../src/misc/Cheat.pdf, page 9>
+ [77]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf, page 10>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf, page 10>
- [77] (./main.aux)
+File: ../src/misc/Cheat.pdf Graphic file (type pdf)
+<use ../src/misc/Cheat.pdf, page 10>
+ [78] (./main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.44003pt have occurred.
@@ -1809,12 +1813,12 @@ runsystem(del main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 19129 strings out of 476919
- 408088 string characters out of 5825424
- 1050269 words of memory out of 5000000
- 38143 multiletter control sequences out of 15000+600000
+ 19138 strings out of 476919
+ 408585 string characters out of 5825424
+ 1067342 words of memory out of 5000000
+ 38146 multiletter control sequences out of 15000+600000
  416129 words of font info for 120 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 85i,17n,89p,1190b,1452s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 85i,17n,89p,1190b,1412s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (78 pages).
+Output written on main.pdf (79 pages).
