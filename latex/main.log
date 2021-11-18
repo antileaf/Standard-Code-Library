@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  19 NOV 2021 06:18
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  19 NOV 2021 06:57
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1715,11 +1715,11 @@ Missing character: There is no ， (U+FF0C) in font [lmroman10-regular]:mapping=
  (./_minted-main/1C2766C0203CA8489F178B9955964C54364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/常见下毒手法.tex
 \openout4 = `main.pyg'.
 
- (./_minted-main/2A263F378B83BB5BECFDF6B8DA7D66C8364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex) (../src/misc/骂人的艺术.tex
+ (./_minted-main/2A263F378B83BB5BECFDF6B8DA7D66C8364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex) (../src/misc/vscode.tex) [67] (../src/misc/骂人的艺术.tex
 Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
- [67])
+)
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
@@ -1810,10 +1810,10 @@ runsystem(del main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 19150 strings out of 476919
- 408785 string characters out of 5825424
- 1057850 words of memory out of 5000000
- 38149 multiletter control sequences out of 15000+600000
+ 19154 strings out of 476919
+ 408857 string characters out of 5825424
+ 1058850 words of memory out of 5000000
+ 38150 multiletter control sequences out of 15000+600000
  416129 words of font info for 120 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  85i,17n,89p,1190b,1464s stack positions out of 5000i,500n,10000p,200000b,80000s
