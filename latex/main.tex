@@ -144,13 +144,6 @@
 	\begin{multicols}{2}
 
 		\section{数学}
-
-			\subsection{插值}
-				\subsubsection{牛顿插值}
-					\input{../src/math/牛顿插值.tex}
-
-				\subsubsection{拉格朗日插值}
-					\input{../src/math/拉格朗日插值.tex}
 			
 			\subsection{多项式}
 				\subsubsection{FFT}
@@ -189,6 +182,18 @@
 				\subsubsection{常系数齐次线性递推$O(k\log k\log n)$}
 					如果只有一次这个操作可以照抄, 否则就开一个全局flag.
 					\inputminted{cpp}{../src/math/常系数齐次线性递推.cpp}
+				
+				\subsubsection{应用: $O(\sqrt n \log^2 n)$快速求阶乘}
+					\input{../src/math/快速阶乘算法.tex}
+
+			\subsection{插值}
+				\subsubsection{牛顿插值}
+					\input{../src/math/牛顿插值.tex}
+
+				\subsubsection{拉格朗日(Lagrange)插值}
+					\input{../src/math/拉格朗日插值.tex}
+				
+				\subsubsection{连续点值平移}
 
 			\subsection{FWT快速沃尔什变换}
 				\inputminted{cpp}{../src/math/FWT.cpp}
@@ -215,7 +220,7 @@
 				% \subsubsection{自由元搜索}
 
 
-				\subsubsection{线性基}
+				\subsubsection{线性基(消成对角线)}
 					\inputminted{cpp}{../src/math/线性基.cpp}
 
 				\subsubsection{线性代数知识}
@@ -223,6 +228,18 @@
 				
 				\subsubsection{矩阵树定理, BEST定理}
 					\input{../src/math/矩阵树定理.tex}
+			
+			\subsection{博弈论}
+				\subsubsection{SG定理}
+					\input{../src/math/SG定理.tex}
+
+				\subsubsection{纳什均衡}
+					\input{../src/math/纳什均衡.tex}
+
+				\subsubsection{经典博弈}
+					\input{../src/math/经典博弈.tex}
+
+				\subsubsection{例题}
 
 			\subsection{自适应Simpson积分}
 				Forked from fstqwq's template.
@@ -256,11 +273,8 @@
 
 				\subsubsection{线性齐次线性常系数递推求通项}
 					\includegraphics[scale = 0.265]{../src/math/线性齐次线性常系数递推.png}
-				
-				\subsubsection{上升幂, 下降幂与普通幂的转换}
-					\input{../src/math/幂的转换.tex}
 			
-			\subsection{常用生成函数}
+			\subsection{常用生成函数变换}
 				\input{../src/math/常见生成函数.tex}
 
 
@@ -290,6 +304,9 @@
 			\subsection{Pollard's Rho}
 				\inputminted{cpp}{../src/numbertheory/Pollard-Rho.cpp}
 			
+			\subsection{快速阶乘算法}
+				参见``数学/多项式''部分.
+
 			% \subsection{组合数取模}
 
 

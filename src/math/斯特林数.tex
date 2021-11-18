@@ -2,7 +2,11 @@
 
 $n\brack k$表示$n$个元素划分成$k$个轮换的方案数.
 
+递推式: ${n \brack k} = {n-1 \brack k-1} + (n-1){n-1 \brack k}$.
+
 求同一行: 分治FFT $O(n\log ^2 n)$, 或者倍增$O(n\log n)$(每次都是$f(x) = g(x) g(x + d)$的形式, 可以用$g(x)$反转之后做一个卷积求出后者).
+
+$$ \begin{aligned} \sum_{k = 0} ^ n {n \brack k} x^k = \prod_{i = 0} ^ {n - 1} (x + i) \end{aligned} $$
 
 求同一列: 用一个轮换的指数生成函数做$k$次幂
 $$\begin{aligned} \sum_{n = 0} ^ \infty {n \brack k} \frac {x ^ n} {n!} = \frac {\left(\ln (1 - x)\right) ^ k} {k!} = \frac {x ^ k} {k!} \left( \frac {\ln (1 - x)} x \right) ^ k \end{aligned}$$
@@ -10,6 +14,8 @@ $$\begin{aligned} \sum_{n = 0} ^ \infty {n \brack k} \frac {x ^ n} {n!} = \frac 
 \textbf{第二类斯特林数}
 
 $n\brace k$表示$n$个元素划分成$k$个子集的方案数.
+
+递推式: ${n \brace k} = {n-1 \brace k-1} + k{n-1 \brace k}$.
 
 求一个: 容斥, 狗都会做
 
@@ -25,4 +31,16 @@ $$\begin{aligned} \sum_{n = 0} ^ \infty {n \brace k} \frac {x ^ n} {n!} = \frac 
 
 $$\begin{aligned} \sum_{n = 0} ^ \infty {n \brace k} x ^ n = x ^ k \left(\prod_{i = 1} ^ k (1 - i x)\right) ^ {-1} \end{aligned}$$
 
-上升幂, 下降幂与普通幂的转换参见“常用公式及结论”部分.
+\textbf{上升幂与普通幂的转换}
+
+$$ x^{\overline{n}}=\sum_{k} {n \brack k} x^k $$
+
+$$ x^n=\sum_{k} {n \brace k} (-1)^{n-k} x^{\overline{k}} $$
+
+\textbf{下降幂与普通幂的转换}
+
+$$ x^n=\sum_{k} {n \brace k} x^{\underline{k}} = \sum_{k} {x \choose k} {n \brace k} k! $$
+
+$$ x^{\underline{n}}=\sum_{k} {n \brack k} (-1)^{n-k} x^k $$
+
+另外, 多项式的\textbf{点值}表示的每项除以阶乘之后卷上$e^{-x}$乘上阶乘之后是牛顿插值表示, 或者不乘阶乘就是\textbf{下降幂}系数表示. 反过来的转换当然卷上$e^x$就行了. 原理是每次差分等价于乘以$(1 - x)$, 展开之后用一次卷积取代多次差分.

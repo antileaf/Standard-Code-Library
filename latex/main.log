@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  18 NOV 2021 07:17
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  19 NOV 2021 06:07
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1364,26 +1364,9 @@ LaTeX Font Info:    Font shape `TU/等线(0)/bx/n' in size <12> not available
 (Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 148.
 LaTeX Font Info:    Font shape `TU/等线(0)/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 148.
-LaTeX Font Info:    Font shape `TU/等线(0)/bx/n' in size <10> not available
-(Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 149.
-LaTeX Font Info:    Font shape `TU/等线(0)/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 149.
- (../src/math/牛顿插值.tex
-
-Package amsmath Warning: Foreign command \atopwithdelims;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 6.
-
-Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
-\openout3 = `main.pyg'.
-
-(./_minted-main/default-pyg-prefix.pygstyle) (./_minted-main/materiallight.pygstyle) (./_minted-main/8E0C717F2CED29FE669E3CB4C03F6BDC364FE131EAF292715EEF0B63283C77E1.pygtex
+ (./_minted-main/default-pyg-prefix.pygstyle) (./_minted-main/materiallight.pygstyle) (./_minted-main/10F34211E7031ED903642B4523047839364FE131EAF292715EEF0B63283C77E1.pygtex
 LaTeX Font Info:    Font shape `TU/Consolas(0)/m/n' will be
 (Font)              scaled to size 8.00003pt on input line 1.
-)
-Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
-) (../src/math/拉格朗日插值.tex) (./_minted-main/10F34211E7031ED903642B4523047839364FE131EAF292715EEF0B63283C77E1.pygtex
 LaTeX Font Info:    Font shape `TU/Consolas(0)/m/it' will be
 (Font)              scaled to size 8.00003pt on input line 2.
 
@@ -1425,21 +1408,38 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.40001> not available
 ) (./_minted-main/D2243BB76F44C1F564DA1A3BAB3FD49B364FE131EAF292715EEF0B63283C77E1.pygtex
 
 LaTeX Font Warning: Font shape `TU/等线(0)/m/sl' undefined
-(Font)              using `TU/等线(0)/m/n' instead on input line 9.
+(Font)              using `TU/等线(0)/m/n' instead on input line 37.
 
-[3]) (../src/math/任意模数卷积.tex (./_minted-main/CEA0F0C25343A6DF359444882093133A364FE131EAF292715EEF0B63283C77E1.pygtex
+[3])
+LaTeX Font Info:    Font shape `TU/等线(0)/bx/n' in size <10> not available
+(Font)              Font shape `TU/等线(0)/b/n' tried instead on input line 155.
+LaTeX Font Info:    Font shape `TU/等线(0)/b/n' will be
+(Font)              scaled to size 8.99994pt on input line 155.
+ (../src/math/任意模数卷积.tex (./_minted-main/CEA0F0C25343A6DF359444882093133A364FE131EAF292715EEF0B63283C77E1.pygtex
 LaTeX Font Info:    Font shape `TU/等线(0)/m/sl' will be
-(Font)              scaled to size 8.99994pt on input line 69.
- [4])) (./_minted-main/0F5C1A2B48CC09702F2E55202199F484364FE131EAF292715EEF0B63283C77E1.pygtex [5] [6]) (./_minted-main/7B7F42AADCD67F561FCB166450362944364FE131EAF292715EEF0B63283C77E1.pygtex [7]) (../src/math/多项式快速插值.tex [8] (./_minted-main/3BB522110535F2739AB880B09BE937FD364FE131EAF292715EEF0B63283C77E1.pygtex [9])) (../src/math/拉格朗日反演.tex) (./_minted-main/CDFB81BA6E411653B7EE9C864C40BFFA364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/D9B7E8CAD34EBCD4C837610D3C99A27E364FE131EAF292715EEF0B63283C77E1.pygtex [10]) (./_minted-main/384E3C129A66033FF9E11A5AAF150D01364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/D4F70F98DBBE9FCDAD64754005113E24364FE131EAF292715EEF0B63283C77E1.pygtex [11]) (./_minted-main/05751F6FA37615913346E0AB46B8B727364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/3C08FA805555EEF662B49D822216DC33364FE131EAF292715EEF0B63283C77E1.pygtex [12]) (../src/math/线性规划对偶原理.tex) (./_minted-main/380F3A296626E15BB27F232E32F172C8364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/math/高斯消元.tex
+(Font)              scaled to size 8.99994pt on input line 102.
+ [4])) (./_minted-main/0F5C1A2B48CC09702F2E55202199F484364FE131EAF292715EEF0B63283C77E1.pygtex [5] [6]) (./_minted-main/7B7F42AADCD67F561FCB166450362944364FE131EAF292715EEF0B63283C77E1.pygtex [7]) (../src/math/多项式快速插值.tex [8] (./_minted-main/3BB522110535F2739AB880B09BE937FD364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/math/拉格朗日反演.tex) (./_minted-main/CDFB81BA6E411653B7EE9C864C40BFFA364FE131EAF292715EEF0B63283C77E1.pygtex [9]) (./_minted-main/D9B7E8CAD34EBCD4C837610D3C99A27E364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/384E3C129A66033FF9E11A5AAF150D01364FE131EAF292715EEF0B63283C77E1.pygtex [10]) (../src/math/快速阶乘算法.tex) (../src/math/牛顿插值.tex
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 6.
+
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
 \openout3 = `main.pyg'.
 
- (./_minted-main/3B373D74B8631925FC09C0C3E87061D5364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/1347F2922CF259CFD5FDA87DB669E9E5364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/06A85ED0D1DC2575522010CA04485B29364FE131EAF292715EEF0B63283C77E1.pygtex [13]) (../src/math/线性代数.tex) (../src/math/矩阵树定理.tex) (./_minted-main/3545F23DB5FE5F0DA88CA7FA1ED35BFA364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/math/斐波那契数.tex
+(./_minted-main/8E0C717F2CED29FE669E3CB4C03F6BDC364FE131EAF292715EEF0B63283C77E1.pygtex)
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
+) (../src/math/拉格朗日插值.tex) (./_minted-main/D4F70F98DBBE9FCDAD64754005113E24364FE131EAF292715EEF0B63283C77E1.pygtex [11]) (./_minted-main/05751F6FA37615913346E0AB46B8B727364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/3C08FA805555EEF662B49D822216DC33364FE131EAF292715EEF0B63283C77E1.pygtex [12]) (../src/math/线性规划对偶原理.tex) (./_minted-main/380F3A296626E15BB27F232E32F172C8364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/math/高斯消元.tex
 \openout3 = `main.pyg'.
 
- (./_minted-main/138A3D69CCB2D63ED84C5FE16A8B8CDC364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/math/伯努利数.tex [14]) (./_minted-main/8959DE18CBFCB9C77277307C86E52345364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/math/斯特林数.tex) (../src/math/贝尔数.tex) (../src/math/卡特兰数.tex) (../src/math/方差.tex [15]) (../src/math/连通图计数.tex)
+ (./_minted-main/3B373D74B8631925FC09C0C3E87061D5364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/1347F2922CF259CFD5FDA87DB669E9E5364FE131EAF292715EEF0B63283C77E1.pygtex [13]) (./_minted-main/06A85ED0D1DC2575522010CA04485B29364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/math/线性代数.tex) (../src/math/矩阵树定理.tex) (../src/math/SG定理.tex) (../src/math/纳什均衡.tex) (../src/math/经典博弈.tex [14]) (./_minted-main/3545F23DB5FE5F0DA88CA7FA1ED35BFA364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/math/斐波那契数.tex
+\openout3 = `main.pyg'.
+
+ (./_minted-main/138A3D69CCB2D63ED84C5FE16A8B8CDC364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/math/伯努利数.tex) (./_minted-main/8959DE18CBFCB9C77277307C86E52345364FE131EAF292715EEF0B63283C77E1.pygtex [15]) (../src/math/斯特林数.tex) (../src/math/贝尔数.tex) (../src/math/卡特兰数.tex) (../src/math/方差.tex) (../src/math/连通图计数.tex)
 File: ../src/math/线性齐次线性常系数递推.png Graphic file (type bmp)
 <../src/math/线性齐次线性常系数递推.png>
- (../src/math/幂的转换.tex) (../src/math/常见生成函数.tex) (./_minted-main/F57555EB96600C6390AA7AC9610F6215364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/71E7C4A067067AB89359ED42328555AD364FE131EAF292715EEF0B63283C77E1.pygtex [16]) (./_minted-main/5347397AB887AE92BADA03804430BFF3364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/numbertheory/PN.tex) (../src/numbertheory/洲阁筛.tex [17]
+ [16] (../src/math/常见生成函数.tex) (./_minted-main/F57555EB96600C6390AA7AC9610F6215364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/71E7C4A067067AB89359ED42328555AD364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/5347397AB887AE92BADA03804430BFF3364FE131EAF292715EEF0B63283C77E1.pygtex [17]) (../src/numbertheory/PN.tex) (../src/numbertheory/洲阁筛.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
@@ -1454,15 +1454,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--36
 
  []
 
-(./_minted-main/0A870148B87934D29F618C3368F159B7364FE131EAF292715EEF0B63283C77E1.pygtex [18])) (./_minted-main/C3EF4B6257137FCFD4443424105F2058364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/69D3F5D066814E81BD120AC60440A5BC364FE131EAF292715EEF0B63283C77E1.pygtex [19]) (./_minted-main/D96B8601FFC9A176624690C4868249E8364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/numbertheory/exgcd.tex) (../src/numbertheory/原根.tex
+(./_minted-main/0A870148B87934D29F618C3368F159B7364FE131EAF292715EEF0B63283C77E1.pygtex [18])) (./_minted-main/C3EF4B6257137FCFD4443424105F2058364FE131EAF292715EEF0B63283C77E1.pygtex [19]) (./_minted-main/69D3F5D066814E81BD120AC60440A5BC364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/D96B8601FFC9A176624690C4868249E8364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/numbertheory/exgcd.tex) (../src/numbertheory/原根.tex [20]
 \openout3 = `main.pyg'.
 
- (./_minted-main/76540DEBEA29CC4A9F319885155A97CEA715929D0EBECFFE128EBB71CDA52DBA.pygtex)) (../src/numbertheory/公式.tex [20]) (../src/graph/Boruvka.tex) (./_minted-main/942EE11375BFB706BA3B363FC423C193364FE131EAF292715EEF0B63283C77E1.pygtex [21]) (../src/graph/最小树形图.tex) (../src/graph/steiner.tex [22]) (../src/graph/johnson.tex) (./_minted-main/30A1BDAB3462B1B360CC2A7FCF800995364FE131EAF292715EEF0B63283C77E1.pygtex [23]) (./_minted-main/37A836CB6C519AEBDD6AA5659B19D336364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/91962C5868B707733BCE657393DFFF3A364FE131EAF292715EEF0B63283C77E1.pygtex
+ (./_minted-main/76540DEBEA29CC4A9F319885155A97CEA715929D0EBECFFE128EBB71CDA52DBA.pygtex)) (../src/numbertheory/公式.tex) (../src/graph/Boruvka.tex) (./_minted-main/942EE11375BFB706BA3B363FC423C193364FE131EAF292715EEF0B63283C77E1.pygtex [21] [22]) (../src/graph/最小树形图.tex) (../src/graph/steiner.tex) (../src/graph/johnson.tex) (./_minted-main/30A1BDAB3462B1B360CC2A7FCF800995364FE131EAF292715EEF0B63283C77E1.pygtex [23]) (./_minted-main/37A836CB6C519AEBDD6AA5659B19D336364FE131EAF292715EEF0B63283C77E1.pygtex [24]) (./_minted-main/91962C5868B707733BCE657393DFFF3A364FE131EAF292715EEF0B63283C77E1.pygtex
 Overfull \hbox (1.15625pt too wide) in paragraph at lines 32--32
 || | |[][][][][][][]\TU/Consolas(0)/m/n/10 bcc[][][[][]bcc_cnt[][]].[][]push_back[][]([][]pi[][].[][]second[][]);[]|  
  []
 
-[24]) (./_minted-main/4AFE7498A86BE466D148AB978FBF9338364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/9ECAA8226DB4874FFD91E96CB7A0FC00364FE131EAF292715EEF0B63283C77E1.pygtex [25]) (./_minted-main/2E3DF969296E5944E3F826481FBB3772364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/57F79A01897CBDE631C195356C54AD59364FE131EAF292715EEF0B63283C77E1.pygtex [26]) (../src/graph/二分图原理.tex) (./_minted-main/CB828F32F67C60AFD415B0DECF9A2A95364FE131EAF292715EEF0B63283C77E1.pygtex [27]) (./_minted-main/422C74649E401CF18EF6718832B57008364FE131EAF292715EEF0B63283C77E1.pygtex [28]) (./_minted-main/847A50A71B244B25621955EEC60033DC364FE131EAF292715EEF0B63283C77E1.pygtex [29] [30]) (../src/graph/一般图匹配原理.tex) (./_minted-main/F6F1D6E42A0230025B75051E75FC5044364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/4056FAE7F94EC3642C1AB41F87BB8A7D364FE131EAF292715EEF0B63283C77E1.pygtex [31]) (./_minted-main/4D7A22ED428216703EB526E4F004EF79364FE131EAF292715EEF0B63283C77E1.pygtex [32]) (./_minted-main/5AEEB662324C30A1F4B68F30D0C55578364FE131EAF292715EEF0B63283C77E1.pygtex [33]) (./_minted-main/A128195CF4875D6DFE7D89163357DA74364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/graph/dijkstra费用流.tex) (../src/graph/网络流原理.tex [34]
+) (./_minted-main/4AFE7498A86BE466D148AB978FBF9338364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/9ECAA8226DB4874FFD91E96CB7A0FC00364FE131EAF292715EEF0B63283C77E1.pygtex [25]) (./_minted-main/2E3DF969296E5944E3F826481FBB3772364FE131EAF292715EEF0B63283C77E1.pygtex [26]) (./_minted-main/57F79A01897CBDE631C195356C54AD59364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/graph/二分图原理.tex [27]) (./_minted-main/CB828F32F67C60AFD415B0DECF9A2A95364FE131EAF292715EEF0B63283C77E1.pygtex [28]) (./_minted-main/422C74649E401CF18EF6718832B57008364FE131EAF292715EEF0B63283C77E1.pygtex [29]) (./_minted-main/847A50A71B244B25621955EEC60033DC364FE131EAF292715EEF0B63283C77E1.pygtex [30]) (../src/graph/一般图匹配原理.tex [31]) (./_minted-main/F6F1D6E42A0230025B75051E75FC5044364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/4056FAE7F94EC3642C1AB41F87BB8A7D364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/4D7A22ED428216703EB526E4F004EF79364FE131EAF292715EEF0B63283C77E1.pygtex [32]) (./_minted-main/5AEEB662324C30A1F4B68F30D0C55578364FE131EAF292715EEF0B63283C77E1.pygtex [33]) (./_minted-main/A128195CF4875D6DFE7D89163357DA74364FE131EAF292715EEF0B63283C77E1.pygtex [34]) (../src/graph/dijkstra费用流.tex) (../src/graph/网络流原理.tex
 File: ../src/graph/上下界网络流.png Graphic file (type bmp)
 <../src/graph/上下界网络流.png>
 
@@ -1473,23 +1473,23 @@ Overfull \hbox (2.73727pt too wide) in paragraph at lines 24--25
 ) (../src/graph/prufer.tex
 \openout3 = `main.pyg'.
 
- (./_minted-main/27B44DF3A1931A4FEEEBB4A76314E530364FE131EAF292715EEF0B63283C77E1.pygtex)
+ (./_minted-main/27B44DF3A1931A4FEEEBB4A76314E530364FE131EAF292715EEF0B63283C77E1.pygtex [35])
 \openout3 = `main.pyg'.
 
- (./_minted-main/F81C40C3DDD3DDF4DB2CA5E697465286364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/graph/弦图相关.tex [35]) (../src/datastructure/非递归线段树.tex (./_minted-main/D4B2E5C8E5DA73740A1EAB6E0BF7E8E8364FE131EAF292715EEF0B63283C77E1.pygtex)
+ (./_minted-main/F81C40C3DDD3DDF4DB2CA5E697465286364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/graph/弦图相关.tex) (../src/datastructure/非递归线段树.tex (./_minted-main/D4B2E5C8E5DA73740A1EAB6E0BF7E8E8364FE131EAF292715EEF0B63283C77E1.pygtex)
 Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
  []
 
-(./_minted-main/A505D7812827EF72E7964B6E0712C798364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/58D42AE9C9ABD080C8AF558D4E6C2F93364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/1C035EAEF258F8752108A7E20FC22A81364FE131EAF292715EEF0B63283C77E1.pygtex [36]) (./_minted-main/9DF5BD0BD28060D5080A34D1191E1086364FE131EAF292715EEF0B63283C77E1.pygtex [37]) (./_minted-main/4D0DDF7559BC5BB87584E0E229B228DD364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/EBFFE0DD34B0662F5C4DE1244E25F8F9364FE131EAF292715EEF0B63283C77E1.pygtex [38]
+(./_minted-main/A505D7812827EF72E7964B6E0712C798364FE131EAF292715EEF0B63283C77E1.pygtex [36]) (./_minted-main/58D42AE9C9ABD080C8AF558D4E6C2F93364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/1C035EAEF258F8752108A7E20FC22A81364FE131EAF292715EEF0B63283C77E1.pygtex [37]) (./_minted-main/9DF5BD0BD28060D5080A34D1191E1086364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/4D0DDF7559BC5BB87584E0E229B228DD364FE131EAF292715EEF0B63283C77E1.pygtex [38]) (./_minted-main/EBFFE0DD34B0662F5C4DE1244E25F8F9364FE131EAF292715EEF0B63283C77E1.pygtex [39]
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no （ (U+FF08) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ） (U+FF09) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (./_minted-main/DB48B6443D0C1BE6900F784E9101E08A364FE131EAF292715EEF0B63283C77E1.pygtex [39]) (./_minted-main/BEFD4BC2D4D5B1C77A8F600764CE59C1364FE131EAF292715EEF0B63283C77E1.pygtex [40]) (./_minted-main/24F5782C3DB9852A5496B3D0326CF9F0364FE131EAF292715EEF0B63283C77E1.pygtex [41]) (./_minted-main/94BE370934C73ECB2C81D56B9A930523364FE131EAF292715EEF0B63283C77E1.pygtex [42]) (./_minted-main/7C8E1CCDAD0882198CC47E790F9E5318364FE131EAF292715EEF0B63283C77E1.pygtex [43]
+) (./_minted-main/DB48B6443D0C1BE6900F784E9101E08A364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/BEFD4BC2D4D5B1C77A8F600764CE59C1364FE131EAF292715EEF0B63283C77E1.pygtex [40]) (./_minted-main/24F5782C3DB9852A5496B3D0326CF9F0364FE131EAF292715EEF0B63283C77E1.pygtex [41]) (./_minted-main/94BE370934C73ECB2C81D56B9A930523364FE131EAF292715EEF0B63283C77E1.pygtex [42] [43]) (./_minted-main/7C8E1CCDAD0882198CC47E790F9E5318364FE131EAF292715EEF0B63283C77E1.pygtex
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
 Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=latn;language=dflt;!
-) (./_minted-main/A7583DD0C8C14BEE34A60920972DC4C8364FE131EAF292715EEF0B63283C77E1.pygtex [44]) (./_minted-main/46E817E3E3840A6883803B4040FE2B66364FE131EAF292715EEF0B63283C77E1.pygtex [45] [46]) (./_minted-main/5F8009D7D1EA7B6BC8FE2D18B3EC6E35364FE131EAF292715EEF0B63283C77E1.pygtex [47] [48]) (./_minted-main/BA5B4A5FFC428D9DED4645436E9C1445364FE131EAF292715EEF0B63283C77E1.pygtex [49]) (./_minted-main/6C980A5F96A37FAB6D706D62FC506931364FE131EAF292715EEF0B63283C77E1.pygtex [50]) (./_minted-main/5A72BB37570373D4BC0728F6033F3629364FE131EAF292715EEF0B63283C77E1.pygtex [51]) (./_minted-main/41278A901CCB849F574FFD0ED03C9C3B364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/datastructure/常见根号思路.tex [52]) (./_minted-main/51A9AFEC19250B2E9074B3E8D7AB3993364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/A9E52FD30A6CB9A2165A00C55AE4745D364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/397313531BC0D4ED2636CD69E045453E364FE131EAF292715EEF0B63283C77E1.pygtex [53]) (./_minted-main/F741D474879272C2BB9EBD2E4EB19313364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/3AC3A8386F7D96ACA0310DE4CD409C2C364FE131EAF292715EEF0B63283C77E1.pygtex [54]) (./_minted-main/0C3A8039554EBE7A3A384E0E62C4FD68364FE131EAF292715EEF0B63283C77E1.pygtex [55]) (../src/string/后缀平衡树.tex) (./_minted-main/ED811EAC65205808BCFB9FA420562C3B364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/string/区间本质不同子串统计.tex [56] (./_minted-main/9CCA06F354A690C0399C2BF0CC10960A364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/92C12C193DB2BDAB1B2DF0EBCE5D80B4364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/8F35E9CA2B423F4C50B8FE0EE15F5677364FE131EAF292715EEF0B63283C77E1.pygtex [57] [58]) (./_minted-main/1FB5FA51CF948722F3DB7C9790733FE1364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/string/字符串原理.tex) (./_minted-main/916713130A51D4C0C84B8E8DCF061800364FE131EAF292715EEF0B63283C77E1.pygtex [59]) (./_minted-main/B3B561305662AA34DB367A5F2AC5E6EB364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/EC1C8990C1E9BD6C42180B4F92E167F8A715929D0EBECFFE128EBB71CDA52DBA.pygtex [60]) (./_minted-main/65B691DB974DC95885FCF4B98A8858FD364FE131EAF292715EEF0B63283C77E1.pygtex [61] [62]) (./_minted-main/3C256A547034F06DF0134AD40BBAD060364FE131EAF292715EEF0B63283C77E1.pygtex [63]) (../src/misc/常用NTT素数及原根.tex) (./_minted-main/64984275464294626A0B1DD731D664E9364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/枚举子集.tex
+ [44]) (./_minted-main/A7583DD0C8C14BEE34A60920972DC4C8364FE131EAF292715EEF0B63283C77E1.pygtex [45]) (./_minted-main/46E817E3E3840A6883803B4040FE2B66364FE131EAF292715EEF0B63283C77E1.pygtex [46]) (./_minted-main/5F8009D7D1EA7B6BC8FE2D18B3EC6E35364FE131EAF292715EEF0B63283C77E1.pygtex [47] [48] [49]) (./_minted-main/BA5B4A5FFC428D9DED4645436E9C1445364FE131EAF292715EEF0B63283C77E1.pygtex [50]) (./_minted-main/6C980A5F96A37FAB6D706D62FC506931364FE131EAF292715EEF0B63283C77E1.pygtex [51]) (./_minted-main/5A72BB37570373D4BC0728F6033F3629364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/41278A901CCB849F574FFD0ED03C9C3B364FE131EAF292715EEF0B63283C77E1.pygtex [52]) (../src/datastructure/常见根号思路.tex) (./_minted-main/51A9AFEC19250B2E9074B3E8D7AB3993364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/A9E52FD30A6CB9A2165A00C55AE4745D364FE131EAF292715EEF0B63283C77E1.pygtex [53]) (./_minted-main/397313531BC0D4ED2636CD69E045453E364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/F741D474879272C2BB9EBD2E4EB19313364FE131EAF292715EEF0B63283C77E1.pygtex [54]) (./_minted-main/3AC3A8386F7D96ACA0310DE4CD409C2C364FE131EAF292715EEF0B63283C77E1.pygtex [55]) (./_minted-main/0C3A8039554EBE7A3A384E0E62C4FD68364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/string/后缀平衡树.tex [56]) (./_minted-main/ED811EAC65205808BCFB9FA420562C3B364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/string/区间本质不同子串统计.tex (./_minted-main/9CCA06F354A690C0399C2BF0CC10960A364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/92C12C193DB2BDAB1B2DF0EBCE5D80B4364FE131EAF292715EEF0B63283C77E1.pygtex [57]) (./_minted-main/8F35E9CA2B423F4C50B8FE0EE15F5677364FE131EAF292715EEF0B63283C77E1.pygtex [58] [59]) (./_minted-main/1FB5FA51CF948722F3DB7C9790733FE1364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/string/字符串原理.tex) (./_minted-main/916713130A51D4C0C84B8E8DCF061800364FE131EAF292715EEF0B63283C77E1.pygtex [60]) (./_minted-main/B3B561305662AA34DB367A5F2AC5E6EB364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/EC1C8990C1E9BD6C42180B4F92E167F8A715929D0EBECFFE128EBB71CDA52DBA.pygtex) (./_minted-main/65B691DB974DC95885FCF4B98A8858FD364FE131EAF292715EEF0B63283C77E1.pygtex [61] [62] [63]) (./_minted-main/3C256A547034F06DF0134AD40BBAD060364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/常用NTT素数及原根.tex) (./_minted-main/64984275464294626A0B1DD731D664E9364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/枚举子集.tex
 \openout4 = `main.pyg'.
 
  (./_minted-main/B20FCC2397E71AE49E65839A507D0A34364FE131EAF292715EEF0B63283C77E1.pygtex)
@@ -1498,7 +1498,7 @@ Missing character: There is no ， (U+FF0C) in font Consolas Italic/OT:script=la
  (./_minted-main/0B018890587674A1C79562D44C8405BD364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/misc/STL.tex
 \openout4 = `main.pyg'.
 
- (./_minted-main/6586EBC95E6F505FBE99B8A1EA863A69364FE131EAF292715EEF0B63283C77E1.pygtex)
+ (./_minted-main/6586EBC95E6F505FBE99B8A1EA863A69364FE131EAF292715EEF0B63283C77E1.pygtex) [64]
 \openout4 = `main.pyg'.
 
  (./_minted-main/1E0E8427C0F4F95287561C40A45BD9D7364FE131EAF292715EEF0B63283C77E1.pygtex)
@@ -1604,7 +1604,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--8
  (./_minted-main/CA3D8D0743F511345B8686B1788FE715364FE131EAF292715EEF0B63283C77E1.pygtex)
 File: ../src/misc/pbds_heap.png Graphic file (type bmp)
 <../src/misc/pbds_heap.png>
- [64]
 \openout4 = `main.pyg'.
 
  (./_minted-main/F4F12836D5C99D680DB1DC8879050E23364FE131EAF292715EEF0B63283C77E1.pygtex)
@@ -1688,11 +1687,12 @@ File: ../src/misc/pbds_heap.png Graphic file (type bmp)
  (./_minted-main/9764B578E8FF3D4515C0E13D393E1509364FE131EAF292715EEF0B63283C77E1.pygtex)
 \openout4 = `main.pyg'.
 
- (./_minted-main/F60C98D35B0C8179C68DFC319D04B66F364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/71DCE5BF3A11A2574DEA3EE0FFE2DA61364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/misc/oeis.tex [65]
+ (./_minted-main/F60C98D35B0C8179C68DFC319D04B66F364FE131EAF292715EEF0B63283C77E1.pygtex)) (./_minted-main/71DCE5BF3A11A2574DEA3EE0FFE2DA61364FE131EAF292715EEF0B63283C77E1.pygtex [65]) (../src/misc/oeis.tex
 Underfull \hbox (badness 10000) in paragraph at lines 139--140
 \TU/lmr/m/n/10 2305843009213693951, 618970019642690137449562111,
  []
 
+[66]
 Missing character: There is no ， (U+FF0C) in font [lmroman10-regular]:mapping=tex-text;!
 ) (../src/misc/编译选项.tex
 \openout4 = `main.pyg'.
@@ -1715,14 +1715,11 @@ Missing character: There is no ， (U+FF0C) in font [lmroman10-regular]:mapping=
  (./_minted-main/1C2766C0203CA8489F178B9955964C54364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/常见下毒手法.tex
 \openout4 = `main.pyg'.
 
- (./_minted-main/2A263F378B83BB5BECFDF6B8DA7D66C8364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex [66]) (../src/misc/骂人的艺术.tex
+ (./_minted-main/2A263F378B83BB5BECFDF6B8DA7D66C8364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex) (../src/misc/骂人的艺术.tex
 Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
-)
-Overfull \vbox (13.29367pt too high) has occurred while \output is active []
-
- [67]
+ [67])
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
@@ -1813,12 +1810,12 @@ runsystem(del main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 19138 strings out of 476919
- 408585 string characters out of 5825424
- 1067342 words of memory out of 5000000
- 38146 multiletter control sequences out of 15000+600000
+ 19150 strings out of 476919
+ 408785 string characters out of 5825424
+ 1057850 words of memory out of 5000000
+ 38149 multiletter control sequences out of 15000+600000
  416129 words of font info for 120 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 85i,17n,89p,1190b,1412s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 85i,17n,89p,1190b,1464s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (79 pages).
