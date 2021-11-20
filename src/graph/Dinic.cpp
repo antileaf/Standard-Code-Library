@@ -6,6 +6,7 @@ struct edge{
 
 int last[maxn], len, d[maxn], cur[maxn], q[maxn];
 
+// main函数里要初始化
 memset(last, -1, sizeof(last));
 
 void AddEdge(int x, int y, int z) {
@@ -15,13 +16,9 @@ void AddEdge(int x, int y, int z) {
 	last[x] = len++;
 }
 
-int Dinic() {
-	int flow = 0;
-	while (bfs(), ~d[t]) {
-		memcpy(cur, last, sizeof(int) * (t + 5));
-		flow += dfs(s, inf);
-	}
-	return flow;
+void addedge(int x, int y, int z) {
+	AddEdge(x, y, z);
+	AddEdge(y, x, 0);
 }
 
 void bfs() {
@@ -57,5 +54,14 @@ int dfs(int x, int a) {
 				break;
 		}
 
+	return flow;
+}
+
+int Dinic() {
+	int flow = 0;
+	while (bfs(), ~d[t]) {
+		memcpy(cur, last, sizeof(int) * (t + 5));
+		flow += dfs(s, inf);
+	}
 	return flow;
 }
