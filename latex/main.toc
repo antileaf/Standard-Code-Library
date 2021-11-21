@@ -176,5 +176,5 @@
 \contentsline {subsubsection}{\numberline {7.14.1}插件}{67}{}%
 \contentsline {subsubsection}{\numberline {7.14.2}设置选项}{68}{}%
 \contentsline {subsubsection}{\numberline {7.14.3}快捷键}{68}{}%
-\contentsline {subsection}{\numberline {7.15}附录: 骂人的艺术 —梁实秋}{69}{}%
-\contentsline {subsection}{\numberline {7.16}附录: Cheat Sheet}{69}{}%
+\contentsline {subsection}{\numberline {7.15}附录: 骂人的艺术 —梁实秋}{68}{}%
+\contentsline {subsection}{\numberline {7.16}附录: Cheat Sheet}{68}{}%

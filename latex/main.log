@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  20 NOV 2021 16:19
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  20 NOV 2021 23:09
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1462,12 +1462,7 @@ Overfull \hbox (1.15625pt too wide) in paragraph at lines 32--32
 || | |[][][][][][][]\TU/Consolas(0)/m/n/10 bcc[][][[][]bcc_cnt[][]].[][]push_back[][]([][]pi[][].[][]second[][]);[]|  
  []
 
-) (./_minted-main/4AFE7498A86BE466D148AB978FBF9338364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/9ECAA8226DB4874FFD91E96CB7A0FC00364FE131EAF292715EEF0B63283C77E1.pygtex [25]) (./_minted-main/2E3DF969296E5944E3F826481FBB3772364FE131EAF292715EEF0B63283C77E1.pygtex [26]) (./_minted-main/57F79A01897CBDE631C195356C54AD59364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/graph/二分图原理.tex [27]) (./_minted-main/CB828F32F67C60AFD415B0DECF9A2A95364FE131EAF292715EEF0B63283C77E1.pygtex [28]) (./_minted-main/422C74649E401CF18EF6718832B57008364FE131EAF292715EEF0B63283C77E1.pygtex [29]) (./_minted-main/847A50A71B244B25621955EEC60033DC364FE131EAF292715EEF0B63283C77E1.pygtex [30]) (../src/graph/一般图匹配原理.tex [31]) (./_minted-main/F6F1D6E42A0230025B75051E75FC5044364FE131EAF292715EEF0B63283C77E1.pygtex)
-runsystem(python -c "import sys; import os; import textwrap; from io import open; fname = os.path.expanduser(os.path.expandvars(\"../src/graph/Dinic.cpp\")); f = open(fname, \"r\", encoding=\"UTF8\") if os.path.isfile(fname) else None; t = f.readlines() if f is not None else None; t_opt = t if t is not None else []; f.close() if f is not None else None; tmpfname = os.path.expanduser(os.path.expandvars(\"main.pyg\")); f = open(tmpfname, \"w\", encoding=\"UTF8\") if t is not None else None; fvstartnum = 0; fvstopnum = 0; s = fvstartnum-1 if fvstartnum != 0 else 0; e = fvstopnum if fvstopnum != 0 else len(t_opt); [f.write(textwrap.dedent(\"\".join(x))) for x in (t_opt[0:s], t_opt[s:e], t_opt[e:]) if x and t is not None]; f.close() if t is not None else os.remove(tmpfname);")...executed.
-
-runsystem(pygmentize -l cpp -f latex -P commandprefix=PYG -F tokenmerge -P mathescape=True -o _minted-main/934A721405CB1CF90E734803514B3B17364FE131EAF292715EEF0B63283C77E1.pygtex main.pyg)...executed.
-
- (./_minted-main/934A721405CB1CF90E734803514B3B17364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/4D7A22ED428216703EB526E4F004EF79364FE131EAF292715EEF0B63283C77E1.pygtex [32]) (./_minted-main/5AEEB662324C30A1F4B68F30D0C55578364FE131EAF292715EEF0B63283C77E1.pygtex [33]) (./_minted-main/A128195CF4875D6DFE7D89163357DA74364FE131EAF292715EEF0B63283C77E1.pygtex [34]) (../src/graph/dijkstra费用流.tex) (../src/graph/网络流原理.tex
+) (./_minted-main/4AFE7498A86BE466D148AB978FBF9338364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/9ECAA8226DB4874FFD91E96CB7A0FC00364FE131EAF292715EEF0B63283C77E1.pygtex [25]) (./_minted-main/2E3DF969296E5944E3F826481FBB3772364FE131EAF292715EEF0B63283C77E1.pygtex [26]) (./_minted-main/57F79A01897CBDE631C195356C54AD59364FE131EAF292715EEF0B63283C77E1.pygtex) (../src/graph/二分图原理.tex [27]) (./_minted-main/CB828F32F67C60AFD415B0DECF9A2A95364FE131EAF292715EEF0B63283C77E1.pygtex [28]) (./_minted-main/422C74649E401CF18EF6718832B57008364FE131EAF292715EEF0B63283C77E1.pygtex [29]) (./_minted-main/847A50A71B244B25621955EEC60033DC364FE131EAF292715EEF0B63283C77E1.pygtex [30]) (../src/graph/一般图匹配原理.tex [31]) (./_minted-main/F6F1D6E42A0230025B75051E75FC5044364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/934A721405CB1CF90E734803514B3B17364FE131EAF292715EEF0B63283C77E1.pygtex) (./_minted-main/4D7A22ED428216703EB526E4F004EF79364FE131EAF292715EEF0B63283C77E1.pygtex [32]) (./_minted-main/5AEEB662324C30A1F4B68F30D0C55578364FE131EAF292715EEF0B63283C77E1.pygtex [33]) (./_minted-main/A128195CF4875D6DFE7D89163357DA74364FE131EAF292715EEF0B63283C77E1.pygtex [34]) (../src/graph/dijkstra费用流.tex) (../src/graph/网络流原理.tex
 File: ../src/graph/上下界网络流.png Graphic file (type bmp)
 <../src/graph/上下界网络流.png>
 
@@ -1719,7 +1714,7 @@ Missing character: There is no ， (U+FF0C) in font [lmroman10-regular]:mapping=
  (./_minted-main/1C2766C0203CA8489F178B9955964C54364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/常见下毒手法.tex
 \openout4 = `main.pyg'.
 
- (./_minted-main/2A263F378B83BB5BECFDF6B8DA7D66C8364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex) (../src/misc/vscode.tex [67]) [68] (../src/misc/骂人的艺术.tex
+ (./_minted-main/2A263F378B83BB5BECFDF6B8DA7D66C8364FE131EAF292715EEF0B63283C77E1.pygtex)) (../src/attention/场外相关.tex) (../src/attention/做题策略与心态调节.tex) (../src/misc/vscode.tex [67]) (../src/misc/骂人的艺术.tex
 Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ； (U+FF1B) in font [lmroman10-regular]:mapping=tex-text;!
@@ -1732,80 +1727,77 @@ File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf, page 1>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf, page 1>
+ [68]
+File: ../src/misc/Cheat.pdf Graphic file (type pdf)
+<use ../src/misc/Cheat.pdf, page 1>
+File: ../src/misc/Cheat.pdf Graphic file (type pdf)
+<use ../src/misc/Cheat.pdf, page 1>
+File: ../src/misc/Cheat.pdf Graphic file (type pdf)
+<use ../src/misc/Cheat.pdf, page 1>
  [69]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 1>
+<use ../src/misc/Cheat.pdf, page 2>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 1>
+<use ../src/misc/Cheat.pdf, page 2>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 1>
+<use ../src/misc/Cheat.pdf, page 2>
  [70]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 2>
+<use ../src/misc/Cheat.pdf, page 3>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 2>
+<use ../src/misc/Cheat.pdf, page 3>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 2>
+<use ../src/misc/Cheat.pdf, page 3>
  [71]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 3>
+<use ../src/misc/Cheat.pdf, page 4>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 3>
+<use ../src/misc/Cheat.pdf, page 4>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 3>
+<use ../src/misc/Cheat.pdf, page 4>
  [72]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 4>
+<use ../src/misc/Cheat.pdf, page 5>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 4>
+<use ../src/misc/Cheat.pdf, page 5>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 4>
+<use ../src/misc/Cheat.pdf, page 5>
  [73]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 5>
+<use ../src/misc/Cheat.pdf, page 6>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 5>
+<use ../src/misc/Cheat.pdf, page 6>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 5>
+<use ../src/misc/Cheat.pdf, page 6>
  [74]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 6>
+<use ../src/misc/Cheat.pdf, page 7>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 6>
+<use ../src/misc/Cheat.pdf, page 7>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 6>
+<use ../src/misc/Cheat.pdf, page 7>
  [75]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 7>
+<use ../src/misc/Cheat.pdf, page 8>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 7>
+<use ../src/misc/Cheat.pdf, page 8>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 7>
+<use ../src/misc/Cheat.pdf, page 8>
  [76]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 8>
+<use ../src/misc/Cheat.pdf, page 9>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 8>
+<use ../src/misc/Cheat.pdf, page 9>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 8>
+<use ../src/misc/Cheat.pdf, page 9>
  [77]
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 9>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 9>
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
-<use ../src/misc/Cheat.pdf, page 9>
- [78]
-File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf, page 10>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf, page 10>
 File: ../src/misc/Cheat.pdf Graphic file (type pdf)
 <use ../src/misc/Cheat.pdf, page 10>
- [79]
-runsystem(del _minted-main\4056FAE7F94EC3642C1AB41F87BB8A7D364FE131EAF292715EEF0B63283C77E1.pygtex)...executed.
-
- (./main.aux)
+ [78] (./main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.44003pt have occurred.
@@ -1817,12 +1809,12 @@ runsystem(del main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 19156 strings out of 476919
- 409005 string characters out of 5825424
+ 19154 strings out of 476919
+ 408857 string characters out of 5825424
  1058850 words of memory out of 5000000
- 38151 multiletter control sequences out of 15000+600000
+ 38150 multiletter control sequences out of 15000+600000
  416129 words of font info for 120 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  85i,17n,89p,1190b,1428s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (80 pages).
+Output written on main.pdf (79 pages).
