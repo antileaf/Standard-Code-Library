@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{n}{join}\PYG{p}{(}\PYG{n}{\PYGZus{}\PYGZus{}gnu\PYGZus{}pbds}\PYG{o}{::}\PYG{n}{priority\PYGZus{}queue} \PYG{o}{\PYGZam{}}\PYG{n}{other}\PYG{p}{)}
-\end{Verbatim}
