@@ -35,4 +35,12 @@
 
 结论: 设两堆石子分别有$a$个和$b$个, 且$a<b$, 则先手必败当且仅当$a = \left\lfloor (b-a)\frac {1 + \sqrt 5} 2 \right\rfloor$.
 
+\item \textbf{删子树博弈}
+
+有一棵有根树, 两个人轮流操作, 每次可以选一个点(除了根节点)然后把它的子树都删掉, 不能操作的输.
+
+结论:
+
+$$ SG(u) = \text{XOR} _{v \in son_u} \left( SG(v) + 1 \right) $$
+
 \end{enumerate}

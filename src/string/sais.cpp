@@ -126,6 +126,16 @@ int *sais(int *s, int len, int m) {
 	for (int i = cnt - 1; ~i; i--)
 		sa[sbuc[s[pos[tsa[i]]]]--] = pos[tsa[i]];
 	induced_sort(s, sa, tp, buc, lbuc, sbuc, n, m);
+
+	// 多组数据的时候最好delete掉
+	delete[] tp;
+	delete[] pos;
+	delete[] name;
+	delete[] buc;
+	delete[] lbuc;
+	delete[] sbuc;
+	delete[] t;
+	delete[] tsa;
 	
 	return sa;
 }
@@ -155,14 +165,14 @@ int n, s[maxn], sa[maxn], rnk[maxn], height[maxn];
 
 // 方便起见附上主函数
 int main() {
-	scanf("%s", str);
+	scanf("%s", str); // 0-based
 	n = strlen(str);
-	str[n] = '$';
+	str[n] = '$'; // $比小写字母都要小, 所以sa[0]一定是n(也就是额外加的$)
 
 	for (int i = 0; i <= n; i++)
 		s[i] = str[i];
 	
-	memcpy(sa, sais(s, n + 1, 256), sizeof(int) * (n + 1));
+	memcpy(sa, sais(s, n + 1, 256), sizeof(int) * (n + 1)); // 多组的话最好delete掉
 
 	get_height(s, sa, rnk, height, n);
 
