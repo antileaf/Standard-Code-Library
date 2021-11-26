@@ -487,6 +487,10 @@
 
 				如果是满足可减性的问题(例如查询区间$k$小数)可以直接在划分的时候把询问的$k$修改一下. 否则需要维护一个全局的数据结构, 一般来说可以先递归右边再递归左边, 具体维护方法视情况而定.
 
+				以下代码以ZJOI K大数查询为例(区间都添加一个数, 询问区间$k$大数).
+
+				\inputminted{cpp}{../src/datastructure/整体二分.cpp}
+
 			% \subsection{块状链表}
 	
 	
@@ -550,6 +554,9 @@
 					
 			\subsection{左偏树}
 				(参见k短路)
+			
+			\subsection{莫队}
+				\input{../src/datastructure/莫队.tex}
 	
 			\subsection{常见根号思路}
 				\input{../src/datastructure/常见根号思路.tex}

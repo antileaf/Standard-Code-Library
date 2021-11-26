@@ -1,60 +1,49 @@
+\begin{enumerate}
 
-\noindent{
-	{\large\bfseries{通用}}
-	\begin{itemize}
-		\item 出现次数大于$\sqrt n$的数不会超过$\sqrt n$个
-		\item 对于带修改问题, 如果不方便分治或者二进制分组, 可以考虑对操作分块, 每次查询时暴力最后的$\sqrt n$个修改并更正答案
-		\item {\bfseries 根号分治}: 如果分治时每个子问题需要$O(N)$(N是全局问题的大小)的时间, 而规模较小的子问题可以$O(n^2)$解决, 则可以使用根号分治
-			\begin{itemize}
-				\item 规模大于$\sqrt n$的子问题用$O(N)$的方法解决, 规模小于$\sqrt n$的子问题用$O(n^2)$暴力
-				\item 规模大于$\sqrt n$的子问题最多只有$\sqrt n$个
-				\item 规模不大于$\sqrt n$的子问题大小的平方和也必定不会超过$n\sqrt n$
-			\end{itemize}
-		\item 如果输入规模之和不大于$n$(例如给定多个小字符串与大字符串进行询问), 那么规模超过$\sqrt n$的问题最多只有$\sqrt n$个
-	\end{itemize}
-}
+\item \textbf{通用}
 
-\noindent{
-	{\large\bfseries{序列}}
-	\begin{itemize}
-		\item 某些维护序列的问题可以用分块/块状链表维护
-		\item 对于静态区间询问问题, 如果可以快速将左/右端点移动一位, 可以考虑莫队
-			\begin{itemize}
-				\item 如果强制在线可以分块预处理, 但是一般空间需要$n\sqrt n$ 
-					\begin{itemize}
-						\item 例题: 询问区间中有几种数出现次数恰好为$k$, 强制在线
-					\end{itemize}
-				\item 如果带修改可以试着想一想带修莫队, 但是复杂度高达$n^{\frac 5 3}$
-			\end{itemize}
-		\item 线段树可以解决的问题也可以用分块来做到$O(1)$询问或是$O(1)$修改, 具体要看哪种操作更多
-	\end{itemize}
-}
+\begin{itemize}
+	\item 出现次数大于$\sqrt n$的数不会超过$\sqrt n$个
+	\item 对于带修改问题, 如果不方便分治或者二进制分组, 可以考虑对操作分块, 每次查询时暴力最后的$\sqrt n$个修改并更正答案
+	\item \textbf{根号分治}: 如果分治时每个子问题需要$O(N)$(N是全局问题的大小)的时间, 而规模较小的子问题可以$O(n^2)$解决, 则可以使用根号分治
+		\begin{itemize}
+			\item 规模大于$\sqrt n$的子问题用$O(N)$的方法解决, 规模小于$\sqrt n$的子问题用$O(n^2)$暴力
+			\item 规模大于$\sqrt n$的子问题最多只有$\sqrt n$个
+			\item 规模不大于$\sqrt n$的子问题大小的平方和也必定不会超过$n\sqrt n$
+		\end{itemize}
+	\item 如果输入规模之和不大于$n$(例如给定多个小字符串与大字符串进行询问), 那么规模超过$\sqrt n$的问题最多只有$\sqrt n$个
+\end{itemize}
 
-\noindent{
-	{\large\bfseries{树}}
-	\begin{itemize}
-		\item 与序列类似, 树上也有树分块和树上莫队
-			\begin{itemize}
-				\item 树上带修莫队很麻烦, 常数也大, 最好不要先考虑
-				\item 树分块不要想当然
-			\end{itemize}
-		\item 树分治也可以套根号分治, 道理是一样的
-	\end{itemize}
-}
+\item \textbf{序列}
 
-\noindent{
-	{\large\bfseries{字符串}}
-	\begin{itemize}
-		\item 循环节长度大于$\sqrt n$的子串最多只有$O(n)$个, 如果是极长子串则只有$O(\sqrt n)$个
-	\end{itemize}
-}
+\begin{itemize}
+	\item 某些维护序列的问题可以用分块/块状链表维护
+	\item 对于静态区间询问问题, 如果可以快速将左/右端点移动一位, 可以考虑莫队
+		\begin{itemize}
+			\item 如果强制在线可以分块预处理, 但是一般空间需要$n\sqrt n$ 
+				\begin{itemize}
+					\item 例题: 询问区间中有几种数出现次数恰好为$k$, 强制在线
+				\end{itemize}
+			\item 如果带修改可以试着想一想带修莫队, 但是复杂度高达$n^{\frac 5 3}$
+		\end{itemize}
+	\item 线段树可以解决的问题也可以用分块来做到$O(1)$询问或是$O(1)$修改, 具体要看哪种操作更多
+\end{itemize}
 
-\noindent {
-	{\large\bfseries{关于莫队}}
+\item \textbf{树}
 
-	莫队是可以改造成只有插入和撤销(或者只有删除和撤销)的版本的.
+\begin{itemize}
+	\item 与序列类似, 树上也有树分块和树上莫队
+		\begin{itemize}
+			\item 树上带修莫队很麻烦, 常数也大, 最好不要先考虑
+			\item 树分块不要想当然
+		\end{itemize}
+	\item 树分治也可以套根号分治, 道理是一样的
+\end{itemize}
 
-	例如维护dfs序时就可以使用链表, 配合只有删除的莫队就可以做到$O(n\sqrt n)$.
+\item \textbf{字符串}
 
-	另外如果$n$和$q$不平衡, 块大小应该设为$\frac n {\sqrt q}$.
-}
+\begin{itemize}
+	\item 循环节长度大于$\sqrt n$的子串最多只有$O(n)$个, 如果是极长子串则只有$O(\sqrt n)$个
+\end{itemize}
+
+\end{enumerate}
