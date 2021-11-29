@@ -4,8 +4,9 @@
 vector<int> G[maxn], v[maxn];
 int n, p[maxn], h[maxn], son[maxn], ans[maxn];
 
-// 原题题意: 求每个点的子树中与它距离是几的点最多,相同的取最大深度
+// 原题题意: 求每个点的子树中与它距离是几的点最多, 相同的取最大深度
 // 由于vector只能在后面加入元素, 为了写代码方便, 这里反过来存
+// 或者开一个结构体维护倒过来的vector
 void dfs(int x) {
 	h[x] = 1;
 

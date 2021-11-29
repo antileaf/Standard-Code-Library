@@ -1,7 +1,3 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
 constexpr int maxn = 100005, maxm = maxn * 70;
 
 int lc[maxm], rc[maxm], cover[maxm], sum[maxm], root, seg_cnt;
