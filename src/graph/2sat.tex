@@ -1,0 +1,11 @@
+如果限制满足对称性(每个命题的逆否命题对应的边也存在), 那么可以使用Tarjan算法求SCC搞定. 
+
+具体来说就是, 如果某个变量的两个点在同一SCC中则显然无解, 否则按拓扑序倒序尝试选择每个SCC即可.
+
+由于Tarjan算法的特性, 找到SCC的顺序就是拓扑序\textbf{倒序}, 所以判断完是否有解之后, 每个变量只需要取SCC编号\textbf{较小}的那个.
+
+\inputminted{cpp}{../src/graph/2sat-tarjan.cpp}
+
+如果要字典序最小就用DFS, 注意可以压位优化. 另外代码是0-base的.
+
+\inputminted{cpp}{../src/graph/2sat.cpp}

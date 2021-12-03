@@ -2,23 +2,23 @@
 // 注意!!!结点数要开成串长的两倍
 
 // 全局变量与数组定义
-int last, val[maxn], par[maxn], go[maxn][26], cnt;
+int last, val[maxn], par[maxn], go[maxn][26], sam_cnt;
 int c[maxn], q[maxn]; // 用来桶排序
 
 // 在主函数开头加上这句初始化
-last = cnt = 1;
+last = sam_cnt = 1;
 
 // 以下是按val进行桶排序的代码
-for (int i = 1; i <= cnt; i++)
+for (int i = 1; i <= sam_cnt; i++)
 	c[val[i] + 1]++;
 for (int i = 1; i <= n; i++)
 	c[i] += c[i - 1]; // 这里n是串长
-for (int i = 1; i <= cnt; i++)
+for (int i = 1; i <= sam_cnt; i++)
 	q[++c[val[i]]] = i;
 
 //加入一个字符 均摊O(1)
 void extend(int c) {
-	int p = last, np = ++cnt;
+	int p = last, np = ++sam_cnt;
 	val[np] = val[p] + 1;
 
 	while (p && !go[p][c]) {
@@ -34,7 +34,7 @@ void extend(int c) {
 		if (val[q] == val[p] + 1)
 			par[np] = q;
 		else {
-			int nq = ++cnt;
+			int nq = ++sam_cnt;
 			val[nq] = val[p] + 1;
 			memcpy(go[nq], go[q], sizeof(go[q]));
 

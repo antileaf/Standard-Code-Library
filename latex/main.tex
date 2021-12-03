@@ -193,7 +193,7 @@
 				\subsubsection{拉格朗日(Lagrange)插值}
 					\input{../src/math/拉格朗日插值.tex}
 				
-				\subsubsection{连续点值平移}
+				\subsubsection{连续点值平移(待完成)}
 
 			\subsection{FWT快速沃尔什变换}
 				\inputminted{cpp}{../src/math/FWT.cpp}
@@ -239,13 +239,15 @@
 				\subsubsection{经典博弈}
 					\input{../src/math/经典博弈.tex}
 
-				\subsubsection{例题}
+				\subsubsection{例题(待完成)}
 
 			\subsection{自适应Simpson积分}
 				Forked from fstqwq's template.
 				\inputminted{cpp}{../src/math/simpson.cpp}
 
 			\subsection{常见数列}
+				查表参见``Miscallous/OEIS''部分.
+
 				\subsubsection{斐波那契数 卢卡斯数}
 					\input{../src/math/斐波那契数.tex}
 
@@ -261,7 +263,7 @@
 				\subsubsection{贝尔数}
 					\input{../src/math/贝尔数.tex}
 				
-				\subsubsection{卡特兰数}
+				\subsubsection{卡特兰数, 施罗德数, 默慈金数}
 					\input{../src/math/卡特兰数.tex}
 			
 			\subsection{常用公式及结论}
@@ -316,6 +318,10 @@
 			\subsection{扩展欧几里德}
 				\inputminted{cpp}{../src/numbertheory/exgcd.cpp}
 				\input{../src/numbertheory/exgcd.tex}
+
+				\subsubsection{类欧几里德算法(直线下整点个数)}
+					$a,b \ge 0, m > 0$, 计算$\sum_{i = 0} ^ {n - 1} \left\lfloor \frac {a + bi} m \right\rfloor$.
+					\inputminted{cpp}{../src/numbertheory/类欧.cpp}
 			
 			\subsection{原根 阶}
 				\input{../src/numbertheory/原根.tex}
@@ -391,7 +397,8 @@
 				\subsubsection{带花树}
 					\inputminted{cpp}{../src/graph/带花树.cpp}
 				
-				\subsubsection{带权带花树(from Imperisible Night)}
+				\subsubsection{带权带花树}
+					Forked from templates of Imperisible Night.
 					(有一说一这玩意实在太难写了, 抄之前建议先想想算法是不是假的或者有SB做法)
 					\inputminted{cpp}{../src/graph/带权带花树.cpp}
 				
@@ -404,14 +411,7 @@
 				\inputminted{cpp}{../src/graph/支配树.cpp}
 
 			\subsection{2-SAT}
-				如果限制满足对称性, 那么可以使用Tarjan算法求SCC搞定. 
-				
-				具体来说就是, 如果某个变量的两个点在同一SCC中则显然无解, 否则按拓扑序倒序尝试选择每个SCC即可.
-
-				如果要字典序最小或者不满足对称性就用dfs, 注意可以压位优化.
-
-				\inputminted{cpp}{../src/graph/2sat.cpp}
-
+				\input{../src/graph/2sat.tex}
 
 			\subsection{最大流}
 				\subsubsection{Dinic}
@@ -444,7 +444,7 @@
 				\input{../src/graph/prufer.tex}
 
 			\subsection{弦图相关}
-				Forked from NEW CODE!!.
+				Forked from templates of NEW CODE!!.
 				\input{../src/graph/弦图相关.tex}
 
 			% \subsection{弦图}
@@ -476,7 +476,7 @@
 					更新时分情况讨论, 如果当前区间已被完全覆盖则长度就是区间长度, 否则长度是左右儿子相加.
 					\inputminted{cpp}{../src/datastructure/线段树维护矩形并.cpp}
 
-				\subsubsection{主席树离线求区间mex}
+				\subsubsection{主席树离线求区间mex(待完成)}
 					
 	
 			\subsection{陈丹琦分治}
@@ -506,7 +506,6 @@
 					
 				\subsubsection{无旋Treap/可持久化Treap}
 					\inputminted{cpp}{../src/datastructure/无旋Treap.cpp}
-		
 		
 				\subsubsection{Splay}
 					如果插入的话可以直接找到底然后splay一下, 也可以直接splay前驱后继.
@@ -538,7 +537,7 @@
 	
 			\subsection{K-D树}
 
-				\subsubsection{动态K-D树}
+				\subsubsection{动态K-D树(定期重构)}
 					\inputminted{cpp}{../src/datastructure/动态KD树.cpp}
 	
 			% \subsection{树分块}
@@ -557,7 +556,7 @@
 				\inputminted{cpp}{../src/datastructure/梯子剖分.cpp}
 					
 			\subsection{左偏树}
-				(参见k短路)
+				(参见k短路板子.)
 			
 			\subsection{莫队}
 				\input{../src/datastructure/莫队.tex}
@@ -589,8 +588,12 @@
 				\input{../src/string/后缀平衡树.tex}
 
 			\subsection{后缀自动机}
-				(广义后缀自动机复杂度就是$O\left(n\left|\Sigma\right|\right)$, 也没法做到更低了)
 				\inputminted{cpp}{../src/string/后缀自动机.cpp}
+
+				\subsubsection{广义后缀自动机}
+				下面的写法复杂度是$\Sigma$串长的, 但是胜在简单.
+				如果建字典树然后BFS建自动机可以做到$O\left(n\left|\Sigma\right|\right)$($n$是字典树结点数), 但是后者写起来比较麻烦.
+				\inputminted{cpp}{../src/string/广义后缀自动机.cpp}
 
 				\subsubsection{区间本质不同子串计数(后缀自动机+LCT+线段树)}
 					\input{../src/string/区间本质不同子串统计.tex}
@@ -618,7 +621,7 @@
 			\subsection{决策单调性$O(n\log n)$}
 				\inputminted{cpp}{../src/DP/决策单调性.cpp}
 			
-			\subsection{例题}
+			\subsection{例题(待完成)}
 
 			
 		\section{Miscellaneous}
@@ -636,6 +639,9 @@
 			\subsection{笛卡尔树}
 				\inputminted{cpp}{../src/misc/笛卡尔树.cpp}
 			
+			\subsection{GarsiaWachs算法($O(n\log n)$合并石子)}
+				\input{../src/misc/garsiawachs.tex}
+			
 			\subsection{常用NTT素数及原根}
 				\input{../src/misc/常用NTT素数及原根.tex}
 
@@ -648,11 +654,15 @@
 			\subsection{STL}
 				\input{../src/misc/STL.tex}
 
-			\subsection{pb\_ds}
+			\subsection{Public Based DataStructure(PB\_DS)}
 				\input{../src/misc/pbds.tex}
 
 			\subsection{rope}
 				\inputminted{cpp}{../src/misc/rope.cpp}
+			
+			\subsection{一些游戏}
+				\subsubsection{炉石传说}
+					\input{../src/misc/炉石.tex}
 
 			\subsection{OEIS}
 				\input{../src/misc/oeis.tex}
