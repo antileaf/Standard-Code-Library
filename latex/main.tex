@@ -374,8 +374,9 @@
 				\subsubsection{匈牙利}
 					\inputminted{cpp}{../src/graph/hungary.cpp}
 
-				% \subsubsection{Hopcroft-Karp二分图匹配}
-
+				\subsubsection{Hopcroft-Karp二分图匹配}
+					其实长得和Dinic差不太多, 或者说像匈牙利和Dinic的缝合怪.
+					\inputminted{cpp}{../src/graph/hopcroft-karp.cpp}
 
 				\subsubsection{KM二分图最大权匹配}
 					\inputminted{cpp}{../src/graph/KM二分图最大权匹配.cpp}
@@ -398,8 +399,9 @@
 					\input{../src/graph/一般图匹配原理.tex}
 
 			
-			% \subsection{支配树}
-			
+			\subsection{支配树}
+				\textbf{记得建反图!}
+				\inputminted{cpp}{../src/graph/支配树.cpp}
 
 			\subsection{2-SAT}
 				如果限制满足对称性, 那么可以使用Tarjan算法求SCC搞定. 
@@ -442,7 +444,7 @@
 				\input{../src/graph/prufer.tex}
 
 			\subsection{弦图相关}
-				From NEW CODE!!
+				Forked from NEW CODE!!.
 				\input{../src/graph/弦图相关.tex}
 
 			% \subsection{弦图}
