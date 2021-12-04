@@ -303,6 +303,8 @@
 			% \subsection{min25筛}
 			%	\input{../src/numbertheory/min25.tex}
 
+			\subsection{离散对数(BSGS)(待完成)}
+
 			\subsection{Miller-Rabin}
 				\inputminted{cpp}{../src/numbertheory/Miller-Rabin.cpp}
 
@@ -322,6 +324,12 @@
 				\subsubsection{类欧几里德算法(直线下整点个数)}
 					$a,b \ge 0, m > 0$, 计算$\sum_{i = 0} ^ {n - 1} \left\lfloor \frac {a + bi} m \right\rfloor$.
 					\inputminted{cpp}{../src/numbertheory/类欧.cpp}
+			
+			\subsection{中国剩余定理(待完成)}
+
+				\subsubsection{ex-CRT(待完成)}
+			
+			\subsection{组合数取模(ex-Lucas)(待完成)}
 			
 			\subsection{原根 阶}
 				\input{../src/numbertheory/原根.tex}
@@ -522,7 +530,7 @@
 				\subsubsection{紫荆花之恋}
 					\inputminted{cpp}{../src/datastructure/紫荆花之恋.cpp}
 	
-			\subsection{LCT}
+			\subsection{LCT动态树}
 				\subsubsection{不换根(弹飞绵羊)}
 					\inputminted{cpp}{../src/datastructure/LCT(不换根).cpp}
 			
@@ -545,7 +553,10 @@
 	
 			% \subsection{树上莫队}
 			
-	
+			\subsection{LCA最近公共祖先}
+				\subsubsection{Tarjan LCA $O(n + m)$}
+					\inputminted{cpp}{../src/datastructure/tarjanlca.cpp}
+
 			\subsection{虚树}
 				\inputminted{cpp}{../src/datastructure/虚树.cpp}
 	
@@ -629,6 +640,10 @@
 				如果对速度要求很高并且不能用指令集, 可以去看fstqwq的模板.
 
 				\inputminted{cpp}{../src/misc/O(1)快速乘.cpp}
+			
+			\subsection{Kahan求和算法(减少浮点数累加的误差)}
+				当然一般来说是用不到的, 累加被卡精度了才有必要考虑.
+				\inputminted{cpp}{../src/misc/kahan.cpp}
 			
 			\subsection{Python Decimal}
 				\inputminted{python}{../src/misc/decimal.py}
