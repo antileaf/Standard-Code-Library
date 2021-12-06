@@ -1,0 +1,41 @@
+\subsubsection{<cmath>}
+
+\begin{itemize}
+	\item \mintinline{cpp}{std::log1p(x)}: (注意是数字1)返回$\ln(1 + x)$的值, $x$非常接近$0$时比直接exp精确得多.
+	\item \mintinline{cpp}{std::hypot(x, y[, z])}: 返回平方和的平方根, 或者说到原点的欧几里德距离.
+\end{itemize}
+
+\subsubsection{<algorithm>}
+
+\begin{itemize}
+	\item \mintinline{cpp}{std::all_of(begin, end, f)}: 检查范围内元素调用函数f后是否全返回真. 类似地还有\mintinline{cpp}{std::any_of}和\mintinline{cpp}{std::none_of}.
+	\item \mintinline{cpp}{std::for_each(begin, end, f)}: 对范围内所有元素调用一次f. 如果传入的是引用, 也可以用f修改. (例如\mintinline{cpp}{for_each(a, a + n, [](int &x){cout << ++x << "\n";})})
+	\item \mintinline{cpp}{std::for_each_n(begin, n, f)}: 同上, 只不过范围改成了从begin开始的n个元素.
+	\item \mintinline{cpp}{std::copy(), std::copy_n()}: 用法谁都会, 但标准里说如果元素是可平凡复制的(比如int), 那么它会避免批量赋值, 并且调用\mintinline{cpp}{std::memmove()}之类的快速复制函数. (一句话总结: 它跑得快)
+	\item \mintinline{cpp}{std::rotate(begin, mid, end)}: 循环移动, 移动后mid位置的元素会跑到first位置. C++11起会返回begin位置的元素移动后的位置.
+	\item \mintinline{cpp}{std::unique(begin, end)}: 去重, 返回去重后的end.
+	\item \mintinline{cpp}{std::partition(begin, end, f)}: 把f为true的放在前面, false的放在后面, 返回值是第二部分的开头, \textbf{不保持相对顺序}. 如果要保留相对顺序可以用\mintinline{cpp}{std::stable_partition()}, 比如写整体二分.
+	\item \mintinline{cpp}{std::partition_copy(begin, end, begin_t, begin_f, f)}: 不修改原数组, 把true的扔到begin\_t, false的扔到begin\_f. 返回值是两部分结尾的迭代器的pair.
+	\item \mintinline{cpp}{std::equal_range(begin, end, x)}: 在已经排好序的数组里找到等于x的范围.
+	\item \mintinline{cpp}{std::minmax(a, b)}: 返回\mintinline{cpp}{pair(min(a, b), max(a, b))}. 比如\mintinline{cpp}{tie(l, r) = minmax(l, r)}.
+\end{itemize}
+
+\subsubsection{std::tuple}
+
+\begin{itemize}
+	\item \mintinline{cpp}{std::make_tuple(...)}: 返回构造好的tuple
+	\item \mintinline{cpp}{std::get<i>(tup)}: 返回tuple的第i项
+	\item \mintinline{cpp}{std::tuple_cat(...)}: 传入几个tuple, 返回按顺序连起来的tuple
+	\item \mintinline{cpp}{std::tie(x, y, z, ...)}: 把传入的变量的左值引用绑起来作为tuple返回, 例如可以\mintinline{cpp}{std::tie(x, y, z) = std::make_tuple(a, b, c)}.
+\end{itemize}
+
+\subsubsection{<complex>}
+
+\begin{itemize}
+	\item \mintinline{cpp}{complex<double> imaginary = 1i, x = 2 + 3i}: 可以这样直接构造复数.
+	\item \mintinline{cpp}{real/imag(x)}: 返回实部/虚部.
+	\item \mintinline{cpp}{conj(x)}: 返回共轭复数.
+	\item \mintinline{cpp}{arg(x)}: 返回辐角.
+	\item \mintinline{cpp}{norm(x)}: 返回模的平方. (直接求模用\mintinline{cpp}{abs(x)}.)
+	\item \mintinline{cpp}{polar(len, theta)}: 用绝对值和辐角构造复数.
+\end{itemize}
