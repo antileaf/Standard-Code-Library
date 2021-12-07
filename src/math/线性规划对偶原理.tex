@@ -3,7 +3,7 @@
 $$
 \begin{aligned}
 \text{Minimize}&&\sum_{j=1}^n c_j x_j\\
-\text{Where}&&\sum_{j=1}^n a_{ij} x_j\ge b_i,\\
+\text{Subject to}&&\sum_{j=1}^n a_{ij} x_j\ge b_i,\\
 &&x_j\ge 0
 \end{aligned}
 $$
@@ -13,7 +13,7 @@ $$
 $$
 \begin{aligned}
 \text{Maximize}&&\sum_{i=1}^m b_i y_i\\
-\text{Where}&&\sum_{i=1}^m a_{ij} y_i\le c_j,\\
+\text{Subject to}&&\sum_{i=1}^m a_{ij} y_i\le c_j,\\
 &&y_i\ge 0
 \end{aligned}
 $$
