@@ -70,12 +70,20 @@
 \usepackage{fancyhdr}
 \usepackage[inner=1.35cm, outer=0.9cm, top=1.7cm, bottom=0.4cm]{geometry}
 
-\pagestyle{fancy}
+
 \setlength{\headsep}{0.1cm}
 \setlength{\footskip}{0.7cm}
 
-\chead{Standard Code Library}
-\cfoot{\thepage}
+\fancypagestyle{fancy} {
+
+	% \pagestyle{fancy}
+
+	\chead{Standard Code Library}
+	\lhead{\nouppercase\leftmark}
+	\rhead{\nouppercase\rightmark}
+	\cfoot{\thepage}
+
+}
 
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
@@ -132,17 +140,27 @@
 
 	\end{titlepage}
 
+	\pagestyle{plain}
+
+	\pagenumbering{roman}
+	\setcounter{page}{1}
+
 	\begin{multicols}{2}
 		
 		\begin{spacing}{1}
 			\tableofcontents
 		\end{spacing}
-		\newpage
 
 	\end{multicols}
 
-	\begin{multicols}{2}
+	\newpage
 
+	\pagestyle{fancy}
+
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+
+	\begin{multicols}{2}
 		\section{数学}
 			
 			\subsection{多项式}
@@ -285,7 +303,7 @@
 			\subsection{常用生成函数变换}
 				\input{../src/math/常见生成函数.tex}
 
-
+		\newpage
 		\section{数论}
 
 			\subsection{$O(n)$预处理逆元}
@@ -340,7 +358,7 @@
 			\subsection{常用公式}
 				\input{../src/numbertheory/公式.tex}
 				
-
+		\newpage
 		\section{图论}
 
 			\subsection{最小生成树}
@@ -474,7 +492,7 @@
 
 				% \subsubsection{最大团搜索}
 			
-
+		\newpage
 		\section{数据结构}
 
 			\subsection{线段树}
@@ -581,6 +599,7 @@
 			\subsection{常见根号思路}
 				\input{../src/datastructure/常见根号思路.tex}
 
+		\newpage
 		\section{字符串}
 			\subsection{KMP}
 				\inputminted{cpp}{../src/string/KMP.cpp}
@@ -634,16 +653,19 @@
 			\subsection{字符串原理}
 				\input{../src/string/字符串原理.tex}
 
+		\newpage
 		\section{动态规划}
 			\subsection{决策单调性$O(n\log n)$}
 				\inputminted{cpp}{../src/DP/决策单调性.cpp}
 			
 			\subsection{例题(待完成)}
 		
+
+		\newpage
 		\section{计算几何}
 			\subsection{Delaunay三角剖分 Voronoi图(待完成)}
 
-			
+		\newpage
 		\section{Miscellaneous}
 			\subsection{$O(1)$快速乘}
 				如果对速度要求很高并且不能用指令集, 可以去看fstqwq的模板.

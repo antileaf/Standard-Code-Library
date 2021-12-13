@@ -3,6 +3,8 @@
 int ntt_n, omega[maxn], omega_inv[maxn]; // ntt_n要在主函数里初始化
 
 void NTT_init(int n) {
+	ntt_n = n;
+
 	int wn = qpow(3, (p - 1) / n); // 这里的3代表模数的任意一个原根
 
 	omega[0] = omega_inv[0] = 1;
