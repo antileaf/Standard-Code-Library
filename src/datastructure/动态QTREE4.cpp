@@ -3,8 +3,8 @@
 #include <ext/pb_ds/tree_policy.hpp>
 #include <ext/pb_ds/priority_queue.hpp>
 
-#define isroot(x) ((x)->p==null||((x)!=(x)->p->ch[0]&&(x)!=(x)->p->ch[1]))
-#define dir(x) ((x)==(x)->p->ch[1])
+#define isroot(x) ((x) -> p==null||((x)!=(x) -> p -> ch[0]&&(x)!=(x) -> p -> ch[1]))
+#define dir(x) ((x)==(x) -> p -> ch[1])
 
 using namespace std;
 using namespace __gnu_pbds;
@@ -70,31 +70,31 @@ struct node {
         if (!rev)
             return;
 
-        ch[0]->rev ^= true;
-        ch[1]->rev ^= true;
+        ch[0] -> rev ^= true;
+        ch[1] -> rev ^= true;
         swap(ch[0], ch[1]);
         swap(prefix, suffix);
         rev = false;
     }
     inline void refresh() {
         pushdown();
-        ch[0]->pushdown();
-        ch[1]->pushdown();
-        sum = ch[0]->sum + ch[1]->sum + key;
-        prefix = max(ch[0]->prefix,
-                     ch[0]->sum + key + ch[1]->prefix);
-        suffix = max(ch[1]->suffix,
-                     ch[1]->sum + key + ch[0]->suffix);
-        maxsum = max(max(ch[0]->maxsum, ch[1]->maxsum),
-                     ch[0]->suffix + key + ch[1]->prefix);
+        ch[0] -> pushdown();
+        ch[1] -> pushdown();
+        sum = ch[0] -> sum + ch[1] -> sum + key;
+        prefix = max(ch[0] -> prefix,
+                     ch[0] -> sum + key + ch[1] -> prefix);
+        suffix = max(ch[1] -> suffix,
+                     ch[1] -> sum + key + ch[0] -> suffix);
+        maxsum = max(max(ch[0] -> maxsum, ch[1] -> maxsum),
+                     ch[0] -> suffix + key + ch[1] -> prefix);
 
         if (!heap.empty()) {
             prefix = max(prefix,
-                         ch[0]->sum + key + heap.top());
+                         ch[0] -> sum + key + heap.top());
             suffix = max(suffix,
-                         ch[1]->sum + key + heap.top());
-            maxsum = max(maxsum, max(ch[0]->suffix,
-                                     ch[1]->prefix) + key + heap.top());
+                         ch[1] -> sum + key + heap.top());
+            maxsum = max(maxsum, max(ch[0] -> suffix,
+                                     ch[1] -> prefix) + key + heap.top());
 
             if (heap.size() > 1) {
                 maxsum = max(maxsum, heap.top2() + key);
@@ -123,7 +123,7 @@ char c;
 int n, m, k, x, y, z;
 
 int main() {
-    null->ch[0] = null->ch[1] = null->p = null;
+    null -> ch[0] = null -> ch[1] = null -> p = null;
     scanf("%d%d%d", &n, &m, &k);
 
     for (int i = 1; i <= n; i++)
@@ -178,6 +178,7 @@ int main() {
 
     return 0;
 }
+
 void addedge(int x, int y, int z) {
     node *tmp;
     if (freenodes.empty())
@@ -188,9 +189,9 @@ void addedge(int x, int y, int z) {
         *tmp = node(z);
     }
 
-    tmp->ch[0] = tmp->ch[1] = tmp->p = null;
+    tmp -> ch[0] = tmp -> ch[1] = tmp -> p = null;
 
-    heap.push(tmp->maxsum);
+    heap.push(tmp -> maxsum);
     link(tmp, null + x);
     link(tmp, null + y);
     mp[make_pair(x, y)] = tmp;
@@ -203,19 +204,19 @@ void deledge(int x, int y) {
     cut(tmp, null + y);
 
     freenodes.push(tmp);
-    heap.erase(tmp->maxsum);
+    heap.erase(tmp -> maxsum);
     mp.erase(make_pair(x, y));
 }
 
 void modify(int x, int y, int z) {
     node *tmp = mp[make_pair(x, y)];
     makeroot(tmp);
-    tmp->pushdown();
+    tmp -> pushdown();
 
-    heap.erase(tmp->maxsum);
-    tmp->key = z;
-    tmp->refresh();
-    heap.push(tmp->maxsum);
+    heap.erase(tmp -> maxsum);
+    tmp -> key = z;
+    tmp -> refresh();
+    heap.push(tmp -> maxsum);
 }
 
 void modify_color(int x) {
@@ -231,111 +232,118 @@ void modify_color(int x) {
     null[x].refresh();
     heap.push(null[x].maxsum);
 }
+
 node *newnode(int k) {
     *(++ptr) = node(k);
-    ptr->ch[0] = ptr->ch[1] = ptr->p = null;
+    ptr -> ch[0] = ptr -> ch[1] = ptr -> p = null;
     return ptr;
 }
+
 node *access(node *x) {
     splay(x);
-    heap.erase(x->maxsum);
-    x->refresh();
+    heap.erase(x -> maxsum);
+    x -> refresh();
 
-    if (x->ch[1] != null) {
-        x->ch[1]->pushdown();
-        x->heap.push(x->ch[1]->prefix);
-        x->refresh();
-        heap.push(x->ch[1]->maxsum);
+    if (x -> ch[1] != null) {
+        x -> ch[1] -> pushdown();
+        x -> heap.push(x -> ch[1] -> prefix);
+        x -> refresh();
+        heap.push(x -> ch[1] -> maxsum);
     }
 
-    x->ch[1] = null;
-    x->refresh();
+    x -> ch[1] = null;
+    x -> refresh();
     node *y = x;
-    x = x->p;
+    x = x -> p;
 
     while (x != null) {
         splay(x);
-        heap.erase(x->maxsum);
+        heap.erase(x -> maxsum);
 
-        if (x->ch[1] != null) {
-            x->ch[1]->pushdown();
-            x->heap.push(x->ch[1]->prefix);
-            heap.push(x->ch[1]->maxsum);
+        if (x -> ch[1] != null) {
+            x -> ch[1] -> pushdown();
+            x -> heap.push(x -> ch[1] -> prefix);
+            heap.push(x -> ch[1] -> maxsum);
         }
 
-        x->heap.erase(y->prefix);
-        x->ch[1] = y;
-        (y = x)->refresh();
-        x = x->p;
+        x -> heap.erase(y -> prefix);
+        x -> ch[1] = y;
+        (y = x) -> refresh();
+        x = x -> p;
     }
 
-    heap.push(y->maxsum);
+    heap.push(y -> maxsum);
     return y;
 }
+
 void makeroot(node *x) {
     access(x);
     splay(x);
-    x->rev ^= true;
+    x -> rev ^= true;
 }
+
 void link(node *x, node *y) { // 新添一条虚边, 维护y对应的堆
     makeroot(x);
     makeroot(y);
 
-    x->pushdown();
-    x->p = y;
-    heap.erase(y->maxsum);
-    y->heap.push(x->prefix);
-    y->refresh();
-    heap.push(y->maxsum);
+    x -> pushdown();
+    x -> p = y;
+    heap.erase(y -> maxsum);
+    y -> heap.push(x -> prefix);
+    y -> refresh();
+    heap.push(y -> maxsum);
 }
+
 void cut(node *x, node *y) { // 断开一条实边, 一条链变成两条链, 需要维护全局堆
     makeroot(x);
     access(y);
     splay(y);
 
-    heap.erase(y->maxsum);
-    heap.push(y->ch[0]->maxsum);
-    y->ch[0]->p = null;
-    y->ch[0] = null;
-    y->refresh();
-    heap.push(y->maxsum);
+    heap.erase(y -> maxsum);
+    heap.push(y -> ch[0] -> maxsum);
+    y -> ch[0] -> p = null;
+    y -> ch[0] = null;
+    y -> refresh();
+    heap.push(y -> maxsum);
 }
+
 void splay(node *x) {
-    x->pushdown();
+    x -> pushdown();
 
     while (!isroot(x)) {
-        if (!isroot(x->p))
-            x->p->p->pushdown();
+        if (!isroot(x -> p))
+            x -> p -> p -> pushdown();
 
-        x->p->pushdown();
-        x->pushdown();
+        x -> p -> pushdown();
+        x -> pushdown();
 
-        if (isroot(x->p)) {
-            rot(x->p, dir(x) ^ 1);
+        if (isroot(x -> p)) {
+            rot(x -> p, dir(x) ^ 1);
             break;
         }
 
-        if (dir(x) == dir(x->p))
-            rot(x->p->p, dir(x->p) ^ 1);
+        if (dir(x) == dir(x -> p))
+            rot(x -> p -> p, dir(x -> p) ^ 1);
         else
-            rot(x->p, dir(x) ^ 1);
+            rot(x -> p, dir(x) ^ 1);
 
-        rot(x->p, dir(x) ^ 1);
+        rot(x -> p, dir(x) ^ 1);
     }
 }
+
 void rot(node *x, int d) {
-    node *y = x->ch[d ^ 1];
+    node *y = x -> ch[d ^ 1];
 
-    if ((x->ch[d ^ 1] = y->ch[d]) != null)
-        y->ch[d]->p = x;
+    if ((x -> ch[d ^ 1] = y -> ch[d]) != null)
+        y -> ch[d] -> p = x;
 
-    y->p = x->p;
+    y -> p = x -> p;
 
     if (!isroot(x))
-        x->p->ch[dir(x)] = y;
+        x -> p -> ch[dir(x)] = y;
 
-    (y->ch[d] = x)->p = y;
+    (y -> ch[d] = x) -> p = y;
     
-    x->refresh();
-    y->refresh();
+    x -> refresh();
+    y -> refresh();
 }

@@ -65,4 +65,4 @@ tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> 
 	\item \mintinline{cpp}{size()}: 返回大小
 \end{itemize}
 
-(注意平衡树不支持多重值, 如果需要多重值, 可以再开一个\mintinline{cpp}{unordered_map}来记录值出现的次数, 将\mintinline{cpp}{x<<32}后加上出现的次数后插入. 注意此时应该为long long类型.)
+(注意\textbf{平衡树不支持多重值}, 如果需要多重值, 可以再开一个\mintinline{cpp}{unordered_map}来记录值出现的次数, 将\mintinline{cpp}{x<<32}后加上出现的次数后插入. 注意此时应该为long long类型.)
