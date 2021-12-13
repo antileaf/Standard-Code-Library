@@ -1,4 +1,4 @@
-// 注意求完的SA有效位只有1~n, 但它是0-based, 如果其他部分是1-based记得+1再用
+// SA-IS求完的SA有效位只有1~n, 但它是0-based, 如果其他部分是1-based就抄一下封装
 
 constexpr int maxn = 100005, l_type = 0, s_type = 1;
 
@@ -140,41 +140,30 @@ int *sais(int *s, int len, int m) {
 	return sa;
 }
 
-// O(n)求height数组, 注意是sa[i]与sa[i - 1]的LCP
-void get_height(int *s, int *sa, int *rnk, int *height, int n) {
-	for (int i = 0; i <= n; i++)
-		rnk[sa[i]] = i;
+// 封装好的函数, 1-based
+void get_sa(char *s, int n, int *sa, int *rnk, int *height) {
+	static int a[maxn];
 
-	int k = 0;
-	for (int i = 0; i <= n; i++) {
-		if (!rnk[i])
-			continue;
+	for (int i = 1; i <= n; i++)
+		a[i - 1] = s[i];
+	
+	a[n] = '$';
+
+	int *t = sais(a, n + 1, 256);
+	memcpy(sa, t, sizeof(int) * (n + 1));
+	delete[] t;
+
+	sa[0] = 0;
+	for (int i = 1; i <= n; i++)
+		rnk[++sa[i]] = i;
 		
+	for (int i = 1, k = 0; i <= n; i++) { // 求height
 		if (k)
 			k--;
-		
-		while (s[sa[rnk[i]] + k] == s[sa[rnk[i] - 1] + k])
+
+		while (s[i + k] == s[sa[rnk[i] - 1] + k])
 			k++;
-		
-		height[rnk[i]] = k;
+
+		height[rnk[i]] = k; // height[i] = lcp(sa[i], sa[i - 1])
 	}
-}
-
-char str[maxn];
-int n, s[maxn], sa[maxn], rnk[maxn], height[maxn];
-
-// 方便起见附上主函数
-int main() {
-	scanf("%s", str); // 0-based
-	n = strlen(str);
-	str[n] = '$'; // $比小写字母都要小, 所以sa[0]一定是n(也就是额外加的$)
-
-	for (int i = 0; i <= n; i++)
-		s[i] = str[i];
-	
-	memcpy(sa, sais(s, n + 1, 256), sizeof(int) * (n + 1)); // 多组的话最好delete掉
-
-	get_height(s, sa, rnk, height, n);
-
-	return 0;
 }
