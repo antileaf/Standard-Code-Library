@@ -1,0 +1,7 @@
+\def \bangle{ \atopwithdelims \langle \rangle}
+
+${n\bangle k}$: $n$个数的排列, 有$k$个上升的方案数.
+
+$$ {n\bangle k} = (n - k){n - 1 \bangle k - 1} + (k + 1){n - 1 \bangle k} $$
+
+$$ {n\bangle k} = \sum_{i = 0} ^ {k + 1} (-1)^i {n + 1\choose i} (k + 1 - i)^n $$

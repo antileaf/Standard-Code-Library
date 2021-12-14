@@ -281,6 +281,9 @@
 				\subsubsection{贝尔数}
 					\input{../src/math/贝尔数.tex}
 				
+				\subsubsection{欧拉数(Eulerian Number)(待完成)}
+					\input{../src/math/欧拉数.tex}
+				
 				\subsubsection{卡特兰数, 施罗德数, 默慈金数}
 					\input{../src/math/卡特兰数.tex}
 			
@@ -355,7 +358,7 @@
 			\subsection{原根 阶}
 				\input{../src/numbertheory/原根.tex}
 			
-			\subsection{常用公式}
+			\subsection{常用数论公式}
 				\input{../src/numbertheory/公式.tex}
 				
 		\newpage
@@ -553,7 +556,7 @@
 
 				\subsubsection{紫荆花之恋}
 					稍微重构了一下, 修改了代码风格.
-					
+
 					另外这个是BFS版本, 跑得比DFS要快不少. (虽然主要复杂度并不在重构上)
 					\inputminted{cpp}{../src/datastructure/紫荆花之恋.cpp}
 	
@@ -631,6 +634,7 @@
 
 				\subsubsection{广义后缀自动机}
 				下面的写法复杂度是$\Sigma$串长的, 但是胜在简单.
+				
 				如果建字典树然后BFS建自动机可以做到$O\left(n\left|\Sigma\right|\right)$($n$是字典树结点数), 但是后者写起来比较麻烦.
 				\inputminted{cpp}{../src/string/广义后缀自动机.cpp}
 
