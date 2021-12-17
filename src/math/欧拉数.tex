@@ -1,7 +1,33 @@
 \def \bangle{ \atopwithdelims \langle \rangle}
 
+\begin{enumerate}
+
+\item \textbf{欧拉数}
+
 ${n\bangle k}$: $n$个数的排列, 有$k$个上升的方案数.
 
 $$ {n\bangle k} = (n - k){n - 1 \bangle k - 1} + (k + 1){n - 1 \bangle k} $$
 
 $$ {n\bangle k} = \sum_{i = 0} ^ {k + 1} (-1)^i {n + 1\choose i} (k + 1 - i)^n $$
+
+$$ \sum_{k = 0} ^ {n - 1} {n\bangle k} = n! $$
+
+$$ x^n = \sum_{k = 0} ^ {n - 1} {n\bangle k} {x+k \choose n} $$
+
+$$ k!{n\brace k} = \sum_{i = 0} ^ {n - 1} {n\bangle i} {i\choose n - k} $$
+
+\item \textbf{二阶欧拉数}
+
+$\left\langle\!\!{n\bangle k}\!\!\right\rangle$: 每个数都出现两次的多重排列, 并且每个数两次出现之间的数都比它要大. 在此前提下有$k$个上升的方案数.
+
+$$ \left\langle\!\!{n\bangle k}\!\!\right\rangle = (2n-k-1)\left\langle\!\!{n-1\bangle k-1}\!\!\right\rangle + (k+1)\left\langle\!\!{n-1 \bangle k}\!\!\right\rangle $$
+
+$$ \sum_{k = 0} ^ {n - 1} \left\langle\!\!{n\bangle k}\!\!\right\rangle = (2n-1)!! = \frac{(2n)^{\underline n}} {2^n} $$
+
+\item \textbf{二阶欧拉数与斯特林数的关系}
+
+$$ {x \brace x-n} = \sum_{k = 0} ^ {n - 1} \left\langle\!\!{n\bangle k}\!\!\right\rangle {x + n - k - 1 \choose 2n} $$
+
+$$ {x \brack x-n} = \sum_{k = 0} ^ {n - 1} \left\langle\!\!{n\bangle k}\!\!\right\rangle {x + k \choose 2n} $$
+
+\end{enumerate}

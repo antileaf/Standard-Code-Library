@@ -1,4 +1,6 @@
-\textbf{第一类斯特林数}
+\begin{enumerate}
+
+\item \textbf{第一类斯特林数}
 
 $n\brack k$表示$n$个元素划分成$k$个轮换的方案数.
 
@@ -11,7 +13,7 @@ $$ \begin{aligned} \sum_{k = 0} ^ n {n \brack k} x^k = \prod_{i = 0} ^ {n - 1} (
 求同一列: 用一个轮换的指数生成函数做$k$次幂
 $$\begin{aligned} \sum_{n = 0} ^ \infty {n \brack k} \frac {x ^ n} {n!} = \frac {\left(\ln (1 - x)\right) ^ k} {k!} = \frac {x ^ k} {k!} \left( \frac {\ln (1 - x)} x \right) ^ k \end{aligned}$$
 
-\textbf{第二类斯特林数}
+\item \textbf{第二类斯特林数}
 
 $n\brace k$表示$n$个元素划分成$k$个子集的方案数.
 
@@ -31,6 +33,8 @@ $$\begin{aligned} \sum_{n = 0} ^ \infty {n \brace k} \frac {x ^ n} {n!} = \frac 
 
 $$\begin{aligned} \sum_{n = 0} ^ \infty {n \brace k} x ^ n = x ^ k \left(\prod_{i = 1} ^ k (1 - i x)\right) ^ {-1} \end{aligned}$$
 
+\item \textbf{幂的转换}
+
 \textbf{上升幂与普通幂的转换}
 
 $$ x^{\overline{n}}=\sum_{k} {n \brack k} x^k $$
@@ -44,3 +48,21 @@ $$ x^n=\sum_{k} {n \brace k} x^{\underline{k}} = \sum_{k} {x \choose k} {n \brac
 $$ x^{\underline{n}}=\sum_{k} {n \brack k} (-1)^{n-k} x^k $$
 
 另外, 多项式的\textbf{点值}表示的每项除以阶乘之后卷上$e^{-x}$乘上阶乘之后是牛顿插值表示, 或者不乘阶乘就是\textbf{下降幂}系数表示. 反过来的转换当然卷上$e^x$就行了. 原理是每次差分等价于乘以$(1 - x)$, 展开之后用一次卷积取代多次差分.
+
+\item \textbf{斯特林多项式(斯特林数关于斜线的性质)}
+
+定义:
+
+$$ \sigma_n(x) = \frac {{x\brack n}} {x(x-1)\dots(x-n)} $$
+
+$\sigma_n(x)$的最高次数是$x^{n - 1}$. (所以作为唯一的特例, $\sigma_0(x) = \frac 1 x$不是多项式.)
+
+斯特林多项式实际上非常神奇, 它与两类斯特林数都有关系.
+
+$$ {n \brack n-k} = n^{\underline{k+1}} \sigma_k(n) $$
+
+$$ {n \brace n-k} = (-1)^{k+1} n^{\underline{k+1}} \sigma_k(-(n-k)) $$
+
+不过它并不好求. 可以$O(k^2)$直接计算前几个点值然后插值, 或者如果要推式子的话可以用后面提到的二阶欧拉数.
+
+\end{enumerate}
