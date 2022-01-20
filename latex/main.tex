@@ -148,6 +148,7 @@
 	\begin{multicols}{2}
 		
 		\begin{spacing}{1}
+			% \renewcommand{\contentsname}{\huge{目录}}
 			\tableofcontents
 		\end{spacing}
 
@@ -349,9 +350,11 @@
 					$a,b \ge 0, m > 0$, 计算$\sum_{i = 0} ^ {n - 1} \left\lfloor \frac {a + bi} m \right\rfloor$.
 					\inputminted{cpp}{../src/numbertheory/类欧.cpp}
 			
-			\subsection{中国剩余定理(待完成)}
+			\subsection{中国剩余定理}
+				\input{../src/numbertheory/crt.tex}
 
-				\subsubsection{ex-CRT(待完成)}
+				\subsubsection{ex-CRT}
+					\input{../src/numbertheory/excrt.tex}
 			
 			\subsection{组合数取模(ex-Lucas)(待完成)}
 			
@@ -369,7 +372,7 @@
 					\input{../src/graph/Boruvka.tex}
 				
 				\subsubsection{动态最小生成树}
-					\inputminted{cpp}{../src/graph/动态最小生成树.cpp}
+					\input{../src/graph/动态最小生成树.tex}
 				
 				\subsubsection{最小树形图}
 					\input{../src/graph/最小树形图.tex}
