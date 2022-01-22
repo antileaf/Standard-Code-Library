@@ -150,7 +150,7 @@ node *merge(node *x, node *y) {
 	z -> lc = x -> lc;
 	z -> rc = merge(x -> rc, y);
 
-	if (z -> lc -> d > z -> rc -> d)
+	if (z -> lc -> d < z -> rc -> d)
 		swap(z -> lc, z -> rc);
 	z -> refresh();
 

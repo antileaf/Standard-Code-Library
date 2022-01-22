@@ -29,9 +29,9 @@
 \usepackage{color,xcolor}
 
 \usepackage{enumitem}
-\setenumerate[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3.5pt}
-\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3.5pt}
-\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3.5pt}
+\setenumerate[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
 
 \setlength{\itemindent}{0em}
 \setlength\parindent{0em}
@@ -58,7 +58,7 @@
 
 %configure section style
 \titleformat{\section}
-{\huge}			% The style of the section title
+{\huge\bfseries}			% The style of the section title
 {\thesection.}				% a prefix
 {4pt}						% How much space exists between the prefix and the title
 {}					% How the section is represented
@@ -173,7 +173,6 @@
 
 				\subsubsection{任意模数卷积(MTT, 毛梯梯)}
 					\input{../src/math/任意模数卷积.tex}
-
 			
 				\subsubsection{多项式操作}
 					\inputminted{cpp}{../src/math/多项式操作.cpp}
@@ -212,7 +211,7 @@
 				\subsubsection{拉格朗日(Lagrange)插值}
 					\input{../src/math/拉格朗日插值.tex}
 				
-				\subsubsection{连续点值平移(待完成)}
+				% \subsubsection{连续点值平移(待完成)}
 
 			\subsection{FWT快速沃尔什变换}
 				\inputminted{cpp}{../src/math/FWT.cpp}
@@ -258,7 +257,7 @@
 				\subsubsection{经典博弈}
 					\input{../src/math/经典博弈.tex}
 
-				\subsubsection{例题(待完成)}
+				% \subsubsection{例题(待完成)}
 
 			\subsection{自适应Simpson积分}
 				Forked from fstqwq's template.
@@ -328,7 +327,7 @@
 			% \subsection{min25筛}
 			%	\input{../src/numbertheory/min25.tex}
 
-			\subsection{离散对数(BSGS)(待完成)}
+			% \subsection{离散对数(BSGS)(待完成)}
 
 			\subsection{Miller-Rabin}
 				\inputminted{cpp}{../src/numbertheory/Miller-Rabin.cpp}
@@ -356,7 +355,7 @@
 				\subsubsection{ex-CRT}
 					\input{../src/numbertheory/excrt.tex}
 			
-			\subsection{组合数取模(ex-Lucas)(待完成)}
+			% \subsection{组合数取模(ex-Lucas)(待完成)}
 			
 			\subsection{原根 阶}
 				\input{../src/numbertheory/原根.tex}
