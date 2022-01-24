@@ -1,4 +1,6 @@
-\textbf{卡特兰数}
+\begin{enumerate}
+
+\item \textbf{卡特兰数}
 
 $$C_n = \frac 1 {n + 1}{2n\choose n} = {2n \choose n} - {2n \choose n - 1}$$
 
@@ -18,7 +20,7 @@ $$C(x) = \frac {1 - \sqrt {1 - 4 x}} {2 x}$$
 扩展: 如果有$n$个左括号和$m$个右括号, 方案数为
 $${n + m \choose n} - {n + m \choose m - 1}$$
 
-\textbf{施罗德数}
+\item \textbf{施罗德数}
 
 $$ S_n = S_{n-1} + \sum_{i = 0} ^ {n - 1} S_i S_{n - i - 1} $$
 $$ (n + 1)s_n = (6n - 3)s_{n - 1} - (n - 2) s_{n - 2} $$
@@ -36,7 +38,7 @@ $$ (n + 1)s_n = (6n - 3)s_{n - 1} - (n - 2) s_{n - 2} $$
 
 (有些人会把大(而不是小)施罗德数叫做超级卡特兰数.)
 
-\textbf{默慈金数}
+\item \textbf{默慈金数}
 
 $$ M_{n + 1} = M_n + \sum_{i = 0} ^ {n - 1} M_i M_{n - 1 - i} = \frac {(2n + 3)M_n + 3n M_{n - 1}} {n + 3} $$
 
@@ -47,3 +49,5 @@ $$ M_n = \sum_{i = 0} ^ {\frac n 2} {n \choose 2i} C_i $$
 也等价于在网格图上, 每次可以走右上, 右下, 正右方一步, 且不能走到$y<0$的位置, 在此前提下从$(0, 0)$走到$(n, 0)$的方案数.
 
 扩展: 默慈金数画的弦不可以共享端点. 如果可以共享端点的话是A054726, 后面的表里可以查到.
+
+\end{enumerate}
