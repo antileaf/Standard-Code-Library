@@ -5,6 +5,7 @@
 		\item \mintinline{cpp}{vector(begin, end)}: 复制[begin, end)区间内另一个数组的元素到vector中
 		\item \mintinline{cpp}{void assign(int n, const T &x)}: 设置向量中前n个元素的值为x
 		\item \mintinline{cpp}{void assign(const_iterator first, const_iterator last)}: 向量中[first, last)中元素设置成当前向量元素
+		\item \mintinline{cpp}{void emplace_back(Args&&... args)}: 自动构造并push\_back一个元素, 例如对一个存储pair的vector可以 \mintinline{cpp}{v.emplace_back(x, y)}
 	\end{itemize}
 
 \subsubsection{list}

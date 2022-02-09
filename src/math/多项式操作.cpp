@@ -4,14 +4,14 @@ void get_inv(int *A, int *C, int n) {
 	static int B[maxn];
 
 	memset(C, 0, sizeof(int) * (n * 2));
-	C[0] = qpow(A[0],p - 2); // 一般常数项都是1, 直接赋值为1就可以
+	C[0] = qpow(A[0], p - 2); // 一般常数项都是1, 直接赋值为1就可以
 
 	for (int k = 2; k <= n; k <<= 1) {
 		memcpy(B, A, sizeof(int) * k);
 		memset(B + k, 0, sizeof(int) * k);
 
 		NTT(B, k * 2, 1);
-		NTT(C,k * 2, 1);
+		NTT(C, k * 2, 1);
 		
 		for (int i = 0; i < k * 2; i++) {
 			C[i] = (2 - (long long)B[i] * C[i]) % p * C[i] % p;
