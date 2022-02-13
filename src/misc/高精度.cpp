@@ -3,7 +3,7 @@
 // 按需自取
 // 乘法O(n ^ 2), 除法O(10 * n ^ 2)
 
-const int maxn = 1005;
+constexpr int maxn = 1005;
 
 struct big_decimal {
 	int a[maxn];
