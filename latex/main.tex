@@ -88,6 +88,8 @@
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
 
+\mathchardef\mhyphen="2D
+
 \setminted[cpp]{
 	style=materiallight,
 	mathescape,
@@ -291,6 +293,9 @@
 			\subsection{常用公式及结论}
 				\subsubsection{方差}
 					\input{../src/math/方差.tex}
+				
+				\subsubsection{min-max反演}
+					\input{../src/math/minmax.tex}
 				
 				\subsubsection{单位根反演(展开整除条件$[n|k]$)}
 					\input{../src/math/单位根反演.tex}
@@ -676,7 +681,7 @@
 		% 	\subsection{Delaunay三角剖分 Voronoi图(待完成)}
 
 		\newpage
-		\section{Miscellaneous}
+		\section{杂项}
 			\subsection{$O(1)$快速乘}
 				如果对速度要求很高并且不能用指令集, 可以去看fstqwq的模板.
 
@@ -740,11 +745,11 @@
 				\subsubsection{做题策略与心态调节}
 					\input{../src/attention/做题策略与心态调节.tex}
 			
-			\subsection{附录: vscode相关}
+			\subsection{附录: VScode相关}
 				\input{../src/misc/vscode.tex}
 			
 			% \newpage
-			\subsection{附录: 骂人的艺术 —梁实秋}
+			\subsection{附录: 骂人的艺术—-梁实秋}
 				\input{../src/misc/骂人的艺术.tex}
 			
 			\subsection{附录: Cheat Sheet}

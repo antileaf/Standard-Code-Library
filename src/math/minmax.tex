@@ -1,0 +1,7 @@
+$$ \begin{aligned} \max(S)=\sum_{T \subset S}(-1)^{|T|+1}\min(T) \\ \min(S)=\sum_{T \subset S}(-1)^{|T|+1}\max(T) \end{aligned} $$
+
+推广: 求第$k$大
+
+$$ \begin{aligned} k\mhyphen\max(S) = \sum_{T \subset S} (-1)^{|T|-k} {|T|-1 \choose k-1} \min(T) \end{aligned} $$
+
+显然只有大小至少为$k$的子集才是有用的.

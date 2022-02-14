@@ -5,8 +5,8 @@
 简单起见, 找确定边的过程用Kruskal算法实现, 过程中的两种重要操作如下:
 
 \begin{itemize}
-	\item Reduction: 待修改边标为+INF, 跑MST后把非树边删掉, 减少无用边
-	\item Contraction: 待修改边标为-INF, 跑MST后缩除待修改边之外的所有MST边, 计算必须边
+	\item Reduction: 待修改边标为$+\infty$, 跑MST后把非树边删掉, 减少无用边
+	\item Contraction: 待修改边标为$-\infty$, 跑MST后缩除待修改边之外的所有MST边, 计算必须边
 \end{itemize}
 
 每轮分治需要Reduction-Contraction, 借此减少不确定边, 从而保证复杂度.

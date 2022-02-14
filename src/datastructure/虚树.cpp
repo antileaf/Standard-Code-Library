@@ -1,5 +1,5 @@
 struct Tree {
-    vector<int>G[maxn], W[maxn];
+    vector<int> G[maxn], W[maxn];
     int p[maxn], d[maxn], size[maxn], mn[maxn], mx[maxn];
     bool col[maxn];
     long long ans_sum;
@@ -12,8 +12,8 @@ struct Tree {
 
     void dfs(int x) {
         size[x] = col[x];
-        mx[x] = (col[x] ? d[x] : -0x3f3f3f3f);
-        mn[x] = (col[x] ? d[x] : 0x3f3f3f3f);
+        mx[x] = (col[x] ? d[x] : -inf);
+        mn[x] = (col[x] ? d[x] : inf);
 
         for (int i = 0; i < (int)G[x].size(); i++) {
             d[G[x][i]] = d[x] + W[x][i];
@@ -35,8 +35,8 @@ struct Tree {
 
     void solve(int rt) {
         ans_sum = 0;
-        ans_max = 1 << 31;
-        ans_min = (~0u) >> 1;
+        ans_max = -inf;
+        ans_min = inf;
         dfs(rt);
         ans_sum <<= 1;
     }
@@ -45,7 +45,7 @@ struct Tree {
 void dfs(int);
 int LCA(int, int);
 
-vector<int>G[maxn];
+vector<int> G[maxn];
 int f[maxn][20], d[maxn], dfn[maxn], tim = 0;
 
 bool cmp(int x, int y) {
