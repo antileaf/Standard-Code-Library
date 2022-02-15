@@ -4,3 +4,4 @@
 /latex/*.synctex.gz
 /latex/_minted-main/
 /_minted-main/
+/.vscode/
