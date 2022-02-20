@@ -138,7 +138,7 @@
 
 	\begin{titlepage}
 		
-		\includepdf{cover_new.pdf}
+		\includepdf{cirno.pdf}
 
 	\end{titlepage}
 
@@ -204,6 +204,7 @@
 					\inputminted{cpp}{../src/math/常系数齐次线性递推.cpp}
 				
 				\subsubsection{应用: $O(\sqrt n \log^2 n)$快速求阶乘}
+					\label{fastfact}
 					\input{../src/math/快速阶乘算法.tex}
 
 			\subsection{插值}
@@ -267,7 +268,7 @@
 				\inputminted{cpp}{../src/math/simpson.cpp}
 
 			\subsection{常见数列}
-				查表参见``Miscallous/OEIS''部分.
+				查表参见\ref{oeis}.\nameref{oeis}(\pageref{oeis}页).
 
 				\subsubsection{斐波那契数 卢卡斯数}
 					\input{../src/math/斐波那契数.tex}
@@ -322,7 +323,7 @@
 				\inputminted{cpp}{../src/numbertheory/扩展线性筛.cpp}
 
 			\subsection{杜教筛}
-				\inputminted{cpp}{../src/numbertheory/杜教筛.cpp}
+				\input{../src/numbertheory/杜教筛.tex}
 			
 			\subsection{Powerful Number筛}
 				\input{../src/numbertheory/PN.tex}
@@ -342,7 +343,7 @@
 				\inputminted{cpp}{../src/numbertheory/Pollard-Rho.cpp}
 			
 			\subsection{快速阶乘算法}
-				参见``数学/多项式''部分.
+				参见\ref{fastfact}.\nameref{fastfact}(\pageref{fastfact}页).
 
 			% \subsection{组合数取模}
 
@@ -390,7 +391,7 @@
 			
 			\subsection{最短路}
 				\subsubsection{Dijkstra}
-					见k短路(注意那边是求到$t$的最短路).
+					参见\ref{kshortestpath}.\nameref{kshortestpath}(\pageref{kshortestpath}页), 注意那边是求到$t$的最短路.
 				
 				\subsubsection{Johnson算法(负权图多源最短路)}
 					\input{../src/graph/johnson.tex}
@@ -398,7 +399,8 @@
 				% \subsubsection{差分约束}
 
 
-				\subsubsection{k短路}
+				\subsubsection{$k$短路}
+					\label{kshortestpath}
 					\inputminted{cpp}{../src/graph/k短路.cpp}
 			
 			\subsection{Tarjan算法}
@@ -578,7 +580,7 @@
 				\subsubsection{维护子树信息}
 					\inputminted{cpp}{../src/datastructure/LCT维护子树信息.cpp}
 					
-				\subsubsection{模板题:动态QTREE4(询问树上相距最远点)}
+				\subsubsection[模板题:动态QTREE4]{模板题:动态QTREE4(询问树上相距最远点)}
 						\inputminted{cpp}{../src/datastructure/动态QTREE4.cpp}
 	
 			\subsection{K-D树}
@@ -601,11 +603,16 @@
 			\subsection{长链剖分}
 				\inputminted{cpp}{../src/datastructure/长链剖分.cpp}
 	
-			\subsubsection{梯子剖分}
-				\inputminted{cpp}{../src/datastructure/梯子剖分.cpp}
-					
-			\subsection{左偏树}
-				(参见k短路板子.)
+				\subsubsection{梯子剖分}
+					\inputminted{cpp}{../src/datastructure/梯子剖分.cpp}
+			
+			\subsection{堆}
+
+				\subsubsection{左偏树}
+					参见\ref{kshortestpath}.k短路(\pageref{kshortestpath}页).
+				
+				\subsection{二叉堆}
+					\inputminted{cpp}{../src/datastructure/二叉堆.cpp}
 			
 			\subsection{莫队}
 				\input{../src/datastructure/莫队.tex}
@@ -646,7 +653,7 @@
 				如果建字典树然后BFS建自动机可以做到$O\left(n\left|\Sigma\right|\right)$($n$是字典树结点数), 但是后者写起来比较麻烦.
 				\inputminted{cpp}{../src/string/广义后缀自动机.cpp}
 
-				\subsubsection{区间本质不同子串计数(后缀自动机+LCT+线段树)}
+				\subsubsection[区间本质不同子串计数]{区间本质不同子串计数(后缀自动机+LCT+线段树)}
 					\input{../src/string/区间本质不同子串统计.tex}
 
 			\subsection{回文树}
@@ -729,6 +736,7 @@
 					\input{../src/misc/炉石.tex}
 
 			\subsection{OEIS}
+				\label{oeis}
 				\input{../src/misc/oeis.tex}
 			
 			\subsection{编译选项}
