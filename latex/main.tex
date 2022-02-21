@@ -683,9 +683,13 @@
 			% \subsection{例题(待完成)}
 		
 
-		% \newpage
-		% \section{计算几何}
-		% 	\subsection{Delaunay三角剖分 Voronoi图(待完成)}
+		\newpage
+		\section{计算几何}
+		 	\subsection{Delaunay三角剖分}
+				只要两个点同在某个三角形上, 它们就互为一对最近点. 注意返回的三角形似乎不保证顺序, 所以要加边的话还是要加双向边.
+				
+				如果要建V图的话求出每个三角形的外心就行了, 每个点控制的区域就是所在三角形的外心连起来.
+				\inputminted{cpp}{../src/geometry/delaunay.cpp}
 
 		\newpage
 		\section{杂项}
