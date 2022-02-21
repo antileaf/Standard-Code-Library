@@ -18,27 +18,29 @@ int n, m, q; // 点数,边数,修改数
 
 
 // 方便起见,附上可能需要用到的预处理代码
-for (int i = 1; i <= n; i++) { // 并查集初始化
-	p[i] = i;
-	size[i] = 1;
+int main() {
+	for (int i = 1; i <= n; i++) { // 并查集初始化
+		p[i] = i;
+		size[i] = 1;
+	}
+
+	for (int i = 1; i <= m; i++) { // 读入与预标号
+		scanf("%d%d%d", &e[0][i].u, &e[0][i].v, &e[0][i].w);
+		e[0][i].id = i;
+		id[0][i] = i;
+	}
+
+	for (int i = 1; i <= q; i++) { // 预处理出调用数组
+		scanf("%d%d", &a[i].id, &a[i].v);
+		a[i].u = e[0][a[i].id].w;
+		e[0][a[i].id].w = a[i].v;
+	}
+
+	for(int i = q; i; i--)
+		e[0][a[i].id].w = a[i].u;
+
+	CDQ(1, q, 0, m, 0); // 这是调用方法
 }
-
-for (int i = 1; i <= m; i++) { // 读入与预标号
-	scanf("%d%d%d", &e[0][i].u, &e[0][i].v, &e[0][i].w);
-	e[0][i].id = i;
-	id[0][i] = i;
-}
-
-for (int i = 1; i <= q; i++) { // 预处理出调用数组
-	scanf("%d%d", &a[i].id, &a[i].v);
-	a[i].u = e[0][a[i].id].w;
-	e[0][a[i].id].w = a[i].v;
-}
-
-for(int i = q; i; i--)
-	e[0][a[i].id].w = a[i].u;
-
-CDQ(1, q, 0, m, 0); // 这是调用方法
 
 
 // 分治主过程 O(nlog^2n)
@@ -193,7 +195,7 @@ void cut(int x) { // 并查集撤销
 
 	do
 		size[y = p[y]] -= size[x];
-	while (p[y]! = y);
+	while (p[y] != y);
 
 	p[x] = x;
 }

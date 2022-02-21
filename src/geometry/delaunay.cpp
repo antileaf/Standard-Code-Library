@@ -62,17 +62,17 @@ const point inf_point = point(1e18, 1e18);
 
 struct quad_edge {
 	point origin;
-	quad_edge* rot = nullptr;
-	quad_edge* onext = nullptr;
+	quad_edge *rot = nullptr;
+	quad_edge *onext = nullptr;
 	bool used = false;
 
-	quad_edge* rev() const {
+	quad_edge *rev() const {
 		return rot -> rot;
 	}
-	quad_edge* lnext() const {
+	quad_edge *lnext() const {
 		return rot -> rev() -> onext -> rot;
 	}
-	quad_edge* oprev() const {
+	quad_edge *oprev() const {
 		return rot -> onext -> rot;
 	}
 	point dest() const {
@@ -80,11 +80,11 @@ struct quad_edge {
 	}
 };
 
-quad_edge* make_edge(point from, point to) {
-	quad_edge* e1 = new quad_edge;
-	quad_edge* e2 = new quad_edge;
-	quad_edge* e3 = new quad_edge;
-	quad_edge* e4 = new quad_edge;
+quad_edge *make_edge(point from, point to) {
+	quad_edge *e1 = new quad_edge;
+	quad_edge *e2 = new quad_edge;
+	quad_edge *e3 = new quad_edge;
+	quad_edge *e4 = new quad_edge;
 
 	e1 -> origin = from;
 	e2 -> origin = to;
@@ -165,7 +165,7 @@ bool in_circle(point a, point b, point c, point d) { // 如果有__int128就直�
 
 pair<quad_edge*, quad_edge*> divide_and_conquer(int l, int r, vector<point> &p) {
 	if (r - l + 1 == 2) {
-		quad_edge* res = make_edge(p[l], p[r]);
+		quad_edge *res = make_edge(p[l], p[r]);
 		return make_pair(res, res -> rev());
 	}
 
@@ -178,7 +178,7 @@ pair<quad_edge*, quad_edge*> divide_and_conquer(int l, int r, vector<point> &p) 
 		if (sg == 0)
 			return make_pair(a, b -> rev());
 
-		quad_edge* c = connect(b, a);
+		quad_edge *c = connect(b, a);
 
 		if (sg == 1)
 			return make_pair(a, b -> rev());
@@ -301,7 +301,7 @@ int main() {
 
 	// read the points, v[1 ~ n]
 
-	bool col_linear = true;
+	bool col_linear = true; // 如果给出的所有点都共线则需要特判
 	for (int i = 3; i <= n; i++)
 		if (sarea2(v[1], v[2], v[i]))
 			col_linear = false;

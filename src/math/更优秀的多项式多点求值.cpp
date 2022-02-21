@@ -7,7 +7,7 @@ void pretreat(int l, int r, int k) { // 预处理
 
 	int *g = tg[k] + l * 2;
 
-	if (r - l + 1 <= 1) {
+	if (r - l + 1 <= 1) { // 小范围暴力
 		g[0] = 1;
 		
 		for (int i = l; i <= r; i++) {
@@ -157,6 +157,6 @@ void get_value(int *f, int *x, int *a, int n, int m) {
 
 	solve(0, m - 1, 0);
 
-	if (a) // 如果a是NULL, 代表不复制答案, 直接用ans数组
+	if (a) // 如果a是nullptr, 代表不复制答案, 直接用ans数组
 		memcpy(a, ans, sizeof(int) * m);
 }

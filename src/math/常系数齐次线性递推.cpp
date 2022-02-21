@@ -84,7 +84,7 @@ void pow_mod(long long k, int *g, int n, int *f) {
 	memset(a, 0, sizeof(int) * (n * 2));
 }
 
-// f_n = \sum_{i = 1} ^ m  f_{n - i} a_i
+// $f_n = \sum_{i = 1} ^ m  f_{n - i} a_i$
 // f是0~m-1项的初值
 int linear_recurrence(long long n, int m, int *f, int *a) {
 	static int g[maxn], c[maxn];

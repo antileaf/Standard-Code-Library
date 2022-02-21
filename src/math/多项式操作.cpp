@@ -6,7 +6,7 @@ void get_inv(int *A, int *C, int n) {
 	memset(C, 0, sizeof(int) * (n * 2));
 	C[0] = qpow(A[0], p - 2); // 一般常数项都是1, 直接赋值为1就可以
 
-	for (int k = 2; k <= n; k <<= 1) {
+	for (int k = 2; k <= n; k *= 2) {
 		memcpy(B, A, sizeof(int) * k);
 		memset(B + k, 0, sizeof(int) * k);
 
@@ -86,19 +86,19 @@ void get_ln(int *A, int *C, int n) { // 通常情况下A常数项都是1
 
 	get_integrate(B, C, n);
 
-	memset(C+n,0,sizeof(int)*n);
+	memset(C + n, 0, sizeof(int) * n);
 }
 
 // 多项式exp, 要求A没有常数项
 // 常数很大且总代码较长, 一般来说最好替换为分治FFT
-// 分治FFT依据: 设G(x) = exp F(x), 则有 g_i = \sum_{k=1}^{i-1} f_{i-k} * k * g_k
+// 分治FFT依据: 设$G(x) = \exp F(x)$, 则有 $g_i = \sum_{k=1}^{i-1} f_{i-k} * k * g_k$
 void get_exp(int *A, int *C, int n) {
 	static int B[maxn];
 
 	memset(C, 0, sizeof(int) * (n * 2));
 	C[0] = 1;
 
-	for (int k = 2; k <= n; k <<= 1) {
+	for (int k = 2; k <= n; k *= 2) {
 		get_ln(C, B, k);
 
 		for (int i = 0; i < k; i++) {
@@ -145,7 +145,7 @@ void get_div(int *A, int *B, int *C, int n, int m) {
 
 	int N = 1;
 	while (N < (n - m + 1))
-		N <<= 1;
+		N *= 2;
 	
 	memset(f, 0, sizeof(int) * N * 2);
 	memset(g, 0, sizeof(int) * N * 2);
@@ -216,7 +216,7 @@ void get_mod(int *A, int *B, int *C, int *D, int n, int m) {
 
 // 多点求值要用的数组
 int q[maxn], ans[maxn]; // q是要代入的各个系数, ans是求出的值
-int tg[25][maxn * 2], tf[25][maxn]; // 辅助数组, tg是预处理乘积,
+int tg[25][maxn * 2], tf[25][maxn]; // 辅助数组, tg是预处理乘积
 // tf是项数越来越少的f, tf[0]就是原来的函数
 
 void pretreat(int l, int r, int k) { // 多点求值预处理
@@ -224,7 +224,7 @@ void pretreat(int l, int r, int k) { // 多点求值预处理
 
 	int *g = tg[k] + l * 2;
 
-	if (r - l + 1 <= 200) {
+	if (r - l + 1 <= 200) { // 小范围暴力, 能跑得快点
 		g[0] = 1;
 		
 		for (int i = l; i <= r; i++) {
@@ -288,13 +288,13 @@ void solve(int l, int r, int k) { // 多项式多点求值主过程
 	int mid = (l + r) / 2;
 	int *ff = tf[k + 1], *gl = tg[k + 1] + l * 2, *gr = tg[k + 1] + (mid + 1) * 2;
 
-	get_mod(f, gl, ff, NULL, r - l + 1, mid - l + 2);
+	get_mod(f, gl, ff, nullptr, r - l + 1, mid - l + 2);
 	solve(l, mid, k + 1);
 
 	memset(gl, 0, sizeof(int) * (mid - l + 2));
 	memset(ff, 0, sizeof(int) * (mid - l + 1));
 
-	get_mod(f, gr, ff, NULL, r - l + 1, r - mid + 1);
+	get_mod(f, gr, ff, nullptr, r - l + 1, r - mid + 1);
 	solve(mid + 1, r, k + 1);
 
 	memset(gr, 0, sizeof(int) * (r - mid + 1));
@@ -314,6 +314,6 @@ void get_value(int *f, int *x, int *a, int n, int m) {
 	pretreat(0, m - 1, 0);
 	solve(0, m - 1, 0);
 
-	if (a) // 如果a是NULL, 代表不复制答案, 直接用ans数组
+	if (a) // 如果a是nullptr, 代表不复制答案, 直接用ans数组
 		memcpy(a, ans, sizeof(int) * m);
 }

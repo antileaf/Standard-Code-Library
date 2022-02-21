@@ -1,6 +1,6 @@
 ﻿// 使用时一定要注意double的精度是否足够(极限大概是10 ^ 14)
 
-const double pi = acos((double)-1.0);
+const double pi = acos((double)-1.);
 
 // 手写复数类
 // 支持加减乘三种运算
@@ -8,7 +8,7 @@ const double pi = acos((double)-1.0);
 struct Complex {
 	double a, b; // 由于long double精度和double几乎相同, 通常没有必要用long double
 
-	Complex(double a = 0.0, double b = 0.0) : a(a), b(b) {}
+	Complex(double a = 0., double b = 0.) : a(a), b(b) {}
 
 	Complex operator + (const Complex &x) const {
 		return Complex(a + x.a, b + x.b);
@@ -34,7 +34,7 @@ struct Complex {
 		return Complex(a, -b);
 	}
 } omega[maxn], omega_inv[maxn];
-const Complex ima = Complex(0, 1);
+const Complex ima = Complex(0, 1); // i = sqrt(-1)
 
 int fft_n; // 要在主函数里初始化
 

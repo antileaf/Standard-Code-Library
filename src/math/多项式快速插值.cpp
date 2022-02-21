@@ -88,8 +88,8 @@ void solve2(int l, int r, int k) { // 分治
 }
 
 // 主过程
-// 如果x, y传NULL表示询问已经存在了qx, qy里
-void interpolation(int *x, int *y, int n, int *f = NULL) {
+// 如果x, y传nullptr表示询问已经存在了qx, qy里
+void interpolation(int *x, int *y, int n, int *f = nullptr) {
 	static int d[maxn];
 
 	if (x)
@@ -101,7 +101,7 @@ void interpolation(int *x, int *y, int n, int *f = NULL) {
 
 	get_derivative(th[0], d, n + 1);
 
-	multipoint_eval(d, qx, NULL, n, n);
+	multipoint_eval(d, qx, nullptr, n, n);
 
 	for (int i = 0; i < n; i++)
 		ansf[i] = (long long)qy[i] * qpow(ans[i], p - 2) % p;
