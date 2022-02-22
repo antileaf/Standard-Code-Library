@@ -1,6 +1,6 @@
 \documentclass[a4paper, twoside]{article}
-\title{Standard Code Library}
-\author{AntiLeaf}
+\title{\vspace{20cm}\fontsize{50pt}{40pt}\selectfont{All-in at the River}\\\fontsize{24pt}{\baselineskip}\selectfont{Standard Code Library}\vspace{0.1cm}}
+\author{\fontsize{15pt}{\baselineskip}\selectfont{Shanghai Jiao Tong University}\vspace{0.2cm}\\\fontsize{11pt}{\baselineskip}\selectfont{Desprado2\quad fstqwq\quad AntiLeaf}}
 \date{}
 
 % green= '#10BC72' # '#C3E88D'
@@ -28,6 +28,8 @@
 
 \usepackage{color,xcolor}
 
+\usepackage{afterpage}
+
 \usepackage{enumitem}
 \setenumerate[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
@@ -46,6 +48,7 @@
 \setlength{\columnsep}{13pt}
 
 %configure fonts
+%\setmainfont{TeX Gyre Pagella} % [Scale=1]
 \setmonofont{Cascadia Code} [Scale=0.8]
 \newfontfamily\substitutefont{等线}[Scale=0.9]
 \setTransitionsForChinese{\begingroup\substitutefont}{\endgroup}
@@ -68,8 +71,11 @@
 % \titlespacing{\subsubsection}{0pt}{0pt}{0pt}
 
 \usepackage{fancyhdr}
-\usepackage[inner=0.9cm, outer=0.7cm, top=1.7cm, bottom=0.4cm]{geometry}
+\usepackage[inner=0.7cm, outer=1.0cm, top=1.7cm, bottom=0.4cm]{geometry}
 % inner = 1.35cm, outer = 0.9cm
+
+\usepackage{wallpaper}
+\usepackage{color}
 
 \setlength{\headsep}{0.1cm}
 \setlength{\footskip}{0.7cm}
@@ -137,8 +143,16 @@
 \begin{document}
 
 	\begin{titlepage}
+
+		\ThisCenterWallPaper{1}{waifu2x.png}
+
+		% \textrm{TeX Gyre Pagella}
+
+		\fontspec{TeX Gyre Pagella}\selectfont{\color{white}{\maketitle}}
+
+		\thispagestyle{empty}
 		
-		\includepdf{cirno.pdf}
+		% \includepdf{cirno.pdf}
 
 	\end{titlepage}
 
@@ -775,4 +789,16 @@
 	\end{multicols}
 
 	\includepdf[pages = 1-10]{../src/misc/Cheat.pdf}
+
+	\pagestyle{empty}
+
+	\newpage
+	\ThisCenterWallPaper{1}{3.png}
+
+	\null
+
+	\newpage
+	\ThisCenterWallPaper{1}{4.png}
+
+	\null
 \end{document}
