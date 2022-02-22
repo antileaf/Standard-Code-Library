@@ -2,7 +2,7 @@
 
 // 边的定义
 // 这里没有记录起点和反向边, 因为反向边即为正向边xor 1, 起点即为反向边的终点
-struct edge{
+struct edge {
 	int to, cap, prev;
 } e[maxe * 2];
 

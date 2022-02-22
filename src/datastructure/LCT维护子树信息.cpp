@@ -3,7 +3,7 @@
 // 注意由于这道题与边权有关, 需要边权拆点变点权
 
 // 宏定义
-#define isroot(x) ((x) -> p == null || ((x) != (x) -> p -> ch[0]&& (x) != (x) -> p -> ch[1]))
+#define isroot(x) ((x) -> p == null || ((x) != (x) -> p -> ch[0] && (x) != (x) -> p -> ch[1]))
 #define dir(x) ((x) == (x) -> p -> ch[1])
 
 // 节点类定义
@@ -63,7 +63,7 @@ node *access(node *x) {
 		splay(x);
 
 		x -> tree_cnt += x -> ch[1] -> chain_cnt - y -> chain_cnt;
-		x->tree_sum += (x -> ch[1] -> rev ? x -> ch[1] -> sumr : x -> ch[1] -> suml) - y -> suml;
+		x -> tree_sum += (x -> ch[1] -> rev ? x -> ch[1] -> sumr : x -> ch[1] -> suml) - y -> suml;
 		x -> ch[1] = y;
 
 		(y = x) -> refresh();
@@ -136,7 +136,7 @@ void splay(node *x) {
 		x -> pushdown();
 
 		if (isroot(x -> p)) {
-			rot(x -> p,dir(x) ^ 1);
+			rot(x -> p, dir(x) ^ 1);
 			break;
 		}
 

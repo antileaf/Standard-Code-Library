@@ -109,20 +109,20 @@ void splice(quad_edge *a, quad_edge *b) { // 拼接
 }
 
 void delete_edge(quad_edge *e) {
-	splice(e, e->oprev());
-	splice(e->rev(), e->rev()->oprev());
+	splice(e, e -> oprev());
+	splice(e -> rev(), e -> rev() -> oprev());
 
-	delete e->rev()->rot;
-	delete e->rev();
-	delete e->rot;
+	delete e -> rev() -> rot;
+	delete e -> rev();
+	delete e -> rot;
 	delete e;
 }
 
 quad_edge *connect(quad_edge *a, quad_edge *b) {
 	quad_edge *e = make_edge(a -> dest(), b -> origin);
 
-	splice(e, a->lnext());
-	splice(e->rev(), b);
+	splice(e, a -> lnext());
+	splice(e -> rev(), b);
 	
 	return e;
 }
@@ -141,7 +141,7 @@ T det3(T a1, T a2, T a3, T b1, T b2, T b3, T c1, T c2, T c3) {
 		   a3 * (b1 * c2 - c1 * b2);
 }
 
-bool in_circle(point a, point b, point c, point d) { // 如果有__int128就直接计算行列式，否则算角度
+bool in_circle(point a, point b, point c, point d) { // 如果有__int128就直接计算行列式, 否则算角度
 #if defined(__LP64__) || defined(_WIN64)
 	__int128 det = -det3<__int128>(b.x, b.y, b.abs2(), c.x, c.y, c.abs2(), d.x, d.y, d.abs2());
 	det += det3<__int128>(a.x, a.y, a.abs2(), c.x, c.y, c.abs2(), d.x, d.y, d.abs2());
@@ -246,7 +246,7 @@ pair<quad_edge*, quad_edge*> divide_and_conquer(int l, int r, vector<point> &p) 
 
 vector<tuple<point, point, point> > delaunay(vector<point> p) { // Delaunay 三角剖分
 	sort(p.begin(), p.end(), [] (const point &a, const point &b) {
-		return a.x < b.x || (a.x == b.x && a.y < b.y); // 实际上已经重载小于了，只是为了清晰
+		return a.x < b.x || (a.x == b.x && a.y < b.y); // 实际上已经重载小于了, 只是为了清晰
 	});
 
 	auto res = divide_and_conquer(0, (int)p.size() - 1, p);
@@ -289,7 +289,7 @@ ll dist(point p, point q) { // 两点间距离的平方
 	return (p - q).abs2();
 }
 
-ll sarea2(point p, point q, point r) { // 三角形面积的两倍（叉积）
+ll sarea2(point p, point q, point r) { // 三角形面积的两倍(叉积)
 	return (q - p).cross(r - q);
 }
 

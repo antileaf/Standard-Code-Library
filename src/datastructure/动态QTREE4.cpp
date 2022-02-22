@@ -3,17 +3,17 @@
 #include <ext/pb_ds/tree_policy.hpp>
 #include <ext/pb_ds/priority_queue.hpp>
 
-#define isroot(x) ((x) -> p==null||((x)!=(x) -> p -> ch[0]&&(x)!=(x) -> p -> ch[1]))
-#define dir(x) ((x)==(x) -> p -> ch[1])
+#define isroot(x) ((x) -> p == null || ((x) != (x) -> p -> ch[0] && (x) != (x) -> p -> ch[1]))
+#define dir(x) ((x) == (x) -> p -> ch[1])
 
 using namespace std;
 using namespace __gnu_pbds;
 
-const int maxn = 100010;
-const long long INF = 1000000000000000000ll;
+constexpr int maxn = 100005;
+constexpr long long INF = 1000000000000000000ll;
 
 struct binary_heap {
-    __gnu_pbds::priority_queue<long long, less<long long>, binary_heap_tag>q1, q2;
+    __gnu_pbds::priority_queue<long long, less<long long>, binary_heap_tag> q1, q2;
     binary_heap() {}
 
     void push(long long x) {
@@ -115,8 +115,8 @@ void cut(node *, node *);
 void splay(node *);
 void rot(node *, int);
 
-queue<node *>freenodes;
-tree<pair<int, int>, node *>mp;
+queue<node *> freenodes;
+tree<pair<int, int>, node *> mp;
 
 bool col[maxn] = {false};
 char c;

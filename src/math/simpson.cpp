@@ -1,6 +1,6 @@
 // Adaptive Simpson's method : double simpson::solve (double (*f) (double), double l, double r, double eps) : integrates f over (l, r) with error eps.
 
-double area (double (*f)(double), double l, double r) { 
+double area (double (*f) (double), double l, double r) { 
 	double m = l + (r - l) / 2;
 	return (f(l) + 4 * f(m) + f(r)) * (r - l) / 6;
 }

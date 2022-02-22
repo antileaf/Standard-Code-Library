@@ -3,7 +3,7 @@ long long qk[maxn]; // 修改和询问可以一起存
 
 int ans[maxn];
 
-void solve(int l, int r, vector<int> v) { // 如果想卡常可以用数组, 然后只需要传一个数组的l, r； 递归的时候类似归并反过来, 开两个辅助数组, 处理完再复制回去即可
+void solve(int l, int r, vector<int> v) { // 如果想卡常可以用数组, 然后只需要传一个数组的l, r; 递归的时候类似归并反过来, 开两个辅助数组, 处理完再复制回去即可
 	if (v.empty())
 		return;
 

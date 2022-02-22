@@ -11,7 +11,7 @@ long long mul(long long a, long long b, long long p) {
 // 试机记得测试能不能过编译
 inline long long mul(const long long a, const long long b, const long long p) {
 	long long ans;
-	__asm__ __volatile__ ("\tmulq %%rbx\n\tdivq %%rcx\n" :  "=d"(ans) : "a"(a), "b"(b), "c"(p));
+	__asm__ __volatile__ ("\tmulq %%rbx\n\tdivq %%rcx\n" : "=d"(ans) : "a"(a), "b"(b), "c"(p));
 	return ans;
 }
 

@@ -1,6 +1,6 @@
 // 注意Dinic适用于二分图或分层图,对于一般稀疏图ISAP更优,稠密图则HLPP更优
 
-struct edge{
+struct edge {
 	int to, cap, prev;
 } e[maxe * 2];
 
@@ -27,7 +27,7 @@ void bfs() {
 	q[tail++] = s;
 	d[s] = 0;
 
-	while (head != tail){
+	while (head != tail) {
 		int x = q[head++];
 		for (int i = last[x]; ~i; i = e[i].prev)
 			if (e[i].cap > 0 && d[e[i].to] == -1) {

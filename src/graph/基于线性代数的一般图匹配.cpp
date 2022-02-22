@@ -94,7 +94,7 @@ void Gauss(int A[][maxn], int B[][maxn], int n) {
 		int inv = qpow(A[i][i], p - 2);
 
 		for (int j = 1; j <= n; j++)
-			if (i != j && A[j][i]){
+			if (i != j && A[j][i]) {
 				int t = (long long)A[j][i] * inv % p;
 
 				for (int k = i; k <= n; k++)

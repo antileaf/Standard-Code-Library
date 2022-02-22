@@ -1,27 +1,22 @@
-struct edge{
+struct edge {
 	int to, w, prev;
-}e[maxn * 2];
-​
+} e[maxn * 2];
+
 vector<pair<int, int> > v[maxn];
-​
 vector<long long> d[maxn];
-​
 stack<int> stk;
-​
+
 int p[maxn];
-​
 bool vis[maxn], vise[maxn * 2];
-​
 int last[maxn], cnte;
-​
+
 long long f[maxn], g[maxn], sum[maxn];
-​
 int n, m, cnt;
-​
+
 void addedge(int x, int y, int w) {
 	v[x].push_back(make_pair(y, w));
 }
-​
+
 void dfs(int x) {
 
 	vis[x] = true;

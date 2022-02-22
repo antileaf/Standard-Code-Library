@@ -23,7 +23,7 @@ void extend(int n) {
 		val[q] = val[p] + 2;
 
 		do
-			p=par[p];
+			p = par[p];
 		while (s[n - val[p] - 1] != s[n]);
 
 		par[q] = go[p][c];

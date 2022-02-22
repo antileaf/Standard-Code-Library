@@ -1,12 +1,12 @@
-//n为串长,回文半径输出到p数组中
-//数组要开串长的两倍
+// n为串长, 回文半径输出到p数组中
+// 数组要开串长的两倍
 void manacher(const char *t, int n) {
 	static char s[maxn * 2];
 
 	for (int i = n; i; i--)
 		s[i * 2] = t[i];
 	for (int i = 0; i <= n; i++)
-		s[i * 2 + 1]='#';
+		s[i * 2 + 1] = '#';
 
 	s[0] = '$';
 	s[(n + 1) * 2] = '\0';

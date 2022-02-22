@@ -49,7 +49,7 @@ void CDQ(int l, int r, int d, int m, long long ans) { // CDQ分治
 	if (l == r) { // 区间长度已减小到1,输出答案,退出
 		e[d][id[d][a[l].id]].w = a[l].v;
 		printf("%lld\n", ans + Kruskal(m, e[d]));
-		e[d][id[d][a[l].id]].w=a[l].u;
+		e[d][id[d][a[l].id]].w = a[l].u;
 		return;
 	}
 
@@ -101,7 +101,7 @@ void Reduction(int l, int r, int d, int &m) {
 	for (int i = r; i >= l; i--)
 		e[d][id[d][a[i].id]].w = a[i].u; // 把待修改的边改回去
 
-	m=cnt;
+	m = cnt;
 }
 
 
@@ -118,19 +118,19 @@ long long Contraction(int l, int r, int d, int &m) {
 	copy(e[d] + 1, e[d] + m + 1, t + 1);
 
 	int cnt = 0;
-	for (int i = 1; i <= m ; i++) {
+	for (int i = 1; i <= m; i++) {
 
 		if (t[i].w != -INF && t[i].vis) { // 必须边
 			ans += t[i].w;
 			mergeset(t[i].u, t[i].v);
 		}
 		else { // 不确定边
-			id[d][t[i].id]=++cnt;
-			e[d][cnt]=t[i];
+			id[d][t[i].id] = ++cnt;
+			e[d][cnt] = t[i];
 		}
 	}
 
-	for (int i = r ; i >= l; i--) {
+	for (int i = r; i >= l; i--) {
 		e[d][id[d][a[i].id]].w = a[i].u; // 把待修改的边改回去
 		e[d][id[d][a[i].id]].vis = false;
 	}

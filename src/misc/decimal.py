@@ -19,7 +19,7 @@ x = decimal.Decimal('50.5679'). \
 # ROUND_FLOOR 向负无穷取整
 # ROUND_05UP (away from zero if last digit after rounding towards zero would have been 0 or 5; otherwise towards zero)
 
-print('%f', x ) # 这样做只有float的精度
+print('%f' % x) # 这样做只有float的精度
 s = str(x)
 
 decimal.is_finate(x) # x是否有穷(NaN也算)

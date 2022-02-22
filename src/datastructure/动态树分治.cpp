@@ -21,7 +21,7 @@ void build(int x, int k, int s, int pr) { // 结点, 深度, 连通块大小, �
 			d[G[x][i]][k] = W[x][i];
 			p[G[x][i]] = x;
 
-			getdis(G[x][i],k,G[x][i]); // bfs每个子树, 预处理距离
+			getdis(G[x][i], k, G[x][i]); // bfs每个子树, 预处理距离
 		}
 
 	for (int i = 0; i < (int)G[x].size(); i++)

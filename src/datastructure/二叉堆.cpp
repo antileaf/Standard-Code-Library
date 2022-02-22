@@ -16,7 +16,7 @@ struct my_binary_heap {
 		}
 	}
 
-	int& top() {
+	int &top() {
 		return a[1];
 	}
 

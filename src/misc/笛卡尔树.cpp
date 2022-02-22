@@ -4,7 +4,7 @@ int top = 0;
 s[++top] = root = 1;
 for (int i = 2; i <= n; i++) {
 	s[top + 1] = 0;
-	while (a[i] < a[s[top]]) // 小根笛卡尔树
+	while (top && a[i] < a[s[top]]) // 小根笛卡尔树
 		top--;
 
 	if (top)

@@ -20,7 +20,8 @@ $F_{2k} = F_k \left( 2 F_{k + 1} - F_k \right), \; F_{2k + 1} = F_{k + 1} ^ 2 + 
 
 \begin{minted} {cpp}
 pair<int, int> fib(int n) { // 返回F(n)和F(n + 1)
-    if (n == 0) return {0, 1};
+    if (n == 0)
+        return {0, 1};
     auto p = fib(n >> 1);
     int c = p.first * (2 * p.second - p.first);
     int d = p.first * p.first + p.second * p.second;
