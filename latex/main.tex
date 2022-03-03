@@ -214,6 +214,7 @@
 					\inputminted{cpp}{../src/math/半在线卷积.cpp}
 				
 				\subsubsection{常系数齐次线性递推$O(k\log k\log n)$}
+					\label{LinearRecurrence}
 					如果只有一次这个操作可以照抄, 否则就开一个全局flag.
 					\inputminted{cpp}{../src/math/常系数齐次线性递推.cpp}
 				
@@ -236,13 +237,9 @@
 				\subsubsection{三行FWT}
 					\inputminted{cpp}{../src/math/fwt3.cpp}
 
-			\subsection{单纯形}
-				\inputminted{cpp}{../src/math/单纯形.cpp}
-
-				\subsubsection{线性规划对偶原理}
-					\input{../src/math/线性规划对偶原理.tex}
-
 			\subsection{线性代数}
+				稀疏矩阵操作参见Berlekamp-Massey算法的应用(\pageref{BerlekampMasseyApplication}页).
+
 				\subsubsection{矩阵乘法}
 					\inputminted{cpp}{../src/math/矩阵乘法.cpp}
 
@@ -263,6 +260,15 @@
 				
 				\subsubsection{矩阵树定理, BEST定理}
 					\input{../src/math/矩阵树定理.tex}
+			
+			\subsection{Berlekamp-Massey最小递推式}
+				\input{../src/math/Berlekamp-Massey.tex}
+
+			\subsection{单纯形}
+				\inputminted{cpp}{../src/math/单纯形.cpp}
+
+				\subsubsection{线性规划对偶原理}
+					\input{../src/math/线性规划对偶原理.tex}
 			
 			\subsection{博弈论}
 				\subsubsection{SG定理}
@@ -629,7 +635,7 @@
 				\subsubsection{左偏树}
 					参见\ref{kshortestpath}.k短路(\pageref{kshortestpath}页).
 				
-				\subsection{二叉堆}
+				\subsubsection{二叉堆}
 					\inputminted{cpp}{../src/datastructure/二叉堆.cpp}
 			
 			\subsection{莫队}
