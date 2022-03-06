@@ -1,136 +1,130 @@
-
 #include <bits/stdc++.h>
 
 using namespace std;
 
-typedef long long ll;
-typedef pair<int, int> pii;
+constexpr int maxn = 505;
+constexpr long long inf = 0x3f3f3f3f3f3f3f3fll;
 
-const int MAXN = 502;
-const ll INF = 1e17;
+int g[maxn][maxn], id[maxn][maxn], pr[maxn]; // g是邻接矩阵
+long long f[maxn][maxn], d[maxn];
+bool vis[maxn];
 
-ll d[MAXN][MAXN], dd[MAXN][MAXN], rk[MAXN][MAXN], val[MAXN];
-int n, m;
+vector<pair<int, int>> minimum_diameter_spanning_tree(int n) { // 1-based
+	for (int i = 1; i <= n; i++)
+		for (int j = 1; j <= n; j++)
+			g[i][j] *= 2; // 输入的边权都要乘2
 
-bool cmp(int a, int b) { return val[a] < val[b]; }
+	memset(f, 63, sizeof(f));
+	
+	for (int i = 1; i <= n; i++)
+		f[i][i] = 0;
 
-void floyd() {
+	for (int i = 1; i <= n; i++)
+		for (int j = 1; j <= n; j++)
+			if (g[i][j])
+				f[i][j] = g[i][j];
+	
 	for (int k = 1; k <= n; k++)
 		for (int i = 1; i <= n; i++)
-			for (int j = 1; j <= n; j++) d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
-}
-
-struct node {
-	ll u, v, w;
-} a[MAXN * (MAXN - 1) / 2];
-
-void solve() {
-	// 求图的绝对中心
-	floyd();
-	for (int i = 1; i <= n; i++) {
-		for (int j = 1; j <= n; j++) {
-			rk[i][j] = j;
-			val[j] = d[i][j];
-		}
-		sort(rk[i] + 1, rk[i] + 1 + n, cmp);
-	}
-	ll P = 0, ansP = INF;
-	// 在点上
-	for (int i = 1; i <= n; i++) {
-		if (d[i][rk[i][n]] * 2 < ansP) {
-			ansP = d[i][rk[i][n]] * 2;
-			P = i;
-		}
-	}
-	// 在边上
-	int f1 = 0, f2 = 0;
-	ll disu = INT_MIN, disv = INT_MIN, ansL = INF;
-	for (int i = 1; i <= m; i++) {
-		ll u = a[i].u, v = a[i].v, w = a[i].w;
-		for (int p = n, i = n - 1; i >= 1; i--) {
-			if (d[v][rk[u][i]] > d[v][rk[u][p]]) {
-				if (d[u][rk[u][i]] + d[v][rk[u][p]] + w < ansL) {
-					ansL = d[u][rk[u][i]] + d[v][rk[u][p]] + w;
-					f1 = u, f2 = v;
-					disu = (d[u][rk[u][i]] + d[v][rk[u][p]] + w) / 2 - d[u][rk[u][i]];
-					disv = w - disu;
-				}
-				p = i;
-			}
-		}
-	}
-	cout << min(ansP, ansL) / 2 << '\n';
-
-	// 最小路径生成树
-	vector<pii> pp;
-	for (int i = 1; i <= 501; ++i)
-		for (int j = 1; j <= 501; ++j) dd[i][j] = INF;
-	for (int i = 1; i <= 501; ++i) dd[i][i] = 0;
-	if (ansP <= ansL) {
-		for (int j = 1; j <= n; j++) {
-			for (int i = 1; i <= m; ++i) {
-				ll u = a[i].u, v = a[i].v, w = a[i].w;
-				if (dd[P][u] + w == d[P][v] && dd[P][u] + w < dd[P][v]) {
-					dd[P][v] = dd[P][u] + w;
-					pp.push_back({u, v});
-				}
-				u = a[i].v, v = a[i].u, w = a[i].w;
-				if (dd[P][u] + w == d[P][v] && dd[P][u] + w < dd[P][v]) {
-					dd[P][v] = dd[P][u] + w;
-					pp.push_back({u, v});
-				}
-			}
-		}
-		for (auto [x, y] : pp)
-			cout << x << ' ' << y << '\n';
-	}
-	else {
-		d[n + 1][f1] = disu;
-		d[f1][n + 1] = disu;
-		d[n + 1][f2] = disv;
-		d[f2][n + 1] = disv;
-		a[m + 1].u = n + 1, a[m + 1].v = f1, a[m + 1].w = disu;
-		a[m + 2].u = n + 1, a[m + 2].v = f2, a[m + 2].w = disv;
-		n += 1;
-		m += 2;
-		floyd();
-		P = n;
-		for (int j = 1; j <= n; j++) {
-			for (int i = 1; i <= m; ++i) {
-				ll u = a[i].u, v = a[i].v, w = a[i].w;
-				if (dd[P][u] + w == d[P][v] && dd[P][u] + w < dd[P][v]) {
-					dd[P][v] = dd[P][u] + w;
-					pp.push_back({u, v});
-				}
-				u = a[i].v, v = a[i].u, w = a[i].w;
-				if (dd[P][u] + w == d[P][v] && dd[P][u] + w < dd[P][v]) {
-					dd[P][v] = dd[P][u] + w;
-					pp.push_back({u, v});
-				}
-			}
-		}
-		cout << f1 << ' ' << f2 << '\n';
-		for (auto [x, y] : pp)
-			if (x != n && y != n) cout << x << ' ' << y << '\n';
-	}
-}
-
-void init() {
-	for (int i = 1; i <= 501; ++i)
-		for (int j = 1; j <= 501; ++j) d[i][j] = INF;
-	for (int i = 1; i <= 501; ++i) d[i][i] = 0;
-}
+			for (int j = 1; j <= n; j++)
+				f[i][j] = min(f[i][j], f[i][k] + f[k][j]);
 	
-int main() {
-	init();
-	cin >> n >> m;
-	for (int i = 1; i <= m; ++i) {
-		ll u, v, w;
-		cin >> u >> v >> w;
-		w *= 2;
-		d[u][v] = w, d[v][u] = w;
-		a[i].u = u, a[i].v = v, a[i].w = w;
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= n; j++)
+			id[i][j] = j; // 距离i第j近的点
+		
+		sort(id[i] + 1, id[i] + n + 1, [&i] (int x, int y) {
+			return f[i][x] < f[i][y];
+		});
 	}
-	solve();
+
+	int o = 0;
+	long long ansv = inf; // vertex
+
+	for (int i = 1; i <= n; i++)
+		if (f[i][id[i][n]] * 2 < ansv) {
+			ansv = f[i][id[i][n]] * 2;
+			o = i;
+		}
+	
+	int u = 0, v = 0;
+	long long disu = -inf, disv = -inf, anse = inf;
+	
+	for (int x = 1; x <= n; x++)
+		for (int y = 1; y <= n; y++)
+			if (g[x][y]) { // 如果g[x][y] = 0说明没有边
+				int w = g[x][y];
+
+				for (int i = n - 1, j = n; i; i--)
+					if (f[y][id[x][i]] > f[y][id[x][j]]) {
+						long long tmp = f[x][id[x][i]] + f[y][id[x][j]] + w;
+						if (tmp < anse) {
+							anse = tmp;
+							u = x;
+							v = y;
+							
+							disu = tmp / 2 - f[x][id[x][i]];
+							disv = w - disu;
+						}
+						j = i;
+					}
+			}
+	
+	printf("%lld\n", min(ansv, anse) / 2); // 直径
+
+	memset(d, 63, sizeof(d));
+	
+	if (ansv <= anse)
+		d[o] = 0;
+	else {
+		d[u] = disu;
+		d[v] = disv;
+	}
+
+	for (int k = 1; k <= n; k++) { // Dijkstra
+		int x = 0;
+		for (int i = 1; i <= n; i++)
+			if (!vis[i] && d[i] < d[x])
+				x = i;
+		
+		vis[x] = true;
+		for (int y = 1; y <= n; y++)
+			if (g[x][y] && !vis[y]) {
+				if (d[y] > d[x] + g[x][y]) {
+					d[y] = d[x] + g[x][y];
+					pr[y] = x;
+				}
+				else if (d[y] == d[x] + g[x][y] && d[pr[y]] < d[x])
+					pr[y] = x;
+			}
+	}
+
+	vector<pair<int, int>> vec;
+	for (int i = 1; i <= n; i++)
+		if (pr[i])
+			vec.emplace_back(i, pr[i]);
+	
+	if (ansv > anse)
+		vec.emplace_back(u, v);
+	
+	return vec;
+}
+
+int main() {
+
+	int n, m;
+	scanf("%d%d", &n, &m);
+
+	while (m--) {
+		int x, y, z;
+		scanf("%d%d%d", &x, &y, &z);
+
+		g[x][y] = g[y][x] = z; // 无向图
+	}
+
+	auto vec = minimum_diameter_spanning_tree(n);
+	for (auto [x, y] : vec)
+		printf("%d %d\n", x, y);
+
 	return 0;
 }
