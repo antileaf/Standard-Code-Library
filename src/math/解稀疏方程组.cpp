@@ -7,7 +7,7 @@ vector<int> solve_sparse_equations(const vector<tuple<int, int, int> > &A, const
 		vector<int> v(n);
 		auto &u = f.back();
 
-		for (auto [x, y, z] : A)// [x, y, value]
+		for (auto [x, y, z] : A) // [x, y, value]
 			v[x] = (v[x] + (long long)u[y] * z) % p;
 
 		f.push_back(v);
