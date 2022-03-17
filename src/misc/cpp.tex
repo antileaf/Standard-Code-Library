@@ -17,7 +17,7 @@
 	\item \mintinline{cpp}{std::partition(begin, end, f)}: 把f为true的放在前面, false的放在后面, 返回值是第二部分的开头, \textbf{不保持相对顺序}. 如果要保留相对顺序可以用\mintinline{cpp}{std::stable_partition()}, 比如写整体二分.
 	\item \mintinline{cpp}{std::partition_copy(begin, end, begin_t, begin_f, f)}: 不修改原数组, 把true的扔到begin\_t, false的扔到begin\_f. 返回值是两部分结尾的迭代器的pair.
 	\item \mintinline{cpp}{std::equal_range(begin, end, x)}: 在已经排好序的数组里找到等于x的范围.
-	\item \mintinline{cpp}{std::minmax(a, b)}: 返回\mintinline{cpp}{pair(min(a, b), max(a, b))}. 比如\mintinline{cpp}{tie(l, r) = minmax(l, r)}.
+	\item \mintinline{cpp}{std::minmax(a, b)}: 返回\mintinline{cpp}{pair(min(a, b), max(a, b))}. 但是要注意\textbf{返回的是引用}, 所以不能直接用来交换 $l, r$.
 \end{itemize}
 
 \subsubsection{std::tuple}
