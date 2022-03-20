@@ -20,7 +20,7 @@ void update(int l, int r, int d) {
 					tree[r] = max(tree[r << 1], tree[r << 1 | 1]) + mark[r];
 }
 
-void query(int l, int r) {
+int query(int l, int r) {
 	int maxl = -INF, maxr = -INF;
 
 	for (l += N - 1, r += N + 1; l ^ r ^ 1; l >>= 1, r >>= 1) {
