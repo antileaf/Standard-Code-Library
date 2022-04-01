@@ -4,5 +4,6 @@
 /latex/*.out
 /latex/*.synctex.gz
 /latex/_minted-main/
+/latex/_minted-macau/
 /_minted-main/
 /.vscode/

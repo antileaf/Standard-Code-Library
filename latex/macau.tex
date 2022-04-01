@@ -1,0 +1,251 @@
+\documentclass[a4paper]{article}
+\title{\fontsize{24pt}{\baselineskip}\selectfont{{\bfseries Standard Code Library}\\(for Macau Regional)}}
+\date{}
+
+% green= '#10BC72' # '#C3E88D'
+% cyan= '#00A1D6' # '#89DDFF'
+
+% \usepackage{zxjatype}
+% \setjamainfont{ipaexm.ttf}
+
+\usepackage{graphicx, amssymb, amsmath, textcomp, booktabs}
+% \usepackage[libertine, vvarbb]{newtxmath}
+\usepackage[scr=rsfso]{mathalfa}
+%\usepackage[lining, semibold, type1]{libertine} % a bit lighter than Times--no osf in math
+\usepackage[T1]{fontenc} % best for Western European languages
+\usepackage{minted}
+\usepackage{listings, color, setspace, titlesec, fancyhdr, mdframed, multicol}
+\usepackage{fontspec}
+\usepackage{ucharclasses}
+\usepackage{xunicode, xltxtra}
+\usepackage{pdfpages}
+\usepackage{tocloft}
+\usepackage{nameref}
+\usepackage{verbatim}
+\usepackage{relsize}
+\usepackage[normalem]{ulem}
+
+\usepackage[colorlinks, linkcolor = black]{hyperref}
+
+\usepackage{color,xcolor}
+
+\usepackage{afterpage}
+
+\usepackage{enumitem}
+\setenumerate[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
+
+\setlength{\itemindent}{0em}
+\setlength\parindent{0em}
+
+\definecolor{light-gray}{gray}{0.9}    % 1.灰度
+\definecolor{black}{gray}{0.0}
+
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+%configure space between the two columns
+\setlength{\columnsep}{13pt}
+
+%configure fonts
+%\setmainfont{TeX Gyre Pagella} % [Scale=1]
+\setmonofont{Cascadia Code} [Scale=0.8]
+\newfontfamily\substitutefont{等线}[Scale=0.9]
+\setTransitionsForChinese{\begingroup\substitutefont}{\endgroup}
+
+%configure minted to display codes
+\definecolor{Gray}{rgb}{0.9,0.9,0.9}
+
+%configure section style of table of content
+\renewcommand\cftsecfont{\Large}
+
+%configure section style
+\titleformat{\section}
+{\huge\bfseries}			% The style of the section title
+{\thesection }				% a prefix
+{15pt}						% How much space exists between the prefix and the title
+{}					% How the section is represented
+% \titleformat{\section}{\huge}{}{0pt}{}
+% \titlespacing{\section}{0pt}{0pt}{0pt}
+% \titlespacing{\subsection}{0pt}{0pt}{0pt}
+% \titlespacing{\subsubsection}{0pt}{0pt}{0pt}
+
+\usepackage{fancyhdr}
+\usepackage[inner=1.0cm, outer=1.0cm, top=1.7cm, bottom=0.4cm]{geometry}
+% inner = 1.35cm, outer = 0.9cm
+
+\usepackage{wallpaper}
+\usepackage{color}
+
+\setlength{\headsep}{0.1cm}
+\setlength{\footskip}{0.7cm}
+
+\fancypagestyle{fancy} {
+
+	% \pagestyle{fancy}
+
+	\chead{Standard Code Library for Macau Regional}
+	\lhead{\nouppercase\leftmark}
+	\rhead{\nouppercase\rightmark}
+	\cfoot{\thepage}
+
+}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\mathchardef\mhyphen="2D
+
+\setminted[cpp]{
+	style=materiallight,
+	mathescape,
+	linenos,
+	autogobble,
+	baselinestretch=0.9,
+	tabsize=4,
+	fontsize=\normalsize,
+	%bgcolor=Gray,
+	frame=single,
+	framesep=1mm,
+	framerule=0.3pt,
+	numbersep=1mm,
+	breaklines=true,
+	breaksymbolsepleft=2pt,
+	%breaksymbolleft=\raisebox{0.8ex}{ \small\reflectbox{\carriagereturn}}, %not moe!
+	%breaksymbolright=\small\carriagereturn,
+	breakbytoken=false,
+	showtabs=true,
+	tab={\relscale{1.08} $\color{light-gray}{\vert} \ \ \ $ \relscale{1}},
+}
+
+\setminted[python]{
+	style=materiallight,
+	mathescape,
+	linenos,
+	autogobble,
+	baselinestretch=0.9,
+	tabsize=4,
+	fontsize=\normalsize,
+	%bgcolor=Gray,
+	frame=single,
+	framesep=0.8mm,
+	framerule=0.3pt,
+	numbersep=0.8mm,
+	breaklines=true,
+	breaksymbolsepleft=2pt,
+	%breaksymbolleft=\raisebox{0.8ex}{ \small\reflectbox{\carriagereturn}}, %not moe!
+	%breaksymbolright=\small\carriagereturn,
+	breakbytoken=false,
+	showtabs=true,
+	tab={\relscale{1.08} $\color{light-gray}{\vert} \ \ \ $ \relscale{1}},
+}
+
+\begin{document}
+
+	\pagestyle{plain}
+
+	\pagenumbering{roman}
+	\setcounter{page}{1}
+
+	\maketitle
+
+	\vspace{7cm}
+
+	\begin{multicols}{2}
+		
+		\begin{spacing}{1}
+			% \renewcommand{\contentsname}{\huge{目录}}
+			\tableofcontents
+		\end{spacing}
+
+	\end{multicols}
+
+	\newpage
+
+	\pagestyle{fancy}
+
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+
+	\begin{multicols}{2}
+		\section{数学}
+			\subsection{Berlekamp-Massey最小递推式}
+				\input{../src/math/Berlekamp-Massey.tex}
+		
+		\section{数论}
+				
+		\section{图论}
+			\subsection{最小直径生成树}
+					\input{../src/graph/最小直径生成树.tex}
+			
+			\subsection{欧拉回路}
+				\mintinline{cpp}{C[x]}是记录每条边对应的编号的.
+				
+				另外为了保证复杂度需要加当前弧优化.
+				
+				\inputminted{cpp}{../src/graph/欧拉回路.cpp}
+			
+			\subsection{预流推进费用流(可处理负环) $O(nm \log C)$}
+				不是很懂什么原理, 待研究.
+
+				\inputminted{cpp}{../src/graph/预流推进费用流.cpp}
+
+			\subsection{网络流原理}
+				\input{../src/graph/网络流原理.tex}
+			
+			\subsection{Stoer-Wagner全局最小割}
+				\inputminted{cpp}{../src/graph/stoer-wagner.cpp}
+			
+		\section{数据结构}
+			\subsection{历史和}
+
+				EC-Final2020 G, 原题是询问某个区间有多少子区间, 满足子区间中数的种类数为奇数.
+
+				离线之后转化成枚举右端点并用线段树维护左端点, 然后就是一个支持区间反转(0/1互换)和询问历史和的线段树.
+
+				``既然标记会复合，就说明在两个标记中间没有经过任何 pushup 操作
+
+				也就是说一个这两个标记对应着 相同的 0 的数量 以及 相同的 1 的数量
+
+				那么标记对于答案的影响只能是 a * 0 + b * 1
+
+				我们维护 a，b 即可''
+
+				\inputminted{cpp}{../src/datastructure/ec20g.cpp}
+			
+			\subsection{二叉堆}
+				\inputminted{cpp}{../src/datastructure/二叉堆.cpp}
+
+		\section{字符串}
+			\subsection[区间本质不同子串计数]{区间本质不同子串计数(后缀自动机+LCT+线段树)}
+				\input{../src/string/区间本质不同子串统计.tex}
+
+		\section{动态规划}
+			
+			\subsection{例题}
+				\input{../src/dp/例题.tex}
+
+		\section{计算几何}
+			
+			\subsection{最近点对}
+				\input{../src/geometry/最近点对.tex}
+
+		\section{杂项}
+			\subsection{STL}
+				\input{../src/misc/STL.tex}
+			
+			\subsection{德州扑克}
+				\input{../src/misc/德扑.tex}
+
+	\end{multicols}
+
+	\includepdf[angle=270]{../src/misc/keyboard-shortcuts-windows.pdf}
+
+	\includepdf[angle=270]{../src/misc/keyboard-shortcuts-linux.pdf}
+
+	% \newpage
+	% \ThisCenterWallPaper{1}{4.jpg}
+
+	% \null
+\end{document}
