@@ -11,3 +11,4 @@ void exgcd(LL a, LL b, LL &c, LL &x, LL &y) {
 	LL tmp = x;
 	x = y;
 	y = tmp - (a / b) * y;
+}
