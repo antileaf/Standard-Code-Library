@@ -1,25 +1,5 @@
 ﻿// 复杂度可以认为是常数
 
-// 封装好的函数体
-// 需要调用check
-bool Miller_Rabin(long long n) {
-	if (n == 1)
-		return false;
-	if (n == 2)
-		return true;
-	if (n % 2 == 0)
-		return false;
-
-	for (int i : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}) {
-		if (i >= n)
-			break;
-		if (!check(n, i))
-			return false;
-	}
-	
-	return true;
-}
-
 // 用一个数检测
 // 需要调用long long快速幂和O(1)快速乘
 bool check(long long n, long long b) { // b: base
@@ -42,4 +22,28 @@ bool check(long long n, long long b) { // b: base
 	}
 
 	return false;
+}
+
+
+// 封装好的函数体
+// 需要调用check
+bool Miller_Rabin(long long n) {
+	if (n == 1)
+		return false;
+	if (n == 2)
+		return true;
+	if (n % 2 == 0)
+		return false;
+
+	// int范围内只需要检查 {2, 7, 61}
+	// long long范围内只需要检查 {2, 325, 9375, 28178, 450775, 9780504, 1795265022}
+
+	for (int i : {2, 325, 9375, 28178, 450775, 9780504, 1795265022}) {
+		if (i >= n)
+			break;
+		if (!check(n, i))
+			return false;
+	}
+	
+	return true;
 }
