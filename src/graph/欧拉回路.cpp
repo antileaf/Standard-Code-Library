@@ -1,4 +1,4 @@
-vector<int> G[maxn], C[maxn], v[maxn];
+vector<int> G[maxn], C[maxn], v[maxn]; // C是边的编号
 int cur[maxn];
 bool vis[maxn * 2];
 
