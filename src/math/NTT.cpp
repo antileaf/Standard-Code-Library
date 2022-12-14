@@ -1,22 +1,23 @@
-﻿constexpr int p = 998244353; // p为模数
-
-int ntt_n, omega[maxn], omega_inv[maxn]; // ntt_n要在主函数里初始化
+﻿vector<int> omega[25];
 
 void NTT_init(int n) {
-	ntt_n = n;
+	for (int k = 2, d = 0; k <= n; k *= 2, d++) {
+		omega[d].resize(k + 1);
 
-	int wn = qpow(3, (p - 1) / n); // 这里的3代表模数的任意一个原根
-
-	omega[0] = omega_inv[0] = 1;
-
-	for (int i = 1; i < n; i++)
-		omega_inv[n - i] = omega[i] = (long long)omega[i - 1] * wn % p;
+		int wn = qpow(3, (p - 1) / k), tmp = 1;
+		for (int i = 0; i <= k; i++) {
+			omega[d][i] = tmp;
+			tmp = (long long)tmp * wn % p;
+		}
+	}
 }
 
-void NTT(int *a, int n, int tp) { // n为变换长度, tp为1或-1, 表示正/逆变换
+void NTT(int *c, int n, int tp) {
+	static unsigned long long a[maxn];
+	for (int i = 0; i < n; i++) a[i] = c[i];
 
-	for (int i = 1, j = 0, k; i < n - 1; i++) { // O(n)旋转算法, 原理是模拟加1
-		k = n;
+	for (int i = 1, j = 0; i < n - 1; i++) {
+		int k = n;
 		do
 			j ^= (k >>= 1);
 		while (j < k);
@@ -25,24 +26,28 @@ void NTT(int *a, int n, int tp) { // n为变换长度, tp为1或-1, 表示正/�
 			swap(a[i], a[j]);
 	}
 
-	for (int k = 2, m = ntt_n / 2; k <= n; k *= 2, m /= 2)
-		for (int i = 0; i < n; i += k)
-			for (int j = 0; j < k / 2; j++) {
-				int w = (tp > 0 ? omega : omega_inv)[m * j];
+	for (int k = 1, d = 0; k < n; k *= 2, d++) {
+		if (d == 16)
+			for (int i = 0; i < n; i++)
+				a[i] %= p;
 
-				int u = a[i + j], v = (long long)w * a[i + j + k / 2] % p;
+		for (int i = 0; i < n; i += k * 2)
+			for (int j = 0; j < k; j++) {
+				int w = omega[d][tp > 0 ? j : k * 2 - j];
+				unsigned long long u = a[i + j],
+					v = w * a[i + j + k] % p;
 				a[i + j] = u + v;
-				if (a[i + j] >= p)
-					a[i + j] -= p;
-
-				a[i + j + k / 2] = u - v;
-				if (a[i + j + k / 2] < 0)
-					a[i + j + k / 2] += p;
+				a[i + j + k] = u - v + p;
 			}
-
-	if (tp < 0) {
+		}
+		
+	if (tp>0) {
+		for (int i = 0; i < n; i++)
+			c[i] = a[i] % p;
+	}
+	else {
 		int inv = qpow(n, p - 2);
 		for (int i = 0; i < n; i++)
-			a[i] = (long long)a[i] * inv % p;
+			c[i] = a[i] * inv % p;
 	}
 }
