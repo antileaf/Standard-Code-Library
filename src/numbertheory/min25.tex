@@ -4,7 +4,7 @@ $$ \begin{aligned} \sum_{i = 1} ^ n f(i) \end{aligned} $$
 
 设 $\sqrt n$ 以内的质数为 $p_1 \dots p_m$, 记
 
-$$ \begin{aligned} g(n) = \sum_{i = 1} ^ n \left[i \in \text{prime}\right] f(i) \end{aligned} $$
+$$ \begin{aligned} g(n) = \sum_{i = 1} ^ n \left[i \in \mathbb{P}\right] f(i) \end{aligned} $$
 
 也就是只考虑质数项的和.
 
@@ -12,7 +12,7 @@ $$ \begin{aligned} g(n) = \sum_{i = 1} ^ n \left[i \in \text{prime}\right] f(i) 
 
 再令
 
-$$ \begin{aligned} h_k(i, n) = \sum_{x = 2} ^ n \left[ x \in \text{prime 或 } x \text{ 与前 } i \text{ 个质数互质} \right] x^k \end{aligned} $$
+$$ \begin{aligned} h_k(i, n) = \sum_{x = 2} ^ n \left[ x \in \mathbb{P} \text{ 或 } x \text{ 与前 } i \text{ 个质数互质} \right] x^k \end{aligned} $$
 
 显然 $g(n) = \sum_k a_k h_k\left( \pi\left(\sqrt n\right), n \right)$, 递推求出所有 $h_k$ 即可得到 $g$.
 
@@ -31,6 +31,8 @@ $$ \begin{aligned} S(i, n) = \sum_{k = 2} ^ n \left[ k \text{ 与前 } (i - 1) \
 $$ \begin{aligned} S(i, n) = g(n) - \sum_{k = 1} ^ {i - 1} f(p_k) + \end{aligned} $$
 $$ \begin{aligned} \sum_{k = i} ^ {p_k \le \sqrt n} \sum_{c = 1} ^ {p_k ^ {c + 1} \le n} S\left( k + 1, \left\lfloor \frac n {p_k ^ c} \right\rfloor \right) f\left( p_k ^ c \right) + f\left( p_k ^ {c + 1} \right) \end{aligned} $$
 
-这里直接递归即可, 最后的答案即为 $\text{ans} = S(1, n) + f(1)$.
+这里直接递归即可, 注意边界应设为 $p_i > n$ 或 $n < 1$ 时 $S(i, n) = 0$. 最后的答案即为 $\text{ans} = S(1, n) + f(1)$.
 
-考虑到只有 $p_i \le \sqrt n$ 时才有递归, 也可以后缀和优化一下. 不优化的复杂度是 $O(n^{1 - \epsilon})$, 优化之后是 $O\left( \frac {n^{\frac 3 4}} {\log n} \right)$, 不过规模比较小的时候一般是不优化更快.
+也可以从大到小枚举 $i$ 递推, 考虑到只有 $p_i \le \sqrt n$ 时才有递推, 可以后缀和优化. 不优化的复杂度是 $O(n^{1 - \epsilon})$, 优化之后是 $O\left( \frac {n^{\frac 3 4}} {\log n} \right)$, 不过一般是不优化更快.
+
+\inputminted{cpp}{../src/numbertheory/min25.cpp}
