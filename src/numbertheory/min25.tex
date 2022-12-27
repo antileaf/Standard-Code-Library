@@ -1,1 +1,30 @@
-本质上其实还是类似于DP, 不过计算方式比洲阁筛简单.
+假设要求的是
+
+$$ \begin{aligned} \sum_{i = 1} ^ n f(i) \end{aligned} $$
+
+则构造一个函数 $F(n)$, 满足 $F(p) = f(p)$. 注意 $f(p^c)$ 是什么形式是无所谓的.
+
+设 $\sqrt n$ 以内的质数为 $p_1 \dots p_m$, 记
+
+$$ \begin{aligned} g(x) = \sum_{i = 1} ^ x \left[i \in \text{prime}\right] f(i) \end{aligned} $$
+
+$$ \begin{aligned} h(i, n) = \sum_{k = 2} ^ n \left[ k \in \text{prime 或 } k \text{ 与前 } i \text{ 个质数互质} \right] F(k) \end{aligned} $$
+
+显然 $g(x) = h\left( \pi\left(\sqrt x\right), x \right)$.
+
+用递推求出 $h$ 即可. 当 $p_i > \sqrt n$ 时显然有 $h(i, n) = h(i - 1, n)$, 否则有
+
+$$ \begin{aligned} h(i, n) =  h(i - 1, n) - F(p_i) h\left( i - 1, \left\lfloor \frac n {p_i} \right\rfloor \right) + F(p_i) \sum_{k = 1} ^ {i - 1} F(p_k) \end{aligned} $$
+
+边界为 $h(0, n) = \sum_{k = 2} ^ n F(k)$.
+
+设
+
+$$ \begin{aligned} S(i, n) = \sum_{k = 2} ^ n \left[ k \text{ 与前 } i \text{ 个质数互质} \right] f(k) \end{aligned}$$
+
+则
+
+$$ \begin{aligned} S(i, n) = g(n) - \sum_{k = 1} ^ {i - 1} f(p_k) + \end{aligned} $$
+$$ \begin{aligned} \sum_{k = i} ^ {p_k \le \sqrt n} \sum_{c = 1} ^ {p_k ^ {c + 1} \le n} S\left( k + 1, \left\lfloor \frac n {p_k ^ c} \right\rfloor \right) f\left( p_k ^ c \right) + f\left( p_k ^ {c + 1} \right) \end{aligned} $$
+
+这里直接递归即可, 最后的答案即为 $\text{ans} = S(1, n) + f(1)$.
