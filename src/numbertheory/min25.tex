@@ -2,25 +2,29 @@
 
 $$ \begin{aligned} \sum_{i = 1} ^ n f(i) \end{aligned} $$
 
-则构造一个函数 $F(n)$, 满足 $F(p) = f(p)$. 注意 $f(p^c)$ 是什么形式是无所谓的.
-
 设 $\sqrt n$ 以内的质数为 $p_1 \dots p_m$, 记
 
-$$ \begin{aligned} g(x) = \sum_{i = 1} ^ x \left[i \in \text{prime}\right] f(i) \end{aligned} $$
+$$ \begin{aligned} g(n) = \sum_{i = 1} ^ n \left[i \in \text{prime}\right] f(i) \end{aligned} $$
 
-$$ \begin{aligned} h(i, n) = \sum_{k = 2} ^ n \left[ k \in \text{prime 或 } k \text{ 与前 } i \text{ 个质数互质} \right] F(k) \end{aligned} $$
+也就是只考虑质数项的和.
 
-显然 $g(x) = h\left( \pi\left(\sqrt x\right), x \right)$.
+为了方便求出 $g$, 构造一个多项式 $F(x) = \sum a_i x^i$, 满足 $F(p) = f(p)$, 这样每个次幂就可以分开算贡献. ($f(p^c)$ 的形式无所谓.)
 
-用递推求出 $h$ 即可. 当 $p_i > \sqrt n$ 时显然有 $h(i, n) = h(i - 1, n)$, 否则有
+再令
 
-$$ \begin{aligned} h(i, n) =  h(i - 1, n) - F(p_i) h\left( i - 1, \left\lfloor \frac n {p_i} \right\rfloor \right) + F(p_i) \sum_{k = 1} ^ {i - 1} F(p_k) \end{aligned} $$
+$$ \begin{aligned} h_k(i, n) = \sum_{x = 2} ^ n \left[ x \in \text{prime 或 } x \text{ 与前 } i \text{ 个质数互质} \right] x^k \end{aligned} $$
 
-边界为 $h(0, n) = \sum_{k = 2} ^ n F(k)$.
+显然 $g(n) = \sum_k a_k h_k\left( \pi\left(\sqrt n\right), n \right)$, 递推求出所有 $h_k$ 即可得到 $g$.
 
-设
+考虑 $h$ 的转移, 当 $p_i > \sqrt n$ 时显然有 $h_k(i, n) = h_k(i - 1, n)$, 否则有
 
-$$ \begin{aligned} S(i, n) = \sum_{k = 2} ^ n \left[ k \text{ 与前 } i \text{ 个质数互质} \right] f(k) \end{aligned}$$
+$$ \begin{aligned} h_k(i, n) =  h_k(i - 1, n) - p_i ^ k h_k\left( i - 1, \left\lfloor \frac n {p_i} \right\rfloor \right) + p_i ^ k \sum_{j = 1} ^ {i - 1} p_j ^ k \end{aligned} $$
+
+边界为 $h_k(0, n) = \sum_{i = 2} ^ n i^k$.
+
+求出 $g$ 之后, 为了得到所有 $f(i)$ 之和还需要一次递推. 设
+
+$$ \begin{aligned} S(i, n) = \sum_{k = 2} ^ n \left[ k \text{ 与前 } (i - 1) \text{ 个质数互质} \right] f(k) \end{aligned}$$
 
 则
 
@@ -28,3 +32,5 @@ $$ \begin{aligned} S(i, n) = g(n) - \sum_{k = 1} ^ {i - 1} f(p_k) + \end{aligned
 $$ \begin{aligned} \sum_{k = i} ^ {p_k \le \sqrt n} \sum_{c = 1} ^ {p_k ^ {c + 1} \le n} S\left( k + 1, \left\lfloor \frac n {p_k ^ c} \right\rfloor \right) f\left( p_k ^ c \right) + f\left( p_k ^ {c + 1} \right) \end{aligned} $$
 
 这里直接递归即可, 最后的答案即为 $\text{ans} = S(1, n) + f(1)$.
+
+考虑到只有 $p_i \le \sqrt n$ 时才有递归, 也可以后缀和优化一下. 不优化的复杂度是 $O(n^{1 - \epsilon})$, 优化之后是 $O\left( \frac {n^{\frac 3 4}} {\log n} \right)$, 不过规模比较小的时候一般是不优化更快.
