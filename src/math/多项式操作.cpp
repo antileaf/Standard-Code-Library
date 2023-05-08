@@ -1,10 +1,10 @@
-﻿// A为输入, C为输出, n为所需长度且必须是2^k
-// 多项式求逆, 要求A常数项不为0
+﻿// A 为输入, C 为输出, n 为所需长度且必须是 2^k
+// 多项式求逆, 要求 A 常数项不为 0
 void get_inv(int *A, int *C, int n) {
 	static int B[maxn];
 
 	memset(C, 0, sizeof(int) * (n * 2));
-	C[0] = qpow(A[0], p - 2); // 一般常数项都是1, 直接赋值为1就可以
+	C[0] = qpow(A[0], p - 2); // 一般常数项都是 1, 直接赋值为 1 就可以
 
 	for (int k = 2; k <= n; k *= 2) {
 		memcpy(B, A, sizeof(int) * k);
@@ -30,7 +30,7 @@ void get_sqrt(int *A, int *C, int n) {
 	static int B[maxn], D[maxn];
 	
 	memset(C, 0, sizeof(int) * (n * 2));
-	C[0] = 1; // 如果不是1就要考虑二次剩余
+	C[0] = 1; // 如果不是 1 就要考虑二次剩余
 
 	for (int k = 2; k <= n; k *= 2) {
 		memcpy(B, A, sizeof(int) * k);
@@ -47,7 +47,7 @@ void get_sqrt(int *A, int *C, int n) {
 		NTT(B, k * 2, -1);
 
 		for (int i = 0; i < k; i++)
-			C[i] = (long long)(C[i] + B[i]) * inv_2 % p;//inv_2是2的逆元
+			C[i] = (long long)(C[i] + B[i]) * inv_2 % p; // inv_2 是 2 的逆元
 	}
 }
 
@@ -67,8 +67,8 @@ void get_integrate(int *A, int *C, int n) {
 	C[0] = 0; // 不定积分没有常数项
 }
 
-// 多项式ln, 要求A常数项不为0
-void get_ln(int *A, int *C, int n) { // 通常情况下A常数项都是1
+// 多项式 ln, 要求 A 常数项不为 0
+void get_ln(int *A, int *C, int n) { // 通常情况下 A 常数项都是 1
 	static int B[maxn];
 
 	get_derivative(A, B, n);
@@ -89,9 +89,9 @@ void get_ln(int *A, int *C, int n) { // 通常情况下A常数项都是1
 	memset(C + n, 0, sizeof(int) * n);
 }
 
-// 多项式exp, 要求A没有常数项
-// 常数很大且总代码较长, 一般来说最好替换为分治FFT
-// 分治FFT依据: 设$G(x) = \exp F(x)$, 则有 $g_i = \sum_{k=1}^{i-1} f_{i-k} * k * g_k$
+// 多项式 exp, 要求A没有常数项
+// 常数很大且总代码较长, 一般来说最好替换为分治 FFT
+// 分治 FFT 依据: 设 $G(x) = \exp F(x)$, 则有 $g_i = \sum_{k=1}^{i-1} f_{i-k} * k * g_k$
 void get_exp(int *A, int *C, int n) {
 	static int B[maxn];
 
@@ -120,7 +120,7 @@ void get_exp(int *A, int *C, int n) {
 	}
 }
 
-// 多项式k次幂, 在A常数项不为1时需要转化
+// 多项式 k 次幂, 在 A 常数项不为 1 时需要转化
 // 常数较大且总代码较长, 在时间要求不高时最好替换为暴力快速幂
 void get_pow(int *A, int *C, int n, int k) {
 	static int B[maxn];
@@ -133,8 +133,8 @@ void get_pow(int *A, int *C, int n, int k) {
 	get_exp(B, C, n);
 }
 
-// 多项式除法, A / B, 结果输出在C
-// A的次数为n, B的次数为m
+// 多项式除法, A / B, 结果输出在 C
+// A 的次数为 n, B 的次数为 m
 void get_div(int *A, int *B, int *C, int n, int m) {
 	static int f[maxn], g[maxn], gi[maxn];
 
@@ -173,7 +173,7 @@ void get_div(int *A, int *B, int *C, int n, int m) {
 		C[i] = f[n - m - i];
 }
 
-// 多项式取模, 余数输出到C, 商输出到D
+// 多项式取模, 余数输出到 C, 商输出到 D
 void get_mod(int *A, int *B, int *C, int *D, int n, int m) {
 	static int b[maxn], d[maxn];
 
@@ -188,7 +188,7 @@ void get_mod(int *A, int *B, int *C, int *D, int n, int m) {
 
 	get_div(A, B, d, n, m);
 	
-	if (D) { // D是商, 可以选择不要
+	if (D) { // D 是商, 可以选择不要
 		for (int i = 0; i < n - m + 1; i++)
 			D[i] = d[i];
 	}
@@ -215,9 +215,9 @@ void get_mod(int *A, int *B, int *C, int *D, int n, int m) {
 }
 
 // 多点求值要用的数组
-int q[maxn], ans[maxn]; // q是要代入的各个系数, ans是求出的值
-int tg[25][maxn * 2], tf[25][maxn]; // 辅助数组, tg是预处理乘积
-// tf是项数越来越少的f, tf[0]就是原来的函数
+int q[maxn], ans[maxn]; // q 是要代入的各个系数, ans 是求出的值
+int tg[25][maxn * 2], tf[25][maxn]; // 辅助数组, tg 是预处理乘积
+// tf 是项数越来越少的 f, tf[0] 就是原来的函数
 
 void pretreat(int l, int r, int k) { // 多点求值预处理
 	static int A[maxn], B[maxn];
@@ -301,7 +301,7 @@ void solve(int l, int r, int k) { // 多项式多点求值主过程
 	memset(ff, 0, sizeof(int) * (r - mid));
 }
 
-// f < x^n, m个询问, 询问是0-based, 当然改成1-based也很简单
+// f < x^n, m 个询问, 询问是 0-based, 当然改成 1-based 也很简单
 void get_value(int *f, int *x, int *a, int n, int m) {
 	if (m <= n)
 		m = n + 1;
@@ -314,6 +314,6 @@ void get_value(int *f, int *x, int *a, int n, int m) {
 	pretreat(0, m - 1, 0);
 	solve(0, m - 1, 0);
 
-	if (a) // 如果a是nullptr, 代表不复制答案, 直接用ans数组
+	if (a) // 如果 a 是 nullptr, 代表不复制答案, 直接用 ans 数组
 		memcpy(a, ans, sizeof(int) * m);
 }

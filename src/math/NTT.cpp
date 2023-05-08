@@ -41,7 +41,7 @@ void NTT(int *c, int n, int tp) {
 			}
 		}
 		
-	if (tp>0) {
+	if (tp > 0) {
 		for (int i = 0; i < n; i++)
 			c[i] = a[i] % p;
 	}

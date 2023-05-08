@@ -4,7 +4,7 @@ struct node {
 
 	node(int val) : val(val), size(1) {}
 
-	inline void refresh() {
+	inline void update() {
 		size = ch[0] -> size + ch[1] -> size;
 	}
 
@@ -23,15 +23,15 @@ node *merge(node *x, node *y) {
 	
 	node *z;
 	if (rand() % (x -> size + y -> size) < x -> size) {
-		z = copied(y);
-		z -> ch[0] = merge(x, y -> ch[0]);
-	}
-	else {
 		z = copied(x);
 		z -> ch[1] = merge(x -> ch[1], y);
 	}
+	else {
+		z = copied(y);
+		z -> ch[0] = merge(x, y -> ch[0]);
+	}
 
-	z -> refresh(); // 因为每次只有一边会递归到儿子, 所以z不可能取到null
+	z -> update(); // 因为每次只有一边会递归到儿子, 所以 z 不可能取到 null
 	return z;
 }
 
@@ -46,7 +46,7 @@ pair<node*, node*> split(node *x, int k) { // 左边大小为k
 
 		node *z = copied(x);
 		z -> ch[0] = pi.second;
-		z -> refresh();
+		z -> update();
 		pi.second = z;
 	}
 	else {
@@ -54,7 +54,7 @@ pair<node*, node*> split(node *x, int k) { // 左边大小为k
 
 		node *y = copied(x);
 		y -> ch[1] = pi.first;
-		y -> refresh();
+		y -> update();
 		pi.first = y;
 	}
 
