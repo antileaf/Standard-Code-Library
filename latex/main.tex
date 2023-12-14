@@ -25,14 +25,12 @@
 \usepackage{verbatim}
 \usepackage{relsize}
 \usepackage[normalem]{ulem}
-
 \usepackage[colorlinks, linkcolor = black]{hyperref}
-
 \usepackage{color,xcolor}
-
 \usepackage{afterpage}
-
+\usepackage{xeCJK}
 \usepackage{enumitem}
+
 \setenumerate[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
 \setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
@@ -43,17 +41,18 @@
 \definecolor{light-gray}{gray}{0.9}    % 1.灰度
 \definecolor{black}{gray}{0.0}
 
-\XeTeXlinebreaklocale "zh"
-\XeTeXlinebreakskip = 0pt plus 1pt
-
 %configure space between the two columns
 \setlength{\columnsep}{13pt}
 
-%configure fonts
+\setCJKmainfont{等线}[Scale=0.9]
+\setCJKmonofont{SimHei}[Scale=0.9]
+\setCJKsansfont{KaiTi}[Scale=0.9]
 %\setmainfont{TeX Gyre Pagella} % [Scale=1]
 \setmonofont{Cascadia Code} [Scale=0.8]
-\newfontfamily\substitutefont{等线}[Scale=0.9]
-\setTransitionsForChinese{\begingroup\substitutefont}{\endgroup}
+% \newfontfamily\substitutefont{等线}[Scale=0.9]
+% \setTransitionsForChinese{\begingroup\substitutefont}{\endgroup}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
 
 %configure minted to display codes
 \definecolor{Gray}{rgb}{0.9,0.9,0.9}
@@ -99,7 +98,7 @@
 \mathchardef\mhyphen="2D
 
 \setminted[cpp]{
-	style=materiallight,
+	style=solarized-light,
 	mathescape,
 	linenos,
 	autogobble,
@@ -121,7 +120,7 @@
 }
 
 \setminted[python]{
-	style=materiallight,
+	style=solarized-light,
 	mathescape,
 	linenos,
 	autogobble,
@@ -195,10 +194,10 @@
 				\subsubsection{多项式操作}
 					\inputminted{cpp}{../src/math/多项式操作.cpp}
 
-				\subsubsection{更优秀的多项式多点求值}
-					这个做法不需要写取模, 求逆也只有一次, 但是神乎其技, 完全搞不懂原理. \\
-					清空和复制之类的地方容易抄错, 抄的时候要注意.
-					\inputminted{cpp}{../src/math/更优秀的多项式多点求值.cpp}
+				% \subsubsection{更优秀的多项式多点求值}
+				% 	这个做法不需要写取模, 求逆也只有一次, 但是神乎其技, 完全搞不懂原理. \\
+				% 	清空和复制之类的地方容易抄错, 抄的时候要注意.
+				% 	\inputminted{cpp}{../src/math/更优秀的多项式多点求值.cpp}
 
 				\subsubsection{多项式快速插值}
 					\input{../src/math/多项式快速插值.tex}

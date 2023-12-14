@@ -1,319 +1,230 @@
-﻿// A 为输入, C 为输出, n 为所需长度且必须是 2^k
-// 多项式求逆, 要求 A 常数项不为 0
-void get_inv(int *A, int *C, int n) {
-	static int B[maxn];
+﻿using poly = vector<int>;
 
-	memset(C, 0, sizeof(int) * (n * 2));
-	C[0] = qpow(A[0], p - 2); // 一般常数项都是 1, 直接赋值为 1 就可以
+// u, v 长度要相同，返回长度是两倍
+poly poly_calc(const poly& u, const poly& v, function<int(int, int)> op) {
+	static int a[MAXN], b[MAXN], c[MAXN];
 
-	for (int k = 2; k <= n; k *= 2) {
-		memcpy(B, A, sizeof(int) * k);
-		memset(B + k, 0, sizeof(int) * k);
+	int n = (int)u.size();
 
-		NTT(B, k * 2, 1);
-		NTT(C, k * 2, 1);
-		
-		for (int i = 0; i < k * 2; i++) {
-			C[i] = (2 - (long long)B[i] * C[i]) % p * C[i] % p;
-			if (C[i] < 0)
-				C[i] += p;
-		}
-		
-		NTT(C, k * 2, -1);
+	memcpy(a, u.data(), sizeof(int) * n);
+	fill(a + n, a + n * 2, 0);
+	memcpy(b, v.data(), sizeof(int) * n);
+	fill(b + n, b + n * 2, 0);
 
-		memset(C + k, 0, sizeof(int) * k);
-	}
+	ntt(a, n * 2, 1);
+	ntt(b, n * 2, 1);
+
+	for (int i = 0; i < n * 2; i++)
+		c[i] = op(a[i], b[i]);
+
+	ntt(c, n * 2, -1);
+
+	return poly(c, c + n * 2);
 }
 
-// 开根
-void get_sqrt(int *A, int *C, int n) {
-	static int B[maxn], D[maxn];
-	
-	memset(C, 0, sizeof(int) * (n * 2));
-	C[0] = 1; // 如果不是 1 就要考虑二次剩余
+// 乘法，返回长度是两倍
+poly poly_mul(const poly& u, const poly& v) {
+	return poly_calc(u, v, [](int a, int b) { return (ll)a * b % p; });
+}
 
-	for (int k = 2; k <= n; k *= 2) {
-		memcpy(B, A, sizeof(int) * k);
-		memset(B + k, 0, sizeof(int) * k);
-		
-		get_inv(C, D, k);
+// 求逆，返回长度不变
+poly poly_inv(const poly& a) {
+	poly c{qpow(a[0], p - 2)}; // 常数项一般都是 1
 
-		NTT(B, k * 2, 1);
-		NTT(D, k * 2, 1);
+	for (int k = 2; k <= (int)a.size(); k *= 2) {
+		c.resize(k);
 
-		for (int i = 0; i < k * 2; i++)
-			B[i] = (long long)B[i] * D[i]%p;
-			
-		NTT(B, k * 2, -1);
+		poly b(a.begin(), a.begin() + k);
+		c = poly_calc(b, c, [](int bi, int ci) {
+			return ((2 - (ll)bi * ci) % p + p) * ci % p;
+		});
+		memset(c.data() + k, 0, sizeof(int) * k);
+	}
+
+	c.resize(a.size());
+	return c;
+}
+
+// 开根，返回长度不变
+poly poly_sqrt(const poly& a) {
+	poly c{1}; // 常数项不是 1 的话要写二次剩余
+
+	for (int k = 2; k <= (int)a.size(); k *= 2) {
+		c.resize(k);
+
+		poly b(a.begin(), a.begin() + k);
+		b = poly_mul(b, poly_inv(c));
 
 		for (int i = 0; i < k; i++)
-			C[i] = (long long)(C[i] + B[i]) * inv_2 % p; // inv_2 是 2 的逆元
+			c[i] = (ll)(c[i] + b[i]) * inv_2 % p; // inv_2 是 2 的逆元
 	}
+
+	c.resize(a.size());
+	return c;
 }
 
 // 求导
-void get_derivative(int *A, int *C, int n) {
-	for (int i = 1; i < n; i++)
-		C[i - 1] = (long long)A[i] * i % p;
-	
-	C[n - 1] = 0;
+poly poly_derivative(const poly& a) {
+	poly c(a.size());
+	for (int i = 1; i < (int)a.size(); i++)
+		c[i - 1] = (ll)a[i] * i % p;
+	return c;
 }
 
-// 不定积分, 最好预处理逆元
-void get_integrate(int *A, int *C, int n) {
-	for (int i = 1; i < n; i++)
-		C[i] = (long long)A[i - 1] * qpow(i, p - 2) % p;
-	
-	C[0] = 0; // 不定积分没有常数项
+// 不定积分，最好预处理逆元
+poly poly_integrate(const poly& a) {
+	poly c(a.size());
+	for (int i = 1; i < (int)a.size(); i++)
+		c[i] = (ll)a[i - 1] * inv[i] % p;
+	return c;
 }
 
-// 多项式 ln, 要求 A 常数项不为 0
-void get_ln(int *A, int *C, int n) { // 通常情况下 A 常数项都是 1
-	static int B[maxn];
-
-	get_derivative(A, B, n);
-	memset(B + n, 0, sizeof(int) * n);
-
-	get_inv(A, C, n);
-
-	NTT(B, n * 2, 1);
-	NTT(C, n * 2, 1);
-
-	for (int i = 0;i < n * 2; i++)
-		B[i] = (long long)B[i] * C[i] % p;
-
-	NTT(B, n * 2, -1);
-
-	get_integrate(B, C, n);
-
-	memset(C + n, 0, sizeof(int) * n);
+// ln，常数项不能为 0，返回长度不变
+poly poly_ln(const poly& a) {
+	auto c = poly_mul(poly_derivative(a), poly_inv(a));
+	c.resize(a.size());
+	return poly_integrate(c);
 }
 
-// 多项式 exp, 要求A没有常数项
-// 常数很大且总代码较长, 一般来说最好替换为分治 FFT
-// 分治 FFT 依据: 设 $G(x) = \exp F(x)$, 则有 $g_i = \sum_{k=1}^{i-1} f_{i-k} * k * g_k$
-void get_exp(int *A, int *C, int n) {
-	static int B[maxn];
+// exp，常数项必须是 0，返回长度不变
+// 常数很大并且总代码很长, 一般可以改用分治 FFT
+// 依据: 设 $G(x) = \exp F(x)$, 则 $g_i = \sum_{k=1}^{i-1} f_{i-k} * k * g_k$
+poly poly_exp(const poly& a) {
+	poly c{1};
 
-	memset(C, 0, sizeof(int) * (n * 2));
-	C[0] = 1;
-
-	for (int k = 2; k <= n; k *= 2) {
-		get_ln(C, B, k);
-
+	for (int k = 2; k <= (int)a.size(); k *= 2) {
+		c.resize(k);
+		
+		auto b = poly_ln(c);
 		for (int i = 0; i < k; i++) {
-			B[i] = A[i] - B[i];
-			if (B[i] < 0)
-				B[i] += p;
+			b[i] = a[i] - b[i];
+			if (b[i] < 0)
+				b[i] += p;
 		}
-		(++B[0]) %= p;
+		(++b[0]) %= p;
 
-		NTT(B, k * 2, 1);
-		NTT(C, k * 2, 1);
-
-		for (int i = 0; i < k * 2; i++)
-			C[i] = (long long)C[i] * B[i] % p;
-
-		NTT(C, k * 2, -1);
-
-		memset(C + k, 0, sizeof(int) * k);
-	}
-}
-
-// 多项式 k 次幂, 在 A 常数项不为 1 时需要转化
-// 常数较大且总代码较长, 在时间要求不高时最好替换为暴力快速幂
-void get_pow(int *A, int *C, int n, int k) {
-	static int B[maxn];
-
-	get_ln(A, B, n);
-
-	for (int i = 0; i < n; i++)
-		B[i] = (long long)B[i] * k % p;
-
-	get_exp(B, C, n);
-}
-
-// 多项式除法, A / B, 结果输出在 C
-// A 的次数为 n, B 的次数为 m
-void get_div(int *A, int *B, int *C, int n, int m) {
-	static int f[maxn], g[maxn], gi[maxn];
-
-	if (n < m) {
-		memset(C, 0, sizeof(int) * m);
-		return;
+		c = poly_mul(b, c);
+		memset(c.data() + k, 0, sizeof(int) * k);
 	}
 
-	int N = 1;
-	while (N < (n - m + 1))
-		N *= 2;
+	c.resize(a.size());
+	return c;
+}
+
+// 自动判断长度的乘法
+poly poly_auto_mul(poly a, poly b) {
+	int res_len = (int)a.size() + (int)b.size() - 1;
+	int ntt_n = 1;
+	while (ntt_n < (int)a.size() + (int)b.size())
+		ntt_n *= 2;
 	
-	memset(f, 0, sizeof(int) * N * 2);
-	memset(g, 0, sizeof(int) * N * 2);
-	// memset(gi, 0, sizeof(int) * N);
+	a.resize(ntt_n);
+	b.resize(ntt_n);
 
+	ntt(a.data(), ntt_n, 1);
+	ntt(b.data(), ntt_n, 1);
+
+	for (int i = 0; i < ntt_n; i++)
+		a[i] = (ll)a[i] * b[i] % p;
+	
+	ntt(a.data(), ntt_n, -1);
+	a.resize(res_len);
+	return a;
+}
+
+// 多项式除法，a 和 b 长度可以任意
+// 商的长度是 n - m + 1，余数的长度是 m - 1
+poly poly_div(const poly& a, const poly& b) {
+	int n = (int)a.size(), m = (int)b.size();
+	if (n < m)
+		return {};
+	
+	int ntt_n = 1;
+	while (ntt_n < n - m + 1)
+		ntt_n *= 2;
+	
+	poly f(ntt_n), g(ntt_n);
 	for (int i = 0; i < n - m + 1; i++)
-		f[i] = A[n - i - 1];
+		f[i] = a[n - i - 1];
 	for (int i = 0; i < m && i < n - m + 1; i++)
-		g[i] = B[m - i - 1];
+		g[i] = b[m - i - 1];
 	
-	get_inv(g, gi, N);
-
-	for (int i = n - m + 1; i < N; i++)
-		gi[i] = 0;
-	
-	NTT(f, N * 2, 1);
-	NTT(gi, N * 2, 1);
-	
-	for (int i = 0; i < N * 2; i++)
-		f[i] = (long long)f[i] * gi[i] % p;
-	
-	NTT(f, N * 2, -1);
-
-	for (int i = 0; i < n - m + 1; i++)
-		C[i] = f[n - m - i];
+	auto g_inv = poly_inv(g);
+	fill(g_inv.begin() + n - m + 1, g_inv.end(), 0);
+	auto c = poly_mul(f, g_inv);
+	c.resize(n - m + 1);
+	reverse(c.begin(), c.end());
+	return c;
 }
 
-// 多项式取模, 余数输出到 C, 商输出到 D
-void get_mod(int *A, int *B, int *C, int *D, int n, int m) {
-	static int b[maxn], d[maxn];
-
-	if (n < m) {
-		memcpy(C, A, sizeof(int) * n);
-		
-		if (D)
-			memset(D, 0, sizeof(int) * m);
-
-		return;
-	}
-
-	get_div(A, B, d, n, m);
+// 多项式取模，a 和 b 长度可以任意，返回 (余数，商)
+pair<poly, poly> poly_mod(const poly& a, const poly& b) {
+	int n = (int)a.size(), m = (int)b.size();
+	if (n < m)
+		return {a, {}};
 	
-	if (D) { // D 是商, 可以选择不要
-		for (int i = 0; i < n - m + 1; i++)
-			D[i] = d[i];
-	}
+	auto d = poly_div(a, b);
+	auto c = poly_auto_mul(b, d);
 
-	int N = 1;
-	while (N < n)
-		N *= 2;
-	
-	memcpy(b, B, sizeof(int) * m);
-
-	NTT(b, N, 1);
-	NTT(d, N, 1);
-
-	for (int i = 0; i < N; i++)
-		b[i] = (long long)d[i] * b[i] % p;
-	
-	NTT(b, N, -1);
-
+	poly r(m - 1);
 	for (int i = 0; i < m - 1; i++)
-		C[i] = (A[i] - b[i] + p) % p;
-	
-	memset(b, 0, sizeof(int) * N);
-	memset(d, 0, sizeof(int) * N);
+		r[i] = (a[i] - c[i] + p) % p;
+	return {r, d};
 }
 
-// 多点求值要用的数组
-int q[maxn], ans[maxn]; // q 是要代入的各个系数, ans 是求出的值
-int tg[25][maxn * 2], tf[25][maxn]; // 辅助数组, tg 是预处理乘积
-// tf 是项数越来越少的 f, tf[0] 就是原来的函数
+// 多项式多点求值，f 是多项式，x 是询问
+struct poly_eval {
+	poly f;
+	vector<int> x;
+	vector<poly> gs;
+	vector<int> ans;
 
-void pretreat(int l, int r, int k) { // 多点求值预处理
-	static int A[maxn], B[maxn];
+	poly_eval(const poly& f, const vector<int>& x) : f(f), x(x) {}
 
-	int *g = tg[k] + l * 2;
+	void pretreat(int l, int r, int o) {
+		poly& g = gs[o];
 
-	if (r - l + 1 <= 200) { // 小范围暴力, 能跑得快点
-		g[0] = 1;
+		if (l == r) {
+			g = poly{p - x[l], 1};
+			return;
+		}
+
+		int mid = (l + r) / 2;
+		pretreat(l, mid, o * 2);
+		pretreat(mid + 1, r, o * 2 + 1);
+
+		if (o > 1)
+			g = poly_auto_mul(gs[o * 2], gs[o * 2 + 1]);
+	}
+
+	void solve(int l, int r, int o, const poly& f) {
+		if (l == r) {
+			ans[l] = f[0];
+			return;
+		}
+
+		int mid = (l + r) / 2;
+		solve(l, mid, o * 2, poly_mod(f, gs[o * 2]).first);
+		solve(mid + 1, r, o * 2 + 1, poly_mod(f, gs[o * 2 + 1]).first);
+	}
+
+	vector<int> operator() () {
+		int n = (int)f.size(), m = (int)x.size();
+		if (m <= n)
+			x.resize(m = n + 1);
+		else if (n < m - 1)
+			f.resize(n = m - 1);
 		
-		for (int i = l; i <= r; i++) {
-			for (int j = i - l + 1; j; j--) {
-				g[j] = (g[j - 1] - (long long)g[j] * q[i]) % p;
-				if (g[j] < 0)
-					g[j] += p;
-			}
-			g[0] = (long long)g[0] * (p - q[i]) % p;
-		}
+		int bit_ceil = 1;
+		while (bit_ceil < m)
+			bit_ceil *= 2;
+		ntt_init(bit_ceil * 2); // 注意这里初始化了
 
-		return;
+		gs.resize(2 * bit_ceil + 1);
+		pretreat(0, m - 1, 1);
+
+		ans.resize(m);
+		solve(0, m - 1, 1, f);
+		return ans;
 	}
-
-	int mid = (l + r) / 2;
-
-	pretreat(l, mid, k + 1);
-	pretreat(mid + 1, r, k + 1);
-
-	if (!k)
-		return;
-	
-	int N = 1;
-	while (N <= r - l + 1)
-		N *= 2;
-	
-	int *gl = tg[k + 1] + l * 2, *gr = tg[k + 1] + (mid + 1) * 2;
-	
-	memset(A, 0, sizeof(int) * N);
-	memset(B, 0, sizeof(int) * N);
-
-	memcpy(A, gl, sizeof(int) * (mid - l + 2));
-	memcpy(B, gr, sizeof(int) * (r - mid + 1));
-
-	NTT(A, N, 1);
-	NTT(B, N, 1);
-
-	for (int i = 0; i < N; i++)
-		A[i] = (long long)A[i] * B[i] % p;
-	
-	NTT(A, N, -1);
-
-	for (int i = 0; i <= r - l + 1; i++)
-		g[i] = A[i];
-}
-
-void solve(int l, int r, int k) { // 多项式多点求值主过程
-	int *f = tf[k];
-
-	if (r - l + 1 <= 200) {
-		for (int i = l; i <= r; i++) {
-			int x = q[i];
-
-			for (int j = r - l; ~j; j--)
-				ans[i] = ((long long)ans[i] * x + f[j]) % p;
-		}
-
-		return;
-	}
-
-	int mid = (l + r) / 2;
-	int *ff = tf[k + 1], *gl = tg[k + 1] + l * 2, *gr = tg[k + 1] + (mid + 1) * 2;
-
-	get_mod(f, gl, ff, nullptr, r - l + 1, mid - l + 2);
-	solve(l, mid, k + 1);
-
-	memset(gl, 0, sizeof(int) * (mid - l + 2));
-	memset(ff, 0, sizeof(int) * (mid - l + 1));
-
-	get_mod(f, gr, ff, nullptr, r - l + 1, r - mid + 1);
-	solve(mid + 1, r, k + 1);
-
-	memset(gr, 0, sizeof(int) * (r - mid + 1));
-	memset(ff, 0, sizeof(int) * (r - mid));
-}
-
-// f < x^n, m 个询问, 询问是 0-based, 当然改成 1-based 也很简单
-void get_value(int *f, int *x, int *a, int n, int m) {
-	if (m <= n)
-		m = n + 1;
-	if (n < m - 1)
-		n = m - 1; // 补零方便处理
-
-	memcpy(tf[0], f, sizeof(int) * n);
-	memcpy(q, x, sizeof(int) * m);
-
-	pretreat(0, m - 1, 0);
-	solve(0, m - 1, 0);
-
-	if (a) // 如果 a 是 nullptr, 代表不复制答案, 直接用 ans 数组
-		memcpy(a, ans, sizeof(int) * m);
-}
+};
