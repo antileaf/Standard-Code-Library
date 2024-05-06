@@ -1,7 +1,8 @@
-constexpr int maxn = 100005;
+constexpr int MAXN = 100005;
 
+// 清空的话全部都要清空到 max(n, m) + 1
 void get_sa(char *s, int n, int *sa, int *rnk, int *height) { // 1-base
-	static int buc[maxn], id[maxn], p[maxn], t[maxn * 2];
+	static int buc[MAXN], id[MAXN], p[MAXN], t[MAXN * 2];
 
 	int m = 300;
 	
@@ -32,7 +33,7 @@ void get_sa(char *s, int n, int *sa, int *rnk, int *height) { // 1-base
 		
 		memset(buc, 0, sizeof(int) * (m + 1));
 		
-		memcpy(t, rnk, sizeof(int) * (max(n, m) + 1));
+		memcpy(t, rnk, sizeof(int) * (n + 1));
 
 		cnt = 0;
 		for (int i = 1; i <= n; i++) {
@@ -50,15 +51,16 @@ void get_sa(char *s, int n, int *sa, int *rnk, int *height) { // 1-base
 		if (k)
 			k--;
 
-		while (s[i + k] == s[sa[rnk[i] - 1] + k])
-			k++;
+		if (rnk[i] > 1)
+			while (sa[rnk[i] - 1] + k <= n && s[i + k] == s[sa[rnk[i] - 1] + k])
+				k++;
 
 		height[rnk[i]] = k; // height[i] = lcp(sa[i], sa[i - 1])
 	}
 }
 
-char s[maxn];
-int sa[maxn], rnk[maxn], height[maxn];
+char s[MAXN];
+int sa[MAXN], rnk[MAXN], height[MAXN];
 
 int main() {
 	cin >> (s + 1);
