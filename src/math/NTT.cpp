@@ -14,8 +14,8 @@ void ntt_init(int n) {
 	}
 }
 
-// 传入的必须是 [0, p) 范围内，不能有负的
-// 否则把 d == 16 改成 d % 8 == 0 之类
+// 传入的必须是 [0, p) 范围内，不能有负的，不然会溢出
+// 不能保证就把 d == 16 改成 d % 8 == 0 之类
 void ntt(int *c, int n, int t) {
 	static ull a[MAXN];
 	for (int i = 0; i < n; i++) a[i] = c[i];
@@ -42,7 +42,7 @@ void ntt(int *c, int n, int t) {
 				a[i + j] = u + v;
 				a[i + j + k] = u - v + p;
 			}
-		}
+	}
 		
 	if (t > 0) {
 		for (int i = 0; i < n; i++)

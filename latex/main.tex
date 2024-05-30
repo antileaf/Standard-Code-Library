@@ -144,17 +144,7 @@
 \begin{document}
 
 	\begin{titlepage}
-
-		\ThisCenterWallPaper{1.1}{image/73564338_p0.jpg}
-
-		% \textrm{TeX Gyre Pagella}
-
-		\fontspec{TeX Gyre Pagella}\selectfont{\color{white}{\maketitle}}
-
-		\thispagestyle{empty}
-		
-		% \includepdf{cirno.pdf}
-
+		\input{../src/cover/cover.tex}
 	\end{titlepage}
 
 	\pagestyle{plain}
@@ -192,7 +182,12 @@
 					\input{../src/math/任意模数卷积.tex}
 			
 				\subsubsection{多项式操作}
+					\label{PolyOperation}
 					\inputminted{cpp}{../src/math/多项式操作.cpp}
+				
+				\subsubsection{多点求值应用: $O(\sqrt n \log^2 n)$ 快速求阶乘}
+					\label{fastfact}
+					\input{../src/math/快速阶乘算法.tex}
 
 				% \subsubsection{更优秀的多项式多点求值}
 				% 	这个做法不需要写取模, 求逆也只有一次, 但是神乎其技, 完全搞不懂原理. \\
@@ -204,24 +199,22 @@
 
 				% \subsubsection{多项式复合与复合逆}
 
+				\subsubsection{Bostan-Mori (求多项式分式第 $n$ 项)}
+					\label{BostanMori}
+					\input{../src/math/Bostan-Mori.tex}
+				
+				\subsubsection{快速线性递推 $O(k\log k\log n)$}
+					\label{LinearRecurrence}
+					\input{../src/math/快速线性递推.tex}
 
-				\subsubsection{拉格朗日反演 (多项式复合逆)}
-					\input{../src/math/拉格朗日反演.tex}
+				\subsubsection{多项式复合逆}
+					\input{../src/math/多项式复合逆.tex}
 
 				\subsubsection{分治 FFT}
 					\inputminted{cpp}{../src/math/分治FFT.cpp}
 
 				\subsubsection{半在线卷积}
 					\inputminted{cpp}{../src/math/半在线卷积.cpp}
-				
-				\subsubsection{常系数齐次线性递推 $O(k\log k\log n)$}
-					\label{LinearRecurrence}
-					如果只有一次这个操作可以照抄, 否则就开一个全局flag.
-					\inputminted{cpp}{../src/math/常系数齐次线性递推.cpp}
-				
-				\subsubsection{应用: $O(\sqrt n \log^2 n)$ 快速求阶乘}
-					\label{fastfact}
-					\input{../src/math/快速阶乘算法.tex}
 
 			\subsection{插值}
 				\subsubsection{牛顿插值}
@@ -239,7 +232,7 @@
 					\inputminted{cpp}{../src/math/fwt3.cpp}
 
 			\subsection{线性代数}
-				稀疏矩阵操作参见Berlekamp-Massey算法的应用(\pageref{BerlekampMasseyApplication}页).
+				稀疏矩阵操作参见\ref{BerlekampMasseyApplication}.\nameref{BerlekampMasseyApplication} (第 \pageref{BerlekampMasseyApplication}页).
 
 				\subsubsection{矩阵乘法}
 					\inputminted{cpp}{../src/math/矩阵乘法.cpp}
@@ -295,7 +288,7 @@
 				\inputminted{cpp}{../src/math/simpson.cpp}
 
 			\subsection{常见数列}
-				查表参见\ref{oeis}.\nameref{oeis}(\pageref{oeis}页).
+				查表参见\ref{oeis}.\nameref{oeis} (第 \pageref{oeis} 页).
 
 				\subsubsection{斐波那契数 卢卡斯数}
 					\input{../src/math/斐波那契数.tex}
@@ -372,7 +365,7 @@
 				\inputminted{cpp}{../src/numbertheory/Pollard-Rho.cpp}
 			
 			\subsection{快速阶乘算法}
-				参见\ref{fastfact}.\nameref{fastfact}(\pageref{fastfact}页).
+				参见\ref{fastfact}.\nameref{fastfact} (第 \pageref{fastfact} 页).
 
 			% \subsection{组合数取模}
 
@@ -423,7 +416,7 @@
 			
 			\subsection{最短路}
 				\subsubsection{Dijkstra}
-					参见\ref{kshortestpath}.\nameref{kshortestpath}(\pageref{kshortestpath}页), 注意那边是求到$t$的最短路.
+					参见\ref{kshortestpath}.\nameref{kshortestpath}(第 \pageref{kshortestpath} 页), 注意那边是求到$t$的最短路.
 				
 				\subsubsection{Johnson 算法(负权图多源最短路)}
 					\input{../src/graph/johnson.tex}
@@ -602,7 +595,7 @@
 	
 	
 			\subsection{平衡树}
-				pb\_ds 平衡树参见 \ref{pbds}.\nameref{pbds} (\pageref{pbds} 页).
+				pb\_ds 平衡树参见 \ref{pbds}.\nameref{pbds} (第 \pageref{pbds} 页).
 
 				\subsubsection{Treap}
 					\inputminted{cpp}{../src/datastructure/Treap.cpp}
@@ -670,7 +663,7 @@
 			\subsection{堆}
 
 				\subsubsection{左偏树}
-					参见\ref{kshortestpath}.k短路(\pageref{kshortestpath}页).
+					参见\ref{kshortestpath}.k短路 (第 \pageref{kshortestpath} 页).
 				
 				\subsubsection{二叉堆}
 					\inputminted{cpp}{../src/datastructure/二叉堆.cpp}

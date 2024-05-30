@@ -1,0 +1,35 @@
+\paragraph{拉格朗日反演} 如果 $f(x)$ 与 $g(x)$ 互为复合逆，则有
+
+$$ \begin{aligned}\relax \left[x^n\right]f(x)=&\frac{1}{n}\left[x^{n-1}\right]\left(\frac{x}{g(x)}\right)^n \\
+\relax \left[x^n\right]h(f(x))=&\frac{1}{n}\left[x^{n-1}\right]h'(x)\left(\frac{x}{g(x)}\right)^n\end{aligned} $$
+
+这样可以得到复合逆的一项。如果需要 $0 \dots n$ 项的所有系数，就麻烦一些。
+
+推导过程省略，直接上结论：
+
+$$ \begin{aligned}
+f(x) =& x \left( \sum_{k = 1} ^ n x^{n - k} \frac n k \left[ x^n \right] g^k(x) \right) ^ {- 1 / n} \\
+=& \frac x {g_1} \left( \sum_{k = 1} ^ n \frac n k \left( \frac x {g_1} \right) ^ {n - k} \left[ z^n \right] \left( \frac {g(z)} {g_1} \right) ^k \right) ^ {- 1 / n}
+\end{aligned} $$
+
+$g_1$ 是 $g(x)$ 的一次项。把它提出来是为了把要开根的式子常数项化成 $1$，避免考虑 $n \bmod \varphi(p)$ 的逆元。
+
+现在唯一的难点就在于求 $[x^n] \left( \frac {g(x)} {g_1} \right) ^ k$。
+
+考虑更一般的问题，即 \textbf{对所有 $k \in [1, n]$，如何分别求出 $[x^n] A^k(x)$}。
+
+引入另一个自变量 $y$，代表 $A(x)$ 的次数这一维，得到一个二元生成函数：
+
+$$ \sum_{i} x^i \sum_{j} y^j [x^i] A^j(x) = \sum_{j} y^j A^j(x) = \frac 1 {1 - y A(x)} $$
+
+$x^n$ 项的系数即为所求。
+
+针对这个子问题，再考虑更一般的问题，即求 $[x^n] \frac {P(x, y)} {Q(x, y)}$。
+
+按照 Bostan-Mori (\ref{BostanMori}，第 \pageref{BostanMori} 页) 一样的思路，上下同乘 $Q(-x, y)$，又会发现分母 $Q(x, y) Q(-x, y)$ 里 $x$ 只有偶数项，只取出奇数项或者偶数项就可以把 $n$ 折半，然后递归下去即可。边界是 $\frac {P(0, y)} {Q(0, y)}$。
+
+在这里初始时 $x$ 最高项是 $n$ 次，而 $y$ 只有一次。每步 $x$ 的最大次数都会减半，而 $y$ 的最大次数会翻倍，所以总的项数一直是 $O(n)$ 的。总的复杂度是 $O(n \log^2 n)$。
+
+解决子问题之后还要写一个多项式开 $n$ 次根，总代码量还是很大的。
+
+\inputminted{cpp}{../src/math/多项式复合逆.cpp}

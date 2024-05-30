@@ -1,0 +1,14 @@
+\paragraph{问题} 已知多项式 $f(x)$ 与 $g(x)$，求 $\frac {f(x)} {g(x)}$ 的第 $n$ 项系数。
+
+上下同乘 $g(-x)$，则底下的 $g(x)g(-x)$ 只有偶数项，所以上面的奇/偶数项乘完之后奇偶性是不变的。然后就可以直接按照 $n$ 的奇偶性分情况只取出奇数项或者偶数项，这样就在 $n$ 不变的情况下把 $k$ 折半了，一直做到 $k = 0$ 然后输出常数项即可。
+
+$$ [x^k]\dfrac{f(x)}{g(x)}=[x^k]\dfrac{f(x)g(-x)}{g(x)g(-x)}=[x^k]\dfrac{F(x^2)+xG(x^2)}{H(x^2)} $$
+$$ =
+\begin{cases}
+[x^{\lfloor k/2\rfloor}]\dfrac{F(x)}{H(x)}& (k\text{ is even})\\
+[x^{\lfloor k/2\rfloor}]\dfrac{G(x)}{H(x)}& (k\text{ is odd})
+\end{cases} $$
+
+复杂度 $O(k \log k \log n)$。
+
+\inputminted{cpp}{../src/math/Bostan-Mori.cpp}
