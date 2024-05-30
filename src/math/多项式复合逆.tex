@@ -8,8 +8,8 @@ $$ \begin{aligned}\relax \left[x^n\right]f(x)=&\frac{1}{n}\left[x^{n-1}\right]\l
 推导过程省略，直接上结论：
 
 $$ \begin{aligned}
-f(x) =& x \left( \sum_{k = 1} ^ n x^{n - k} \frac n k \left[ x^n \right] g^k(x) \right) ^ {- 1 / n} \\
-=& \frac x {g_1} \left( \sum_{k = 1} ^ n \frac n k \left( \frac x {g_1} \right) ^ {n - k} \left[ z^n \right] \left( \frac {g(z)} {g_1} \right) ^k \right) ^ {- 1 / n}
+f(x) \equiv & x \left( \sum_{k = 1} ^ n x^{n - k} \frac n k \left[ x^n \right] g^k(x) \right) ^ {- 1 / n} \pmod {x^{n + 1}} \\
+\equiv & \frac x {g_1} \left( \sum_{k = 1} ^ n \frac n k \left( \frac x {g_1} \right) ^ {n - k} \left[ z^n \right] \left( \frac {g(z)} {g_1} \right) ^k \right) ^ {- 1 / n}
 \end{aligned} $$
 
 $g_1$ 是 $g(x)$ 的一次项。把它提出来是为了把要开根的式子常数项化成 $1$，避免考虑 $n \bmod \varphi(p)$ 的逆元。
