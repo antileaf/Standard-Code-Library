@@ -18,7 +18,7 @@ for bytes in result.stdout.splitlines():
 	elif line.startswith("    "):
 		message = line.strip()
 
-print(f"{date.strftime('%h %d, %Y')} ({message})"
+print(f"{date.strftime('%H:%M %h %d, %Y')}" # ({message})"
 	.replace("&", "\\&")
 	.replace("%", "\\%")
 	.replace("#", "\\#")) # LaTeX escape
