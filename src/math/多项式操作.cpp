@@ -1,4 +1,11 @@
-﻿using poly = vector<int>;
+﻿int get_ntt_n(int n) { // not inclusive
+	int ntt_n = 1;
+	while (ntt_n < n)
+		ntt_n *= 2;
+	return ntt_n;
+}
+
+using poly = vector<int>;
 
 // u, v 长度要相同，返回长度是两倍
 poly poly_calc(const poly& u, const poly& v, function<int(int, int)> op) {
@@ -81,7 +88,7 @@ poly poly_integrate(const poly& a) {
 
 // ln，常数项不能为 0，返回长度不变
 poly poly_ln(const poly& a) {
-	auto c = poly_mul(poly_derivative(a), poly_inv(a));
+	poly c = poly_mul(poly_derivative(a), poly_inv(a));
 	c.resize(a.size());
 	return poly_integrate(c);
 }
@@ -95,7 +102,7 @@ poly poly_exp(const poly& a) {
 	for (int k = 2; k <= (int)a.size(); k *= 2) {
 		c.resize(k);
 		
-		auto b = poly_ln(c);
+		poly b = poly_ln(c);
 		for (int i = 0; i < k; i++) {
 			b[i] = a[i] - b[i];
 			if (b[i] < 0)
@@ -111,12 +118,19 @@ poly poly_exp(const poly& a) {
 	return c;
 }
 
+// k 次幂，返回长度不变
+// 注意常数项必须是 0，一次项必须是 1，否则需要在调用前处理一下
+poly poly_pow(const poly& a, int k) {
+	poly c = poly_ln(a);
+	for (int i = 0; i < (int)c.size(); i++)
+		c[i] = (ll)c[i] * k % p;
+	return poly_exp(c);
+}
+
 // 自动判断长度的乘法
 poly poly_auto_mul(poly a, poly b) {
 	int res_len = (int)a.size() + (int)b.size() - 1;
-	int ntt_n = 1;
-	while (ntt_n < (int)a.size() + (int)b.size())
-		ntt_n *= 2;
+	int ntt_n = get_ntt_n(res_len);
 	
 	a.resize(ntt_n);
 	b.resize(ntt_n);
@@ -139,9 +153,7 @@ poly poly_div(const poly& a, const poly& b) {
 	if (n < m)
 		return {};
 	
-	int ntt_n = 1;
-	while (ntt_n < n - m + 1)
-		ntt_n *= 2;
+	int ntt_n = get_ntt_n(n - m + 1);
 	
 	poly f(ntt_n), g(ntt_n);
 	for (int i = 0; i < n - m + 1; i++)
@@ -149,9 +161,9 @@ poly poly_div(const poly& a, const poly& b) {
 	for (int i = 0; i < m && i < n - m + 1; i++)
 		g[i] = b[m - i - 1];
 	
-	auto g_inv = poly_inv(g);
+	poly g_inv = poly_inv(g);
 	fill(g_inv.begin() + n - m + 1, g_inv.end(), 0);
-	auto c = poly_mul(f, g_inv);
+	poly c = poly_mul(f, g_inv);
 	c.resize(n - m + 1);
 	reverse(c.begin(), c.end());
 	return c;
@@ -163,8 +175,8 @@ pair<poly, poly> poly_mod(const poly& a, const poly& b) {
 	if (n < m)
 		return {a, {}};
 	
-	auto d = poly_div(a, b);
-	auto c = poly_auto_mul(b, d);
+	poly d = poly_div(a, b);
+	poly c = poly_auto_mul(b, d);
 
 	poly r(m - 1);
 	for (int i = 0; i < m - 1; i++)
@@ -215,9 +227,7 @@ struct poly_eval {
 		else if (n < m - 1)
 			f.resize(n = m - 1);
 		
-		int bit_ceil = 1;
-		while (bit_ceil < m)
-			bit_ceil *= 2;
+		int bit_ceil = get_ntt_n(m);
 		ntt_init(bit_ceil * 2); // 注意这里初始化了
 
 		gs.resize(2 * bit_ceil + 1);

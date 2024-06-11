@@ -1,26 +1,16 @@
-poly poly_pow(const poly& a, int k) {
-	poly c = poly_ln(a);
-	for (int i = 0; i < (int)c.size(); i++)
-		c[i] = (ll)c[i] * k % p;
-	return poly_exp(c);
-}
-
-void dft(vector<poly>& a) {
-	int n = (int)a.size(), m = (int)a[0].size();
-
-	int ntt_n = 1;
-	while (ntt_n < n * 2)
-		ntt_n *= 2;
+// 对二元多项式做 DFT
+void dft_2d(vector<poly>& a, int ntt_n, int ntt_m) {
+	int n = (int)a.size();
 	
 	a.resize(ntt_n);
 	for (int i = 0; i < ntt_n; i++) {
-		a[i].resize(m * 2);
+		a[i].resize(ntt_m);
 
 		if (i < n)
-			ntt(a[i].data(), m * 2, 1);
+			ntt(a[i].data(), ntt_m, 1);
 	}
 
-	for (int j = 0; j < m * 2; j++) {
+	for (int j = 0; j < ntt_m; j++) {
 		poly t(ntt_n);
 
 		for (int i = 0; i < n; i++)
@@ -33,12 +23,12 @@ void dft(vector<poly>& a) {
 	}
 }
 
-void idft(vector<poly>& a, int n, int r) { // 只保留 % 2 = r 的行
+// 对二元多项式做 DFT，只保留前 n 行中 filter = true 的行
+void idft_2d(vector<poly>& a, int n, function<bool(int)> filter) {
 	int ntt_n = (int)a.size(), m = (int)a[0].size();
 
 	for (int j = 0; j < m; j++) {
 		poly t(ntt_n);
-
 		for (int i = 0; i < ntt_n; i++)
 			t[i] = a[i][j];
 		
@@ -50,11 +40,12 @@ void idft(vector<poly>& a, int n, int r) { // 只保留 % 2 = r 的行
 
 	a.resize(n);
 	for (int i = 0; i < n; i++)
-		if (i % 2 == r)
+		if (filter(i))
 			ntt(a[i].data(), m, -1);
 }
 
-// 对所有 $k \in [1, n]$，求 $[x^n] f^k(x)$，注意这里 n 是最高次数
+// 对所有 $k \in [1, n]$，求 $[x^n] f^k(x)$
+// 注意这里 n 是最高次数，即 f 的长度为 n+1
 poly bostan_mori(const poly& f) {
 	int n = (int)f.size() - 1;
 	vector<poly> a(n + 1), b(n + 1);
@@ -67,50 +58,54 @@ poly bostan_mori(const poly& f) {
 	bool a_constant = true;
 	int m = 1;
 	while (n) {
-		vector<poly> c(b), ac(a), bc(b);
+		vector<poly> ac(a), bc(b);
 		for (int i = 0; i <= n; i++)
 			for (int j = 0; j < m; j++) {
-				if (i % 2)
-					c[i][j] = (p - c[i][j]) % p;
+				if (a_constant) {
+					int d = i % 2 ? p - b[i][j] : b[i][j];
+					(a[i][j] += d) %= p;
+				}
 				
-				if (a_constant)
-					(a[i][j] += c[i][j]) %= p;
-				
-				(b[i][j] += c[i][j]) %= p;
+				if (i % 2 == 0)
+					b[i][j] = b[i][j] * 2 % p;
+				else
+					b[i][j] = 0;
 			}
 		
-		dft(ac);
-		dft(bc);
-		dft(c);
-
-		for (int i = 0; i < (int)c.size(); i++)
-			for (int j = 0; j < m * 2; j++) {
-				ac[i][j] = (ll)ac[i][j] * c[i][j] % p;
-				bc[i][j] = (ll)bc[i][j] * c[i][j] % p;
-			}
+		int ntt_n = get_ntt_n(n * 2 + 1);
 		
-		idft(ac, n + 1, n % 2);
-		idft(bc, n + 1, 0);
+		dft_2d(ac, ntt_n, m * 2);
+		dft_2d(bc, ntt_n, m * 2);
 
-		for (int i = 0; i <= n; i++) {
+		for (int i = 0; i < ntt_n; i++)
+			for (int j = 0; j < m * 2; j++) // Q(-x, y) 的 DFT 直接从 Q(x, y) 的 DFT 转化过来就行了
+				ac[i][j] = (ll)ac[i][j] * bc[(i + ntt_n / 2) % ntt_n][j] % p;
+		
+		for (int i = 0; i < ntt_n / 2; i++) // 因为 Q(x, y) Q(-x, y) 只有 x^2k 项，所以只需做一半
+			for (int j = 0; j < m * 2; j++) // DFT 的后一半一定和前一半一样
+				bc[i][j] = (ll)bc[i][j] * bc[i + ntt_n / 2][j] % p;
+		
+		bc.resize(ntt_n / 2);
+		
+		idft_2d(ac, n + 1, [n] (int i) { return i % 2 == n % 2; });
+		idft_2d(bc, n / 2 + 1, [] (int i) { return true; });
+
+		for (int i = 0; i <= n; i++)
 			if (i % 2 == n % 2) {
 				a[i].resize(m * 2);
 
 				for (int j = 1; j < m * 2; j++)
 					(a[i][j] += ac[i][j - 1]) %= p;
+				
+				a[i / 2].swap(a[i]);
 			}
 
-			if (i % 2 == 0) {
-				b[i].resize(m * 2);
-
-				for (int j = 1; j < m * 2; j++)
-					(b[i][j] += bc[i][j - 1]) %= p;
-			}
-		}
-		
 		for (int i = 0; i <= n / 2; i++) {
-			a[i].swap(a[i * 2 + n % 2]);
 			b[i].swap(b[i * 2]);
+			b[i].resize(m * 2);
+
+			for (int j = 1; j < m * 2; j++)
+				(b[i][j] += bc[i][j - 1]) %= p;
 		}
 
 		a_constant &= !(n % 2);
@@ -133,7 +128,8 @@ poly bostan_mori(const poly& f) {
 }
 
 // 返回长度和 g 相同
-poly poly_compound_inversion(const poly& g) {
+// 因为做 DFT 的时候没有二维转一维，所以还是只需要初始化 get_ntt_n(n + 1) * 2 就行了
+poly poly_composite_inversion(const poly& g) {
 	assert(!g[0] && g[1]);
 	
 	int n = (int)g.size() - 1;
@@ -161,11 +157,4 @@ poly poly_compound_inversion(const poly& g) {
 	for (int i = 1; i <= n; i++)
 		f[i] = (ll)t[i - 1] * g1_inv % p;
 	return f;
-}
-
-int main() { // 这里记得初始化要比平常再多开一倍
-	int ntt_n = 1;
-	while (ntt_n < n)
-		ntt_n *= 2;
-	ntt_init(ntt_n * 4);
 }

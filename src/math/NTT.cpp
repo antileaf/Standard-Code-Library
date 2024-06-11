@@ -1,7 +1,12 @@
-﻿poly omega[25]; // 单位根
+﻿using ll = long long;
+using ull = unsigned long long;
+
+int inv[MAXN]; // 逆元，如果需要积分就顺便预处理出来
+poly omega[25]; // 单位根
 
 // n 是 DFT 的最大长度
 // 例如如果最多有两个长为 k 的多项式相乘，或者求逆的长度为 k，那么 n 需要 >= 2k
+
 void ntt_init(int n) {
 	for (int k = 2, d = 0; k <= n; k *= 2, d++) {
 		omega[d].resize(k + 1);
@@ -12,6 +17,10 @@ void ntt_init(int n) {
 			tmp = (long long)tmp * wn % p;
 		}
 	}
+
+	inv[1] = 1;
+	for (int i = 2; i < n; i++)
+		inv[i] = (ll)(p - p / i) * inv[p % i] % p;
 }
 
 // 传入的必须是 [0, p) 范围内，不能有负的，不然会溢出
