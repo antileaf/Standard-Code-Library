@@ -3,11 +3,12 @@ $$B_4 = 15,\, B_5 = 52,\, B_6 = 203, \dots$$
 
 $$\begin{aligned}B_n = \sum_{k = 0} ^ n {n\brace k}\end{aligned}$$
 
-递推式:
+递推式：
 $$\begin{aligned}
 B_{n + 1} = \sum_{k = 0} ^n {n\choose k} B_k
 \end{aligned}$$
 
-指数生成函数: $$B(x) = e^{e^x - 1}$$
+指数生成函数：$$B(x) = e^{e^x - 1}$$
 
-Touchard同余: $$B_{n + p} \equiv (B_n + B_{n + 1}) \pmod p,\;p \text{ is a prime}$$
+\paragraph{Touchard 同余}
+$$B_{n + p^m} \equiv (m B_n + B_{n + 1}) \pmod p,\;p \text{ is a prime}$$

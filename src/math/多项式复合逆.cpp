@@ -51,17 +51,17 @@ poly bostan_mori(const poly& f) {
 	vector<poly> a(n + 1), b(n + 1);
 
 	for (int i = 0; i <= n; i++) {
-		a[i].push_back(0);
-		b[i].push_back((p - f[i]) % p);
+		a[i] = {0};
+		b[i] = {(p - f[i]) % p};
 	}
 	
-	bool a_constant = true;
+	bool a00 = true;
 	int m = 1;
 	while (n) {
 		vector<poly> ac(a), bc(b);
 		for (int i = 0; i <= n; i++)
 			for (int j = 0; j < m; j++) {
-				if (a_constant) {
+				if (a00) {
 					int d = i % 2 ? p - b[i][j] : b[i][j];
 					(a[i][j] += d) %= p;
 				}
@@ -79,7 +79,7 @@ poly bostan_mori(const poly& f) {
 
 		for (int i = 0; i < ntt_n; i++)
 			for (int j = 0; j < m * 2; j++) // Q(-x, y) 的 DFT 直接从 Q(x, y) 的 DFT 转化过来就行了
-				ac[i][j] = (ll)ac[i][j] * bc[(i + ntt_n / 2) % ntt_n][j] % p;
+				ac[i][j] = (ll)ac[i][j] * bc[(i + ntt_n / 2) & (ntt_n - 1)][j] % p;
 		
 		for (int i = 0; i < ntt_n / 2; i++) // 因为 Q(x, y) Q(-x, y) 只有 x^2k 项，所以只需做一半
 			for (int j = 0; j < m * 2; j++) // DFT 的后一半一定和前一半一样
@@ -87,8 +87,8 @@ poly bostan_mori(const poly& f) {
 		
 		bc.resize(ntt_n / 2);
 		
-		idft_2d(ac, n + 1, [n] (int i) { return i % 2 == n % 2; });
-		idft_2d(bc, n / 2 + 1, [] (int i) { return true; });
+		idft_2d(ac, n + 1, [n](int i) { return i % 2 == n % 2; });
+		idft_2d(bc, n / 2 + 1, [](int i) { return true; });
 
 		for (int i = 0; i <= n; i++)
 			if (i % 2 == n % 2) {
@@ -108,7 +108,7 @@ poly bostan_mori(const poly& f) {
 				(b[i][j] += bc[i][j - 1]) %= p;
 		}
 
-		a_constant &= !(n % 2);
+		a00 &= !(n % 2);
 		n /= 2;
 		m *= 2;
 
@@ -123,7 +123,7 @@ poly bostan_mori(const poly& f) {
 	a[0][0] = b[0][0] = 1;
 	
 	poly res = poly_mul(a[0], poly_inv(b[0])); // 因为 m 每次都翻倍，所以此时 FFT 的长度一定就是 m
-	res.resize(f.size() + 1);
+	res.resize(f.size());
 	return res;
 }
 

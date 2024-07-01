@@ -1,79 +1,60 @@
-constexpr int MAXN = 100005;
+constexpr int MAXN = 1000005;
 
-// 清空的话全部都要清空到 max(n, m) + 1
-void get_sa(char *s, int n, int *sa, int *rnk, int *height) { // 1-base
-	static int buc[MAXN], id[MAXN], p[MAXN], t[MAXN * 2];
+void get_sa(char *s, int n, int *sa, int *rnk, int *height) { // 1-based
+    static int buc[MAXN], id[MAXN], p[MAXN], t[MAXN];
 
-	int m = 300;
-	
-	for (int i = 1; i <= n; i++)
-		buc[rnk[i] = s[i]]++;
-	for (int i = 1; i <= m; i++)
-		buc[i] += buc[i - 1];
-	for (int i = n; i; i--)
-		sa[buc[rnk[i]]--] = i;
-	
-	memset(buc, 0, sizeof(int) * (m + 1));
-	
-	for (int k = 1, cnt = 0; cnt != n; k *= 2, m = cnt) {
-		cnt = 0;
-		for (int i = n; i > n - k; i--)
-			id[++cnt] = i;
+    int m = 300;
+
+    for (int i = 1; i <= n; i++)
+        buc[rnk[i] = s[i]]++;
+    for (int i = 1; i <= m; i++)
+        buc[i] += buc[i - 1];
+    for (int i = n; i; i--)
+        sa[buc[rnk[i]]--] = i;
+
+    memset(buc, 0, sizeof(int) * (m + 1));
+
+    for (int k = 1, cnt = 0; cnt != n; k *= 2, m = cnt) {
+        cnt = 0;
+
+        for (int i = n; i > n - k; i--)
+            id[++cnt] = i;
+        for (int i = 1; i <= n; i++)
+            if (sa[i] > k)
+                id[++cnt] = sa[i] - k;
+
+        for (int i = 1; i <= n; i++)
+            buc[p[i] = rnk[id[i]]]++;
+        for (int i = 1; i <= m; i++)
+            buc[i] += buc[i - 1];
+        for (int i = n; i; i--)
+            sa[buc[p[i]]--] = id[i];
+
+        memset(buc, 0, sizeof(int) * (m + 1));
 		
-		for (int i = 1; i <= n; i++)
-			if (sa[i] > k)
-				id[++cnt] = sa[i] - k;
-		
-		for (int i = 1; i <= n; i++)
-			buc[p[i] = rnk[id[i]]]++;
-		for (int i = 1; i <= m; i++)
-			buc[i] += buc[i - 1];
-		for (int i = n; i; i--)
-			sa[buc[p[i]]--] = id[i];
-		
-		memset(buc, 0, sizeof(int) * (m + 1));
-		
-		memcpy(t, rnk, sizeof(int) * (n + 1));
+        memcpy(t, rnk, sizeof(int) * (n + 1));
+        t[n + 1] = 0; // 记得清空 n + 1
 
-		cnt = 0;
-		for (int i = 1; i <= n; i++) {
-			if (t[sa[i]] != t[sa[i - 1]] || t[sa[i] + k] != t[sa[i - 1] + k])
-				cnt++;
-			
-			rnk[sa[i]] = cnt;
-		}
-	}
+        cnt = 0;
+        for (int i = 1; i <= n; i++) {
+            if (t[sa[i]] != t[sa[i - 1]] || t[sa[i] + k] != t[sa[i - 1] + k])
+                cnt++;
 
-	for (int i = 1; i <= n; i++)
-		sa[rnk[i]] = i;
-	
-	for (int i = 1, k = 0; i <= n; i++) { // 顺便求height
-		if (k)
-			k--;
+            rnk[sa[i]] = cnt;
+        }
+    }
 
-		if (rnk[i] > 1)
-			while (sa[rnk[i] - 1] + k <= n && s[i + k] == s[sa[rnk[i] - 1] + k])
-				k++;
+    for (int i = 1; i <= n; i++)
+        sa[rnk[i]] = i;
 
-		height[rnk[i]] = k; // height[i] = lcp(sa[i], sa[i - 1])
-	}
-}
+    for (int i = 1, k = 0; i <= n; i++) {
+        if (k)
+            k--;
 
-char s[MAXN];
-int sa[MAXN], rnk[MAXN], height[MAXN];
+        if (rnk[i] > 1) // 两个都要判，否则会左/右越界
+            while (sa[rnk[i] - 1] + k <= n && s[i + k] == s[sa[rnk[i] - 1] + k])
+                k++;
 
-int main() {
-	cin >> (s + 1);
-
-	int n = strlen(s + 1);
-
-	get_sa(s, n, sa, rnk, height);
-
-	for (int i = 1; i <= n; i++)
-		cout << sa[i] << (i < n ? ' ' : '\n');
-	
-	for (int i = 2; i <= n; i++)
-		cout << height[i] << (i < n ? ' ' : '\n');
-	
-	return 0;
+        height[rnk[i]] = k;
+    }
 }

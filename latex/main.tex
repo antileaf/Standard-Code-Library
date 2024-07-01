@@ -30,6 +30,7 @@
 \usepackage{afterpage}
 \usepackage{xeCJK}
 \usepackage{enumitem}
+% \usepackage{float}
 
 \setenumerate[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
@@ -45,6 +46,7 @@
 \setlength{\columnsep}{13pt}
 
 \setCJKmainfont{等线}[Scale=0.9]
+% \setCJKmainfont{Source Han Serif SC}[Scale=0.9]
 \setCJKmonofont{SimHei}[Scale=0.9]
 \setCJKsansfont{KaiTi}[Scale=0.9]
 %\setmainfont{TeX Gyre Pagella} % [Scale=1]
@@ -78,8 +80,11 @@
 \usepackage{wallpaper}
 \usepackage{color}
 
+% \usepackage{background}
+
 \setlength{\headsep}{0.1cm}
 \setlength{\footskip}{0.7cm}
+% \setlength{\parsep}{0.25\baselineskip}
 
 \fancypagestyle{fancy} {
 
@@ -160,6 +165,10 @@
 		\end{spacing}
 
 	\end{multicols}
+	
+	\vspace{\fill}
+	\centerline{\includegraphics[width=0.4\linewidth,trim=0.08cm 0.1cm 0 0.05cm,clip]{image/sweeping.jpg}}
+	\vspace{\fill}
 
 	\newpage
 
@@ -178,7 +187,7 @@
 				\subsubsection{NTT}
 					\inputminted{cpp}{../src/math/NTT.cpp}
 
-				\subsubsection{任意模数卷积 (MTT, 毛梯梯)}
+				\subsubsection{任意模数卷积（MTT）}
 					\input{../src/math/任意模数卷积.tex}
 			
 				\subsubsection{多项式操作}
@@ -199,7 +208,7 @@
 
 				% \subsubsection{多项式复合与复合逆}
 
-				\subsubsection{Bostan-Mori (求多项式分式第 $n$ 项)}
+				\subsubsection[Bostan-Mori（求多项式分式第 n 项）]{Bostan-Mori}
 					\label{BostanMori}
 					\input{../src/math/Bostan-Mori.tex}
 				
@@ -224,7 +233,7 @@
 				\subsubsection{牛顿插值}
 					\input{../src/math/牛顿插值.tex}
 
-				\subsubsection{拉格朗日 (Lagrange) 插值}
+				\subsubsection[拉格朗日（Lagrange）插值]{Lagrange 插值}
 					\input{../src/math/拉格朗日插值.tex}
 				
 				% \subsubsection{连续点值平移(待完成)}
@@ -236,7 +245,7 @@
 					\inputminted{cpp}{../src/math/fwt3.cpp}
 
 			\subsection{线性代数}
-				稀疏矩阵操作参见\ref{BerlekampMasseyApplication}.\nameref{BerlekampMasseyApplication} (第 \pageref{BerlekampMasseyApplication}页).
+				稀疏矩阵操作参见 \ref{BerlekampMasseyApplication}.\nameref{BerlekampMasseyApplication}（第 \pageref{BerlekampMasseyApplication}页）。
 
 				\subsubsection{矩阵乘法}
 					\inputminted{cpp}{../src/math/矩阵乘法.cpp}
@@ -249,18 +258,17 @@
 
 				% \subsubsection{自由元搜索}
 
-
-				\subsubsection{线性基(消成对角)}
+				\subsubsection{线性基（消成对角）}
 					\inputminted{cpp}{../src/math/线性基.cpp}
 
 				\subsubsection{线性代数知识}
 					\input{../src/math/线性代数.tex}
 				
-				\subsubsection{矩阵树定理, BEST 定理}
+				\subsubsection{矩阵树定理，BEST 定理}
 					\input{../src/math/矩阵树定理.tex}
 			
 			\subsection{$O(k^2 \log n)$ 齐次线性递推}
-				first里面是第$1$到$k$项, trans从低到高分别是$a_{n - 1}$到$a_{n - k}$的系数.
+				first里面是第 $1$ 到 $k$ 项，trans从低到高分别是 $a_{n - 1}$ 到 $a_{n - k}$ 的系数。
 				
 				\inputminted{cpp}{../src/math/齐次线性递推.cpp}
 			
@@ -274,7 +282,7 @@
 					\input{../src/math/线性规划对偶原理.tex}
 			
 			\subsection{博弈论}
-				\subsubsection{SG定理}
+				\subsubsection{SG 定理}
 					\input{../src/math/SG定理.tex}
 
 				\subsubsection{纳什均衡}
@@ -288,11 +296,11 @@
 					\input{../src/math/博弈论例题.tex}
 
 			\subsection{自适应 Simpson 积分}
-				Forked from fstqwq's template.
+				Copy-and-pasted from the template of \textit{Nemesis}.
 				\inputminted{cpp}{../src/math/simpson.cpp}
 
 			\subsection{常见数列}
-				查表参见\ref{oeis}.\nameref{oeis} (第 \pageref{oeis} 页).
+				查表参见 \ref{oeis}.\nameref{oeis}（第 \pageref{oeis} 页）。
 
 				\subsubsection{斐波那契数 卢卡斯数}
 					\input{../src/math/斐波那契数.tex}
@@ -327,7 +335,7 @@
 				\subsubsection{单位根反演 (展开整除条件 $[n|k]$)}
 					\input{../src/math/单位根反演.tex}
 				
-				\subsubsection{康托展开(排列的排名)}
+				\subsubsection[康托展开 (排列的排名)]{康托展开}
 					\input{../src/math/康托展开.tex}
 				
 				\subsubsection{连通图计数}
@@ -422,13 +430,13 @@
 				\subsubsection{Dijkstra}
 					参见\ref{kshortestpath}.\nameref{kshortestpath}(第 \pageref{kshortestpath} 页), 注意那边是求到$t$的最短路.
 				
-				\subsubsection{Johnson 算法(负权图多源最短路)}
+				\subsubsection[Johnson 算法(负权图多源最短路)]{Johnson 算法}
 					\input{../src/graph/johnson.tex}
 				
 				% \subsubsection{差分约束}
 
 
-				\subsubsection{$k$短路}
+				\subsubsection{$k$ 短路}
 					\label{kshortestpath}
 					\inputminted{cpp}{../src/graph/k短路.cpp}
 			
@@ -580,7 +588,7 @@
 					
 	
 			\subsection{陈丹琦分治}
-				\subsubsection{动态图连通性 (分治并查集)}
+				\subsubsection[动态图连通性（分治并查集）]{动态图连通性}
 					\inputminted{cpp}{../src/datastructure/分治并查集.cpp}
 
 				\subsubsection{四维偏序}
@@ -628,8 +636,8 @@
 					另外这个是BFS版本, 跑得比DFS要快不少. (虽然主要复杂度并不在重构上)
 					\inputminted{cpp}{../src/datastructure/紫荆花之恋.cpp}
 	
-			\subsection{LCT动态树}
-				\subsubsection{不换根(弹飞绵羊)}
+			\subsection{LCT 动态树}
+				\subsubsection{不换根 (弹飞绵羊)}
 					\inputminted{cpp}{../src/datastructure/LCT(不换根).cpp}
 			
 				\subsubsection{换根/维护生成树}
@@ -638,12 +646,12 @@
 				\subsubsection{维护子树信息}
 					\inputminted{cpp}{../src/datastructure/LCT维护子树信息.cpp}
 					
-				\subsubsection[模板题:动态QTREE4]{模板题:动态 QTREE4 (询问树上相距最远点)}
+				\subsubsection[模板题：动态QTREE4]{模板题:动态 QTREE4 (询问树上相距最远点)}
 						\inputminted{cpp}{../src/datastructure/动态QTREE4.cpp}
 	
-			\subsection{K-D树}
+			\subsection{K-D 树}
 
-				\subsubsection{动态 K-D 树(定期重构)}
+				\subsubsection{动态 K-D 树 (定期重构)}
 					\inputminted{cpp}{../src/datastructure/动态KD树.cpp}
 	
 			% \subsection{树分块}
@@ -689,7 +697,7 @@
 			\subsection{AC 自动机}
 				\inputminted{cpp}{../src/string/AC自动机.cpp}
 
-			\subsection{后缀数组}
+			\subsection{后缀数组 SA}
 				\subsubsection{倍增}
 					\inputminted{cpp}{../src/string/sa.cpp}	
 
@@ -702,23 +710,23 @@
 			\subsection{后缀平衡树}
 				\input{../src/string/后缀平衡树.tex}
 
-			\subsection{后缀自动机}
+			\subsection{后缀自动机 SAM}
 				\inputminted{cpp}{../src/string/后缀自动机.cpp}
 
 				\subsubsection{广义后缀自动机}
-				下面的写法复杂度是$\Sigma$串长的, 但是胜在简单.
+				下面的写法复杂度是 $\Sigma$ 串长的，但是胜在简单。
 				
-				如果建字典树然后 BFS 建自动机可以做到 $O\left(n\left|\Sigma\right|\right)$ ($n$ 是字典树结点数), 但是后者写起来比较麻烦.
+				如果建字典树然后 BFS 建自动机可以做到 $O\left(n\left|\Sigma\right|\right)$（$n$ 是字典树结点数），但是写起来比较麻烦。
 				\inputminted{cpp}{../src/string/广义后缀自动机.cpp}
 
 				\subsubsection[区间本质不同子串计数]{区间本质不同子串计数 (后缀自动机 + LCT + 线段树)}
 					\input{../src/string/区间本质不同子串统计.tex}
 
-			\subsection{回文树}
+			\subsection{回文树 PAM}
 				\inputminted{cpp}{../src/string/回文树.cpp}
 
 				\subsubsection{广义回文树}
-					(代码是梯子剖分的版本, 压力不大的题目换成直接倍增就好了,常数只差不到一倍)
+					（代码是梯子剖分的版本，压力不大的题目换成直接倍增就好了，常数只差不到一倍）
 					\inputminted{cpp}{../src/string/广义回文树.cpp}
 
 			% \subsection{序列自动机}
@@ -759,12 +767,12 @@
 	\begin{multicols}{2}
 		\section{杂项}
 			\subsection{$O(1)$ 快速乘}
-				如果对速度要求很高并且不能用指令集, 可以去看fstqwq的模板.
+				% 如果对速度要求很高并且不能用指令集, 可以去看fstqwq的模板.
 
 				\inputminted{cpp}{../src/misc/O(1)快速乘.cpp}
 			
-			\subsection{Kahan求和算法 (减少浮点数累加的误差)}
-				当然一般来说是用不到的, 累加被卡精度了才有必要考虑.
+			\subsection[Kahan 求和算法（减少浮点数累加的误差）]{Kahan 求和算法}
+				当然一般来说是用不到的，累加被卡精度了才有必要考虑。
 				\inputminted{cpp}{../src/misc/kahan.cpp}
 			
 			\subsection{Python Decimal}
@@ -832,11 +840,12 @@
 			\newpage
 			\subsection{附录: 骂人的艺术—梁实秋}
 				\input{../src/misc/骂人的艺术.tex}
-			
-			\subsection{附录: Cheat Sheet}
-				见后面几页.
 
 	\end{multicols}
+	
+	\vspace{1.5cm}
+	\subsection{附录: Cheat Sheet}
+		见后面几页.
 
 	\includepdf[pages = 1-10]{../src/misc/Cheat.pdf}
 
@@ -846,13 +855,13 @@
 
 	\pagestyle{empty}
 
-	\newpage
-	\ThisCenterWallPaper{1}{image/69150734_p0.jpg}
+	% \newpage
+	% \ThisCenterWallPaper{1}{image/69150734_p0.jpg}
+	% \null
 
-	\null
-
 	\newpage
-	\ThisCenterWallPaper{1}{image/72211605_p0.png}
+	\ThisCenterWallPaper{1}{image/lily_white.png}
+	% \ThisCenterWallPaper{1}{image/72211605_p0.png}
 
 	\null
 

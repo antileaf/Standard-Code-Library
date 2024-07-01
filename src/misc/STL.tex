@@ -1,11 +1,11 @@
 \subsubsection{vector}
 	\begin{itemize}
-		\item \mintinline{cpp}{vector(int nSize)}: 创建一个vector, 元素个数为nSize
-		\item \mintinline{cpp}{vector(int nSize, const T &value)}: 创建一个vector, 元素个数为nSize, 且值均为value
-		\item \mintinline{cpp}{vector(begin, end)}: 复制[begin, end)区间内另一个数组的元素到vector中
-		\item \mintinline{cpp}{void assign(int n, const T &x)}: 设置向量中前n个元素的值为x
-		\item \mintinline{cpp}{void assign(const_iterator first, const_iterator last)}: 向量中[first, last)中元素设置成当前向量元素
-		\item \mintinline{cpp}{void emplace_back(Args&&... args)}: 自动构造并push\_back一个元素, 例如对一个存储pair的vector可以 \mintinline{cpp}{v.emplace_back(x, y)}
+		% \item \mintinline{cpp}{vector(int nSize)}: 创建一个vector, 元素个数为nSize
+		\item \mintinline{cpp}{vector(int n, const T &value)}：创建一个 \mintinline{cpp}{vector}，元素个数为 n，且值均为 \mintinline{cpp}{value}。
+		% \item \mintinline{cpp}{vector(begin, end)}：复制[begin, end)区间内另一个数组的元素到vector中
+		% \item \mintinline{cpp}{void assign(int n, const T &x)}：设置向量中前 n 个元素的值为 \mintinline{cpp}{x}
+		% \item \mintinline{cpp}{void assign(const_iterator first, const_iterator last)}：向量中 \mintinline{cpp}{[first, last)} 中元素设置成当前向量元素。
+		\item \mintinline{cpp}{void emplace_back(Args&&... args)}：自动构造并 \mintinline{cpp}{push_back} 一个元素，例如对一个存储 \mintinline{cpp}{pair} 的 \mintinline{cpp}{vector} 可以 \mintinline{cpp}{v.emplace_back(x, y)}。
 	\end{itemize}
 
 \subsubsection{list}
@@ -41,7 +41,7 @@
 \subsubsection{unordered\_set/map}
 
 \begin{itemize}
-	\item \mintinline{cpp}{unordered_map<int, int, hash>}: 自定义哈希函数, 其中hash是一个带重载括号的类.
+	\item \mintinline{cpp}{unordered_map<int, int, hash>}：自定义哈希函数, 其中 \mintinline{cpp}{hash} 是一个带重载括号的类。
 \end{itemize}
 
 \subsubsection{自定义 Hash}

@@ -9,7 +9,7 @@ vector<poly> bostan_mori_comp(int n, const poly& a, vector<poly> b) {
 		b_inv.resize(a.size());
 
 		poly t = poly_auto_mul(a, b_inv);
-		poly res = poly(m);
+		poly res(m);
 		for (int i = 0; i < n0; i++)
 			res[i + m - n0] = t[i];
 
@@ -24,7 +24,7 @@ vector<poly> bostan_mori_comp(int n, const poly& a, vector<poly> b) {
 	
 	vector<poly> c(ntt_n);
 	for (int i = 0; i < ntt_n; i++) // Q(-x, y) 的 DFT 直接从 Q(x, y) 的 DFT 转化过来就行了
-		c[i] = b[(i + ntt_n / 2) % ntt_n];
+		c[i] = b[(i + ntt_n / 2) & (ntt_n - 1)];
 
 	b.resize(ntt_n / 2);
 
@@ -35,7 +35,7 @@ vector<poly> bostan_mori_comp(int n, const poly& a, vector<poly> b) {
 	idft_2d(b, n / 2 + 1, [] (int i) { return true; });
 
 	for (int i = 0; i <= n / 2; i++) {
-		for (int j = m * 2; j; j--)
+		for (int j = m * 2 - 1; j; j--)
 			b[i][j] = b[i][j - 1];
 		b[i][0] = 0;
 		
@@ -52,9 +52,9 @@ vector<poly> bostan_mori_comp(int n, const poly& a, vector<poly> b) {
 
 	for (int i = 0; i < ntt_n; i++) // 因为 V(x^2, y) 只有 x^2k 项，所以只需做一半
 		for (int j = 0; j < m * 2; j++) // DFT 的后一半一定和前一半一样
-			c[i][j] = (ll)t[i % (ntt_n / 2)][j] * c[i][j] % p;
+			c[i][j] = (ll)t[i & (ntt_n / 2 - 1)][j] * c[i][j] % p;
 	
-	idft_2d(c, n + 1, [] (int i) { return true; });
+	idft_2d(c, n + 1, [](int i) { return true; });
 
 	t = vector<poly>(n + 1);
 	for (int i = 0; i <= n; i++) {
@@ -65,7 +65,7 @@ vector<poly> bostan_mori_comp(int n, const poly& a, vector<poly> b) {
 
 		if (i % 2 == 0)
 			for (int j = 0; j < m; j++)
-				t[i][j] = (t[i][j] + res[i / 2][j + m]) % p;
+				(t[i][j] += res[i / 2][j + m]) %= p;
 	}
 	
 	return t;

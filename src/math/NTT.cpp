@@ -14,7 +14,7 @@ void ntt_init(int n) {
 		int wn = qpow(3, (p - 1) / k), tmp = 1;
 		for (int i = 0; i <= k; i++) {
 			omega[d][i] = tmp;
-			tmp = (long long)tmp * wn % p;
+			tmp = (ll)tmp * wn % p;
 		}
 	}
 

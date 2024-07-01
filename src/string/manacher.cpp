@@ -1,6 +1,6 @@
-// n为串长, 回文半径输出到p数组中
+// n 为串长，回文半径输出到 p 数组中
 // 数组要开串长的两倍
-void manacher(const char *t, int n) {
+void manacher(const char* t, int n) {
 	static char s[maxn * 2];
 
 	for (int i = n; i; i--)

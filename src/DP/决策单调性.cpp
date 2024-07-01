@@ -1,6 +1,6 @@
-int a[maxn], q[maxn], p[maxn], g[maxn]; // 存左端点,右端点就是下一个左端点 - 1
+int a[MAXN], q[MAXN], p[MAXN], g[MAXN]; // 存左端点，右端点就是下一个左端点 - 1
 
-long long f[maxn], s[maxn];
+long long f[MAXN], s[MAXN];
 
 int n, m;
 
