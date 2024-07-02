@@ -1,6 +1,8 @@
 \documentclass[a4paper, twoside]{article}
-\title{\vspace{20cm}\fontsize{50pt}{40pt}\selectfont{All-in at the River}\\\fontsize{24pt}{\baselineskip}\selectfont{Standard Code Library}\vspace{0.1cm}}
-\author{\fontsize{15pt}{\baselineskip}\selectfont{Shanghai Jiao Tong University}\vspace{0.2cm}\\\fontsize{11pt}{\baselineskip}\selectfont{Desprado2\quad fstqwq\quad AntiLeaf}}
+% \title{\vspace{20cm}\fontsize{50pt}{40pt}\selectfont{All-in at the River}\\\fontsize{24pt}{\baselineskip}\selectfont{Standard Code Library}\vspace{0.1cm}}
+% \author{\fontsize{15pt}{\baselineskip}\selectfont{Shanghai Jiao Tong University}\vspace{0.2cm}\\\fontsize{11pt}{\baselineskip}\selectfont{Desprado2\quad fstqwq\quad AntiLeaf}}
+\title{\vspace{18.5cm}\fontsize{40pt}{\baselineskip}\selectfont{Standard Code Library}}
+\author{\fontsize{15pt}{\baselineskip}\selectfont{antileaf}\vspace{2.6cm}}
 \date{}
 
 % green= '#10BC72' # '#C3E88D'
@@ -45,11 +47,11 @@
 %configure space between the two columns
 \setlength{\columnsep}{13pt}
 
-\setCJKmainfont{等线}[Scale=0.9]
+\setCJKmainfont{汉仪润圆-55S}[Scale=0.9]
 % \setCJKmainfont{Source Han Serif SC}[Scale=0.9]
 \setCJKmonofont{SimHei}[Scale=0.9]
 \setCJKsansfont{KaiTi}[Scale=0.9]
-%\setmainfont{TeX Gyre Pagella} % [Scale=1]
+\setmainfont{TeX Gyre Pagella}[Scale=0.95]
 \setmonofont{Cascadia Code} [Scale=0.8]
 % \newfontfamily\substitutefont{等线}[Scale=0.9]
 % \setTransitionsForChinese{\begingroup\substitutefont}{\endgroup}
@@ -65,7 +67,7 @@
 %configure section style
 \titleformat{\section}
 {\huge\bfseries}			% The style of the section title
-{\thesection }				% a prefix
+{\thesection}				% a prefix
 {15pt}						% How much space exists between the prefix and the title
 {}					% How the section is represented
 % \titleformat{\section}{\huge}{}{0pt}{}
@@ -121,7 +123,8 @@
 	%breaksymbolright=\small\carriagereturn,
 	breakbytoken=false,
 	showtabs=true,
-	tab={\relscale{1.08} $\color{light-gray}{\vert} \ \ \ $ \relscale{1}},
+	tabcolor=light-gray,
+	tab={\ | \ \ },
 }
 
 \setminted[python]{
@@ -160,7 +163,7 @@
 	\begin{multicols}{2}
 		
 		\begin{spacing}{1}
-			% \renewcommand{\contentsname}{\huge{目录}}
+			\renewcommand{\contentsname}{\huge{目录}}
 			\tableofcontents
 		\end{spacing}
 
@@ -484,9 +487,9 @@
 					\inputminted{cpp}{../src/graph/带花树.cpp}
 				
 				\subsubsection{带权带花树}
-					Forked from the template of Imperisible Night.
+					Copy-and-pasted from the template of \textit{Imperisible Night}.
 
-					(有一说一这玩意实在太难写了, 抄之前建议先想想算法是不是假的或者有SB做法)
+					（有一说一这玩意实在太难写了, 抄之前建议先想想算法是不是假的或者有 SB 做法）
 					\inputminted{cpp}{../src/graph/带权带花树.cpp}
 				
 				\subsubsection{原理}
