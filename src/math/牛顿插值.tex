@@ -1,28 +1,19 @@
-牛顿插值的原理是\textbf{二项式反演}.
+牛顿插值的原理是 \textbf{二项式反演}。
 
-二项式反演: 
+\paragraph{二项式反演}
 
-$$ \begin{aligned}
-f(n)=\sum_{k=0}^n{n\choose k}g(k)\;\Leftrightarrow\;g(n)=\sum_{k=0}^n\left(-1\right)^{n-k}{n\choose k}f(k)
-\end{aligned} $$
+$$ f(n) = \sum_{k = 0} ^ n {n \choose k} g(k) \; \iff \; g(n) = \sum_{k = 0} ^ n \left( -1 \right) ^ {n - k} {n \choose k} f(k) $$
 
-可以用$e^x$和$e^{-x}$的麦克劳林展开式证明.
+可以用 $e^x$ 和 $e^{-x}$ 的麦克劳林展开式证明。
 
-套用二项式反演的结论即可得到牛顿插值: 
+套用二项式反演的结论即可得到牛顿插值：
 
-$$ \begin{aligned} f(n)=\sum_{i=0}^{k}{n\choose i}r_i \end{aligned} $$
-$$ \begin{aligned} r_i=\sum_{j=0}^i(-1)^{i-j}{i\choose j}f(j) \end{aligned} $$
+$$ f(n) = \sum_{i = 0} ^ k {n \choose i} r_i , \; \text{where} \; r_i = \sum_{j = 0} ^ i (-1) ^ {i - j} {i \choose j} f(j) $$
 
-其中$k$表示$f(n)$的最高次项系数.
+其中 $k$ 表示 $f(n)$ 的最高次项系数。
 
-实现时可以用$k$次差分替代右边的式子:
+实现时右边的式子等价于 $k$ 次差分：
 
-\begin{minted}{cpp}
-for (int i = 0; i <= k; i++)
-    r[i] = f(i);
-for (int j = 0; j < k; j++)
-    for (int i = k; i > j; i--)
-        r[i] -= r[i - 1];
-\end{minted}
+\inputminted{cpp}{../src/math/牛顿插值.cpp}
 
-注意到预处理$r_i$的式子满足卷积形式,必要时可以用FFT优化至$O(k\log k)$预处理.
+注意到预处理 $r_i$ 的式子满足卷积形式，必要时可以用 FFT 优化至 $O(k\log k)$。

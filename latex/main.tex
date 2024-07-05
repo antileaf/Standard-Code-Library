@@ -19,6 +19,7 @@
 \usepackage{minted}
 \usepackage{listings, color, setspace, titlesec, fancyhdr, mdframed, multicol}
 \usepackage{fontspec}
+% \usepackage{mathspec}
 \usepackage{ucharclasses}
 \usepackage{xunicode, xltxtra}
 \usepackage{pdfpages}
@@ -32,6 +33,7 @@
 \usepackage{afterpage}
 \usepackage{xeCJK}
 \usepackage{enumitem}
+% \usepackage{unicode-math}
 % \usepackage{float}
 
 \setenumerate[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=1em,leftmargin=3pt}
@@ -52,6 +54,7 @@
 \setCJKmonofont{SimHei}[Scale=0.9]
 \setCJKsansfont{KaiTi}[Scale=0.9]
 \setmainfont{TeX Gyre Pagella}[Scale=0.95]
+% \setmathsfont(Digits,Latin,Greek){Latin Modern Math}
 \setmonofont{Cascadia Code} [Scale=0.8]
 % \newfontfamily\substitutefont{等线}[Scale=0.9]
 % \setTransitionsForChinese{\begingroup\substitutefont}{\endgroup}
@@ -70,10 +73,6 @@
 {\thesection}				% a prefix
 {15pt}						% How much space exists between the prefix and the title
 {}					% How the section is represented
-% \titleformat{\section}{\huge}{}{0pt}{}
-% \titlespacing{\section}{0pt}{0pt}{0pt}
-% \titlespacing{\subsection}{0pt}{0pt}{0pt}
-% \titlespacing{\subsubsection}{0pt}{0pt}{0pt}
 
 \usepackage{fancyhdr}
 \usepackage[inner=0.7cm, outer=1.0cm, top=1.7cm, bottom=0.4cm]{geometry}
@@ -101,6 +100,8 @@
 
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
+
+\titlespacing*{\paragraph} {0pt} {0.5ex} {1em}
 
 \mathchardef\mhyphen="2D
 
@@ -146,8 +147,11 @@
 	%breaksymbolright=\small\carriagereturn,
 	breakbytoken=false,
 	showtabs=true,
-	tab={\relscale{1.08} $\color{light-gray}{\vert} \ \ \ $ \relscale{1}},
+	tabcolor=light-gray,
+	tab={\ | \ \ },
 }
+
+\newcommand\detailedref[1]{\ref{#1}.\nameref{#1}（第 \pageref{#1} 页）}
 
 \begin{document}
 
@@ -207,6 +211,7 @@
 				% 	\inputminted{cpp}{../src/math/更优秀的多项式多点求值.cpp}
 
 				\subsubsection{多项式快速插值}
+					\label{PolyFastInterpolation}
 					\input{../src/math/多项式快速插值.tex}
 
 				% \subsubsection{多项式复合与复合逆}
@@ -241,14 +246,14 @@
 				
 				% \subsubsection{连续点值平移(待完成)}
 
-			\subsection{FWT 快速沃尔什变换}
+			\subsection[FWT 快速沃尔什变换]{FWT}
 				\inputminted{cpp}{../src/math/FWT.cpp}
 
 				\subsubsection{三行 FWT}
 					\inputminted{cpp}{../src/math/fwt3.cpp}
 
 			\subsection{线性代数}
-				稀疏矩阵操作参见 \ref{BerlekampMasseyApplication}.\nameref{BerlekampMasseyApplication}（第 \pageref{BerlekampMasseyApplication}页）。
+				稀疏矩阵操作参见 \detailedref{BerlekampMasseyApplication}。
 
 				\subsubsection{矩阵乘法}
 					\inputminted{cpp}{../src/math/矩阵乘法.cpp}

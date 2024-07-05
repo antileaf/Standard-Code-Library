@@ -1,5 +1,5 @@
 ﻿// 注意 FWT 常数比较小，这点与 FFT/NTT 不同
-// 以下代码均以模质数情况为例，其中 n 为变换长度, t 表示正/逆变换
+// 以下代码均以模质数情况为例，其中 n 为变换长度，t 表示正/逆变换
 
 // 按位或版本
 void FWT_or(int *A, int n, int t) {
@@ -36,7 +36,7 @@ void FWT_xor(int *A, int n, int t) {
 			}
 	
 	if (t < 0) {
-		int inv = qpow(n % p, p - 2); // n 的逆元, 在不取模时需要用每层除以 2 代替
+		int inv = qpow(n % p, p - 2); // n 的逆元，在不取模时需要用每层除以 2 代替
 		for (int i = 0; i < n; i++)
 			A[i] = A[i] * inv % p;
 	}

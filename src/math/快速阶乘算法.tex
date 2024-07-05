@@ -1,6 +1,6 @@
-\paragraph{问题} 求$n! \pmod p$, $n < p$, $p$是NTT模数.
+\paragraph{问题} 求 $n! \pmod p$，$n < p$，$p$ 是 NTT 模数。
 
-考虑令$m = \left\lfloor \sqrt n \right\rfloor$, 那么我们可以写出连续$m$个数相乘的多项式:
+考虑令 $m = \left\lfloor \sqrt n \right\rfloor$，那么我们可以写出连续 $m$ 个数相乘的多项式：
 
 $$ f(x) = \prod_{i = 1} ^ m (x + i) $$
 
@@ -8,6 +8,6 @@ $$ f(x) = \prod_{i = 1} ^ m (x + i) $$
 
 $$ n! = \left( \prod_{k = 0} ^ {m - 1} f(k m) \right) \prod_{i = m ^ 2 + 1} ^ n i $$
 
-$f(x)$的系数可以用倍增求(或者懒一点直接分治FFT), 然后$f(km)$可以用多项式多点求值求出, 所以总复杂度就是$O(\sqrt n \log^2 n)$.
+$f(x)$ 的系数可以用倍增求（或者懒一点直接分治 FFT），然后 $f(km)$ 可以用多点求值求出，所以总复杂度就是$O(\sqrt n \log^2 n)$。
 
-当然如果$p$不变并且多次询问的话我们只需要取一个$m$, 也就是预处理$O(\sqrt p \log^2 p)$, 询问$O(\sqrt p)$.
+当然如果 $p$ 不变并且多次询问的话，我们只需要取一个 $m$，也就是预处理 $O(\sqrt p \log^2 p)$，询问 $O(\sqrt p)$。
