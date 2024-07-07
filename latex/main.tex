@@ -156,6 +156,7 @@
 \begin{document}
 
 	\begin{titlepage}
+		\ThisCenterWallPaper{1.015}{image/lily_face.png}
 		\input{../src/cover/cover.tex}
 	\end{titlepage}
 
@@ -201,7 +202,7 @@
 					\label{PolyOperation}
 					\inputminted{cpp}{../src/math/多项式操作.cpp}
 				
-				\subsubsection{多点求值应用: $O(\sqrt n \log^2 n)$ 快速求阶乘}
+				\subsubsection{多点求值应用：$O(\sqrt n \log^2 n)$ 快速求阶乘}
 					\label{fastfact}
 					\input{../src/math/快速阶乘算法.tex}
 
@@ -231,14 +232,21 @@
 				\subsubsection{多项式复合}
 					\input{../src/math/多项式复合.tex}
 
-				\subsubsection{分治 FFT}
+				\subsubsection{分治~FFT}
 					\inputminted{cpp}{../src/math/分治FFT.cpp}
 
 				\subsubsection{半在线卷积}
 					\inputminted{cpp}{../src/math/半在线卷积.cpp}
+			
+				\subsubsection{生成函数计数原理}
+					（待补充）
+				
+				\subsubsection{常用生成函数变换}
+					\input{../src/math/常见生成函数.tex}
 
 			\subsection{插值}
 				\subsubsection{牛顿插值}
+					\label{NewtonInterpolation}
 					\input{../src/math/牛顿插值.tex}
 
 				\subsubsection[拉格朗日（Lagrange）插值]{Lagrange 插值}
@@ -249,7 +257,7 @@
 			\subsection[FWT 快速沃尔什变换]{FWT}
 				\inputminted{cpp}{../src/math/FWT.cpp}
 
-				\subsubsection{三行 FWT}
+				\subsubsection{三行~FWT}
 					\inputminted{cpp}{../src/math/fwt3.cpp}
 
 			\subsection{线性代数}
@@ -276,7 +284,7 @@
 					\input{../src/math/矩阵树定理.tex}
 			
 			\subsection{$O(k^2 \log n)$ 齐次线性递推}
-				first里面是第 $1$ 到 $k$ 项，trans从低到高分别是 $a_{n - 1}$ 到 $a_{n - k}$ 的系数。
+				\mintinline{cpp}{first} 里面是第 $1$ 到 $k$ 项，\mintinline{cpp}{trans} 从低到高分别是 $a_{n - 1}$ 到 $a_{n - k}$ 的系数。
 				
 				\inputminted{cpp}{../src/math/齐次线性递推.cpp}
 			
@@ -308,28 +316,31 @@
 				\inputminted{cpp}{../src/math/simpson.cpp}
 
 			\subsection{常见数列}
-				查表参见 \ref{oeis}.\nameref{oeis}（第 \pageref{oeis} 页）。
+				查表参见 \detailedref{oeis}。
 
-				\subsubsection{斐波那契数 卢卡斯数}
+				\subsubsection{斐波那契数 Fibonacci 卢卡斯数}
 					\input{../src/math/斐波那契数.tex}
 
-				\subsubsection{伯努利数, 自然数幂次和}
-					\label{bernoulli}
+				\subsubsection[伯努利数~Bernoulli 自然数幂次和]{伯努利数}
+					\label{BernoulliNumber}
 					\input{../src/math/伯努利数.tex}
 				
 				\subsubsection{分拆数}
+					\label{partition}
 					\inputminted{cpp}{../src/math/分拆数.cpp}
 				
-				\subsubsection{斯特林数}
+				\subsubsection[斯特林数~Stiring]{斯特林数}
 					\input{../src/math/斯特林数.tex}
 				
-				\subsubsection{贝尔数}
+				\subsubsection[贝尔数~Bell]{贝尔数}
+					\label{BellNumber}
 					\input{../src/math/贝尔数.tex}
 				
-				\subsubsection{欧拉数 (Eulerian Number)}
+				\subsubsection[欧拉数~Eulerian]{欧拉数}
+					\label{EulerianNumber}
 					\input{../src/math/欧拉数.tex}
 				
-				\subsubsection{卡特兰数, 施罗德数, 默慈金数}
+				\subsubsection{卡特兰数 \  施罗德数 \  默慈金数}
 					\label{catalan}
 					\input{../src/math/卡特兰数.tex}
 			
@@ -340,28 +351,31 @@
 				\subsubsection{min-max 反演}
 					\input{../src/math/minmax.tex}
 				
-				\subsubsection{单位根反演 (展开整除条件 $[n|k]$)}
+				\subsubsection{单位根反演（展开整除条件 $\left[k|n\right]$）}
 					\input{../src/math/单位根反演.tex}
 				
-				\subsubsection[康托展开 (排列的排名)]{康托展开}
+				\subsubsection[康托展开（排列的排名）]{康托展开}
 					\input{../src/math/康托展开.tex}
 				
-				\subsubsection{连通图计数}
-					\input{../src/math/连通图计数.tex}
+				% \subsubsection{连通图计数}
+				% 	\input{../src/math/连通图计数.tex}
 
 				\subsubsection{常系数齐次线性递推求通项}
-					\includegraphics[scale = 0.265]{../src/math/线性齐次线性常系数递推.png}
-			
-			\subsection{常用生成函数变换}
-				\input{../src/math/常见生成函数.tex}
+					\includegraphics[width=\linewidth]{../src/math/线性齐次线性常系数递推.png}
 
 		\newpage
 		\section{数论}
 
-			\subsection{$O(n)$ 预处理逆元}
+			\subsection{$O(n)$~预处理逆元}
+				$$ i ^ {-1} = - \frac p i \left( p \bmod i \right) ^ {-1},\; p \in \mathbb{P}$$
+
 				\inputminted{cpp}{../src/numbertheory/O(n)求逆元.cpp}
 
 			\subsection{线性筛}
+				适用于任何 $f(p^k)$ 便于计算的 \textbf{积性}\ 函数。
+
+				代码里的例子是求约数之和 $\sigma_1(n)$，$\bmod\ 10^9 + 7$。
+
 				\inputminted{cpp}{../src/numbertheory/扩展线性筛.cpp}
 
 			\subsection{杜教筛}
@@ -373,7 +387,7 @@
 			\subsection{洲阁筛}
 				\input{../src/numbertheory/洲阁筛.tex}
 
-			\subsection{min25 筛}
+			\subsection{min25~筛}
 				\input{../src/numbertheory/min25.tex}
 
 			% \subsection{离散对数(BSGS)(待完成)}
@@ -381,11 +395,11 @@
 			\subsection{Miller-Rabin}
 				\inputminted{cpp}{../src/numbertheory/Miller-Rabin.cpp}
 
-			\subsection{Pollard's Rho}
+			\subsection{Pollard's~Rho}
 				\inputminted{cpp}{../src/numbertheory/Pollard-Rho.cpp}
 			
 			\subsection{快速阶乘算法}
-				参见\ref{fastfact}.\nameref{fastfact} (第 \pageref{fastfact} 页).
+				参见 \detailedref{fastfact}。
 
 			% \subsection{组合数取模}
 
@@ -394,8 +408,9 @@
 				\inputminted{cpp}{../src/numbertheory/exgcd.cpp}
 				\input{../src/numbertheory/exgcd.tex}
 
-				\subsubsection{类欧几里德算法(直线下整点个数)}
-					$a,b \ge 0, m > 0$, 计算$\sum_{i = 0} ^ {n - 1} \left\lfloor \frac {a + bi} m \right\rfloor$.
+				\subsubsection[类欧几里德算法（直线下整点个数）]{类欧几里德算法}
+					\paragraph{问题} $a,b \ge 0, m > 0$，计算 $\sum_{i = 0} ^ {n - 1} \left\lfloor \frac {a + bi} m \right\rfloor$。
+					
 					\inputminted{cpp}{../src/numbertheory/类欧.cpp}
 			
 			\subsection{中国剩余定理}
@@ -409,7 +424,7 @@
 			
 			% \subsection{组合数取模(ex-Lucas)(待完成)}
 			
-			\subsection{原根 阶}
+			\subsection{原根~阶}
 				\input{../src/numbertheory/原根.tex}
 			
 			\subsection{常用数论公式}
@@ -428,7 +443,7 @@
 				\subsubsection{最小树形图}
 					\input{../src/graph/最小树形图.tex}
 				
-				\subsubsection{Steiner Tree 斯坦纳树}
+				\subsubsection[斯坦纳树 Steiner Tree]{斯坦纳树}
 					\input{../src/graph/steiner.tex}
 				
 				\subsubsection{最小直径生成树}
@@ -436,49 +451,50 @@
 			
 			\subsection{最短路}
 				\subsubsection{Dijkstra}
-					参见\ref{kshortestpath}.\nameref{kshortestpath}(第 \pageref{kshortestpath} 页), 注意那边是求到$t$的最短路.
+					参见 \detailedref{kshortestpath}，注意那边是求到 $t$ 的最短路。
 				
-				\subsubsection[Johnson 算法(负权图多源最短路)]{Johnson 算法}
+				\subsubsection[Johnson 算法（负权图多源最短路）]{Johnson 算法}
 					\input{../src/graph/johnson.tex}
 				
 				% \subsubsection{差分约束}
 
 
-				\subsubsection{$k$ 短路}
+				\subsubsection{$k$~短路}
 					\label{kshortestpath}
 					\inputminted{cpp}{../src/graph/k短路.cpp}
 			
 			\subsection{Tarjan 算法}
 				\subsubsection{强连通分量}
-					\inputminted{cpp}{../src/graph/强连通分量.cpp}
+					\inputminted[highlightlines={15,18,21}]{cpp}{../src/graph/强连通分量.cpp}
 				
-				\subsubsection{割点 点双}
-					\inputminted{cpp}{../src/graph/割点点双.cpp}
+				\subsubsection{割点~点双}
+					\inputminted[highlightlines={17,19,40}]{cpp}{../src/graph/割点点双.cpp}
 
-				\subsubsection{桥 边双}
-					\inputminted{cpp}{../src/graph/边双.cpp}
+				\subsubsection{桥~边双}
+					\inputminted[highlightlines={18,20,27}]{cpp}{../src/graph/边双.cpp}
 			
 			\subsection{欧拉回路}
-				\mintinline{cpp}{C[x]}是记录每条边对应的编号的.
+				\mintinline{cpp}{C[x]} 是记录每条边对应的编号的。
 				
-				另外为了保证复杂度需要加当前弧优化.
+				另外为了保证复杂度需要加当前弧优化。
 				
 				\inputminted{cpp}{../src/graph/欧拉回路.cpp}
 
 			\subsection{仙人掌}
-				一般来说仙人掌问题都可以通过圆方树转成有两种点的树上问题来做.
+				一般来说仙人掌问题都可以通过圆方树转成有两种点的树上问题来做。
+
 				\subsubsection{仙人掌 DP}
 					\inputminted{cpp}{../src/graph/仙人掌DP.cpp}
 			
 			\subsection{二分图}
-				\subsubsection{匈牙利}
+				\subsubsection[匈牙利 Hungary]{匈牙利}
 					\inputminted{cpp}{../src/graph/hungary.cpp}
 
-				\subsubsection{Hopcroft-Karp 二分图匹配}
-					其实长得和 Dinic 差不太多, 或者说像匈牙利和 Dinic 的缝合怪.
+				\subsubsection[Hopcroft-Karp~二分图匹配]{Hopcroft-Karp}
+					其实长得和 Dinic 差不太多，或者说像匈牙利和 Dinic 的缝合怪.
 					\inputminted{cpp}{../src/graph/hopcroft-karp.cpp}
 
-				\subsubsection{KM 二分图最大权匹配}
+				\subsubsection[KM 二分图最大权匹配]{KM}
 					\inputminted{cpp}{../src/graph/KM二分图最大权匹配.cpp}
 
 				\subsubsection{二分图原理}
@@ -486,6 +502,7 @@
 			
 			\subsection{一般图匹配}
 				\subsubsection{高斯消元}
+					\input{../src/graph/一般图匹配原理.tex}
 					\inputminted{cpp}{../src/graph/基于线性代数的一般图匹配.cpp}
 
 				\subsubsection{带花树}
@@ -494,15 +511,11 @@
 				\subsubsection{带权带花树}
 					Copy-and-pasted from the template of \textit{Imperisible Night}.
 
-					（有一说一这玩意实在太难写了, 抄之前建议先想想算法是不是假的或者有 SB 做法）
+					（有一说一这玩意实在太难写了，抄之前建议先想想算法是不是假的或者有 SB 做法。）
 					\inputminted{cpp}{../src/graph/带权带花树.cpp}
-				
-				\subsubsection{原理}
-					\input{../src/graph/一般图匹配原理.tex}
 
-			
 			\subsection{支配树}
-				\textbf{记得建反图!}
+				\textbf{记得建反图！}
 				\inputminted{cpp}{../src/graph/支配树.cpp}
 
 			\subsection{2-SAT}
@@ -513,10 +526,10 @@
 					\inputminted{cpp}{../src/graph/Dinic.cpp}
 
 				\subsubsection{ISAP}
-					\textbf{可能有毒, 慎用.}
+					\textbf{可能有毒，慎用。}
 					\inputminted{cpp}{../src/graph/ISAP.cpp}
 
-				\subsubsection{HLPP 最高标号预流推进}
+				\subsubsection[最高标号预流推进 HLPP]{HLPP}
 					\inputminted{cpp}{../src/graph/HLPP.cpp}
 			
 			\subsection{费用流}
@@ -526,8 +539,8 @@
 				\subsubsection{Dijkstra 费用流}
 					\input{../src/graph/dijkstra费用流.tex}
 				
-				\subsubsection{预流推进费用流(可处理负环) $O(nm \log C)$}
-					不是很懂什么原理, 待研究.
+				\subsubsection{预流推进费用流（可处理负环）$O(nm \log C)$}
+					搬来的，不是很懂什么原理，待研究。
 
 					\inputminted{cpp}{../src/graph/预流推进费用流.cpp}
 
@@ -540,11 +553,11 @@
 			\subsection{网络流原理}
 				\input{../src/graph/网络流原理.tex}
 			
-			\subsection{Prufer序列}
+			\subsection{Prufer 序列}
 				\input{../src/graph/prufer.tex}
 
 			\subsection{弦图相关}
-				Forked from the template of NEW CODE!!.
+				Copy-and-pasted from the template of \textit{NEW CODE!!}.
 				\input{../src/graph/弦图相关.tex}
 
 			% \subsection{弦图}
@@ -555,7 +568,7 @@
 			
 
 			\subsection{其他}
-				\subsubsection{Stoer-Wagner 全局最小割}
+				\subsubsection[Stoer-Wagner 全局最小割]{Stoer-Wagner}
 					\inputminted{cpp}{../src/graph/stoer-wagner.cpp}
 
 				% \subsubsection{最小割树}
@@ -571,16 +584,16 @@
 					\input{../src/datastructure/非递归线段树.tex}
 				
 				\subsubsection{线段树维护矩形并}
-					为线段树的每个结点维护 $cover_i$ 表示这个区间被完全覆盖的次数.
+					为线段树的每个结点维护 $\text{cover}_i$ 表示这个区间被完全覆盖的次数。
 
-					更新时分情况讨论, 如果当前区间已被完全覆盖则长度就是区间长度, 否则长度是左右儿子相加.
+					更新时分情况讨论，如果当前区间已被完全覆盖则长度就是区间长度，否则长度是左右儿子相加。
 					\inputminted{cpp}{../src/datastructure/线段树维护矩形并.cpp}
 				
 				\subsubsection{历史和}
 
-					EC-Final2020 G, 原题是询问某个区间有多少子区间, 满足子区间中数的种类数为奇数.
+					EC-Final2020 G，原题是询问某个区间有多少子区间，满足子区间中数的种类数为奇数。
 
-					离线之后转化成枚举右端点并用线段树维护左端点, 然后就是一个支持区间反转 (0/1 互换) 和询问历史和的线段树.
+					离线之后转化成枚举右端点并用线段树维护左端点，然后就是一个支持区间反转（0/1 互换）和询问历史和的线段树。
 
 					``既然标记会复合，就说明在两个标记中间没有经过任何 pushup 操作
 
@@ -603,11 +616,11 @@
 					\inputminted{cpp}{../src/datastructure/CDQ分治.cpp}
 	
 			\subsection{整体二分}
-				修改和询问都要划分, 备份一下, 递归之前copy回去.
+				修改和询问都要划分，备份一下，递归之前 copy 回去。
 
-				如果是满足可减性的问题(例如查询区间 $k$ 小数)可以直接在划分的时候把询问的 $k$ 修改一下. 否则需要维护一个全局的数据结构, 一般来说可以先递归右边再递归左边, 具体维护方法视情况而定.
+				如果是满足可减性的问题（例如查询区间 $k$ 小数），可以直接在划分的时候把询问的 $k$ 修改一下。否则需要维护一个全局的数据结构，一般来说可以先递归右边再递归左边，具体维护方法视情况而定。
 
-				以下代码以ZJOI K大数查询为例(区间都添加一个数, 询问区间 $k$ 大数).
+				以下代码以 ZJOI K 大数查询为例（区间都添加一个数，询问区间 $k$ 大数）。
 
 				\inputminted{cpp}{../src/datastructure/整体二分.cpp}
 
@@ -615,20 +628,21 @@
 	
 	
 			\subsection{平衡树}
-				pb\_ds 平衡树参见 \ref{pbds}.\nameref{pbds} (第 \pageref{pbds} 页).
+				pb\_ds 平衡树参见 \detailedref{pbds}。
 
 				\subsubsection{Treap}
 					\inputminted{cpp}{../src/datastructure/Treap.cpp}
 					
-				\subsubsection{无旋 Treap / 可持久化 Treap}
+				\subsubsection[无旋 Treap / 可持久化 Treap]{无旋 Treap}
 					\inputminted{cpp}{../src/datastructure/无旋Treap.cpp}
 		
 				\subsubsection{Splay}
-					如果插入的话可以直接找到底然后 splay 一下, 也可以直接 splay 前驱后继.
+					如果插入的话可以直接找到底然后 splay 一下，也可以直接 splay 前驱后继。
 					\inputminted{cpp}{../src/datastructure/文艺平衡树.cpp}
 				
 			\subsection{树链剖分}
-				\subsubsection{动态树形 DP (最大权独立集)}
+				\subsubsection[动态树形 DP（最大权独立集）]{动态树形 DP}
+					代码是维护最大权独立集。
 					\inputminted{cpp}{../src/datastructure/动态树形DP.cpp}
 				
 			\subsection{树分治}
@@ -639,13 +653,13 @@
 					\inputminted{cpp}{../src/datastructure/动态树分治.cpp}
 
 				\subsubsection{紫荆花之恋}
-					稍微重构了一下, 修改了代码风格.
+					% 稍微重构了一下, 修改了代码风格.
 
-					另外这个是BFS版本, 跑得比DFS要快不少. (虽然主要复杂度并不在重构上)
+					这个是 BFS 版本，跑得比 DFS 要快不少。（虽然主要复杂度并不在重构上。）
 					\inputminted{cpp}{../src/datastructure/紫荆花之恋.cpp}
 	
-			\subsection{LCT 动态树}
-				\subsubsection{不换根 (弹飞绵羊)}
+			\subsection[LCT 动态树]{LCT}
+				\subsubsection[不换根（弹飞绵羊）]{不换根}
 					\inputminted{cpp}{../src/datastructure/LCT(不换根).cpp}
 			
 				\subsubsection{换根/维护生成树}
@@ -654,12 +668,12 @@
 				\subsubsection{维护子树信息}
 					\inputminted{cpp}{../src/datastructure/LCT维护子树信息.cpp}
 					
-				\subsubsection[模板题：动态QTREE4]{模板题:动态 QTREE4 (询问树上相距最远点)}
+				\subsubsection[模板题：动态QTREE4]{模板题：动态 QTREE4（询问树上相距最远点）}
 						\inputminted{cpp}{../src/datastructure/动态QTREE4.cpp}
 	
 			\subsection{K-D 树}
 
-				\subsubsection{动态 K-D 树 (定期重构)}
+				\subsubsection{动态 K-D 树（定期重构）}
 					\inputminted{cpp}{../src/datastructure/动态KD树.cpp}
 	
 			% \subsection{树分块}
@@ -667,7 +681,7 @@
 	
 			% \subsection{树上莫队}
 			
-			\subsection{LCA 最近公共祖先}
+			\subsection[LCA 最近公共祖先]{LCA}
 				\subsubsection{Tarjan LCA $O(n + m)$}
 					\inputminted{cpp}{../src/datastructure/tarjanlca.cpp}
 
@@ -683,7 +697,7 @@
 			\subsection{堆}
 
 				\subsubsection{左偏树}
-					参见\ref{kshortestpath}.k短路 (第 \pageref{kshortestpath} 页).
+					参见 \detailedref{kshortestpath}。
 				
 				\subsubsection{二叉堆}
 					\inputminted{cpp}{../src/datastructure/二叉堆.cpp}
@@ -705,7 +719,7 @@
 			\subsection{AC 自动机}
 				\inputminted{cpp}{../src/string/AC自动机.cpp}
 
-			\subsection{后缀数组 SA}
+			\subsection[后缀数组 SA]{后缀数组}
 				\subsubsection{倍增}
 					\inputminted{cpp}{../src/string/sa.cpp}	
 
@@ -718,7 +732,7 @@
 			\subsection{后缀平衡树}
 				\input{../src/string/后缀平衡树.tex}
 
-			\subsection{后缀自动机 SAM}
+			\subsection[后缀自动机 SAM]{后缀自动机}
 				\inputminted{cpp}{../src/string/后缀自动机.cpp}
 
 				\subsubsection{广义后缀自动机}
@@ -727,20 +741,20 @@
 				如果建字典树然后 BFS 建自动机可以做到 $O\left(n\left|\Sigma\right|\right)$（$n$ 是字典树结点数），但是写起来比较麻烦。
 				\inputminted{cpp}{../src/string/广义后缀自动机.cpp}
 
-				\subsubsection[区间本质不同子串计数]{区间本质不同子串计数 (后缀自动机 + LCT + 线段树)}
+				\subsubsection[区间本质不同子串计数]{区间本质不同子串计数（后缀自动机 + LCT + 线段树）}
 					\input{../src/string/区间本质不同子串统计.tex}
 
-			\subsection{回文树 PAM}
+			\subsection[回文树 PAM]{回文树}
 				\inputminted{cpp}{../src/string/回文树.cpp}
 
 				\subsubsection{广义回文树}
-					（代码是梯子剖分的版本，压力不大的题目换成直接倍增就好了，常数只差不到一倍）
+					代码是梯子剖分的版本，压力不大的题目换成直接倍增就好了，常数只差不到一倍。
 					\inputminted{cpp}{../src/string/广义回文树.cpp}
 
 			% \subsection{序列自动机}
 
 
-			\subsection{Manacher 马拉车}
+			\subsection[Manacher 马拉车]{Manacher}
 				\inputminted{cpp}{../src/string/manacher.cpp}
 			
 			% \subsection{All Substring LCS}
@@ -760,9 +774,9 @@
 		\newpage
 		\section{计算几何}
 		 	\subsection{Delaunay 三角剖分}
-				只要两个点同在某个三角形上, 它们就互为一对最近点. 注意返回的三角形似乎不保证顺序, 所以要加边的话还是要加双向边.
+				只要两个点同在某个三角形上，它们就互为一对最近点。注意返回的三角形似乎不保证顺序，所以要加边的话还是要加双向边。
 				
-				如果要建 V 图的话求出每个三角形的外心就行了, 每个点控制的区域就是所在三角形的外心连起来.
+				如果要建 V 图的话，求出每个三角形的外心就行了，每个点控制的区域就是所在三角形的外心连起来。
 				\inputminted{cpp}{../src/geometry/delaunay.cpp}
 		
 	\end{multicols}
@@ -792,7 +806,7 @@
 			\subsection{笛卡尔树}
 				\inputminted{cpp}{../src/misc/笛卡尔树.cpp}
 			
-			\subsection{GarsiaWachs 算法 ($O(n\log n)$ 合并石子)}
+			\subsection{GarsiaWachs 算法（$O(n\log n)$ 合并石子）}
 				\input{../src/misc/garsiawachs.tex}
 			
 			\subsection{常用 NTT 素数及原根}
@@ -841,19 +855,21 @@
 
 			% 	\subsubsection{做题策略与心态调节}
 			% 		\input{../src/attention/做题策略与心态调节.tex}
+
+		\section{附录}
 			
-			\subsection{附录: VScode 相关}
+			\subsection{VScode 相关}
 				\input{../src/misc/vscode.tex}
 			
 			\newpage
-			\subsection{附录: 骂人的艺术—梁实秋}
+			\subsection{骂人的艺术—梁实秋}
 				\input{../src/misc/骂人的艺术.tex}
 
 	\end{multicols}
 	
-	\vspace{1.5cm}
-	\subsection{附录: Cheat Sheet}
-		见后面几页.
+	\vspace{2em}
+	\subsection{Cheat Sheet}
+		见后面几页。
 
 	\includepdf[pages = 1-10]{../src/misc/Cheat.pdf}
 
@@ -868,7 +884,7 @@
 	% \null
 
 	\newpage
-	\ThisCenterWallPaper{1}{image/lily_white.png}
+	\ThisCenterWallPaper{1.015}{image/lily.jpg}
 	% \ThisCenterWallPaper{1}{image/72211605_p0.png}
 
 	\null

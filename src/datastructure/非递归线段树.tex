@@ -1,18 +1,18 @@
-% \sout{让fstqwq手撕}
+\sout{让 \textit{fstqwq} 手撕}\ 我队友呢？
 
 \begin{itemize}
-	\item 如果$M = 2^k$, 则只能维护$[1, M - 2]$范围
-	\item 找叶子: $i$对应的叶子就是$i + M$
-	\item 单点修改: 找到叶子然后向上跳
-	\item 区间查询: 左右区间各扩展一位, 转换成开区间查询
+	\item 如果 $M = 2^k$，则只能维护 $[1, M - 2]$ 范围
+	\item 找叶子：$i$ 对应的叶子就是 $i + M$
+	\item 单点修改：找到叶子然后向上跳
+	\item 区间查询：左右区间各扩展一位，转换成开区间查询
 	\inputminted{cpp}{../src/datastructure/非递归线段树单点修改.cpp}
 
 \end{itemize}
 	
-区间修改要标记永久化,并且求区间和和求最值的代码不太一样. \\
+区间修改要标记永久化，并且求区间和和求最值的代码不太一样。
 
-\textbf{区间加, 区间求和}
+\textbf{区间加，区间求和}
 \inputminted{cpp}{../src/datastructure/非递归线段树区间加区间求和.cpp}
 
-\textbf{区间加, 区间求最大值}
+\textbf{区间加，区间求最大值}
 \inputminted{cpp}{../src/datastructure/非递归线段树区间加区间求最大值.cpp}

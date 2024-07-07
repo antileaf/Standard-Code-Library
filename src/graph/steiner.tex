@@ -1,14 +1,18 @@
-{\bfseries 问题}: 一张图上有$k$个关键点, 求让关键点两两连通的最小生成树
+\paragraph{问题} 一张图上有 $k$ 个关键点，求让关键点两两连通的最小生成树。
 
-{\bfseries 做法}: 状压DP, $f_{i,S}$表示以$i$号点为树根, $i$与$S$中的点连通的最小边权和
+\paragraph{做法} 状压 DP，$f_{i,S}$ 表示以 $i$ 号点为树根，$i$ 与 $S$ 中的所有点连通的最小边权和。
 
-转移有两种:
+转移有两种：
+
 \begin{enumerate}
-	\item 枚举子集: $$\begin{aligned}f_{i, S} = \min_{T\subset S} \left\{f_{i, T} + f_{i, S\setminus T}\right\}\end{aligned}$$
-	\item 新加一条边: $$\begin{aligned}f_{i, S} = \min_{(i, j)\in E} \left\{f_{j, S} + w_{i, j}\right\}\end{aligned}$$
+	\item 枚举子集：
+	$$ f_{i, S} = \min_{T\subset S} \left\{f_{i, T} + f_{i, S\setminus T}\right\} $$
+	\item 新加一条边: 
+	$$ f_{i, S} = \min_{(i, j)\in E} \left\{f_{j, S} + w_{i, j}\right\} $$
 \end{enumerate}
-第一种直接枚举子集DP就行了, 第二种可以用SPFA或者Dijkstra松弛(显然负边一开始全选就行了, 所以只需要处理非负边).
 
-复杂度$O(n 3^k + 2^k \text{SSSP}(n, m)))$, 其中$\text{SSSP}(n,m)$可以是$nm$或者$n^2+m$或者$m\log n$.
+第一种直接枚举子集 DP 就行了，第二种可以用 SPFA 或者 Dijkstra 松弛（显然负边一开始全选就行了，所以只需要处理非负边）。
+
+复杂度 $O(n 3^k + 2^k \text{SSSP}(n, m)))$，其中 $\text{SSSP}(n,m)$ 可以是 $nm$（SPFA）或者 $n^2+m$ 或者 $m\log n$（后两种都是 Dijkstra）。
 
 \inputminted{cpp}{../src/graph/steiner.cpp}

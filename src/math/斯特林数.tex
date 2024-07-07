@@ -2,71 +2,72 @@
 
 \item \textbf{第一类斯特林数}
 
-$n\brack k$表示$n$个元素划分成$k$个轮换的方案数.
+$n\brack k$ 表示 $n$ 个元素划分成 $k$ 个 \textbf{轮换}\ 的方案数。
 
-递推式: ${n \brack k} = {n-1 \brack k-1} + (n-1){n-1 \brack k}$.
+\paragraph{递推式} ${n \brack k} = {n-1 \brack k-1} + (n-1){n-1 \brack k}$
 
-求同一行: 分治FFT $O(n\log ^2 n)$, 或者倍增$O(n\log n)$(每次都是$f(x) = g(x) g(x + d)$的形式, 可以用$g(x)$反转之后做一个卷积求出后者).
+\paragraph{求同一行} 分治 FFT $O(n\log ^2 n)$，或者倍增 $O(n\log n)$（每次都是 $f(x) = g(x) g(x + d)$ 的形式）。
 
 $$ \begin{aligned} \sum_{k = 0} ^ n {n \brack k} x^k = \prod_{i = 0} ^ {n - 1} (x + i) \end{aligned} $$
 
-求同一列: 用一个轮换的指数生成函数做$k$次幂
-$$\begin{aligned} \sum_{n = 0} ^ \infty {n \brack k} \frac {x ^ n} {n!} = \frac {\left(\ln (1 - x)\right) ^ k} {k!} = \frac {x ^ k} {k!} \left( \frac {\ln (1 - x)} x \right) ^ k \end{aligned}$$
+\paragraph{求同一列} 用一个轮换的 EGF 做 $k$ 次幂。
+
+$$ \sum_{n = 0} ^ \infty {n \brack k} \frac {x ^ n} {n!} = \frac {\left(\ln (1 - x)\right) ^ k} {k!} = \frac {x ^ k} {k!} \left( \frac {\ln (1 - x)} x \right) ^ k $$
 
 \item \textbf{第二类斯特林数}
 
-$n\brace k$表示$n$个元素划分成$k$个子集的方案数.
+$n\brace k$ 表示 $n$ 个元素划分成 $k$ 个子集的方案数。
 
-递推式: ${n \brace k} = {n-1 \brace k-1} + k{n-1 \brace k}$.
+\paragraph{递推式} ${n \brace k} = {n-1 \brace k-1} + k{n-1 \brace k}$
 
-求一个: 容斥, 狗都会做
+\paragraph{求某一项} 容斥，狗都会做。
 
-$$\begin{aligned} {n \brace k} = \frac 1 {k!} \sum_{i = 0} ^ k (-1) ^ i {k \choose i} (k - i) ^ n = \sum_{i = 0} ^ k \frac {(-1) ^ i} {i!} \frac {(k - i) ^ n} {(k - i)!} \end{aligned}$$
+$$ {n \brace k} = \frac 1 {k!} \sum_{i = 0} ^ k (-1) ^ i {k \choose i} (k - i) ^ n = \sum_{i = 0} ^ k \frac {(-1) ^ i} {i!} \frac {(k - i) ^ n} {(k - i)!} $$
 
-求同一行: FFT, 狗都会做
+\paragraph{求同一行} FFT，狗都会做。
 
-求同一列: 指数生成函数
+\paragraph{求同一列} EGF：
 
-$$\begin{aligned} \sum_{n = 0} ^ \infty {n \brace k} \frac {x ^ n} {n!} = \frac {\left(e ^ x - 1\right) ^ k} {k!} = \frac {x ^ k} {k!} \left( \frac {e ^ x - 1} x \right) ^ k \end{aligned}$$
+$$ \sum_{n = 0} ^ \infty {n \brace k} \frac {x ^ n} {n!} = \frac {\left(e ^ x - 1\right) ^ k} {k!} = \frac {x ^ k} {k!} \left( \frac {e ^ x - 1} x \right) ^ k $$
 
-普通生成函数
+OGF：
 
-$$\begin{aligned} \sum_{n = 0} ^ \infty {n \brace k} x ^ n = x ^ k \left(\prod_{i = 1} ^ k (1 - i x)\right) ^ {-1} \end{aligned}$$
+$$ \sum_{n = 0} ^ \infty {n \brace k} x ^ n = x ^ k \left(\prod_{i = 1} ^ k (1 - i x)\right) ^ {-1} $$
 
 \item \textbf{斯特林反演}
 
-$$ \begin{aligned} f(n) = \sum_{k = 0} ^ n {n \brace k} g(k) \iff g(n) = \sum_{k = 0} ^ n (-1) ^ {n - k} {n\brack k} f(k) \end{aligned} $$
+$$ f(n) = \sum_{k = 0} ^ n {n \brace k} g(k) \iff g(n) = \sum_{k = 0} ^ n (-1) ^ {n - k} {n \brack k} f(k) $$
 
 \item \textbf{幂的转换}
 
-\textbf{上升幂与普通幂的转换}
+\paragraph{上升幂与普通幂的转换}
 
 $$ x^{\overline{n}}=\sum_{k} {n \brack k} x^k $$
 
 $$ x^n=\sum_{k} {n \brace k} (-1)^{n-k} x^{\overline{k}} $$
 
-\textbf{下降幂与普通幂的转换}
+\paragraph{下降幂与普通幂的转换}
 
 $$ x^n=\sum_{k} {n \brace k} x^{\underline{k}} = \sum_{k} {x \choose k} {n \brace k} k! $$
 
 $$ x^{\underline{n}}=\sum_{k} {n \brack k} (-1)^{n-k} x^k $$
 
-另外, 多项式的\textbf{点值}表示的每项除以阶乘之后卷上$e^{-x}$乘上阶乘之后是牛顿插值表示, 或者不乘阶乘就是\textbf{下降幂}系数表示. 反过来的转换当然卷上$e^x$就行了. 原理是每次差分等价于乘以$(1 - x)$, 展开之后用一次卷积取代多次差分.
+另外，多项式的 \textbf{点值}\ 表示的每项除以阶乘，卷上 $e^{-x}$ 再乘上阶乘之后是 \textbf{牛顿插值}\ 表示，或者不乘阶乘就是 \textbf{下降幂}\ 系数表示。反过来的转换当然卷上 $e^x$ 就行了。原理是每次差分等价于乘以 $(1 - x)$，展开之后用一次卷积取代多次差分。（参见 \detailedref{NewtonInterpolation}。）
 
-\item \textbf{斯特林多项式(斯特林数关于斜线的性质)}
+\item \textbf{斯特林多项式（斯特林数关于斜线的性质）}
 
-定义:
+\paragraph{定义}
 
 $$ \sigma_n(x) = \frac {{x\brack n}} {x(x-1)\dots(x-n)} $$
 
-$\sigma_n(x)$的最高次数是$x^{n - 1}$. (所以作为唯一的特例, $\sigma_0(x) = \frac 1 x$不是多项式.)
+$\sigma_n(x)$ 的最高次数是 $x^{n - 1}$。（所以作为唯一的特例, $\sigma_0(x) = \frac 1 x$ 不是多项式。）
 
-斯特林多项式实际上非常神奇, 它与两类斯特林数都有关系.
+斯特林多项式实际上非常神奇，它与两类斯特林数都有关系：
 
 $$ {n \brack n-k} = n^{\underline{k+1}} \sigma_k(n) $$
 
 $$ {n \brace n-k} = (-1)^{k+1} n^{\underline{k+1}} \sigma_k(-(n-k)) $$
 
-不过它并不好求. 可以$O(k^2)$直接计算前几个点值然后插值, 或者如果要推式子的话可以用后面提到的二阶欧拉数.
+不过它并不好求。可以 $O(k^2)$ 直接计算前几个点值然后插值，或者如果要推式子的话，可以用后面提到的二阶欧拉数（\detailedref{EulerianNumber}）。
 
 \end{enumerate}

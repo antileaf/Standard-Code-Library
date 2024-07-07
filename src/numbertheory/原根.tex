@@ -1,16 +1,18 @@
-\paragraph{阶} 最小的整数$k$使得$a ^ k \equiv 1 \pmod p$, 记为$\delta_p(a)$.
+\paragraph{阶} 最小的整数 $k$ 使得 $a ^ k \equiv 1 \pmod m$，记为 $\delta_m(a)$。
 
-显然$a$在阶以下的幂次是两两不同的.
+显然 $a$ 在阶以下次数的幂是两两不同的。
 
-一个性质: 如果$a, b$均与$p$互质, 则 $ \delta_p(ab)=\delta_p(a)\delta_p(b) $ 的充分必要条件是$ \gcd\big(\delta_p(a),\delta_p(b)\big)=1 $.
+一个性质：如果 $a, b$ 均与 $m$ 互质，则
+$$\delta_m(ab)=\delta_m(a)\delta_m(b) \iff \gcd\left(\delta_m(a),\delta_p(b)\right) = 1$$
 
-另外, 如果$a$与$p$互质, 则有$ \delta_p(a^k)=\dfrac{\delta_p(a)}{\gcd\big(\delta_p(a),k\big)} $. (也就是环上一次跳$k$步的周期.)
+另外，如果 $a$ 与 $m$ 互质，则有 $\delta_p(a^k)=\dfrac{\delta_p(a)}{\gcd\left(\delta_p(a),k\right)}$。（也就是长为 $\delta_m(a)$ 的环上一次跳 $k$ 步的周期。）
 
-\paragraph{原根} 阶等于$\varphi(p)$的数.
+\paragraph{原根} 所有阶等于 $\varphi(m)$ 的数。
 
-只有形如$2, 4, p ^ k, 2 p ^ k$($p$是奇素数)的数才有原根, 并且如果一个数$n$有原根, 那么原根的个数是$\varphi(\varphi(n))$个.
+只有形如$2,\, 4,\, p^k,\, 2 p^k$（$p$是奇素数）的数才有原根。并且如果 $m$ 有原根，那么原根的个数一定是 $\varphi\left(\varphi(m)\right)$ 个。
 
-暴力找原根代码:
+暴力找原根代码：
+
 \begin{minted}{python}
 def split(n): # 分解质因数
     i = 2

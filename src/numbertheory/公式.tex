@@ -1,15 +1,9 @@
-\subsubsection{莫比乌斯反演}
-	$$ \begin{aligned}
-		f(n) = \sum_{d | n} g(d) \Leftrightarrow g(n) = \sum_{d | n} \mu\left( \frac n d \right) f(d) \\
-		f(d) = \sum_{d | k} g(k) \Leftrightarrow g(d) = \sum_{d | k} \mu\left( \frac k d \right) f(k)
-	\end{aligned} $$
+\subsubsection[狄利克雷（Dirichlet）卷积]{Dirichlet 卷积}
+	$$ (f * g)(n) = \sum_{d | n} f(d) g\left( \frac n d \right) $$
+	
+	$$\mu * I = e$$
 
-\subsubsection{降幂公式}
-
-$$ a^k \equiv a ^ {k \bmod \varphi(p) + \varphi(p)},\; k \ge \varphi(p) $$
-
-\subsubsection{其他常用公式}
-	$$\mu * I = e \quad (e(n) = [n = 1])$$
+	其中 $e$ 为单位元，满足 $e(n) = [n = 1]$。
 
 	$$\varphi * I = id $$
 
@@ -17,10 +11,24 @@ $$ a^k \equiv a ^ {k \bmod \varphi(p) + \varphi(p)},\; k \ge \varphi(p) $$
 
 	$$\sigma_0 = I * I ,\, \sigma_1 = id * I ,\, \sigma_k = id^{k - 1} * I$$
 
+\subsubsection{莫比乌斯反演}
+	$$ \begin{aligned}
+		f(n) = & \sum_{d | n} g(d) & \Leftrightarrow g(n) & = \sum_{d | n} \mu\left( \frac n d \right) f(d) \\
+		f(d) = & \sum_{d | k} g(k) & \Leftrightarrow g(d) & = \sum_{d | k} \mu\left( \frac k d \right) f(k)
+	\end{aligned} $$
+
+	$$\sum_{i = 1} ^ n \sum_{j = 1} ^ m \left[(i, j) = d\right] = \sum_{d | k} \mu\left( \frac k d \right) \left\lfloor \frac n k \right\rfloor \left\lfloor \frac m k \right\rfloor$$
+
+\subsubsection{降幂公式}
+
+$$ a^k \equiv a ^ {k \bmod \varphi(p) + \varphi(p)} \pmod p,\; k \ge \varphi(p) $$
+
+和费马小定理的区别在于不需要 $a$ 与 $p$ 互质，但要注意 $k < \varphi(p)$ 时不成立。
+
+\subsubsection{其他常用公式}
+
 	$$\sum_{i = 1} ^ n \left[(i, n) = 1\right] i = n \frac {\varphi(n) + e(n)} 2$$
 	
 	$$\sum_{i = 1} ^ n \sum_{j = 1} ^ i \left[(i, j) = d\right] = S_\varphi \left( \left\lfloor \frac n d \right\rfloor \right)$$
-
-	$$\sum_{i = 1} ^ n \sum_{j = 1} ^ m \left[(i, j) = d\right] = \sum_{d | k} \mu\left( \frac k d \right) \left\lfloor \frac n k \right\rfloor \left\lfloor \frac m k \right\rfloor$$
 
 	$$ \sum_{i = 1} ^ n f(i) \sum_{j = 1} ^ {\left\lfloor \frac n i \right\rfloor} g(j) = \sum_{i = 1} ^ n g(i) \sum_{j = 1} ^ {\left\lfloor \frac n i \right\rfloor} f(j) $$

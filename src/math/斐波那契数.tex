@@ -12,10 +12,11 @@ $\phi = \frac {1 + \sqrt 5} 2, \; \hat\phi = \frac {1 - \sqrt 5} 2$
 
 $F_n = \frac {\phi^n - {\hat\phi} ^ n} {\sqrt 5}, \; L_n = \phi ^ n + {\hat\phi} ^ n$
 
-实际上有$\frac {L_n + F_n \sqrt 5} 2 = \left( \frac {1 + \sqrt 5} 2 \right) ^ n$, 所以求通项的话写一个类然后快速幂就可以同时得到两者.
+实际上有
+$$\frac {L_n + F_n \sqrt 5} 2 = \left( \frac {1 + \sqrt 5} 2 \right) ^ n$$
+所以求通项的话写一个类然后快速幂就可以同时得到两者。
 
 \paragraph{快速倍增法}
-
 $F_{2k} = F_k \left( 2 F_{k + 1} - F_k \right), \; F_{2k + 1} = F_{k + 1} ^ 2 + F_k ^ 2$
 
 \begin{minted} {cpp}
