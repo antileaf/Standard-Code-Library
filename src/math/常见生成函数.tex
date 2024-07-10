@@ -1,14 +1,12 @@
-$$\frac x {(1 - x) ^ 2} = \sum_{i \ge 0} i x ^ i$$
+$$ \frac x {(1 - x) ^ 2} = \sum_{i \ge 0} i x ^ i $$
 
-$$\frac 1 {(1 - x) ^ k} = \sum_{i \ge 0} {i + k - 1 \choose i} x ^ i = \sum_{i \ge 0} {i + k - 1 \choose k - 1}x^i, \; k > 0$$
+$$ \frac 1 {(1 - x) ^ k} = \sum_{i \ge 0} {i + k - 1 \choose i} x ^ i = \sum_{i \ge 0} {i + k - 1 \choose k - 1}x^i, \; k > 0 $$
 
-$$
-\begin{aligned}
-	\sum_{i = 0} ^ \infty i^n x^i = \sum_{k = 0} ^ n {n \brace k} k! \frac {x^k} {(1-x) ^ {k + 1}} = \sum_{k = 0} ^ n {n \brace k} k! \frac {x^k (1-x) ^ {n – k}} {(1-x) ^ {n + 1}} \\
-	= \frac 1 {(1-x) ^ {n + 1}} \sum_{i = 0} ^ n \frac {x^i} {(n-i)!} \sum_{k = 0} ^ i {n \brace k}k!(n-k)! \frac {(-1)^{i-k}} {(i-k)!}
-\end{aligned}
-$$
+$$ \begin{aligned}
+\sum_{i = 0} ^ \infty i^n x^i = \sum_{k = 0} ^ n {n \brace k} k! \frac {x^k} {(1-x) ^ {k + 1}} = \sum_{k = 0} ^ n {n \brace k} k! \frac {x^k (1-x) ^ {n – k}} {(1-x) ^ {n + 1}} \\
+= \frac 1 {(1-x) ^ {n + 1}} \sum_{i = 0} ^ n \frac {x^i} {(n-i)!} \sum_{k = 0} ^ i {n \brace k}k!(n-k)! \frac {(-1)^{i-k}} {(i-k)!}
+\end{aligned} $$
 
-(用上面的方法可以把分子化成一个$n$次以内的多项式, 并且可以用一次卷积求出来.)
+（用上面的方法可以把分子化成一个 $n$ 次以内的多项式，并且可以用一次卷积求出来。）
 
-如果把$i^n$换成任意的一个$n$次多项式, 那么我们可以求出它的下降幂表示形式(或者说是牛顿插值)的系数$r_i$, 发现用$r_k$替换掉上面的${n \brace k}k!$之后其余过程完全相同.
+如果把 $i^n$ 换成任意的一个 $n$ 次多项式，那么我们可以求出它的下降幂表示形式（或者说是牛顿插值）的系数 $r_i$，发现用 $r_k$ 替换掉上面的 ${n \brace k}k!$ 之后其余过程完全相同。

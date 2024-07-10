@@ -33,6 +33,7 @@
 \usepackage{afterpage}
 \usepackage{xeCJK}
 \usepackage{enumitem}
+\usepackage{tikz}
 % \usepackage{unicode-math}
 % \usepackage{float}
 
@@ -291,8 +292,9 @@
 			\subsection{Berlekamp-Massey 最小递推式}
 				\input{../src/math/Berlekamp-Massey.tex}
 
-			\subsection{单纯形}
-				\inputminted{cpp}{../src/math/单纯形.cpp}
+			\subsection{线性规划}
+				\subsubsection[单纯形 Simplex]{单纯形}
+					\inputminted{cpp}{../src/math/单纯形.cpp}
 
 				\subsubsection{线性规划对偶原理}
 					\input{../src/math/线性规划对偶原理.tex}
@@ -438,6 +440,7 @@
 					\input{../src/graph/Boruvka.tex}
 				
 				\subsubsection{动态最小生成树}
+					\label{DynamicMST}
 					\input{../src/graph/动态最小生成树.tex}
 				
 				\subsubsection{最小树形图}
@@ -539,8 +542,9 @@
 				\subsubsection{Dijkstra 费用流}
 					\input{../src/graph/dijkstra费用流.tex}
 				
-				\subsubsection{预流推进费用流（可处理负环）$O(nm \log C)$}
-					搬来的，不是很懂什么原理，待研究。
+				\subsubsection{预流推进费用流（可处理负环）}
+
+					搬来的，不是很懂什么原理，待研究。复杂度 $O(nm \log C)$。
 
 					\inputminted{cpp}{../src/graph/预流推进费用流.cpp}
 
@@ -595,13 +599,13 @@
 
 					离线之后转化成枚举右端点并用线段树维护左端点，然后就是一个支持区间反转（0/1 互换）和询问历史和的线段树。
 
-					``既然标记会复合，就说明在两个标记中间没有经过任何 pushup 操作
+					“既然标记会复合，就说明在两个标记中间没有经过任何 pushup 操作
 
 					也就是说一个这两个标记对应着 相同的 0 的数量 以及 相同的 1 的数量
 
 					那么标记对于答案的影响只能是 a * 0 + b * 1
 
-					我们维护 a，b 即可''
+					我们维护 a，b 即可”
 
 					\inputminted{cpp}{../src/datastructure/ec20g.cpp}
 
@@ -611,6 +615,9 @@
 			\subsection{陈丹琦分治}
 				\subsubsection[动态图连通性（分治并查集）]{动态图连通性}
 					\inputminted{cpp}{../src/datastructure/分治并查集.cpp}
+				
+				\subsubsection{动态最小生成树}
+					参见 \detailedref{DynamicMST}。
 
 				\subsubsection{四维偏序}
 					\inputminted{cpp}{../src/datastructure/CDQ分治.cpp}

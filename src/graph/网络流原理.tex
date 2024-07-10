@@ -10,7 +10,7 @@
 
 \subsubsection{最小割}
 
-首先牢记最小割的定义：选权值和尽量小的一些边，使得删除这些边之后 $s$ 无法到达 $t$。
+首先牢记最小割的定义：选权值和尽量小的一些边，使得删除这些边之后 $S$ 无法到达 $T$。
 
 \paragraph{最小割输出一种方案}
 在残量网络上从 $S$ 开始 floodfill，源点可达的记为 $S$ 集，不可达的记为 $T$ 集。如果一条边的起点在 $S$ 集而终点在 $T$ 集，就将其加入最小割中。
@@ -35,9 +35,30 @@
 \subsubsection{上下界网络流}
 
 \paragraph{无源汇上下界可行流}
-新建源汇 $S', T'$，然后如图所示转化每一条边。
+新建源汇 $S', T'$，然后如图转化每一条边。
 
-\includegraphics[scale = 0.5]{../src/graph/上下界网络流.png}
+% \includegraphics[scale = 0.5]{../src/graph/上下界网络流.png}
+
+\begin{tikzpicture}[scale=0.95]
+	\node[draw, circle, thick] (u0) at (-5, -1) {u};
+	\node[draw, circle, thick] (v0) at (-3, -1) {v};
+
+	\draw[->, thick] (u0) -- node[midway, below] {[b, c]} (v0);
+
+	\coordinate (left) at (-2, -1);
+	\coordinate (right) at (-1, -1);
+
+	\draw[->, very thick] (left) -- (right);
+
+	\node[draw, circle, thick] (S) at (0, 0) {\phantom{'}S'};
+	\node[draw, circle, thick] (T) at (4, 0) {\phantom{'}T'};
+	\node[draw, circle, thick] (u) at (1, -2) {u};
+	\node[draw, circle, thick] (v) at (3, -2) {v};
+
+	\draw[->, thick] (S) -- node[pos=0.3, below] {b} (v);
+	\draw[->, thick] (u) -- node[pos=0.7, below] {b} (T);
+	\draw[->, thick] (u) -- node[midway, below] {c-b} (v);
+\end{tikzpicture}
 
 在新图跑一遍最大流之后检查一遍辅助边，如果有辅助边没满流则无解，否则把每条边的流量加上 $b$ 就是一组可行方案。
 
