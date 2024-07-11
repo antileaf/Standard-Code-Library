@@ -13,8 +13,8 @@
 
 \subsubsection{莫比乌斯反演}
 	$$ \begin{aligned}
-		f(n) = & \sum_{d | n} g(d) & \Leftrightarrow g(n) & = \sum_{d | n} \mu\left( \frac n d \right) f(d) \\
-		f(d) = & \sum_{d | k} g(k) & \Leftrightarrow g(d) & = \sum_{d | k} \mu\left( \frac k d \right) f(k)
+		f(n) = & \sum_{d | n} g(d) & \, \iff \quad & g(n) = \sum_{d | n} \mu\left( \frac n d \right) f(d) \\
+		f(d) = & \sum_{d | k} g(k) & \, \iff \quad & g(d) = \sum_{d | k} \mu\left( \frac k d \right) f(k)
 	\end{aligned} $$
 
 	$$\sum_{i = 1} ^ n \sum_{j = 1} ^ m \left[(i, j) = d\right] = \sum_{d | k} \mu\left( \frac k d \right) \left\lfloor \frac n k \right\rfloor \left\lfloor \frac m k \right\rfloor$$

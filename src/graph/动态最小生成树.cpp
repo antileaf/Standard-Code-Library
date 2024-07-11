@@ -1,201 +1,106 @@
-﻿// 全局结构体与数组定义
-struct edge { //边的定义
-	int u, v, w, id; // id表示边在原图中的编号
-	bool vis; // 在Kruskal时用,记录这条边是否是树边
-	bool operator < (const edge &e) const { return w < e.w; }
-} e[20][maxn], t[maxn]; // 为了便于回滚,在每层分治存一个副本
+﻿struct Edge { int u, v, w; } edges[MAXN];
 
+int vis[MAXN], stamp = 0; // 因为不好清空，用时间戳标记
 
-// 用于存储修改的结构体,表示第id条边的权值从u修改为v
-struct A {
-	int id, u, v;
-} a[maxn];
+struct Modify { int i, new_w; } op[MAXN]; // 方便起见，只有修改边权一种操作
 
+int ufs[MAXN], ufs_size[MAXN]; // 因为要撤销，不方便存 rank，所以用 size
 
-int id[20][maxn]; // 每条边在当前图中的编号
-int p[maxn], size[maxn], stk[maxn], top; // p和size是并查集数组,stk是用来撤销的栈
-int n, m, q; // 点数,边数,修改数
-
-
-// 方便起见,附上可能需要用到的预处理代码
-int main() {
-	for (int i = 1; i <= n; i++) { // 并查集初始化
-		p[i] = i;
-		size[i] = 1;
+void ufs_init(int n) {
+	for (int i = 1; i <= n; i++) {
+		ufs[i] = i;
+		ufs_size[i] = 1;
 	}
-
-	for (int i = 1; i <= m; i++) { // 读入与预标号
-		scanf("%d%d%d", &e[0][i].u, &e[0][i].v, &e[0][i].w);
-		e[0][i].id = i;
-		id[0][i] = i;
-	}
-
-	for (int i = 1; i <= q; i++) { // 预处理出调用数组
-		scanf("%d%d", &a[i].id, &a[i].v);
-		a[i].u = e[0][a[i].id].w;
-		e[0][a[i].id].w = a[i].v;
-	}
-
-	for(int i = q; i; i--)
-		e[0][a[i].id].w = a[i].u;
-
-	CDQ(1, q, 0, m, 0); // 这是调用方法
 }
 
+int findufs(int x) { while (ufs[x] != x) x = ufs[x]; return x; }
 
-// 分治主过程 O(nlog^2n)
-// 需要调用Reduction和Contraction
-void CDQ(int l, int r, int d, int m, long long ans) { // CDQ分治
-	if (l == r) { // 区间长度已减小到1,输出答案,退出
-		e[d][id[d][a[l].id]].w = a[l].v;
-		printf("%lld\n", ans + Kruskal(m, e[d]));
-		e[d][id[d][a[l].id]].w = a[l].u;
-		return;
-	}
+void undo(const vector<int>& stk) {
+	for (int i = (int)stk.size() - 1; ~i; i--) {
+		int x = stk[i]; ufs_size[ufs[x]] -= ufs_size[x];
+		ufs[x] = x; } }
 
-	int tmp = top;
+bool link(int u, int v, vector<int>& stk) {
+	int x = findufs(u), y = findufs(v);
 
-	Reduction(l, r, d, m);
-	ans += Contraction(l, r, d, m); // R-C
-
-	int mid = (l + r) / 2;
-
-	copy(e[d] + 1, e[d] + m + 1, e[d + 1] + 1);
-	for (int i = 1; i <= m; i++)
-		id[d + 1][e[d][i].id] = i; // 准备好下一层要用的数组
+	if (x != y) {
+		if (ufs_size[x] > ufs_size[y])
+			swap(x, y);
 		
-	CDQ(l, mid, d + 1, m, ans);
-
-	for (int i = l; i <= mid; i++)
-		e[d][id[d][a[i].id]].w = a[i].v; // 进行左边的修改
-
-	copy(e[d] + 1, e[d] + m + 1, e[d + 1] + 1);
-	for (int i = 1; i <= m; i++)
-		id[d + 1][e[d][i].id] = i; // 重新准备下一层要用的数组
-
-	CDQ(mid + 1, r, d + 1, m, ans);
-
-	for (int i = top; i > tmp; i--)
-		cut(stk[i]);//撤销所有操作
-	top = tmp;
-}
-
-
-// Reduction(减少无用边):待修改边标为+INF,跑MST后把非树边删掉,减少无用边
-// 需要调用Kruskal
-void Reduction(int l, int r, int d, int &m) {
-	for (int i = l; i <= r; i++)
-		e[d][id[d][a[i].id]].w = INF;//待修改的边标为INF
-
-	Kruskal(m, e[d]);
-
-	copy(e[d] + 1, e[d] + m + 1, t + 1);
-
-	int cnt = 0;
-	for (int i = 1; i <= m; i++)
-		if (t[i].w == INF || t[i].vis){ // 非树边扔掉
-			id[d][t[i].id] = ++cnt; // 给边重新编号
-			e[d][cnt] = t[i];
-		}
-
-	for (int i = r; i >= l; i--)
-		e[d][id[d][a[i].id]].w = a[i].u; // 把待修改的边改回去
-
-	m = cnt;
-}
-
-
-// Contraction(缩必须边):待修改边标为-INF,跑MST后缩除待修改边之外的所有树边
-// 返回缩掉的边的总权值
-// 需要调用Kruskal
-long long Contraction(int l, int r, int d, int &m) {
-	long long ans = 0;
-
-	for (int i = l; i <= r; i++)
-		e[d][id[d][a[i].id]].w = -INF; // 待修改边标为-INF
-
-	Kruskal(m, e[d]);
-	copy(e[d] + 1, e[d] + m + 1, t + 1);
-
-	int cnt = 0;
-	for (int i = 1; i <= m; i++) {
-
-		if (t[i].w != -INF && t[i].vis) { // 必须边
-			ans += t[i].w;
-			mergeset(t[i].u, t[i].v);
-		}
-		else { // 不确定边
-			id[d][t[i].id] = ++cnt;
-			e[d][cnt] = t[i];
-		}
+		ufs[x] = y;
+		ufs_size[y] += ufs_size[x];
+		stk.push_back(x);
+		return true;
 	}
-
-	for (int i = r; i >= l; i--) {
-		e[d][id[d][a[i].id]].w = a[i].u; // 把待修改的边改回去
-		e[d][id[d][a[i].id]].vis = false;
-	}
-
-	m = cnt;
-
-	return ans;
+	return false;
 }
 
+// Returns { unused, used }. e should be already sorted.
+pair<vector<int>, vector<int>> kruskal(const vector<int>& e, const vector<int>& must) {
+	vector<int> stk, used[2];
 
-// Kruskal算法 O(mlogn)
-// 方便起见,这里直接沿用进行过缩点的并查集,在过程结束后撤销即可
-long long Kruskal(int m, edge *e) {
-	int tmp = top;
-	long long ans = 0;
+	for (int i : must)
+		link(edges[i].u, edges[i].v, stk);
 
-	sort(e + 1, e + m + 1); // 比较函数在结构体中定义过了
-
-	for (int i = 1; i <= m; i++) {
-		if (findroot(e[i].u) != findroot(e[i].v)) {
-			e[i].vis = true;
-			ans += e[i].w;
-			mergeset(e[i].u, e[i].v);
-		}
-		else
-			e[i].vis = false;
-	}
-
-	for(int i = top; i > tmp; i--)
-		cut(stk[i]); // 撤销所有操作
-	top = tmp;
-
-	return ans;
+	for (int i : e)
+		used[link(edges[i].u, edges[i].v, stk)].push_back(i);
+	
+	undo(stk);
+	
+	return {used[0], used[1]};
 }
 
+ll ans[MAXN];
 
-// 以下是并查集相关函数
-int findroot(int x) { // 因为需要撤销,不写路径压缩
-	while (p[x] != x)
-		x = p[x];
+void solve(int l, int r, vector<int> e, ll sum) {
+	if (l == r) {
+		edges[op[l].i].w = op[l].new_w;
 
-	return x;
-}
+		sort(e.begin(), e.end(), [] (int i, int j) { return edges[i].w < edges[j].w; });
+		for (int i : kruskal(e, {}).second)
+			sum += edges[i].w;
 
-void mergeset(int x, int y) { // 按size合并,如果想跑得更快就写一个按秩合并
-	x = findroot(x); // 但是按秩合并要再开一个栈记录合并之前的秩
-	y = findroot(y);
+		// Did not check if the graph is connected.
+		ans[l] = sum;
 
-	if (x == y)
 		return;
+	}
 
-	if (size[x] > size[y])
-		swap(x, y);
+	sort(e.begin(), e.end(), [] (int i, int j) { return edges[i].w < edges[j].w; });
 
-	p[x] = y;
-	size[y] += size[x];
-	stk[++top] = x;
+	stamp++;
+	vector<int> mod;
+	for (int t = l; t <= r; t++)
+		if (vis[op[t].i] < stamp) {
+			vis[op[t].i] = stamp;
+			mod.push_back(op[t].i);
+		}
+	
+	vector<int> notmod;
+	for (int i : e)
+		if (vis[i] < stamp)
+			notmod.push_back(i);
+	
+	// Reduction, unused edges are dismissed.
+	notmod = get<1>(kruskal(notmod, {}));
+	
+	// Contraction, used edges are sure to be in MST.
+	auto [notsure, must] = kruskal(notmod, mod);
+
+	vector<int> stk;
+	for (int i : must) {
+		assert(link(edges[i].u, edges[i].v, stk));
+		sum += edges[i].w;
+	}
+
+	for (int i : mod)
+		notsure.push_back(i);
+	
+	int mid = (l + r) / 2;
+	solve(l, mid, notsure, sum);
+	solve(mid + 1, r, notsure, sum);
+
+	undo(stk);
 }
 
-void cut(int x) { // 并查集撤销
-	int y = x;
-
-	do
-		size[y = p[y]] -= size[x];
-	while (p[y] != y);
-
-	p[x] = x;
-}
+int main() { ufs_init(n); }
